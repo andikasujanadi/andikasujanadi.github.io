@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
     <style type="text/css">html{scroll-behavior: smooth;}div{transition: 0.3s all ease;}</style>
     <title>Andika Sujanadi</title>
   </head>
@@ -25,19 +25,50 @@
     </nav>
     <div class="container" style="margin-top: 5em">
       <div class="row">
-        <div class="col-5 col-lg-3">
+        <!-- <div class="col-5 col-lg-3">
           <h3>Curiculum Vitae</h3>
-          <p>Name</p>
-          <p>Born</p>
-          <p>Last Education</p>
+          <p>Nama</p>
+          <p>Tanggal Lahir</p>
+          <p>lulusan</p>
           <p>Status</p>
         </div>
         <div class="col-6 col-lg-3">
           <h3 style="color:#00000000">----------------------</h3>
           <p>: Andika Sujanadi</p>
-          <p>: Oct 2nd 1999</p>
+          <p>: 2 oktober 1999</p>
           <p>: SMAN 2 Banjarmasin</p>
-          <p>: Collage Student</p>
+          <p>: Mahasiswa</p>
+        </div> -->
+        <div class="table-responsive col-lg-6">
+<table class="table table-borderless">
+    <tbody>
+      <tr>
+        <td>Nama</td>
+        <td>:</td>
+        <td>Andika Sujanadi</td>
+      </tr>
+      <tr>
+        <td>Tempat, tanggal lahir</td>
+        <td>:</td>
+        <td>Banjarmasin, 2 Oktober 1999</td>
+      </tr>
+      <tr>
+        <td>Pendidikan terakhir</td>
+        <td>:</td>
+        <td>SMAN 2 Banjarmasin</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>:</td>
+        <td>Mahasiswa</td>
+      </tr>
+      <tr>
+        <td>Institusi</td>
+        <td>:</td>
+        <td>Politeknik Negeri Banjarmasin</td>
+      </tr>
+    </tbody>
+  </table>
         </div>
         <div class="col-lg-6">
           <div class="progress" style="height:25px">
@@ -68,7 +99,7 @@
         <div class="col-lg-12 col-xl-6">
           <div class="row">
             <div class="col-md-6">
-              <h3 id="profile">Profile</h3>
+              <h3 id="profile">Profil</h3>
               <img src="1.jpg" class="img-fluid rounded" alt="Andika Sujanadi">
             </div>
             <div class="col-md-6">
@@ -128,8 +159,9 @@
         </div>
       </div>
       <br>
-      <div class="row" id="game">
+      <div class="row">
         <div class="mx-auto col-lg-10 col-xl-6">
+          <h3 id="game">Greeting Maker</h3>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Nama</span>
@@ -148,8 +180,18 @@
             </div>
           </div>
         </div>
-        <div class="col-xl-6">
-          <div class="toast" data-autohide="false">
+        <div class="mx-auto col-lg-10 col-xl-6">
+          <h3 id="game">Mini Note jQuery</h3>
+          <div class="input-group mb-3">
+            <input id="i_tulis" type="text" class="form-control" placeholder="tuliskan sebuah kalimat">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="myFunction()">Tambah</button>
+          <button type="button" class="btn btn-warning" onclick="myFunction2()">Hapus</button>
+          <button type="button" class="btn btn-danger" onclick="myFunction3()">Bersihkan</button>
+          <div class="my-3 card bg-primary text-white">
+            <div class="card-body" id="tambah"></div>
+          </div>
+          <div class="toast my-3" data-autohide="false">
             <div class="toast-header">
               <strong class="mr-auto text-primary"><span id="t_dari2"></span></strong>
               <small class="text-muted">quote</small>
@@ -158,14 +200,14 @@
             <div class="toast-body">
               <span id="t_quote2"></span>
             </div>
-          </div><br>
+          </div>
         </div>
       </div>
     </div>
     <!-- Footer -->
-    <footer class="page-footer font-small bg-light">
+    <footer class="page-footer font-small bg-light mt-3">
       <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <div class="footer-copyright text-center py-3">© 2019 Copyright
         <a href="#">Andika Sujanadi</a>
       </div>
       <!-- Copyright -->
@@ -193,8 +235,8 @@
           </div>
         </div>
       </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
     <script>
     $(document).ready(function(){
       $('[data-toggle="tooltip"]').tooltip();
@@ -216,6 +258,22 @@
         $('#t_quote2').text($('#t_quote').text());
       });  
     });
+function myFunction() {
+var txt1 = ('input harus diisi');
+if($('#i_tulis').val()==''){
+  txt1 = ('input harus diisi');
+}else{
+  txt1 = $('#i_tulis').val();
+}
+var txt2 = $("<div id='lol'></div>").append(txt1);
+$("#tambah").append(txt2);
+}
+function myFunction2() {
+  $("#lol:first-child").remove(); 
+}
+function myFunction3() {
+  $("#tambah").empty(); 
+}
     </script>
   </body>
 </html>
