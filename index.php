@@ -25,20 +25,6 @@
     </nav>
     <div class="container" style="margin-top: 5em">
       <div class="row">
-        <!-- <div class="col-5 col-lg-3">
-          <h3>Curiculum Vitae</h3>
-          <p>Nama</p>
-          <p>Tanggal Lahir</p>
-          <p>lulusan</p>
-          <p>Status</p>
-        </div>
-        <div class="col-6 col-lg-3">
-          <h3 style="color:#00000000">----------------------</h3>
-          <p>: Andika Sujanadi</p>
-          <p>: 2 oktober 1999</p>
-          <p>: SMAN 2 Banjarmasin</p>
-          <p>: Mahasiswa</p>
-        </div> -->
         <div class="table-responsive col-lg-6">
 <table class="table table-borderless">
     <tbody>
