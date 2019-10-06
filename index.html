@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="bootstrap.min.css"> -->
     <link rel="shortcut icon" type="image/png" href="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/71501805_2572202106396839_660841612535922688_n.jpg?_nc_cat=103&_nc_oc=AQmNr4e8fACv_OLiNZE7Wxa_nDYAp3fzYFvCwp5fDTD5UwX26KZHRtYEH1mY0UDU6TM&_nc_ht=scontent-hkg3-1.xx&oh=ba29ee69a04e9b4576f3437b8cf119bb&oe=5E314F3B"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style type="text/css">html{scroll-behavior: smooth;}div{transition: 0.3s all ease;}</style>
@@ -26,35 +28,35 @@
     <div class="container" style="margin-top: 5em">
       <div class="row">
         <div class="table-responsive col-lg-6">
-<table class="table table-borderless">
-    <tbody>
-      <tr>
-        <td>Nama</td>
-        <td>:</td>
-        <td>Andika Sujanadi</td>
-      </tr>
-      <tr>
-        <td>Tempat, tanggal lahir</td>
-        <td>:</td>
-        <td>Banjarmasin, 2 Oktober 1999</td>
-      </tr>
-      <tr>
-        <td>Pendidikan terakhir</td>
-        <td>:</td>
-        <td>SMAN 2 Banjarmasin</td>
-      </tr>
-      <tr>
-        <td>Status</td>
-        <td>:</td>
-        <td>Mahasiswa</td>
-      </tr>
-      <tr>
-        <td>Institusi</td>
-        <td>:</td>
-        <td>Politeknik Negeri Banjarmasin</td>
-      </tr>
-    </tbody>
-  </table>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td>Nama</td>
+                <td>:</td>
+                <td>Andika Sujanadi</td>
+              </tr>
+              <tr>
+                <td>Tempat, tanggal lahir</td>
+                <td>:</td>
+                <td>Banjarmasin, 2 Oktober 1999</td>
+              </tr>
+              <tr>
+                <td>Pendidikan terakhir</td>
+                <td>:</td>
+                <td>SMAN 2 Banjarmasin</td>
+              </tr>
+              <tr>
+                <td>Status</td>
+                <td>:</td>
+                <td>Mahasiswa</td>
+              </tr>
+              <tr>
+                <td>Institusi</td>
+                <td>:</td>
+                <td>Politeknik Negeri Banjarmasin</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="col-lg-6">
           <div class="progress" style="height:25px">
@@ -86,6 +88,7 @@
           <div class="row">
             <div class="col-md-6">
               <h3 id="profile">Profil</h3>
+              <!-- <img src="1.jpg" class="img-fluid rounded" alt="Andika Sujanadi"> -->
               <img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/71704581_2572200636396986_3393028991383240704_n.jpg?_nc_cat=101&_nc_oc=AQki0jK3Z9GzUESP7i8a5rnwZ2OSt40xjBMF4sP7Gk6i1ZHEceovJL01s8PbqZZZ2tI&_nc_ht=scontent-hkg3-1.xx&oh=cc562b26f99aebbc56eb14a27ebd00d6&oe=5E2FAC7F" class="img-fluid rounded" alt="Andika Sujanadi">
             </div>
             <div class="col-md-6">
@@ -175,7 +178,9 @@
           <button type="button" class="btn btn-warning" onclick="myFunction2()">Hapus</button>
           <button type="button" class="btn btn-danger" onclick="myFunction3()">Bersihkan</button>
           <div class="my-3 card bg-primary text-white">
-            <div class="card-body" id="tambah"></div>
+            <div class="card-body" id="tambah">
+              <div id='lol'>Tulis untuk menambah catatan</div>
+            </div>
           </div>
           <div class="toast my-3" data-autohide="false">
             <div class="toast-header">
@@ -189,9 +194,33 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-6">
+          <h3>Input varient</h3>
+          <br>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="switch1" onclick="tebal()">
+            <label class="custom-control-label" for="switch1">Bold</label>
+          </div>
+          <br>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input checked type="radio" class="custom-control-input" id="customRadio1" name="example" value="customEx">
+            <label class="custom-control-label" for="customRadio1">Size</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" class="custom-control-input" id="customRadio2" name="example" value="customEx">
+            <label class="custom-control-label" for="customRadio2">Opacity</label>
+          </div>
+          <br><br>
+          <input type="range" class="custom-range" value="0" onchange="updateNilaiSlider(this.value);">
+        </div>
+        <div class="col-6">
+          <div id="nomor">Hello World</div>
+        </div>
+      </div>
     </div>
     <!-- Footer -->
-    <footer class="page-footer font-small bg-light mt-3">
+    <footer class="page-footer font-small bg-light mt-2">
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">© 2019 Copyright
         <a href="#">Andika Sujanadi</a>
@@ -221,45 +250,63 @@
           </div>
         </div>
       </div>
+    <!-- <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-    $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();
-      $("#uhuy").click(function(){
-        $('#t_gender').text($('#i_gender').children("option:selected").val());
-        $('#t_quote').text($('#i_quote').val());
-        if($('#i_quote').val()==''){
-          $('#t_quote').text('tong kosong nyaring bunyinya');
-        }
-        $('#t_dari').text($('#i_dari').val());
-        if($('#i_dari').val()==''){
-          $('#t_dari').text('Anonymous');
-        }
-        $("#myModal").modal();
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+        $("#uhuy").click(function(){
+          $('#t_gender').text($('#i_gender').children("option:selected").val());
+          $('#t_quote').text($('#i_quote').val());
+          if($('#i_quote').val()==''){
+            $('#t_quote').text('tong kosong nyaring bunyinya');
+          }
+          $('#t_dari').text($('#i_dari').val());
+          if($('#i_dari').val()==''){
+            $('#t_dari').text('Anonymous');
+          }
+          $("#myModal").modal();
+        });
+        $("#uhuy2").click(function(){
+          $('.toast').toast('show');
+          $('#t_dari2').text($('#t_dari').text());
+          $('#t_quote2').text($('#t_quote').text());
+        });  
       });
-      $("#uhuy2").click(function(){
-        $('.toast').toast('show');
-        $('#t_dari2').text($('#t_dari').text());
-        $('#t_quote2').text($('#t_quote').text());
-      });  
-    });
-function myFunction() {
-var txt1 = ('input harus diisi');
-if($('#i_tulis').val()==''){
-  txt1 = ('input harus diisi');
-}else{
-  txt1 = $('#i_tulis').val();
-}
-var txt2 = $("<div id='lol'></div>").append(txt1);
-$("#tambah").append(txt2);
-}
-function myFunction2() {
-  $("#lol:first-child").remove(); 
-}
-function myFunction3() {
-  $("#tambah").empty(); 
-}
+      function myFunction() {
+        var txt1 = ('input harus diisi');
+        if($('#i_tulis').val()==''){
+          txt1 = ('input harus diisi');
+        }else{
+          txt1 = $('#i_tulis').val();
+        }
+        var txt2 = $("<div id='lol'></div>").append(txt1);
+        $("#tambah").append(txt2);
+      }
+      function myFunction2() {
+        $("#lol:first-child").remove(); 
+      }
+      function myFunction3() {
+        $("#tambah").empty(); 
+      }
+      function updateNilaiSlider(val){
+        if($('#customRadio1').prop('checked')){
+          $("#nomor").css({'font-size':(val/1.5)+16+'px'}); 
+        }
+        else{
+          $("#nomor").css({'opacity':val/100});
+        }
+        
+      }
+      function tebal(){
+        if($('#switch1').prop('checked')){
+          $("#nomor").css({'font-weight':'bold'});
+        }else{
+          $("#nomor").css({'font-weight':'normal'});
+        }
+      }
     </script>
   </body>
 </html>
