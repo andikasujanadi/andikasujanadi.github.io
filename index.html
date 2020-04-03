@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <title>SIMP</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	  <link rel="stylesheet" type="text/css" href="style.css" />
+	  <style type="text/css">
+	  	body{
+	  		overflow: hidden;
+	  		background: black;
+	  		background: linear-gradient(to left,#8942A8,#BA382F);
+	  		width: 100%;
+	  		height: 100vh;
+	  	}
+	  	.jam,.ucapan{
+	  		margin: 0px;
+	  		padding: 0px;
+	  		position: absolute;
+	  	}
+	  	.jam{
+	  		font-size: 100pt;
+	  		left:50%;
+	  		bottom: 50%;
+	  		transform: translate(-50%,calc(50% - 50px));
+	  	}
+	  	.ucapan{
+	  		font-size: 25pt;
+	  		left:50%;
+	  		bottom: 50%;
+	  		transform: translate(-50%,calc(50% + 100px));
+	  	}
+  		.kotak{
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			overflow: hidden;
+  			z-index: -1;
+  		}
+  		.kotak li{
+  			position: absolute;
+  			display: block;
+  			list-style: none;
+  			width: 25px;
+  			height: 25px;
+  			background: rgba(255,255,255,0.2);
+  			animation: animate 20s linear infinite; 
+  			bottom: -150px;
+  		}
+  		.kotak li:nth-child(1){
+  			left: 86%;
+  			width: 80px;
+  			height: 80px;
+  			animation-delay: 0s;
+  		}
+  		.kotak li:nth-child(2){
+  			left: 12%;
+  			width: 30px;
+  			height: 30px;
+  			animation-delay: 1.5s;
+  			animation-duration: 10s;
+  		}
+  		.kotak li:nth-child(3){
+  			left: 70%;
+  			width: 100px;
+  			height: 100px;
+  			animation-delay: 5.5s;
+  		}
+  		.kotak li:nth-child(4){
+  			left: 42%;
+  			width: 150px;
+  			height: 150px;
+  			animation-delay: 0s;
+  			animation-duration: 15s; 
+  		}
+  		.kotak li:nth-child(5){
+  			left: 15%;
+  			width: 110px;
+  			height: 110px;
+  			animation-delay: 3.5s;
+  		}
+  		@keyframes animate{
+  			0%{
+  				transform: translateY(0) rotate(0deg);
+  				opacity: 1;
+  			}
+  			100%{
+  				transform: translateY(-100vh) rotate(360deg);
+  				opacity: 0;
+  			}
+  		}
+	  </style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="content" style="height: 500px;width: 500px; background: #FFF;">
+				<iframe src="https://github.com/"></iframe>
+				<strong class="css-truncate-target">Andika Sujanadi</strong>
+			</div>
+			<ul class="kotak">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="jam" id="time">
+				00:00:00
+			</div>
+			<div class="ucapan" id="quote">
+				
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+
+			$(".content").click(function(){
+				namaku();
+			});
+
+			function namaku(){
+				alert($(".css-truncate-target").text());
+			}
+			function checkTime(i) {
+				if (i < 10) {
+					i = "0" + i;
+					}
+				return i;
+				}
+
+			function startTime() {
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				// add a zero in front of numbers<10
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+				t = setTimeout(function() {
+				startTime()
+				}, 500);
+			}
+			startTime();
+
+			var i = 0;
+			var txt = 'Halo simp ku sayang';
+			var speed = 150;
+
+			function typeWriter() {
+				if (i < txt.length) {
+				document.getElementById("quote").innerHTML += txt.charAt(i);
+				i++;
+				setTimeout(typeWriter, speed);
+				}
+			}
+			typeWriter();
+			
+		</script>
+	</body>
+</html>
