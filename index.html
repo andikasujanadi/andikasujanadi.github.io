@@ -81,6 +81,7 @@
 	  		font-size: 25pt;
 	  		left: 50%;
 	  		bottom: 50%;
+	  		text-align: center;
 	  		transform: translate(-50%,calc(50% + 100px));
 	  	}
 	  	.quotes{
@@ -100,7 +101,7 @@
 	  		border-radius: 10px;
 	  		left: -220px;
 	  		transition: all 1 ease;
-			z-index: 99;
+	  		z-index: 99;
 	  	}
 	  	.panah{
 	  		content: '';
@@ -251,10 +252,18 @@
 		  		font-size: 15pt;
 		  		transform: translate(-50%,calc(50% + 50px));
 		  	}
+		  	.quotes{
+		  		font-size: 10pt;
+		  	}
 		  	.bulat{
 	  			width: 300px;
 	  			height: 300px;
 	  		}
+  		}
+  		@media only screen and (max-width: 500px){
+  			.ucapan,.quotes{
+		  		font-size: 10pt;
+		  	}
   		}
 	  </style>
 	</head>
@@ -735,6 +744,9 @@
 				}
 				else if(H<23){
 					evening();
+				}
+				else{
+					midnight();
 				}
 			}
 
