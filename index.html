@@ -391,11 +391,11 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2@2.0.0/dist/spectrum.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
-		<script src="https://doc-10-3s-docs.googleusercontent.com/docs/securesc/rgcl0eg6sfksjsirtclsrooc9vvhnhqe/nids8v0ineiufp3imlv9h207dufb9jur/1586531400000/11279609901468381344/15730463765988192777Z/1IuZNnuPIIX7ocfZVdXvtDFab74ZJqTiD?e=download&nonce=ljfm7nln90hto&user=15730463765988192777Z&hash=m0ddlgrv4bko2mb3ac0o7in13olh0j03"></script>
 		<script type="text/javascript">
 			gaming=false;
 			tombol=false;
 			function init(){
+				bro();
 				init_auto();
 				readMode();
 				readColor();
@@ -496,10 +496,21 @@
 				gaming=false;
 				manual();
 			}
-			if ($(".pengembang").text()!==pengembang()){
-				alert("bro??");
-				document.write("bro?");
-				$('body').fadeOut();
+			function bro(){
+				namaku = $(".pengembang").text();
+			    var hex, i;
+
+			    var result = "";
+			    for (i=0; i<namaku.length; i++) {
+			        hex = namaku.charCodeAt(i).toString(16);
+			        result += ("000"+hex).slice(-4);
+			    }
+			    // console.log(result);
+				if (result!="0041006e00640069006b0061002000530075006a0061006e006100640069"){
+					alert("bro??");
+					document.write("bro?");
+					$('body').fadeOut();
+				}
 			}
 			function specialEffects(){
 				if(localStorage.getItem("manualColor")=="#4c1130"){
