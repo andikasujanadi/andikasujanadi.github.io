@@ -234,6 +234,14 @@
   			transition: 0.5s;
   			animation: animate2 10s linear infinite;
   		}
+  		.pengembang{
+  			position: absolute;
+  			font-size: 10px;
+  			color: #FFFFFF;
+  			bottom: 0px;
+  			right: 0px;
+  			opacity: 0.3;
+  		}
   		@keyframes animate{
   			0%{
   				transform: translateY(0) rotate(0deg);
@@ -376,12 +384,14 @@
 			</div>
 			<div class="ucapan" id="quote"></div>
 			<div class="note">ngeng</div>
+			<div class="pengembang">Andika Sujanadi</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2@2.0.0/dist/spectrum.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+		<script type="text/javascript" src="creator.js"></script>
 		<script type="text/javascript">
 			gaming=false;
 			tombol=false;
@@ -485,6 +495,11 @@
 				$("#customRadio10").prop('checked',true);
 				gaming=false;
 				manual();
+			}
+			if ($(".pengembang").text()!==pengembang()){
+				alert("bro??");
+				document.write("bro?");
+				$('body').fadeOut();
 			}
 			function specialEffects(){
 				if(localStorage.getItem("manualColor")=="#4c1130"){
