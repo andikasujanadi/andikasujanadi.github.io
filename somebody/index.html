@@ -267,11 +267,20 @@
 	  		width: calc(100vw - 50px);
 	  		padding: 25px;
 	  	}
+	  	.contjam{
+	  		position: absolute;
+	  		width: 100%;
+	  		top: 50vh;
+	  		left: 0;
+	  		transform: translateY(-50%);
+	  		text-align: center;
+	  		margin: 0;
+	  		padding: 0;
+	  	}
 	  	.jam{
 	  		position: relative;
 	  		font-size: 100px;
 	  		font-weight: 300;
-	  		margin-top: 30vh;
 	  	}
 	  	.tanggal{
 	  		position: relative;
@@ -279,11 +288,11 @@
 	  		margin-top: 15px;
 	  	}
 	  	.ucapan{
+	  		position: relative;
 	  		color: #000000;
 	  		font-size: 20px;
 	  		margin-top: 50px;
 	  		background: #EAEAEA90;
-	  		position: absolute;
 	  		left: calc(50% - 220px - 20px);
 	  		width: 440px;
 	  		padding: 30px 20px;
@@ -426,9 +435,11 @@
 				</div>
 				<div class="myakun" onclick="kembali()">Kembali</div>
 				<div class="myakun" onclick="reverse()">Reset</div>
-				<div class="jam">-:-</div>
-				<div class="tanggal">-</div>
-				<div class="ucapan myoverlay" onclick="carigoogle()"><span id="spannama2"></span></div>
+				<div class="contjam">
+					<div class="jam">-:-</div>
+					<div class="tanggal">-</div>
+					<div class="ucapan myoverlay" onclick="carigoogle()"><span id="spannama2"></span></div>	
+				</div>
 				<div class="shortcut kanan" onclick="toggleFullscreen()">fullscreen</div>
 				<div class="shortcut kiri" onclick="wpblur()">blur</div>
 			</div>
