@@ -692,7 +692,7 @@
 			function gantinama(){
 				nama=$('#spannama3').text();
 				$("#nama *").remove();
-				$("#nama").append("<input type='text' id='textnama' value='"+nama+"' style='background:#00000000; color:#FFF; outline: none; box-sizing:border-box; border: 0px solid #000;' placeholder='nama' autofocus></input><span id='oke' style='transition: all ease 0.3s; border-radius:5px; width:30px; height:25px; margin-top:2.5px; line-height:25px; position:absolute;' onclick='gantinamaok()'>oke</span>");
+				$("#nama").append("<input type='text' id='textnama' value='"+nama+"' style='background:#00000000; color:#FFF; outline: none; box-sizing:border-box; border: 0px solid #000;' placeholder='nama' autofocus></input><span id='oke' style='transition: all ease 0.3s; border-radius:5px; width:30px; height:25px; margin-top:2.5px; line-height:25px; position:absolute; right:3px;' onclick='gantinamaok()'>oke</span>");
 				textnama=document.querySelector('#textnama');
 				textnama.autofocus = true;
 				textnama.setSelectionRange(0, textnama.value.length);
