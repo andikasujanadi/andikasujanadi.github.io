@@ -3,7 +3,6 @@
 	<head>
 		<title>Andika Sujanadi</title>
 	  	<meta charset="utf-8">
-		<link rel="icon" href="https://gamepedia.cursecdn.com/minecraft_gamepedia/thumb/1/16/Fever_parrot.gif/48px-Fever_parrot.gif?version=1bf5381f7e808c2e3bae90f9d371500b">
 	  	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	  	<style type="text/css">
 
@@ -72,19 +71,14 @@
 	  		padding: 0px;
 	  		margin: 0px;
 	  		overflow: hidden;
+	  		height: 100vh;
+	  		width: 100vw;
 	  	}
 	  	.container{
 	  		position: absolute;
-	  		height: 100vh;
-	  		width: 100vw;
 	  		background: #FFFFFF;
-	  	}
-	  	.content{
-	  		position: absolute;
-	  		height: calc(100vh - 60px);
-	  		width: calc(100vw - 700px);
-	  		background: #FFFFFF;
-	  		left: 0;
+	  		height: 100%;
+	  		width: 100%;
 	  	}
 	  	.sideBar{
 	  		position: absolute;
@@ -101,12 +95,15 @@
 	  		width: 50vw;
 	  		right: 0;
 	  		z-index: 1;
+	  		transition: all ease 1s;
 	  	}
 	  	.header{
 	  		position: absolute;
 	  		z-index: 1;
 	  		width: 100%;
 	  		height: 200px;
+	  		top: 0px;
+	  		transition: all ease 0.3s;
 	  	}
 	  	.header .bg{
 	  		position: absolute;
@@ -129,7 +126,8 @@
 	  		height: 90px;
 	  		width: 100vw;
 	  		background: #6268AD;
-	  		bottom: 0;
+	  		bottom: 0px;
+	  		transition: all ease 0.5s;
 	  	}
 	  	.footext{
 	  		position: absolute;
@@ -162,6 +160,8 @@
 	  		margin-top: 15vw;
 	  		margin-bottom: 150px;
 	  		z-index: 2;
+	  		transition: all ease 0.8s;
+	  		left: 0;
 	  	}
 	  	.judul{
 	  		position: absolute;
@@ -214,16 +214,27 @@
 	  	.list .box:active{
 	  		transform: scale(0.99);
 	  	}
-	  	.mac{
-	  		background-image: url("wp2.png") !important;
-	  		background-size: 100% !important;
-	  		color: #FFFFFF;	  	
+	  	.mac{	  		
+	  		background: linear-gradient(90deg, rgba(61,76,168,1) -10%, rgba(69,104,255,1) 20%, rgba(255,168,252,1) 100%) !important;
+	  		color:#FFF; 	
 	  	}
 	  	.clk{
 	  		background: linear-gradient(0deg, rgba(255,230,113,1) 0%, rgba(82,167,255,1) 100%) !important;
 	  	}
 	  	img{
 	  		position: absolute;
+	  	}
+	  	.hideright{
+	  		right: -50vw;
+	  	}
+	  	.hideleft{
+	  		left: calc(-50vw);
+	  	}
+	  	.hidetop{
+	  		top: -250px;
+	  	}
+	  	.hidebottom{
+	  		bottom: -100px;
 	  	}
 	  	@media all and (max-width: 1024px){
 		  	.header .bg{
@@ -310,6 +321,9 @@
 				transform: translate(-50%, calc(50px / 2 - 30px / 2));
 				z-index: 1;
 		  	}
+		  	.hideleft{
+		  		left: calc(-100vw);
+		  	}
 	  	}
 	  	@media all and (max-width: 438px){
 	  		body *{
@@ -324,15 +338,40 @@
 	  			top: calc(50% - 10px);
 	  		}
 	  	}
+		.loader {
+			border: 16px solid #f3f3f3;
+			border-radius: 50%;
+			border-top: 16px solid #4287f5;
+			border-right: 16px solid #FFF;
+			border-bottom: 16px solid #4287f5;
+			border-left: 16px solid #FFF;
+			width: 120px;
+			height: 120px;
+			-webkit-animation: spin 1.5s ease infinite;
+			animation: spin 1.5s ease infinite;
+			position: absolute;
+			left: calc(50% - 60px);
+			top: calc(50% - 60px);
+			z-index: 10;
+		}
+		@-webkit-keyframes spin {
+			0% { -webkit-transform: rotate(0deg); }
+			100% { -webkit-transform: rotate(360deg); }
+		}
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
 	  </style>
 	</head>
 	<body>
+		<div class="loader"></div>
 		<div class="container">
-			<div class="header">
+			<div class="header hidetop">
 				<div class="bg">Andika Sujanadi</div>
 				<div class="fg">Andika Sujanadi</div>
 			</div>
-			<div class="content">
+			<div class="content hideleft">
 				<div class="judul">My Works:</div>
 				<div class="listcont">
 					<div class="list">
@@ -347,11 +386,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="contSideBar">
+			<div class="contSideBar hideright">
 				<div class="sideBar"></div>
-				<img src="image.svg" alt="triangle with all three sides equal" height="100%" width="100%" onmousedown="return false"/>
+				<img src="image.svg" alt="illustration" height="100%" width="100%" onmousedown="return false"/>
 			</div>
-			<div class="footer">
+			<div class="footer hidebottom">
 				<div class="footext">HIRE ME</div>
 				<div class="email">ANDIKASUJANADI@GMAIL.COM</div>
 			</div>
@@ -359,10 +398,18 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</body>
 	<script type="text/javascript">
+		function init(){
+			$('.contSideBar').toggleClass("hideright");
+			$('.content').toggleClass("hideleft");
+			$('.header').toggleClass("hidetop");
+			$('.footer').toggleClass("hidebottom");
+			$(".loader").remove();
+		}
 		$(window).on('load',function(){
 			if(window.btoa($('.fg').text())!='QW5kaWthIFN1amFuYWRp'){
 				$('body').remove();
 			}
-		})
+			init();
+		});
 	</script>
 </html>
