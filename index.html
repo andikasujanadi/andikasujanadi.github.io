@@ -2,49 +2,367 @@
 <html>
 	<head>
 		<title>Andika Sujanadi</title>
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	  	<meta charset="utf-8">
+		<link rel="icon" href="https://gamepedia.cursecdn.com/minecraft_gamepedia/thumb/1/16/Fever_parrot.gif/48px-Fever_parrot.gif?version=1bf5381f7e808c2e3bae90f9d371500b">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	  	<style type="text/css">
+
+
+		/** Regular */
+		@font-face {
+		  font-family: "SF Display";
+		  font-weight: 400;
+		  src: url("https://sf.abarba.me/SF-UI-Display-Regular.otf");
+		}
+		/** Semibold */
+		@font-face {
+		  font-family: "SF Display";
+		  font-weight: 600;
+		  src: url("https://sf.abarba.me/SF-UI-Display-Semibold.otf");
+		}
+
+		/** Thin */
+		@font-face {
+		  font-family: "SF Display";
+		  font-weight: 300;
+		  src: url("https://sf.abarba.me/SF-UI-Display-Thin.otf");
+		}
+		/** Bold */
+		@font-face {
+		  font-family: "SF Display";
+		  font-weight: 700;
+		  src: url("https://sf.abarba.me/SF-UI-Display-Bold.otf");
+		}
+		/* width */
+		::-webkit-scrollbar {
+		  width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		  background: #F1F1F1;
+		  border-radius: 5px;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		  background: #9EAEBA;
+		  border-radius: 5px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+		  background: #8A9CA5;
+		}
+		*{
+	  		font-family: SF Display;
+	  		cursor: default;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			-o-user-select: none;
+			user-select: none;
+	  	}
+	  	a{
+	  		text-decoration: none;
+	  		color: unset;
+	  	}
+	  	body{
+	  		padding: 0px;
+	  		margin: 0px;
+	  		overflow: hidden;
+	  	}
+	  	.container{
+	  		position: absolute;
+	  		height: 100vh;
+	  		width: 100vw;
+	  		background: #FFFFFF;
+	  	}
+	  	.content{
+	  		position: absolute;
+	  		height: calc(100vh - 60px);
+	  		width: calc(100vw - 700px);
+	  		background: #FFFFFF;
+	  		left: 0;
+	  	}
+	  	.sideBar{
+	  		position: absolute;
+	  		height: 100vh;
+	  		width: 40vw;
+	  		max-width: 600px;
+	  		background: #59548D;
+	  		right: 0;
+	  		border-radius: 600px 0px 0px 300px;
+	  	}
+	  	.contSideBar{
+	  		position: absolute;
+	  		height: 100vh;
+	  		width: 50vw;
+	  		right: 0;
+	  		z-index: 1;
+	  	}
+	  	.header{
+	  		position: absolute;
+	  		z-index: 1;
+	  		width: 100%;
+	  		height: 200px;
+	  	}
+	  	.header .bg{
+	  		position: absolute;
+	  		width: 100%;	
+	  		font-size: 9vw;
+	  		color: #B0BFCC;
+	  		font-weight: 600;
+	  		left: -3vw;
+	  	}
+	  	.header .fg{
+	  		position: absolute;
+	  		font-size: 3vw;
+	  		font-weight: 600;
+	  		width: 90vw;
+	  		left: 7vw;
+	  		top: 8vw;
+	  	}
+	  	.footer{	
+	  		position: absolute;
+	  		height: 90px;
+	  		width: 100vw;
+	  		background: #6268AD;
+	  		bottom: 0;
+	  	}
+	  	.footext{
+	  		position: absolute;
+	  		width: 100vw;
+	  		height: 90px;
+	  		font-weight: 700;
+	  		font-size: 99px;
+	  		line-height: 90px;
+	  		color: rgba(61, 64, 125, 0.6);
+	  		left: 50px;
+	  	}
+	  	.email{
+	  		position: absolute;
+	  		background: #FBD753;
+			border-radius: 10px;
+			width: 350px;
+			height: 45px;
+			font-size: 18px;
+			font-weight: 700;
+			text-align: center;
+			line-height: 45px;
+			left: 50%;
+			transform: translate(-50%, calc(90px / 2 - 45px / 2));
+			z-index: 1;
+	  	}
+	  	.content{
+	  		position: absolute;
+	  		width: 50vw;
+	  		height:calc(100vh - 25vw);
+	  		margin-top: 15vw;
+	  		margin-bottom: 150px;
+	  		z-index: 2;
+	  	}
+	  	.judul{
+	  		position: absolute;
+			width: 344px;
+			height: 57px;
+			line-height: 57px;
+			background: #FBD753;
+			border-radius: 0px 28.5px 28.5px 0px;
+			font-size: 18px;
+			font-weight: 700;
+			text-align: right;
+			margin-left: -70px;
+			padding-right: 70px;
+	  	}
+	  	.listcont{
+	  		position: absolute;
+	  		height: calc(100vh - 25vw - 100px);
+	  		width: calc(50vw - 100px);
+	  		bottom: 0;
+	  		right: 0;
+	  		overflow-y: scroll;
+	  	}
+	  	.list{
+	  		position: relative;
+	  		width: calc(50vw - 130px);
+	  		bottom: 0;
+	  		left: 0;
+	  		text-align: right;
+	  	}
+	  	.list .box{
+	  		margin: 10px;
+	  		position: relative;
+	  		display: inline-block;
+	  		width: 200px;
+	  		width: 18vw;
+	  		height: 9vw;
+	  		border-radius: 1vw;
+	  		background: #F1F1F1;
+	  		text-align: center;
+	  		line-height: 9vw;
+	  		font-size: 18px;
+	  		box-shadow: 0px 0px 0px #00000000;
+	  		transition: all ease 0.3s;
+	  	}
+	  	.list .box:hover{
+	  		box-shadow: 0px 0px 20px #00000030;
+	  		transform: scale(1.01);
+	  		cursor: pointer;
+	  	}
+	  	.list .box:active{
+	  		transform: scale(0.99);
+	  	}
+	  	.mac{
+	  		background-image: url("wp2.png") !important;
+	  		background-size: 100% !important;
+	  		color: #FFFFFF;	  	
+	  	}
+	  	.clk{
+	  		background: linear-gradient(0deg, rgba(255,230,113,1) 0%, rgba(82,167,255,1) 100%) !important;
+	  	}
+	  	img{
+	  		position: absolute;
+	  	}
+	  	@media all and (max-width: 1024px){
+		  	.header .bg{
+		  		position: absolute;
+		  		width: 1000px;	
+		  		font-size: 100px;
+		  		color: #B0BFCC;
+		  		font-weight: 600;
+		  		left: -31px;
+		  	}
+		  	.header .fg{
+		  		position: absolute;
+		  		font-size: 50px;
+		  		font-weight: 600;
+		  		width: 90vw;
+		  		left: 30px;
+		  		top: 50px;
+		  	}
+	  		.contSideBar{
+	  			display: none;
+	  		}
+	  		.content{
+		  		width: 100vw;
+		  		height:calc(100vh - 11vw - 100px);
+		  		margin-top: 100px;
+	  		}
+	  		.judul{
+				height: 40px;
+				line-height: 40px;
+		  	}
+	  		.listcont{
+	  			position: absolute;
+		  		height: calc(100% - 50px);
+		  		width: calc(100vw);
+		  		bottom: 0;
+		  		right: 0;
+		  		overflow-y: scroll;
+	  		}
+		  	.list{
+		  		/*background: #fee;*/
+		  		position: relative;
+		  		width: calc(100% - 30px);
+		  		bottom: 0;
+		  		left: 0;
+		  		text-align: right;
+		  	}
+		  	.list .box{
+		  		margin: 10px;
+		  		position: relative;
+		  		display: inline-block;
+		  		width: 400px;
+		  		height: 200px;
+		  		border-radius: 1vw;
+		  		background: #F1F1F1;
+		  		text-align: center;
+		  		line-height: 200px;
+		  		font-size: 25px;
+		  		box-shadow: 0px 0px 0px #00000000;
+		  		transition: all ease 0.3s;
+		  	}
+	  		.footer{
+	  			height: 50px;
+	  		}
+	  		.footext{
+		  		position: absolute;
+		  		width: 100vw;
+		  		height: 50px;
+		  		font-weight: 700;
+		  		font-size: 50px;
+		  		line-height: 50px;
+		  		left: 10px;
+		  	}
+		  	.email{
+		  		position: absolute;
+		  		background: #FBD753;
+				border-radius: 10px;
+				width: 220px;
+				height: 30px;
+				font-size: 12px;
+				font-weight: 700;
+				text-align: center;
+				line-height: 30px;
+				left: 50%;
+				transform: translate(-50%, calc(50px / 2 - 30px / 2));
+				z-index: 1;
+		  	}
+	  	}
+	  	@media all and (max-width: 438px){
+	  		body *{
+	  			display: none;
+	  		}
+	  		body:after{
+	  			content: 'layar hp anda tidak bisa menampilkan halaman';
+	  			text-align: center;
+	  			position: absolute;
+	  			height: 100vh;
+	  			font-size: 20px;
+	  			top: calc(50% - 10px);
+	  		}
+	  	}
+	  </style>
 	</head>
 	<body>
 		<div class="container">
-			<div class="d-flex justify-content-center">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="transform: translateY(calc( 50vh - 50% ));">
-				Open Link
-				</button>
+			<div class="header">
+				<div class="bg">Andika Sujanadi</div>
+				<div class="fg">Andika Sujanadi</div>
 			</div>
-
-			<!-- The Modal -->
-			<div class="modal fade" id="myModal">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-
-						<!-- Modal Header -->
-						<div class="modal-header">
-							<h4 class="modal-title">All Link Here</h4>
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-
-						<!-- Modal body -->
-						<div class="modal-body">
-							<ul>
-								<li><a href="https://andikasujanadi.github.io/clock/" target="_blank">clock</a></li>
-								<li><a href="https://andikasujanadi.github.io/link/py_f1/"  target="https://andikasujanadi.github.io/link/">python chapter 1</a></li>
-								<li><a href="https://andikasujanadi.github.io/link/py_f2/"  target="https://andikasujanadi.github.io/link/">python chapter 2</a></li>
-							</ul>
-						</div>
-
-						<!-- Modal footer -->
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						</div>
-
+			<div class="content">
+				<div class="judul">My Works:</div>
+				<div class="listcont">
+					<div class="list">
+						<a href="somebody" target="_blank" class="box mac">MacOS Style</a>
+						<a href="clock" target="_blank" class="box clk">Clock</a>
+						<div class="box">soon</div>
+						<div class="box">soon</div>
+						<div class="box">soon</div>
+						<div class="box">soon</div>
+						<div class="box">soon</div>
+						<div class="box">soon</div>
 					</div>
 				</div>
 			</div>
+			<div class="contSideBar">
+				<div class="sideBar"></div>
+				<img src="image.svg" alt="triangle with all three sides equal" height="100%" width="100%" onmousedown="return false"/>
+			</div>
+			<div class="footer">
+				<div class="footext">HIRE ME</div>
+				<div class="email">ANDIKASUJANADI@GMAIL.COM</div>
+			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	</body>
+	<script type="text/javascript">
+		$(window).on('load',function(){
+			if(window.btoa($('.fg').text())!='QW5kaWthIFN1amFuYWRp'){
+				$('body').remove();
+			}
+		})
+	</script>
 </html>
