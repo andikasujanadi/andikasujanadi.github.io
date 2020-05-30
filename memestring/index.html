@@ -25,6 +25,9 @@
               <span class="input-group-text bg-primary text-light">insert text</span>
             </div>
             <input type="text" class="form-control" id="text" autocomplete="off" onkeyup="capture()">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit" onclick="reset()">clear</button>  
+            </div>
         </div>
         <div class="mb-3" onclick="capture()">
             <div class="custom-control custom-checkbox">
@@ -106,14 +109,14 @@
         if($('#check7').is(':checked')){
             data=haxor(data);
         }
+        if($('#check5').is(':checked')){
+            data=cheemse(data);
+        }
         if($('#check1').is(':checked')){
             data=vocal(data,'i');
         }
         if($('#check6').is(':checked')){
             data=vocal(data,$('#vocal').val());
-        }
-        if($('#check5').is(':checked')){
-            data=cheemse(data);
         }
         if($('#check2').is(':checked')){
             data=capslock(data);
@@ -262,6 +265,9 @@
         }
     } catch (error) {
         $('body').remove();
+    }
+    function reset(){
+        $('#text').val('');
     }
 </script>
 </body>
