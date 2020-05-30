@@ -58,6 +58,10 @@
                 <input type="checkbox" class="custom-control-input" id="check8">
                 <label class="custom-control-label" for="check8">spongebob chicken</label>
               </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check9">
+                <label class="custom-control-label" for="check9">byksw</label>
+              </div>
             <div class="card my-4">
                 <div class="card-body bg-primary text-white">Special Features</div>
             </div>
@@ -115,6 +119,9 @@
         if($('#check6').is(':checked')){
             data=vocal(data,$('#vocal').val());
         }
+        if($('#check9').is(':checked')){
+            data=byksw(data);
+        }
         if($('#check2').is(':checked')){
             data=capslock(data);
         }
@@ -149,6 +156,21 @@
             insert=data[i];
             if(data[i]=='a' || data[i]=='i'  || data[i]=='u' || data[i]=='e' || data[i]=='o'){
                 insert=efek;
+            }
+            temp=temp+insert;
+        }
+        return temp;
+    }
+    function byksw(data){
+        temp='';
+        data=lower(data);
+        for(i=0;i<data.length;i++){
+            insert=data[i];
+            if(data[i]=='a' || data[i]=='u' || data[i]=='e' || data[i]=='o'){
+                insert='w';
+            }
+            else if(data[i]=='i'){
+                insert='y';
             }
             temp=temp+insert;
         }
