@@ -62,6 +62,14 @@
                 <input type="checkbox" class="custom-control-input" id="check9">
                 <label class="custom-control-label" for="check9">byksw</label>
               </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check11">
+                <label class="custom-control-label" for="check11">T3XT</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="check10">
+                <label class="custom-control-label" for="check10">S|_|P3|2 T3XT</label>
+              </div>
             <div class="card my-4">
                 <div class="card-body bg-primary text-white">Special Features</div>
             </div>
@@ -127,6 +135,12 @@
         }
         if($('#check8').is(':checked')){
             data=chiken(data);
+        }
+        if($('#check11').is(':checked')){
+            data=alay(data);
+        }
+        if($('#check10').is(':checked')){
+            data=superalay(data);
         }
         if($('#check4').is(':checked')){
             data=bapak(data);
@@ -239,10 +253,8 @@
                 temp=temp+data[i].toLowerCase();
             }else if(data[i]=='l'){
                 temp=temp+data[i].toUpperCase();
-            }else if(i%3==0){
+            }else if(i%4==0){
                 temp=temp+data[i].toUpperCase();
-            }else if(data[i]=='a'){
-                temp=temp+'4';
             }else{
                 temp=temp+data[i].toLowerCase();
             }
@@ -254,17 +266,74 @@
         temp='';
         data=data.toLowerCase();
         for(i=0;i<data.length;i++){
-            if(data[i]=='I' || data[i]=='i'){
-                temp=temp+data[i].toLowerCase();
-            }else if(data[i]=='l'){
-                temp=temp+data[i].toUpperCase();
-            }else if(i%3==0){
+            if(i%2==0){
                 temp=temp+data[i].toUpperCase();
             }else{
                 temp=temp+data[i].toLowerCase();
             }
             
         }
+        return temp;
+    }
+    function alay(data){
+        temp=lower(data).replace(/a/g,'4')
+        .replace(/b/g,'B')
+        .replace(/c/g,'C')
+        .replace(/d/g,'D')
+        .replace(/e/g,'3')
+        .replace(/f/g,'F')
+        .replace(/g/g,'6')
+        .replace(/h/g,'H')
+        .replace(/i/g,'1')
+        .replace(/j/g,'7')
+        .replace(/k/g,'K')
+        .replace(/l/g,'L')
+        .replace(/m/g,'M')
+        .replace(/n/g,'N')
+        .replace(/o/g,'0')
+        .replace(/p/g,'P')
+        .replace(/q/g,'Q')
+        .replace(/r/g,'R')
+        .replace(/s/g,'S')
+        .replace(/t/g,'T')
+        .replace(/u/g,'U')
+        .replace(/v/g,'V')
+        .replace(/w/g,'W')
+        .replace(/x/g,'X')
+        .replace(/y/g,'Y')
+        .replace(/z/g,'2');
+        // temp=bapak(temp);
+        return temp;
+        //bapak ini kok alay
+    }
+    function superalay(data){
+        temp=lower(data).replace(/a/g,'4')
+        .replace(/b/g,'|3')
+        .replace(/c/g,'C')
+        .replace(/d/g,'|)')
+        .replace(/e/g,'3')
+        .replace(/f/g,'F')
+        .replace(/g/g,'6')
+        .replace(/h/g,'|-|')
+        .replace(/i/g,'1')
+        .replace(/j/g,'7')
+        .replace(/k/g,'|<')
+        .replace(/l/g,'|_')
+        .replace(/m/g,'|\\/|')
+        .replace(/n/g,'|\\|')
+        .replace(/o/g,'0')
+        .replace(/p/g,'P')
+        .replace(/q/g,'Q')
+        .replace(/r/g,'|2')
+        .replace(/s/g,'S')
+        .replace(/t/g,'T')
+        .replace(/u/g,'|_|')
+        .replace(/v/g,'\/')
+        .replace(/w/g,'|/\\|')
+        .replace(/x/g,'X')
+        .replace(/y/g,'Y')
+        .replace(/z/g,'2');
+        
         return temp;
     }
     function tulis(data){
