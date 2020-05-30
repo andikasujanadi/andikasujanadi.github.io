@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Andika Sujanadi</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light navbar-light px-4">
+    <a class="navbar-brand" href="https://andikasujanadi.github.io/" target="_blank">Andika Sujanadi</a>
+</nav>
+<div class="container">
+    <div class="jumbotron text-center mt-4">
+        <h1>String Meme Generator</h1>
+        <p>created by Andika Sujanadi</p>
+    </div> 
+  <div class="row mb-3">
+    <div class="col-md-6">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary text-light">insert text</span>
+            </div>
+            <input type="text" class="form-control" id="text" autocomplete="off" onkeyup="capture()">
+        </div>
+        <div class="mb-3" onclick="capture()">
+            <div class="form-check-inline">
+                <label class="form-check-label" for="check1">
+                    <input type="checkbox" class="form-check-input" id="check1">vocal i
+                </label>
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label" for="check2">
+                    <input type="checkbox" class="form-check-input" id="check2">capslock
+                </label>
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label" for="check3">
+                    <input type="checkbox" class="form-check-input" id="check3">space
+                </label>
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label" for="check4">
+                    <input type="checkbox" class="form-check-input" id="check4">indo boomer
+                </label>
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label" for="check5">
+                    <input type="checkbox" class="form-check-input" id="check5">cheemse
+                </label>
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label" for="check7">
+                    <input type="checkbox" class="form-check-input" id="check7">haxor
+                </label>
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label" for="check8">
+                    <input type="checkbox" class="form-check-input" id="check8">spongebob chicken
+                </label>
+            </div>
+            <div class="card my-4">
+                <div class="card-body bg-primary text-white">Special Features</div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="checkbox" id="check6">
+                    </div>
+                </div>
+                <input type="text" class="form-control" id="vocal" placeholder="vocal changer" onkeyup="capture()">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-primary text-light">result</span>
+            </div>
+            <input type="text" class="form-control" readonly id="result">
+        </div>
+        <button type="button" class="btn btn-primary btn-block" id="copy" onclick="copy()">copy</button>
+    </div>
+  </div>
+  <h2>Contributor</h2>
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="bg-primary text-light">
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Part</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td><a href="https://github.com/andikasujanadi/" target="https://github.com/andikasujanadi/">Andika Sujanadi</a></td>
+          <td>creator</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+    p=$('.jumbotron p').text();
+    function capture(){
+        $('.alert').remove();
+        data=$('#text').val();
+        if($('#check7').is(':checked')){
+            data=haxor(data);
+        }
+        if($('#check1').is(':checked')){
+            data=vocal(data,'i');
+        }
+        if($('#check6').is(':checked')){
+            data=vocal(data,$('#vocal').val());
+        }
+        if($('#check5').is(':checked')){
+            data=cheemse(data);
+        }
+        if($('#check2').is(':checked')){
+            data=capslock(data);
+        }
+        if($('#check8').is(':checked')){
+            data=chiken(data);
+        }
+        if($('#check4').is(':checked')){
+            data=bapak(data);
+        }
+        if($('#check3').is(':checked')){
+            data=spasi(data);
+        }
+        tulis(data);
+    }
+    function capslock(data){
+        data=data.toUpperCase();
+        return data;
+    }
+    function lower(data){
+        data=data.toLowerCase();
+        return data;
+    }
+    function vocal(data,efek=false){
+        if(!efek) return data;
+        temp='';
+        efek=efek[0];
+        data=lower(data);
+        for(i=0;i<data.length;i++){
+            insert=data[i];
+            if(data[i]=='a' || data[i]=='i'  || data[i]=='u' || data[i]=='e' || data[i]=='o'){
+                insert=efek;
+            }
+            temp=temp+insert;
+        }
+        return temp;
+    }
+    function spasi(data){
+        temp='';
+        for(i=0;i<data.length;i++){
+            temp=temp+data[i]+' ';
+            if(data[i]==' ')
+                temp=temp+' ';
+        }
+        return temp;
+    }
+    function haxor(data){
+        temp='';
+        for(i=0;i<data.length;i++){
+            if(data[i]==','){
+                temp+=' gaaaan';
+            }
+            temp=temp+data[i];
+        }
+        temp=temp.replace(/aku/g,'gue')
+        .replace(/saya /g,'gue ')
+        .replace(/ w /g,' gue ')
+        .replace(/gw /g,'gue ')
+        .replace(/gua /g,'gue ')
+        .replace(/kamu /g,'eloo ')
+        .replace(/anda /g,'eloo ')
+        .replace(/ lu /g,' eloo ')
+        .replace(/ lo /g,' eloo ')
+        .replace(/ elo /g,' eloo ')
+        .replace(/ elu /g,' eloo ')
+        .replace(/, /g,' 🙂 ');
+        return temp+' gaaaaan 🙂';
+    }
+    function cheemse(data){
+        temp='';
+        data=lower(data);
+        m=true;
+        for(i=0;i<data.length;i++){
+            temp=temp+data[i];
+            if(data[i]=='a' || data[i]=='u' || data[i]=='e' || data[i]=='o'){
+                if(m &&  (data[i+1]!='n' && data[i+2]!='g') && data[i+1]!='h' && data[i+1]!='m' && data[i+1]!='k' && data[i+1]!=' ' && data[i+1]!=undefined && data[i+2]!=' ' && data[i+2]!=undefined){
+                    if((data[i+1]=='r' && data[i+2]=='a')){
+                        temp=temp+'m';
+                        m=false;
+                    }
+                    else{
+                        temp=temp+'m';
+                        m=false;
+                    }
+                }
+            }
+            if(data[i]==' ' || data[i]=='/'){
+                m=true;
+            }
+        }
+        return temp;
+    }
+    function bapak(data){
+        temp='';
+        data=data.toLowerCase();
+        for(i=0;i<data.length;i++){
+            if(data[i]=='I' || data[i]=='i' || data[i]=='x'){
+                temp=temp+data[i].toLowerCase();
+            }else if(data[i]=='l'){
+                temp=temp+data[i].toUpperCase();
+            }else if(i%3==0){
+                temp=temp+data[i].toUpperCase();
+            }else if(data[i]=='a'){
+                temp=temp+'4';
+            }else{
+                temp=temp+data[i].toLowerCase();
+            }
+            
+        }
+        return temp;
+    }
+    function chiken(data){
+        temp='';
+        data=data.toLowerCase();
+        for(i=0;i<data.length;i++){
+            if(data[i]=='I' || data[i]=='i'){
+                temp=temp+data[i].toLowerCase();
+            }else if(data[i]=='l'){
+                temp=temp+data[i].toUpperCase();
+            }else if(i%3==0){
+                temp=temp+data[i].toUpperCase();
+            }else{
+                temp=temp+data[i].toLowerCase();
+            }
+            
+        }
+        return temp;
+    }
+    function tulis(data){
+        $('#result').val(data);
+    }
+    function copy(){
+        document.execCommand("copy");
+        $('.alert').remove();
+        $('#copy').after(
+            '<div class="alert alert-primary mt-3 alert-dismissible fade show"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>coppied!</strong> Now you can paste the string for fun.</div>'
+        );
+    }
+    document.addEventListener('copy', (event) => {
+        event.clipboardData.setData('text', $('#result').val());
+        event.preventDefault();
+    });
+    try {
+        if(btoa(p)!="Y3JlYXRlZCBieSBBbmRpa2EgU3VqYW5hZGk="){
+            $('body').remove();
+        }
+    } catch (error) {
+        $('body').remove();
+    }
+</script>
+</body>
+</html>
