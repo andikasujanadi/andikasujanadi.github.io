@@ -106,9 +106,6 @@
     function capture(){
         $('.alert').remove();
         data=$('#text').val();
-        if($('#check7').is(':checked')){
-            data=haxor(data);
-        }
         if($('#check5').is(':checked')){
             data=cheemse(data);
         }
@@ -129,6 +126,9 @@
         }
         if($('#check3').is(':checked')){
             data=spasi(data);
+        }
+        if($('#check7').is(':checked')){
+            data=haxor(data);
         }
         tulis(data);
     }
