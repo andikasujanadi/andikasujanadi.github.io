@@ -95,7 +95,6 @@
               </svg></button></div>
           </div>
         <textarea class="form-control mb-3 bg-light" rows="5" readonly id="result" onclick="copy()"></textarea>
-        <span class="copy"></span>
     </div>
   </div>
   <h2 class="mt-5">Contributor</h2>
@@ -347,7 +346,7 @@
     function copy(){
         document.execCommand("copy");
         $('.alert').remove();
-        $('#copy').after(
+        $('#result').after(
             '<div class="alert alert-primary mt-3 alert-dismissible fade show"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>copied!</strong> Now you can paste the text for fun.</div>'
         );
     }
