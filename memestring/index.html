@@ -20,80 +20,80 @@
     </div> 
   <div class="row mb-3">
     <div class="col-md-6">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary text-light">insert text</span>
-            </div>
-            <input type="text" class="form-control" id="text" autocomplete="off" onkeyup="capture()">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit" onclick="reset()">clear</button>  
-            </div>
-        </div>
+        <div class="form-group">
+            <div class="d-flex mb-3">
+                <div class="pt-2 mr-auto">Insert Text Here:</div>
+                <div class=" "><button class="btn btn-outline-primary" type="submit" onclick="reset()">clear<svg class="bi bi-trash-fill ml-3" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                  </svg></button></div>
+              </div>
+            <textarea class="form-control" rows="5" id="text" autocomplete="off" onkeyup="capture()"></textarea>
+          </div>
         <div class="mb-3" onclick="capture()">
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="check1">
                 <label class="custom-control-label" for="check1">vocal i</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check2">
-                <label class="custom-control-label" for="check2">capslock</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check3">
-                <label class="custom-control-label" for="check3">space</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check4">
-                <label class="custom-control-label" for="check4">indo boomer</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check5">
-                <label class="custom-control-label" for="check5">cheemse</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check7">
-                <label class="custom-control-label" for="check7">lord haxor</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check8">
-                <label class="custom-control-label" for="check8">spongebob chicken</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check9">
-                <label class="custom-control-label" for="check9">byksw</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check11">
-                <label class="custom-control-label" for="check11">T3XT</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="check10">
-                <label class="custom-control-label" for="check10">S|_|P3|2 T3XT</label>
-              </div>
-            <div class="card my-4">
-                <div class="card-body bg-primary text-white">Special Features</div>
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        <input type="checkbox" id="check6">
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check2">
+                    <label class="custom-control-label" for="check2">capslock</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check3">
+                    <label class="custom-control-label" for="check3">space</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check4">
+                    <label class="custom-control-label" for="check4">indo boomer</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check5">
+                    <label class="custom-control-label" for="check5">cheemse</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check7">
+                    <label class="custom-control-label" for="check7">lord haxor</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check8">
+                    <label class="custom-control-label" for="check8">spongebob chicken</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check9">
+                    <label class="custom-control-label" for="check9">byksw</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check11">
+                    <label class="custom-control-label" for="check11">T3XT</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="check10">
+                    <label class="custom-control-label" for="check10">S|_|P3|2 T3XT</label>
+                </div>
+                <div class="card text-center">
+                    <div class="card-header bg-primary text-light">
+                        Special Effect
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" id="check6">
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" id="vocal" placeholder="vocal changer" onkeyup="capture()">
+                        </div>
                     </div>
                 </div>
-                <input type="text" class="form-control" id="vocal" placeholder="vocal changer" onkeyup="capture()">
-            </div>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text bg-primary text-light">result</span>
-            </div>
-            <input type="text" class="form-control" readonly id="result">
-        </div>
+        Result:
+        <textarea class="form-control mb-3 bg-light" rows="5" readonly id="result" onclick="copy()"></textarea>
         <button type="button" class="btn btn-primary btn-block" id="copy" onclick="copy()">copy</button>
     </div>
   </div>
-  <h2>Contributor</h2>
+  <h2 class="mt-5">Contributor</h2>
   <div class="table-responsive">
     <table class="table">
       <thead class="bg-primary text-light">
