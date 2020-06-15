@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Andika Sujanadi</title>
+
+    <style>
+      asd{
+        transition: all ease 0.3s;
+      }
+      body{
+        background-color: #EEF2F4;
+      }
+      .gambar-preview{
+        width: 100%;
+        height: 300px;
+        padding: 0;
+      }
+      .gambar{
+        object-fit:cover;
+        height: 100px;
+        width: 100px;
+        border: solid 5px black;
+      }
+      .gambar-wisata{
+        object-fit:cover;
+        height: 300px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container bg-white shadow-lg">
+        <div class="row min-vh-100">
+          <div class="col-lg-3 pt-5 px-5 d-flex flex-column justify-content-start align-items-baseline navbarku">
+            <div class="foto-profil bg-primary mx-auto rounded-circle mb-5">
+              <img src="profil.jpg" alt="foto profil" class="gambar rounded-circle border-primary shadow">
+            </div>
+            <span><h3>Andika Sujandi</h3></span>
+            <span><h5 class="font-weight-normal">TI-6Axioo</h5></span>
+            <span><p class="badge badge-primary text-wrap shadow-sm">Politeknik Negeri Banjarmasin</p></span>
+          </div>
+          <div class="col-lg-9 px-5 shadow bodyku">
+            <h2 class="font-weight-bolder mt-5">Interaksi Manusia dan Komputer</h2 class=".font-weight-lighter">
+            <h5 class="font-weight-normal mb-5">Review tempat wisata</h5>
+            <div class="row">
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+                <div class="jumbotron shadow gambar-preview">
+                  <img src="batu.jpg" alt="gambar" class="gambar-wisata rounded-lg">
+                </div>
+                <h2 class="judul mb-3">Bukit Batu</h2>
+                <div class="btn btn-primary mt-auto shadow-sm">baca</div>
+              </div>
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+                <div class="jumbotron shadow gambar-preview">
+                  <img src="batakan.jpg" alt="gambar" class="gambar-wisata rounded-lg">
+                </div>
+                <h2 class="judul mb-3">Pantai Batakan</h2>
+                <div class="btn btn-primary mt-auto shadow-sm">baca</div>
+              </div>
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+                <div class="jumbotron shadow gambar-preview">
+                  <img src="naga.jpg" alt="gambar" class="gambar-wisata rounded-lg">
+                </div>
+                <h2 class="judul mb-3">Bukit Lebak Naga</h2>
+                <div class="btn btn-primary mt-auto shadow-sm">baca</div>
+              </div>
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+                <div class="jumbotron shadow gambar-preview">
+                  <img src="lok.jpg" alt="gambar" class="gambar-wisata rounded-lg">
+                </div>
+                <h2 class="judul mb-3">Lokbaintan</h2>
+                <div class="btn btn-primary mt-auto shadow-sm">baca</div>
+              </div>
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+                <div class="jumbotron shadow gambar-preview">
+                  <img src="siring.jpg" alt="gambar" class="gambar-wisata rounded-lg">
+                </div>
+                <h2 class="judul mb-3">Siring Kota</h2>
+                <div class="btn btn-primary mt-auto shadow-sm">baca</div>
+              </div>
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+                <div class="jumbotron shadow gambar-preview">
+                  <img src="tahura.jpg" alt="gambar" class="gambar-wisata rounded-lg">
+                </div>
+                <h2 class="judul mb-3">Tahura</h2>
+                <div class="btn btn-primary mt-auto shadow-sm">baca</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+      window.addEventListener("scroll", function (event) {
+          var scroll = this.scrollY;
+          // console.log(scroll)
+          if(window.innerWidth<992){
+            $('.navbarku').css('margin-top','0');
+          }
+          else{
+            $('.navbarku').css('margin-top',scroll);
+          }
+      });
+      function cekposisi() {
+        if(window.innerWidth<992){
+            $('.bodyku').removeClass('shadow');
+          }
+          else{
+            $('.bodyku').addClass('shadow');
+          }
+          setTimeout(cekposisi, 1);
+      }
+      cekposisi();
+    </script>
+  </body>
+</html>
