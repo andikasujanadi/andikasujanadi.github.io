@@ -1,417 +1,541 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Andika Sujanadi</title>
-	  	<meta charset="utf-8">
-	  	<link rel="icon" href="https://gamepedia.cursecdn.com/minecraft_gamepedia/2/2d/Impulse_Command_Block_Revision_1.png?version=575ff98fb9a1f2c816a82f8f044d5be5">
-	  	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	  	<style type="text/css">
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-		/** Regular */
-		@font-face {
-		  font-family: "SF Display";
-		  font-weight: 400;
-		  src: url("https://sf.abarba.me/SF-UI-Display-Regular.otf");
-		}
-		/** Semibold */
-		@font-face {
-		  font-family: "SF Display";
-		  font-weight: 600;
-		  src: url("https://sf.abarba.me/SF-UI-Display-Semibold.otf");
-		}
+    <title>Andika Sujanadi</title>
 
-		/** Thin */
-		@font-face {
-		  font-family: "SF Display";
-		  font-weight: 300;
-		  src: url("https://sf.abarba.me/SF-UI-Display-Thin.otf");
-		}
-		/** Bold */
-		@font-face {
-		  font-family: "SF Display";
-		  font-weight: 700;
-		  src: url("https://sf.abarba.me/SF-UI-Display-Bold.otf");
-		}
-		/* width */
-		::-webkit-scrollbar {
-		  width: 10px;
-		}
+    <style type="text/css">
+    
+      /* width */
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
 
-		/* Track */
-		::-webkit-scrollbar-track {
-		  background: #F1F1F1;
-		  border-radius: 5px;
-		}
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #E4E4ED;
+        border-radius: 5px;
+      }
 
-		/* Handle */
-		::-webkit-scrollbar-thumb {
-		  background: #9EAEBA;
-		  border-radius: 5px;
-		}
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #CDCDDA;
+        border-radius: 5px;
+      }
 
-		/* Handle on hover */
-		::-webkit-scrollbar-thumb:hover {
-		  background: #8A9CA5;
-		}
-		*{
-	  		font-family: SF Display;
-	  		cursor: default;
-			-webkit-user-select: none;
-			-khtml-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			-o-user-select: none;
-			user-select: none;
-	  	}
-	  	a{
-	  		text-decoration: none;
-	  		color: unset;
-	  	}
-	  	body{
-	  		padding: 0px;
-	  		margin: 0px;
-	  		overflow: hidden;
-	  		height: 100vh;
-	  		width: 100vw;
-	  	}
-	  	.container{
-	  		position: absolute;
-	  		background: #FFFFFF;
-	  		height: 100%;
-	  		width: 100%;
-	  	}
-	  	.sideBar{
-	  		position: absolute;
-	  		height: 100vh;
-	  		width: 40vw;
-	  		max-width: 600px;
-	  		background: #59548D;
-	  		right: 0;
-	  		border-radius: 600px 0px 0px 300px;
-	  	}
-	  	.contSideBar{
-	  		position: absolute;
-	  		height: 100vh;
-	  		width: 50vw;
-	  		right: 0;
-	  		z-index: 1;
-	  		transition: all ease 1s;
-	  	}
-	  	.header{
-	  		position: absolute;
-	  		z-index: 1;
-	  		width: 100%;
-	  		height: 200px;
-	  		top: 0px;
-	  		transition: all ease 0.3s;
-	  	}
-	  	.header .bg{
-	  		position: absolute;
-	  		width: 100%;	
-	  		font-size: 9vw;
-	  		color: #B0BFCC;
-	  		font-weight: 600;
-	  		left: -3vw;
-	  	}
-	  	.header .fg{
-	  		position: absolute;
-	  		font-size: 3vw;
-	  		font-weight: 600;
-	  		width: 90vw;
-	  		left: 7vw;
-	  		top: 8vw;
-	  	}
-	  	.footer{	
-	  		position: absolute;
-	  		height: 90px;
-	  		width: 100vw;
-	  		background: #6268AD;
-	  		bottom: 0px;
-	  		transition: all ease 0.5s;
-	  	}
-	  	.footext{
-	  		position: absolute;
-	  		width: 100vw;
-	  		height: 90px;
-	  		font-weight: 700;
-	  		font-size: 99px;
-	  		line-height: 90px;
-	  		color: rgba(61, 64, 125, 0.6);
-	  		left: 50px;
-	  	}
-	  	.email{
-	  		position: absolute;
-	  		background: #FBD753;
-			border-radius: 10px;
-			width: 350px;
-			height: 45px;
-			font-size: 18px;
-			font-weight: 700;
-			text-align: center;
-			line-height: 45px;
-			left: 50%;
-			transform: translate(-50%, calc(90px / 2 - 45px / 2));
-			z-index: 1;
-	  	}
-	  	.content{
-	  		position: absolute;
-	  		width: 50vw;
-	  		height:calc(100vh - 25vw);
-	  		margin-top: 15vw;
-	  		margin-bottom: 150px;
-	  		z-index: 2;
-	  		transition: all ease 0.8s;
-	  		left: 0;
-	  	}
-	  	.judul{
-	  		position: absolute;
-			width: 344px;
-			height: 57px;
-			line-height: 57px;
-			background: #FBD753;
-			border-radius: 0px 28.5px 28.5px 0px;
-			font-size: 18px;
-			font-weight: 700;
-			text-align: right;
-			margin-left: -70px;
-			padding-right: 70px;
-	  	}
-	  	.listcont{
-	  		position: absolute;
-	  		height: calc(100vh - 25vw - 100px);
-	  		width: calc(50vw - 100px);
-	  		bottom: 0;
-	  		right: 0;
-	  		overflow-y: scroll;
-	  	}
-	  	.list{
-	  		position: relative;
-	  		width: calc(50vw - 130px);
-	  		bottom: 0;
-	  		left: 0;
-	  		text-align: right;
-	  	}
-	  	.list .box{
-	  		margin: 10px;
-	  		position: relative;
-	  		display: inline-block;
-	  		width: 200px;
-	  		width: 18vw;
-	  		height: 9vw;
-	  		border-radius: 1vw;
-	  		background: #F1F1F1;
-	  		text-align: center;
-	  		line-height: 9vw;
-	  		font-size: 18px;
-	  		box-shadow: 0px 0px 0px #00000000;
-	  		transition: all ease 0.3s;
-	  	}
-	  	.list .box:hover{
-	  		box-shadow: 0px 0px 20px #00000030;
-	  		transform: scale(1.01);
-	  		cursor: pointer;
-	  	}
-	  	.list .box:active{
-	  		transform: scale(0.99);
-	  	}
-	  	.mac{	  		
-	  		background: linear-gradient(90deg, rgba(61,76,168,1) -10%, rgba(69,104,255,1) 20%, rgba(255,168,252,1) 100%) !important;
-	  		color:#FFF; 	
-	  	}
-	  	.clk{
-	  		background: linear-gradient(0deg, rgba(255,230,113,1) 0%, rgba(82,167,255,1) 100%) !important;
-	  	}
-	  	img{
-	  		position: absolute;
-	  	}
-	  	.hideright{
-	  		right: -50vw;
-	  	}
-	  	.hideleft{
-	  		left: calc(-50vw);
-	  	}
-	  	.hidetop{
-	  		top: -250px;
-	  	}
-	  	.hidebottom{
-	  		bottom: -100px;
-	  	}
-	  	@media all and (max-width: 1024px){
-		  	.header .bg{
-		  		position: absolute;
-		  		width: 1000px;	
-		  		font-size: 100px;
-		  		color: #B0BFCC;
-		  		font-weight: 600;
-		  		left: -31px;
-		  	}
-		  	.header .fg{
-		  		position: absolute;
-		  		font-size: 50px;
-		  		font-weight: 600;
-		  		width: 90vw;
-		  		left: 30px;
-		  		top: 50px;
-		  	}
-	  		.contSideBar{
-	  			display: none;
-	  		}
-	  		.content{
-		  		width: 100vw;
-		  		height:calc(100vh - 11vw - 100px);
-		  		margin-top: 100px;
-	  		}
-	  		.judul{
-				height: 40px;
-				line-height: 40px;
-		  	}
-	  		.listcont{
-	  			position: absolute;
-		  		height: calc(100vh - 270px);
-		  		width: calc(100vw);
-		  		bottom: 0;
-		  		right: 0;
-		  		top: 50px;
-		  		overflow-y: scroll;
-		  		/*background: #fee;*/
-	  		}
-		  	.list{
-		  		position: relative;
-		  		width: calc(100% - 30px);
-		  		bottom: 0;
-		  		left: 0;
-		  		text-align: right;
-		  	}
-		  	.list .box{
-		  		margin: 10px;
-		  		position: relative;
-		  		display: inline-block;
-		  		width: 400px;
-		  		height: 200px;
-		  		border-radius: 1vw;
-		  		background: #F1F1F1;
-		  		text-align: center;
-		  		line-height: 200px;
-		  		font-size: 25px;
-		  		box-shadow: 0px 0px 0px #00000000;
-		  		transition: all ease 0.3s;
-		  	}
-	  		.footer{
-	  			height: 50px;
-	  		}
-	  		.footext{
-		  		position: absolute;
-		  		width: 100vw;
-		  		height: 50px;
-		  		font-weight: 700;
-		  		font-size: 50px;
-		  		line-height: 50px;
-		  		left: 10px;
-		  	}
-		  	.email{
-		  		position: absolute;
-		  		background: #FBD753;
-				border-radius: 10px;
-				width: 220px;
-				height: 30px;
-				font-size: 12px;
-				font-weight: 700;
-				text-align: center;
-				line-height: 30px;
-				left: 50%;
-				transform: translate(-50%, calc(50px / 2 - 30px / 2));
-				z-index: 1;
-		  	}
-		  	.hideleft{
-		  		left: calc(-100vw);
-		  	}
-	  	}
-	  	@media all and (max-width: 438px){
-	  		body *{
-	  			display: none;
-	  		}
-	  		body:after{
-	  			content: 'layar hp anda tidak bisa menampilkan halaman';
-	  			text-align: center;
-	  			position: absolute;
-	  			height: 100vh;
-	  			font-size: 20px;
-	  			top: calc(50% - 10px);
-	  		}
-	  	}
-		.loader {
-			border: 8px solid #f3f3f3;
-			border-radius: 50%;
-			border-top: 8px solid #4287f5;
-			border-right: 8px solid #FFF;
-			border-bottom: 8px solid #4287f5;
-			border-left: 8px solid #FFF;
-			width: 40px;
-			height: 40px;
-			-webkit-animation: spin 1.5s ease infinite;
-			animation: spin 1.5s ease infinite;
-			position: absolute;
-			left: calc(50% - 20px);
-			top: calc(50% - 20px);
-			z-index: 10;
-		}
-		@-webkit-keyframes spin {
-			0% { -webkit-transform: rotate(0deg); }
-			100% { -webkit-transform: rotate(360deg); }
-		}
-		@keyframes spin {
-			0% { transform: rotate(0deg); }
-			100% { transform: rotate(360deg); }
-		}
-	  </style>
-	</head>
-	<body>
-		<div class="loader"></div>
-		<div class="container">
-			<div class="header hidetop">
-				<div class="bg">Andika Sujanadi</div>
-				<div class="fg">Andika Sujanadi</div>
-			</div>
-			<div class="content hideleft">
-				<div class="judul">My Works:</div>
-				<div class="listcont">
-					<div class="list">
-						<a href="somebody" target="_blank" class="box mac">MacOS Style</a>
-						<a href="clock" target="_blank" class="box clk">Clock</a>
-						<div class="box">soon</div>
-						<div class="box">soon</div>
-						<div class="box">soon</div>
-						<div class="box">soon</div>
-						<div class="box">soon</div>
-						<div class="box">soon</div>
-					</div>
-				</div>
-			</div>
-			<div class="contSideBar hideright">
-				<div class="sideBar"></div>
-				<img src="image.svg" alt="illustration" height="100%" width="100%" onmousedown="return false"/>
-			</div>
-			<div class="footer hidebottom">
-				<div class="footext">HIRE ME</div>
-				<div class="email">ANDIKASUJANADI@GMAIL.COM</div>
-			</div>
-		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	</body>
-	<script type="text/javascript">
-		function init(){
-			$('.contSideBar').toggleClass("hideright");
-			$('.content').toggleClass("hideleft");
-			$('.header').toggleClass("hidetop");
-			$('.footer').toggleClass("hidebottom");
-			$(".loader").remove();
-		}
-		$(window).on('load',function(){
-			if(window.btoa($('.fg').text())!='QW5kaWthIFN1amFuYWRp'){
-				$('body').remove();
-			}
-			init();
-		});
-	</script>
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8A9CA5;
+      }
+      body{
+        overflow-x: hidden;
+      }
+      body:hover{
+        cursor: default;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .cpr{
+        position: fixed;
+        display: block;
+        z-index: 10;
+        padding: 5px;
+        margin-top: calc(100vh - 45px);
+        margin-left: calc(100vw - 240px);
+        border-radius: 50px;
+        opacity: 50%;
+      }
+      .sideBar{
+        background: #F6F6F9;
+        position: absolute;
+        width: 450px;
+        height: 100vh;
+      }
+      .sideBar .title{
+        margin-top: 60px;
+        display: block;
+        font-size: 24pt;
+        height: 60px;
+        line-height: 60px;
+        padding-left: 50px;
+        font-weight: 500;
+        color: #0085FF;
+      }
+      .sideBar .title svg{
+        margin-bottom: 10px;
+        margin-right: 20px;
+      }
+      .sideBar .subtitle{
+        display: block;
+        height: 60px;
+        line-height: 60px;
+        margin-top: 15px;
+        padding-left: 20px;
+        font-weight: bold;
+        opacity: 0.5;
+      }
+      .sideBar ul li{
+        list-style-type: none;
+        height: 60px;
+        line-height: 60px;
+        font-weight: bold;
+        font-size: 16pt;
+      }
+      .sideBar ul li:before{
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 60px;
+        width: 0px;
+        background: #0085FF;
+        transition: width ease 0.3s;
+        border-radius: 0 5px 5px 0;
+      }
+      .sideBar ul li:hover:before{
+        width: 7px;
+      }
+      .sideBar ul li span{
+        margin-left: 20px;
+        display: inline-block;
+        font-weight: normal;
+        font-size: 12pt;
+        color: #0085FF;
+        border: 1px solid #0085FF;
+        padding: 5px 10px;
+        line-height: 20px;
+        height: 30px;
+        border-radius: 15px;
+        transition: color ease 0.3s, background ease 0.3s;
+      }
+      .sideBar ul li:hover span{
+        background: #0085FF;
+        color: #FFFFFF;
+      }
+      .content{
+        background: #F6F6F9;
+        position: absolute;
+        width: calc(100vw - 450px);
+        right: 0; 
+        height: 100vh;
+        box-shadow: -20px 0px 50px rgba(0, 0, 0, 0.05);
+        padding: 60px;
+        margin-right: 0px;
+      }
+      .content .cluster .title{
+        font-size: 22pt;
+        font-weight: bold;
+        margin-bottom: 60px;  
+      }
+      .content .cluster{
+        display: inline-block;
+      }
+      .sq{
+        padding: 10px;
+        height: 200px;
+      }
+      .isi{
+        background: #FFFFFF;
+        height: 100%;
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px #EDEEF3;
+        transition: box-shadow ease 0.3s;
+        font-size: 12pt;
+        font-weight: 700;
+      }
+      .isi:hover{
+        box-shadow: 0px 0px 20px #D2D5DE;
+        cursor: pointer;
+      }
+      .isi span{
+        align-self: flex-end;
+        transition: color ease 0.3s, background ease 0.3s;
+      }
+      .exp{
+        padding-right: 50px;
+        width: 800px;
+        height: 550px;
+      }
+      .exp .isi span{
+        padding: 5px;
+        background: #FFF;
+        width: 100%;
+        border-radius: 5px;
+      }
+      .exp .isi:hover span{
+        color:#00000000;
+        background: #FFFFFF00;
+      }
+      .exp1{
+        height: 400px;
+      }
+      .exp4{
+        height: 100px;
+      }
+      .exp .isi:after{
+        content:'';
+        position: absolute;
+        height: calc(100% - 20px);
+        width: calc(100% - 20px);
+        top: 10px;
+        left: 10px;
+        background-size: contain;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;  
+        opacity: 0.3;
+        transition: opacity ease 0.3s;
+      }
+      .exp .isi:hover:after{
+        opacity: 1;
+      }
+      .exp1 .isi:after{
+        background-image: url("regional3.jpg");
+      }
+      .exp2 .isi:after{
+        background-image: url("nasional.png");
+      }
+      .exp3 .isi:after{
+        background-image: url("kmipn.jpg");
+      }
+      .exp4 .isi{
+        background: #0085FF;
+        color: #FFFFFF;
+        font-weight: bold;
+        font-size: 16pt;
+        text-align: center;
+        transition: background ease 0.3s;
+      }
+      .exp4 .isi:hover{
+        background: #006BE9;
+      }
+      .exp4 .isi:hover span{
+        color: #FFFFFF;
+      }
+      .exp4 .isi span{
+        align-self: flex-start;
+        width: 126.25px;
+        line-height: 47px;
+        background: unset;
+      }
+      .gll{
+        width: 400px;
+        height: 400px;
+      }
+      .gllScroll{
+        overflow-y: auto;
+        height: inherit;
+      }
+      .gllCon{
+        position: relative;
+      }
+      .gll .sq{
+        height: 200px;
+        width: calc(50% - 3px);
+        display: inline-block;
+      }
+      .gll span{
+        color: #00000000;
+        background: #FFFFFF00;
+        padding: 5px;
+        border-radius: 5px;
+      }
+      .gll .isi:hover span{
+        color: #000000;
+        background: #FFFFFF;
+      }
+      .gll .isi{
+        background-size: contain;
+        background-size: cover;
+        background-position: center;
+      }
+      .gll1 .isi{
+        background-image: url("simpang.jpg");
+      }
+      .gll2 .isi{
+        background-image: url("malioboro.jpg");
+      }
+      .gll3 .isi{
+        background-image: url("riau.jpg");
+      }
+      .gll4 .isi{
+        background-image: url("pekanbaru.jpg");
+      }
+      .gll5 .isi{
+        background-image: url("jakarta.jpg");
+      }
+      .gll6 .isi{
+        background-image: url("semarang.jpg");
+      }
+      .pro{
+        width: 1200px;
+        height: 320px;
+        overflow-x: auto;
+
+      }
+      .proScroll{
+        overflow-y: auto;
+      }
+      .proCon{
+
+        position: relative;
+        width: calc(404px * 4 );
+      }
+      .pro .sq{
+        height: 200px;
+        width: 400px;
+        display: inline-block;
+      }
+      .pro .isi span{  
+        align-self: flex-start;
+        font-size: 18pt;
+        font-weight: 500;
+        padding: 15px;
+      }
+      .pro .isi .icon{
+        font-size: 30pt;
+        position: absolute;
+        top: 60px;
+      }
+      .pro .isi .icon svg{
+        padding: 5px;
+        border-radius: 10px;
+        transition: background ease 0.3s;
+      }
+      .pro .isi .icon svg:hover{
+        background: #F1F1F1;
+      }
+      @media only screen and (max-width: 1769px){
+          body{
+            overflow-y: unset;
+          }
+          .sideBar,.content{
+            height: 1510px;
+          }
+          .exp,.gll{
+            width: 100%;
+          }
+          .exp{
+            padding-right: 25px;
+          }
+          .pro{
+            margin-top: 150px;
+          }
+          .exp4 .isi{
+            padding: 0;
+            text-align: center;
+            line-height:100px;
+            padding-top: 10px;
+          }
+      }
+      @media only screen and (max-width: 1199px){
+        .sideBar{
+          width: 350px;
+        }
+        .content{
+          width: calc(100vw - 350px);
+        }
+        .gll{
+          margin-top: -20px;
+        }
+        .sideBar .title{
+          padding-left: 27px;
+        }
+        .sideBar .title svg{
+          margin-right: 10px;
+        }
+        .sideBar,.content{
+            height: 2000px;
+          }
+      }
+      @media only screen and (max-width: 991px){
+        .gll{
+          margin-top: 500px;
+        }
+      }
+      @media only screen and (max-width: 814px){
+        .content{
+          margin-top: 900px;
+          width: calc(100vw);
+        }
+        .sideBar{
+          width: 100vw;
+        }
+        .sideBar .title{
+          margin-top: 13px;
+          margin-left: 15px;
+        }
+        .sideBar .subtitle{
+          margin-top: 5px;
+          margin-left: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cpr bg-dark px-3 text-white">created by Andika with love</div>
+    <div class="sideBar">
+      <span class="title">
+        <svg class="bi bi-person-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+          <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+        </svg>
+        Andika Sujanadi
+      </span>
+      <span class="subtitle">SKILLS</span>
+      <ul>
+        <li>HTML<span>EXPERT</span></li>
+        <li>PHP<span>GOOD</span></li>
+        <li>CodeIgniter3 <span>GOOD</span></li>
+        <li>jquery <span>EXPERT</span></li>
+        <li>CSS <span>PRO</span></li>
+        <li>Bootstrap <span>EXPERT</span></li>
+        <li>Figma <span>PRO</span></li>
+        <li>CorelDraw <span>EXPERT</span></li>
+        <li>Photoshop <span>PRO</span></li>
+        <li>OpenCV Python <span>GOOD</span></li>
+        <li>Arduino IDE <span>GOOD</span></li>
+        <li>Premiere Pro <span>EXPERT</span></li>
+        <li>After Effect <span>GOOD</span></li>
+      </ul>
+    </div>
+    <div class="row content">
+      <div class="cluster exp">
+        <div class="title">Experience</div>
+        <div class="row">
+          <div class="sq exp1 col-lg-3"><div class="isi"><span>Juara 3 dan Strategi Terbaik Kontes Robot Indonesia Regional III 2019</span></div></div>
+          <div class="col-lg-9"> 
+            <div class="row">
+              <div class="sq exp2 col-xl-12"><div class="isi"><span>Peserta Kontes Robot Indonesia 2019</span></div></div>
+              <div class="sq exp3 col-xl-6"><div class="isi"><span>Finalis Kompetisi Mahasiswa Informatika Nasional 2019 Keamanan Jaringan</span></div></div>
+              <div class="sq exp4 col-xl-3"><div class="isi"><span><a href="https://api.whatsapp.com/send?phone=6289506505828" target="_blank" class="text-decoration-none text-white">Hire Me</a></span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cluster gll">
+        <div class="title">Gallery</div>
+        <div class="gllScroll">
+            <div class="gllCon">
+              <div class="sq gll1"><div class="isi"><span>Simpang Lima</span></div></div>
+              <div class="sq gll2"><div class="isi"><span>Malioboro</span></div></div>
+              <div class="sq gll3"><div class="isi"><span>Riau</span></div></div>
+              <div class="sq gll4"><div class="isi"><span>Riau</span></div></div>
+              <div class="sq gll5"><div class="isi"><span>Jakarta</span></div></div>
+              <div class="sq gll6"><div class="isi"><span>Semarang</span></div></div>
+            </div>
+          </div>
+      </div>
+      <div class="cluster pro">
+        <div class="title">Projects</div>
+          <div class="proScroll">
+            <div class="proCon">
+              <div class="sq pro1">
+                <div class="isi">
+                  <span>Greeting Clock</span>
+                  <span class="icon">
+                    <a class="text-dark text-decoration-none" href="https://github.com/andikasujanadi/clock" target="_blank">
+                      <svg class="bi bi-file-earmark-code" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+                        <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z"/>
+                        <path fill-rule="evenodd" d="M8.646 6.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 9 8.646 7.354a.5.5 0 0 1 0-.708zm-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 9l1.647-1.646a.5.5 0 0 0 0-.708z"/>
+                      </svg>
+                    </a>
+                    <a class="text-dark text-decoration-none" href="/clock" target="_blank">
+                      <svg class="bi bi-box-arrow-in-up-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M14.5 3A1.5 1.5 0 0 0 13 1.5H3A1.5 1.5 0 0 0 1.5 3v5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H9a.5.5 0 0 0 0 1h4a1.5 1.5 0 0 0 1.5-1.5V3z"/>
+                        <path fill-rule="evenodd" d="M4.5 6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V6.5H5a.5.5 0 0 1-.5-.5z"/>
+                        <path fill-rule="evenodd" d="M10.354 5.646a.5.5 0 0 1 0 .708l-8 8a.5.5 0 0 1-.708-.708l8-8a.5.5 0 0 1 .708 0z"/>
+                      </svg>
+                    </a>
+                  </span>
+                </div>
+              </div>
+              <div class="sq pro2">
+                <div class="isi">
+                  <span>MacOS UI</span>
+                  <span class="icon">
+                    <a class="text-dark text-decoration-none" href="https://github.com/andikasujanadi/iosClock" target="_blank">
+                      <svg class="bi bi-file-earmark-code" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+                      <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z"/>
+                      <path fill-rule="evenodd" d="M8.646 6.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 9 8.646 7.354a.5.5 0 0 1 0-.708zm-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 9l1.647-1.646a.5.5 0 0 0 0-.708z"/>
+                    </svg>
+                    </a>
+                    <a class="text-dark text-decoration-none" href="/somebody" target="_blank">
+                      <svg class="bi bi-box-arrow-in-up-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M14.5 3A1.5 1.5 0 0 0 13 1.5H3A1.5 1.5 0 0 0 1.5 3v5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H9a.5.5 0 0 0 0 1h4a1.5 1.5 0 0 0 1.5-1.5V3z"/>
+                      <path fill-rule="evenodd" d="M4.5 6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V6.5H5a.5.5 0 0 1-.5-.5z"/>
+                      <path fill-rule="evenodd" d="M10.354 5.646a.5.5 0 0 1 0 .708l-8 8a.5.5 0 0 1-.708-.708l8-8a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                    </a>
+                  </span>
+                </div>
+              </div>
+              <div class="sq pro3">
+                <div class="isi">
+                  <span>String meme editor</span>
+                  <span class="icon">
+                    <a class="text-dark text-decoration-none" href="https://github.com/andikasujanadi/meme-string" target="_blank">
+                      <svg class="bi bi-file-earmark-code" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+                      <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z"/>
+                      <path fill-rule="evenodd" d="M8.646 6.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 9 8.646 7.354a.5.5 0 0 1 0-.708zm-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 9l1.647-1.646a.5.5 0 0 0 0-.708z"/>
+                    </svg>
+                    </a>
+                    <a class="text-dark text-decoration-none" href="https://github.com/andikasujanadi/memestring" target="_blank">
+                      <svg class="bi bi-box-arrow-in-up-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M14.5 3A1.5 1.5 0 0 0 13 1.5H3A1.5 1.5 0 0 0 1.5 3v5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H9a.5.5 0 0 0 0 1h4a1.5 1.5 0 0 0 1.5-1.5V3z"/>
+                      <path fill-rule="evenodd" d="M4.5 6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V6.5H5a.5.5 0 0 1-.5-.5z"/>
+                      <path fill-rule="evenodd" d="M10.354 5.646a.5.5 0 0 1 0 .708l-8 8a.5.5 0 0 1-.708-.708l8-8a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                    </a>
+                  </span>
+                </div>
+              </div>
+              <div class="sq pro4">
+                <div class="isi">
+                  <span>Review Place</span>
+                  <span class="icon">
+                    <a class="text-dark text-decoration-none" href="https://github.com/andikasujanadi/IMK" target="_blank">
+                      <svg class="bi bi-file-earmark-code" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+                      <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z"/>
+                      <path fill-rule="evenodd" d="M8.646 6.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 9 8.646 7.354a.5.5 0 0 1 0-.708zm-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 9l1.647-1.646a.5.5 0 0 0 0-.708z"/>
+                    </svg>
+                    </a>
+                    <a class="text-dark text-decoration-none" href="/IMK" target="_blank">
+                      <svg class="bi bi-box-arrow-in-up-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M14.5 3A1.5 1.5 0 0 0 13 1.5H3A1.5 1.5 0 0 0 1.5 3v5a.5.5 0 0 0 1 0V3a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H9a.5.5 0 0 0 0 1h4a1.5 1.5 0 0 0 1.5-1.5V3z"/>
+                      <path fill-rule="evenodd" d="M4.5 6a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V6.5H5a.5.5 0 0 1-.5-.5z"/>
+                      <path fill-rule="evenodd" d="M10.354 5.646a.5.5 0 0 1 0 .708l-8 8a.5.5 0 0 1-.708-.708l8-8a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script><script>try{if(btoa($(".cpr").text())!="Y3JlYXRlZCBieSBBbmRpa2Egd2l0aCBsb3Zl"){$('body').remove();}}catch(error){$('body').remove();}</script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
 </html>
