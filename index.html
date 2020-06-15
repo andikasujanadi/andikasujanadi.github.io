@@ -392,15 +392,33 @@
           margin-left: 20px;
         }
       }
+      @media only screen and (max-width: 580px){
+        .proCon{
+          width: calc(304px * 4);
+        }
+        .proCon .sq{
+          width: 300px;
+        }
+      }
       @media only screen and (max-width: 464px){
         .content{
           padding: 20px;
         }
         .exp{
-          padding: 0;
+          padding: 20px 0;
         }
         .gll{
           padding: 0;
+        }
+      }
+      @media only screen and (max-width: 384px){
+        .gllCon .sq, .gllCon .sq .isi{
+          padding: 0px;
+          margin: 0px;
+          border-radius: 0px !important;
+        }
+        .content{
+          padding: 0;;
         }
       }
     </style>
