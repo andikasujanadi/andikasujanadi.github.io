@@ -63,7 +63,7 @@
         height: 100vh;
       }
       .sideBar .title{
-        margin-top: 60px;
+        margin-top: 50px;
         display: block;
         font-size: 24pt;
         height: 60px;
@@ -323,7 +323,7 @@
             overflow-y: unset;
           }
           .sideBar,.content{
-            height: 1510px;
+            height: 1520px;
           }
           .exp,.gll{
             width: 100%;
@@ -358,17 +358,20 @@
           margin-right: 10px;
         }
         .sideBar,.content{
-            height: 2000px;
-          }
+          height: 1500px;
+        }
       }
       @media only screen and (max-width: 991px){
         .gll{
           margin-top: 500px;
         }
+        .sideBar,.content{
+          height: 2025px;
+        }
       }
       @media only screen and (max-width: 814px){
         .content{
-          margin-top: 900px;
+          margin-top: 950px;
           width: calc(100vw);
         }
         .sideBar{
@@ -381,6 +384,17 @@
         .sideBar .subtitle{
           margin-top: 5px;
           margin-left: 20px;
+        }
+      }
+      @media only screen and (max-width: 464px){
+        .content{
+          padding: 20px;
+        }
+        .exp{
+          padding: 0;
+        }
+        .gll{
+          padding: 0;
         }
       }
     </style>
