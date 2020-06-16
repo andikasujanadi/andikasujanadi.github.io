@@ -50,7 +50,7 @@
             <h2 class="font-weight-bolder mt-5">Interaksi Manusia dan Komputer</h2 class=".font-weight-lighter">
             <h5 class="font-weight-normal mb-5">Review tempat wisata</h5>
             <div class="row">
-              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3" onclick="batu()">
                 <div class="jumbotron shadow gambar-preview">
                   <img src="batu.jpg" alt="gambar" class="gambar-wisata rounded-lg">
                 </div>
@@ -106,15 +106,8 @@
             </button>
           </div>
           <div class="modal-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus elit nulla, facilisis ac dui ut, varius cursus purus. Nulla gravida in dui sit amet suscipit. Quisque ullamcorper velit et nisi pulvinar lobortis at nec turpis. Etiam dignissim sit amet neque ut venenatis. Suspendisse suscipit libero ac sapien semper ornare. Quisque ac libero ut metus consectetur feugiat. In imperdiet viverra lacus vel viverra. Mauris ac aliquam sapien, vitae tempus leo. Sed tempor turpis eget justo tristique pharetra. Duis vitae fermentum lorem. Praesent turpis quam, blandit in viverra vitae, dictum bibendum quam.
-
-Vestibulum dolor massa, condimentum non congue ac, accumsan eu elit. Nunc at ullamcorper turpis, ut elementum dolor. Donec est orci, volutpat sit amet consequat eu, interdum eu felis. Aliquam lacinia mollis tortor, eleifend ornare mauris consectetur ut. Pellentesque vulputate eu enim eget mollis. Phasellus vulputate arcu non interdum ultrices. Proin semper turpis et tortor dignissim, ac auctor tortor auctor. Sed sit amet dolor arcu. Nunc mollis gravida tellus ac volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-
-Vestibulum nunc nisi, eleifend quis risus porttitor, pretium maximus tortor. Praesent non blandit neque, sit amet gravida quam. Fusce risus nisi, elementum vitae odio et, ultricies dapibus mi. Nullam tempus imperdiet diam ac semper. Mauris feugiat feugiat consectetur. Etiam et quam nec nunc ultricies pretium. Quisque pulvinar ante in nisl ultricies mattis. Donec sed orci lectus.
-
-Duis blandit leo et ipsum gravida laoreet. Donec auctor mattis ornare. Suspendisse sit amet lectus id ex vehicula mollis. Donec non ante bibendum, blandit tellus non, imperdiet dui. Quisque pellentesque lacus justo, sed suscipit est laoreet non. Duis euismod quam sit amet libero suscipit, vitae mollis mauris ullamcorper. Nam vulputate tempus condimentum. Morbi non arcu a elit tincidunt tincidunt. Aenean dictum sollicitudin leo non vestibulum. Fusce vel neque consectetur, aliquam mi quis, interdum justo. Donec sagittis vel orci vitae posuere.
-
-Morbi lacinia sit amet urna non vehicula. Pellentesque quis elementum enim, in pulvinar odio. Suspendisse pulvinar mi augue, sit amet porttitor felis feugiat sit amet. Pellentesque mi tellus, egestas vel eros in, venenatis rhoncus erat. Mauris accumsan nisi et sagittis molestie. In non nisl ac nunc malesuada viverra. Nulla eu orci feugiat, porttitor lacus vel, convallis magna. Donec dignissim quam sem, vel semper sem fringilla vel. Morbi viverra at ante ac volutpat. Morbi placerat rhoncus sem et viverra.
+            <div class="modal-isi">isi</div>
+            <div class="modal-isi2">isi</div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
@@ -148,6 +141,18 @@ Morbi lacinia sit amet urna non vehicula. Pellentesque quis elementum enim, in p
           setTimeout(cekposisi, 1);
       }
       cekposisi();
+
+      function batu(){
+        judul="Bukit Batu";
+        isi="Bukit Batu terletak di daerah Riam Kanan, untuk menuju ke Bukit Batu kita harus menuju ke waduk Riam Kanan yang memakan waktu perjalanan sekitar 90 menit dari kota Banjarmasin, sesampainya di waduk kita harus menyewa perahu untuk menyebrang ke Bukit Batu dengan biaya Rp 500 ribu yang memakan waktu sekitar 45 menit. ";
+        isi2="Pemandangan di sana sangatlah indah, sepanjang jalan terhampar rumput ilalang yang tingginya setinggi lutut orang dewasa yang memberikan suasana seperti padang rumput yang luas, sangat bagus untuk berfoto di sana apalagi pasa saat matahari terbit dan tenggelam, pada malam hari juga kita bisa menikmati bintang dengan jelas karena tidak ada polusi cahaya sama sekali di sini, cocok untuk penggiat astronomi."
+        ganti(judul,isi,isi2);
+      }
+      function ganti(judul,isi,isi2){
+        $('.modal-title').text(judul);
+        $('.modal-isi').text(isi);
+        $('.modal-isi2').text(isi2);
+      }
     </script>
   </body>
 </html>
