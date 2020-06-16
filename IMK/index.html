@@ -142,7 +142,7 @@
             </div>
             <p class="mt-3 display-4 modal-video">Video</p>
             <div class="modal-embed p-1 bg-dark rounded-lg shadow">
-              <div class="embed-responsive embed-responsive-1by1">
+              <div class="embed-responsive embed-responsive-16by9">
               </div>
             </div>
           </div>
@@ -212,7 +212,7 @@
         isi2="Tempat ini sangat bagus berfoto saat matahari terbit, juga saat malam hari menikmati bintang-bintang ditemani suara gemuruh ombak dari pantai batakan yang terdengar jelas saat malam. Tempat ini sangat cocok didatangi bersama teman dan kerabat untuk melepas penat hiruk pikuk kota yang padat. "
         galeri=["naga.jpg","naga2.jpg"];
         video='<iframe class="embed-responsive-item" src="https://www.instagram.com/p/BkblOdTHrvr/embed" frameborder="0" allowfullscreen></iframe>'
-        ganti(gambar,judul,isi,isi2,galeri,video);
+        ganti(gambar,judul,isi,isi2,galeri,video,cat='ig');
       }
       function lok(){
         gambar="lok3.jpg";
@@ -228,7 +228,8 @@
         isi="Siapa yang tidak mengenal Taman Siring Kota Banjarmasin? Tempat ini paling banyak dikunjungi orang saat akhir pekan tiba. Terletak di jalan Jendral Sudirman, tempat ini banyak menawarkan hiburan menarik. ";
         isi2="Taman Siring Kota Banjarmasin mempunyai program car free day setiap pagi di hari Minggu, banyak hiburan menarik seperti sirkus, lapak lapak penjual makanan di sepanjang siring, dan juga pedagang yang menggunakan jukung untuk berjualan. Di sini juga terdapat lapangan basket umum, lapangan skate board, serta menara pandang yang sangat bagus untuk melihat Kota Banjarmasin."
         galeri=["siring.jpg","siring2.jpg","siring3.jpg"];
-        ganti(gambar,judul,isi,isi2,galeri);
+        video='<iframe class="embed-responsive-item igtv" src="https://www.instagram.com/tv/B-Wm5NiFb2v/embed" frameborder="0" allowfullscreen></iframe>'
+        ganti(gambar,judul,isi,isi2,galeri,video,cat='igtv');
       }
       function tahura(){
         gambar="tahura.jpg";
@@ -239,7 +240,7 @@
         video='<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/DUJk5FOdm54" frameborder="0" allowfullscreen></iframe>';
         ganti(gambar,judul,isi,isi2,galeri,video);
       }
-      function ganti(gambar,judul,isi,isi2,galeri,video=''){
+      function ganti(gambar,judul,isi,isi2,galeri,video='',cat=''){
         $('.carousel-inner *,.embed-responsive *').remove();
         $('.modal-judul').text(judul);
         $('.modal-isi').text(isi);
@@ -251,6 +252,26 @@
         }
         else{
           $('.modal-video,.modal-embed').show();
+        }
+        if(cat=='igtv'){
+          if(window.innerWidth<992){
+            $('.embed-responsive').addClass("embed-responsive-1by1");
+            $('.embed-responsive iframe').css('padding','0 50px');
+          }
+          else if(window.innerWidth<1200){
+            $('.embed-responsive iframe').css('padding','0 200px');
+          }
+          else{
+            $('.embed-responsive iframe').css('padding','0 300px');
+          }
+        }
+        else if(cat=='ig'){
+          $('.embed-responsive').addClass("embed-responsive-4by3");
+          $('.embed-responsive iframe').css('padding','0 20px');
+        }
+        else{
+          $('.embed-responsive').removeClass("embed-responsive-1by1");
+          $('.embed-responsive iframe').css('padding','0');
         }
         j=galeri.length;
         for(i=0;i<j;i++){
