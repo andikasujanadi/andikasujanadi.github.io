@@ -60,35 +60,35 @@
                 <h2 class="judul mb-3">Bukit Batu</h2>
                 <div class="btn btn-primary mt-auto shadow-sm" data-toggle="modal" data-target="#exampleModal">baca</div>
               </div>
-              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3" onclick="batakan()">
                 <div class="jumbotron shadow gambar-preview">
                   <img src="batakan.jpg" alt="gambar" class="gambar-wisata rounded-lg">
                 </div>
                 <h2 class="judul mb-3">Pantai Batakan</h2>
                 <div class="btn btn-primary mt-auto shadow-sm" data-toggle="modal" data-target="#exampleModal">baca</div>
               </div>
-              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3" onclick="naga()">
                 <div class="jumbotron shadow gambar-preview">
                   <img src="naga.jpg" alt="gambar" class="gambar-wisata rounded-lg">
                 </div>
                 <h2 class="judul mb-3">Bukit Lebak Naga</h2>
                 <div class="btn btn-primary mt-auto shadow-sm" data-toggle="modal" data-target="#exampleModal">baca</div>
               </div>
-              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3" onclick="lok()">
                 <div class="jumbotron shadow gambar-preview">
                   <img src="lok.jpg" alt="gambar" class="gambar-wisata rounded-lg">
                 </div>
                 <h2 class="judul mb-3">Lokbaintan</h2>
                 <div class="btn btn-primary mt-auto shadow-sm" data-toggle="modal" data-target="#exampleModal">baca</div>
               </div>
-              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3" onclick="siring()">
                 <div class="jumbotron shadow gambar-preview">
                   <img src="siring.jpg" alt="gambar" class="gambar-wisata rounded-lg">
                 </div>
                 <h2 class="judul mb-3">Siring Kota</h2>
                 <div class="btn btn-primary mt-auto shadow-sm" data-toggle="modal" data-target="#exampleModal">baca</div>
               </div>
-              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3">
+              <div class="col-md-4 mb-4 d-flex flex-column justify-content-start align-items-baseline py-3 px-3" onclick="tahura()">
                 <div class="jumbotron shadow gambar-preview">
                   <img src="tahura.jpg" alt="gambar" class="gambar-wisata rounded-lg">
                 </div>
@@ -109,7 +109,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <img src="batu.jpg" alt="gambar" class="rounded-lg my-3 shadow" style="height: 500px; width: 100%;"> 
+            <img src="" alt="gambar" class="rounded-lg my-3 shadow" style="height: 500px; width: 100%;"> 
             <div class="modal-isi">isi</div>
             <div class="modal-isi2">isi</div>
           </div>
@@ -153,10 +153,46 @@
         isi2="Pemandangan di sana sangatlah indah, sepanjang jalan terhampar rumput ilalang yang tingginya setinggi lutut orang dewasa yang memberikan suasana seperti padang rumput yang luas, sangat bagus untuk berfoto di sana apalagi pasa saat matahari terbit dan tenggelam, pada malam hari juga kita bisa menikmati bintang dengan jelas karena tidak ada polusi cahaya sama sekali di sini, cocok untuk penggiat astronomi."
         ganti(gambar,judul,isi,isi2);
       }
+      function batakan(){
+        gambar="batakan6.jpg";
+        judul="Pantai Batakan";
+        isi="isi";
+        isi2="isi"
+        ganti(gambar,judul,isi,isi2);
+      }
+      function naga(){
+        gambar="naga.jpg";
+        judul="Bukit Lebak Naga";
+        isi="isi";
+        isi2="isi"
+        ganti(gambar,judul,isi,isi2);
+      }
+      function lok(){
+        gambar="lok3.jpg";
+        judul="Lokbaintan";
+        isi="isi";
+        isi2="isi"
+        ganti(gambar,judul,isi,isi2);
+      }
+      function siring(){
+        gambar="siring2.jpg";
+        judul="Siring Kota";
+        isi="isi";
+        isi2="isi"
+        ganti(gambar,judul,isi,isi2);
+      }
+      function tahura(){
+        gambar="tahura.jpg";
+        judul="Tahura";
+        isi="isi";
+        isi2="isi"
+        ganti(gambar,judul,isi,isi2);
+      }
       function ganti(gambar,judul,isi,isi2){
         $('.modal-title').text(judul);
         $('.modal-isi').text(isi);
         $('.modal-isi2').text(isi2);
+        $(".modal-body img").attr("src",gambar);
       }
     </script>
   </body>
