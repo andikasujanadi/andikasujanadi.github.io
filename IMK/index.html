@@ -143,6 +143,10 @@
               </div>
             </div>
             <p class="mt-3 display-4 modal-video">Video</p>
+            <div class="modal-embed p-3 bg-dark rounded-lg shadow">
+              <div class="embed-responsive embed-responsive-16by9">
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
@@ -189,7 +193,8 @@
         isi="Bukit Batu terletak di daerah Riam Kanan, untuk menuju ke Bukit Batu kita harus menuju ke waduk Riam Kanan yang memakan waktu perjalanan sekitar 90 menit dari kota Banjarmasin, sesampainya di waduk kita harus menyewa perahu untuk menyebrang ke Bukit Batu dengan biaya Rp 500 ribu yang memakan waktu sekitar 45 menit. ";
         isi2="Pemandangan di sana sangatlah indah, sepanjang jalan terhampar rumput ilalang yang tingginya setinggi lutut orang dewasa yang memberikan suasana seperti padang rumput yang luas, sangat bagus untuk berfoto di sana apalagi pasa saat matahari terbit dan tenggelam, pada malam hari juga kita bisa menikmati bintang dengan jelas karena tidak ada polusi cahaya sama sekali di sini, cocok untuk penggiat astronomi."
         galeri=["batu.jpg","batu2.jpg","batu3.jpg","batu4.jpg","batu5.jpg"];
-        ganti(gambar,judul,isi,isi2,galeri);
+        video='<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/joN58on20oE" frameborder="0" allowfullscreen></iframe>';
+        ganti(gambar,judul,isi,isi2,galeri,video);
       }
       function batakan(){
         gambar="batakan6.jpg";
@@ -205,7 +210,8 @@
         isi="Bukit Lebak Naga terletak di Pelaihari, memakan waktu 2 jam dari kota banjarmasin. Ketika sampai di sana, terdapat penitipan kendaraan di desa tepat di bawah bukitnya. Perjalanan ke atas lumayan melelahkan, selama perjalanan menuju puncaknya, kita disuguhi pemandangan yang sangat indah pada kiri kanan bukit. ";
         isi2="Tempat ini sangat bagus berfoto saat matahari terbit, juga saat malam hari menikmati bintang-bintang ditemani suara gemuruh ombak dari pantai batakan yang terdengar jelas saat malam. Tempat ini sangat cocok didatangi bersama teman dan kerabat untuk melepas penat hiruk pikuk kota yang padat. "
         galeri=["naga.jpg","naga2.jpg"];
-        ganti(gambar,judul,isi,isi2,galeri);
+        video='<iframe class="embed-responsive-item" src="https://www.instagram.com/p/BkblOdTHrvr/embed" frameborder="0" allowfullscreen></iframe>'
+        ganti(gambar,judul,isi,isi2,galeri,video);
       }
       function lok(){
         gambar="lok3.jpg";
@@ -229,14 +235,22 @@
         isi="Tahura Sultan Adam merupakan wilayah hutan perbukitan, bertempat di kota Martapura dan memerlukan waktu 2 jam perjalanan dari kota Banjarmasin. Sesampainya di gerbang Tahura, kita harus membayar karcis untuk masuk ke sana. ";
         isi2="Di dalam Tahura sendiri banyak fasilitas yang disediakan, seperti mushola, vila, warung, kebun binatang, air terjun serta terdapat beberapa bukit untuk didaki. Pemandangan di atas bukit sangatlah indah, di segala sisi yang kita lihat adalah hutan dan bukit yang sangat hijau. Saat matahari terbit kita bisa melihat awan awan yang ada berada di bawah disinari oleh mentari pagi yang indah. Saat puas menikmati sunrise kita bisa turun untuk menikmati air terjun yang sangat sejuk dan menyegarkan. "
         galeri=["tahura.jpg","tahura2.jpg","tahura3.jpg","tahura4.jpg"];
-        ganti(gambar,judul,isi,isi2,galeri);
+        video='<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/DUJk5FOdm54" frameborder="0" allowfullscreen></iframe>';
+        ganti(gambar,judul,isi,isi2,galeri,video);
       }
-      function ganti(gambar,judul,isi,isi2,galeri=['']){
-        $('.carousel-inner *').remove();
+      function ganti(gambar,judul,isi,isi2,galeri,video=''){
+        $('.carousel-inner *,.embed-responsive *').remove();
         $('.modal-judul').text(judul);
         $('.modal-isi').text(isi);
         $('.modal-isi2').text(isi2);
         $(".modal-gambar").attr("src",gambar);
+        $('.embed-responsive').append(video);
+        if(video==''){
+          $('.modal-video,.modal-embed').hide();
+        }
+        else{
+          $('.modal-video,.modal-embed').show();
+        }
         j=galeri.length;
         for(i=0;i<j;i++){
           print(i);
