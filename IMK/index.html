@@ -33,6 +33,9 @@
         height: 300px;
         width: 100%;
       }
+      .modal-body img{
+        object-fit:cover;
+      }
     </style>
   </head>
   <body>
@@ -106,6 +109,7 @@
             </button>
           </div>
           <div class="modal-body">
+            <img src="batu.jpg" alt="gambar" class="rounded-lg my-3 shadow" style="height: 500px; width: 100%;"> 
             <div class="modal-isi">isi</div>
             <div class="modal-isi2">isi</div>
           </div>
@@ -143,12 +147,13 @@
       cekposisi();
 
       function batu(){
+        gambar="batu.jpg";
         judul="Bukit Batu";
         isi="Bukit Batu terletak di daerah Riam Kanan, untuk menuju ke Bukit Batu kita harus menuju ke waduk Riam Kanan yang memakan waktu perjalanan sekitar 90 menit dari kota Banjarmasin, sesampainya di waduk kita harus menyewa perahu untuk menyebrang ke Bukit Batu dengan biaya Rp 500 ribu yang memakan waktu sekitar 45 menit. ";
         isi2="Pemandangan di sana sangatlah indah, sepanjang jalan terhampar rumput ilalang yang tingginya setinggi lutut orang dewasa yang memberikan suasana seperti padang rumput yang luas, sangat bagus untuk berfoto di sana apalagi pasa saat matahari terbit dan tenggelam, pada malam hari juga kita bisa menikmati bintang dengan jelas karena tidak ada polusi cahaya sama sekali di sini, cocok untuk penggiat astronomi."
-        ganti(judul,isi,isi2);
+        ganti(gambar,judul,isi,isi2);
       }
-      function ganti(judul,isi,isi2){
+      function ganti(gambar,judul,isi,isi2){
         $('.modal-title').text(judul);
         $('.modal-isi').text(isi);
         $('.modal-isi2').text(isi2);
