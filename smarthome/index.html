@@ -220,6 +220,7 @@
         }
         .item{
             height:120px;
+            max-height:120px;
             padding: 5px;
         }
         .isi-item{
@@ -431,7 +432,7 @@
                       </svg>
                 </div>
             </div>
-            <div class="jam">00:00</div>
+            <div class="jam" id="jam">00:00</div>
         </div>
         <div class="row">
             <div class="col-lg-7 kotak home-display d-flex">
@@ -596,7 +597,15 @@
                 setbox(width);
             }
             settriangle();
+            if(window.innerWidth<992){
+                cek_tinggi();
+            }
         }
+        function cek_tinggi(){
+            tinggi=$('.item').width()/2;
+            $('.item').css('height',tinggi+'px');
+        }
+
         function print(s){
             console.log(s);
         }
@@ -618,6 +627,24 @@
             print(k);
         }
         cek_kotak();
+
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('jam').innerHTML =
+            // h + ":" + m + ":" + s;
+            h + ":" + m;
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};
+            return i;
+        }
+        startTime();
     </script>
   </body>
 </html>
