@@ -217,24 +217,7 @@
         .suhu-mobile{
             display: none;
         }
-        .suhu-mobile .angka{
-            font-size: 5em;
-            font-weight: 600;
-            position: absolute;
-        }
-        .suhu-mobile .unit{
-            font-size: 3em;
-            position: absolute;
-            top: 35px;
-            left: 2em;
-        }
-        .suhu-mobile .detail{
-            font-size: 2em;
-            position: absolute;
-            top:100px;
-        }
         .panel{
-            /* background-color: violet; */
             height: calc(100vh - 20vw - 120px);
             padding: 30px;
             padding-top: 0px;
@@ -244,8 +227,6 @@
         .panel-label{
             width: 100%;
             height: 3rem;
-            /* display: inline-block; */
-            /* background-color: turquoise; */
         }
         .item{
             height:120px;
@@ -395,62 +376,49 @@
                 transform: translateX(-15%);
             }
             .suhu-mobile{
+                color: var(--font-cuaca-1);
                 position: absolute;
                 display: unset;
                 top:250px;
                 left:calc(100% - 170px);
             }
-
-
-            /* .lantai1, .lantai2{
-                width: 40%;
-                height: 20%;
-                bottom: 20%;
+            .suhu-mobile .angka{
+                font-size: 5em;
+                font-weight: 600;
+                position: absolute;
             }
-            .lantai2{
-                bottom: 40%;
+            .suhu-mobile .unit{
+                font-size: 3em;
+                position: absolute;
+                top: 35px;
+                left: 2em;
             }
-            .atap2{
-                width: 40%;
-                bottom: 61.6%;
+            .suhu-mobile .detail{
+                font-size: 2em;
+                position: absolute;
+                top:100px;
             }
-            .atap1{
-                bottom: 63%;
-            }
-            .lantai1, .lantai2, .atap1, .atap2{
-                left: 10%;
-            }
-            .pintu{
-                bottom: 21%;
-                left: 39%;
-                height: 13.6%;
-                width: 8%;
-            }
-            .jendela{
-                bottom: 25%;
-                left: 31%;
-                height: 9.6%;
-                width: 6.4%;
-            }
-            .pagar{
-                bottom: 20%;
-                left: 12%;
-                height: 10.4%;
-                width: 16%;
-            }
-            .lampu1{
-                left: 27.5%;
-                bottom: 38%;
-            }
-            .lampu2{
-                left: 27.5%;
-                bottom: 58%;
-            } */
             .profil,.jam{
                 display: none;
             }
             .keluar{
                 display: unset;
+            }
+        }
+        @media only screen and (max-width: 410px){
+            .suhu-mobile{
+                font-size: 2vw;
+                left: calc(100% - 15em);
+            }
+            .suhu-mobile .angka{
+                top: 1vw;
+            }
+            .suhu-mobile .unit{
+                top: 5vw;
+                left: 2em;
+            }
+            .suhu-mobile .detail{
+                top:13vw;
             }
         }
     </style>
