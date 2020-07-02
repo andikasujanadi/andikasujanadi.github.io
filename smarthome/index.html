@@ -785,7 +785,7 @@
             result.innerHTML="Masukkan perintah...";
             if ("webkitSpeechRecognition" in window) {
                 var speechRecognizer = new webkitSpeechRecognition();
-                speechRecognizer.continuous = true;
+                // speechRecognizer.continuous = true;
                 speechRecognizer.interimResults = true;
                 speechRecognizer.lang = "id-ID";
                 speechRecognizer.start();
