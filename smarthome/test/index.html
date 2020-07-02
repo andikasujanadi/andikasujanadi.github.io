@@ -59,7 +59,7 @@ function startConverting() {
         }
       }
       result.innerHTML =
-        finalTranscripts +
+        // finalTranscripts +
         '<span style="color: #999">' +
         interimTranscripts +
         "</span>";
@@ -69,6 +69,12 @@ function startConverting() {
     result.innerHTML =
       "Your browser is not supported. Please download Google chrome or Update your Google chrome!!";
   }
+}
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ alert('mobile');
+}
+else{
+  alert('desktop');
 }
 
     </script>
