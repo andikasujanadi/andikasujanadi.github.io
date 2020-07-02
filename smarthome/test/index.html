@@ -1,807 +1,88 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#5D38FF">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#5D38FF">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#5D38FF">
+<html>
+<head>
+	<title>Speech to text Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        ::-webkit-scrollbar-track
-            {
-                background-color: #F5F5F5;
-            }
-        ::-webkit-scrollbar
-            {
-                width: 4px;
-                background-color: #F5F5F5;
-                border-radius: 100px;
-            }
+        body {
+  font-family: Open Sans;
+}
+#result {
+  height: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 10px 0 #bbb;
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 25px;
+}
+button {
+  font-size: 5vw;
+  position: absolute;
+  top: 240px;
+  left: 50%;
+  background-color: red;
+  padding: 50px 200px;
+  border-radius: 30px;
+  transform: translateX(-50%);
+  color: white;
+  border: none;
+}
 
-        ::-webkit-scrollbar-thumb
-            {
-                background-color: var(--lampu-deactive);
-                border-radius: 100px;
-            }
-        :root{
-            --nav-height:5rem;
-            --nav-width:7rem;
-            --color-background:#FDFDFD;
-            --color-background-2:#F7F6F9;
-            --color-background-3:#E8EAF0;
-            --color-primary:#5D38FF;
-            --border-radius:30px;
-            --border-radius-item:15px;
-            --rumah-radius:10px;
-            --rumah-active:#5D38FF;
-            --rumah-deactive:#B4BEDE;
-            --lampu-active:#FCC96D;
-            --lampu-deactive:#696571;
-            --cuaca-1:#FFD390;
-            --font-cuaca-1:#DA6F00;
-            --font-cuaca-bg-1:#FCC96D;
-        }
-        .modal-dialog {
-            position:fixed;
-            top:auto;
-            right:0;
-            left:0;
-            bottom:0;
-        }  
-        .bg-active{
-            background-color: var(--color-primary)!important;
-            color: white!important;
-        }
-        .container-fluid{
-            overflow: hidden;
-        }
-        body{
-            background-color: var(--color-background);
-            overflow: hidden;
-        }
-        .hidden{
-            display: none!important;
-        }
-        .aktif{
-            display: unset;
-        }
-        .switch {
-        position: relative;
-        display: inline-block;
-        width: 30px;
-        height: 20px;
-        }
-
-        .switch input { 
-        opacity: 0;
-        width: 0;
-        height: 0;
-        }
-
-        .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--color-background-3);
-        -webkit-transition: .4s;
-        transition: .4s;
-        }
-
-        .slider:before {
-        position: absolute;
-        content: "";
-        height: 14px;
-        width: 14px;
-        left: 3px;
-        bottom: 3px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-        }
-
-        input:checked + .slider {
-        background-color: var(--color-primary);
-        }
-
-
-        input:checked + .slider:before {
-        -webkit-transform: translateX(10px);
-        -ms-transform: translateX(10px);
-        transform: translateX(10px);
-        }
-
-        /* Rounded sliders */
-        .slider.round {
-        border-radius: 34px;
-        }
-
-        .slider.round:before {
-        border-radius: 50%;
-        }
-        .kotak{
-            height: calc(100vh - var(--nav-height));
-        }
-        .navbarku{
-            height: var(--nav-height);
-            line-height: var(--nav-height);
-            font-weight: 700;
-            position: relative;
-        }
-        .profil,.keluar{
-            position: absolute;
-            height: var(--nav-height);
-            width: var(--nav-height);
-            padding: 15px;
-            left: calc(100% - var(--nav-height) - (var(--nav-height) / 2));
-        }
-        .keluar{
-            left: calc(100% - var(--nav-height));
-            display: none!important;
-        }
-        .keluar .bg-profil{
-            background-color: transparent;
-        }
-        .bg-profil{
-            position: relative;
-            background-color: var(--color-background-2);
-            height: 100%;
-            width: 100%;
-            line-height: var(--nav-height);
-            border-radius: 50%;
-        }
-        .bg-profil svg{
-            color: var(--color-primary);
-            position: absolute;
-            font-size: 30px;
-            transform: translate(-50%,35%);
-        }
-        .bg-profil img{
-            background-color: var(--color-primary);
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            transform: translateX(-50%);
-            border-radius: 50%;
-            object-fit: cover;
-            /* opacity: 0.1; */
-        }
-        .home-display{
-            background-color: var(--color-background);
-        }
-        .control-panel{
-            background-color: var(--color-background-2);
-            border-radius: var(--border-radius) 0 0 0;
-            padding: 0px;
-            padding-right: 12px;
-        }
-        .cuaca{
-            /* background-color: lime; */
-            width: 100%;
-            height: 20vw;
-            padding: 30px;
-        }
-        .cuaca-isi{
-            background-color: var(--cuaca-1);
-            height: 100%;
-            width: 100%;
-            border-radius: var(--border-radius-item);
-            color: var(--font-cuaca-1);
-            position: relative;
-        }
-        .suhu .angka{
-            font-size: 8vw;
-            font-weight: 600;
-            position: absolute;
-            bottom: 20%;
-            left:5%;
-        }
-        .suhu .unit{
-            font-size: 3vw;
-            position: absolute;
-            bottom: 30%;
-            left: 30%;
-        }
-        .suhu .detail{
-            font-size: 2vw;
-            position: absolute;
-            bottom: 15%;
-            left:7%;
-        }
-        .suhu svg{
-            position: absolute;
-            font-size: 15vw;
-            right: 5%;
-            bottom: 0;
-            color: var(--font-cuaca-bg-1);
-        }
-        .suhu-mobile{
-            display: none;
-        }
-        .panel{
-            height: calc(100vh - 20vw - 120px);
-            padding: 30px;
-            padding-top: 0px;
-            overflow-y: auto;
-            padding: 0 34px;
-        }
-        .panel-label{
-            width: 100%;
-            height: 3rem;
-        }
-        .item{
-            height:120px;
-            max-height:120px;
-            padding: 5px;
-        }
-        .item-mobile{
-            display: none;
-        }
-        .isi-item{
-            background-color: white;
-            height: 100%;
-            border-radius: var(--border-radius-item);
-            transition: background-color ease 0.3s, color ease 0.5s;
-        }
-        .isi-item .text{
-            font-size: 20px;
-        }
-        .nav-samping{
-            background-color: var(--color-primary);
-            width: var(--nav-width);
-            border-radius: 0 var(--border-radius) 0 0;
-            height: 100%;
-        }
-        .rumah{
-            width: 100%;
-            height: 100%;
-        }
-        .box-rumah{
-            position: relative;
-            margin: 0px auto;
-            padding: 10px;
-            border-radius: var(--border-radius);
-            display: inline-block;
-        }
-        .view-con{
-            width: calc(100% - var(--nav-width));
-        }
-        .lantai1,.lantai2{
-            position: absolute;
-            background: linear-gradient(180deg, #F7F6F9 0%, #E8EAF0 100%);
-            /* background: var(--color-primary); */
-            height: 25%;
-            width: 50%;
-            bottom: 10%;
-            left:25%;
-        }
-        .lantai2{
-            bottom: 35%;
-        }
-        
-        .pintu{
-            position: absolute;
-            height: 17%;
-            width: 10%;
-            background-color: var(--rumah-active);
-            bottom: 11%;
-            left: 60%;
-            border-radius: var(--rumah-radius) var(--rumah-radius) 0 0;
-        }
-        .jendela{
-            position: absolute;
-            height: 12%;
-            width: 8%;
-            background-color: var(--rumah-deactive);
-            bottom: 16%;
-            left: 50%;
-            border-radius: var(--rumah-radius);
-        }
-        .pagar{
-            position: absolute;
-            height: 13%;
-            width: 20%;
-            background-color: var(--rumah-deactive);
-            bottom: 11%;
-            left: 27.5%;
-            border-radius: var(--rumah-radius) var(--rumah-radius) 0 0;
-        }
-        .lampu1, .lampu2{
-            position: absolute;
-            height: 2%;
-            width: 5%;
-            background-color: var(--lampu-active);
-            border-radius: 0 0 var(--rumah-radius) var(--rumah-radius);
-            bottom: 33%;
-            left: 47.5%;
-        }
-        .lampu2{
-            bottom: 58%;
-        }
-        .atap1{
-            --border:60px;
-            position: absolute;
-            width: 0px;
-            height: 0px;
-            transform: scaleY(1.5);
-            border-bottom: var(--border) solid #78758A;
-            border-left: var(--border) solid transparent;
-            border-right: var(--border) solid transparent;
-            bottom: 64%;
-            left:25%;
-        }
-        .atap2{
-            --border:60px;
-            position: absolute;
-            width: 50%;
-            height: 0px;
-            transform: scaleY(1.5);
-            border-bottom: var(--border) solid #5A5968;
-            border-left: var(--border) solid transparent;
-            border-right: var(--border) solid transparent;
-            bottom: 61.8%;
-            left:25%;
-        }
-        .tuas,.slider{
-            width: 30px;
-            display: block;
-            margin-right: 3em!important;
-        }
-        @media only screen and (max-width: 991px){
-            .aktif{
-                background-color: var(--color-primary)!important;
-                color:white;
-            }
-            .kotak{
-                height: calc(50vh - calc(var(--nav-height) / 2));
-            }
-            .nav-samping,.cuaca,.switch{
-                display: none;
-            }
-            .container-fluid{
-                padding: 0px 12px!important;
-            }
-            .control-panel{
-                border-radius: var(--border-radius) var(--border-radius) 0 0;
-            }
-            .view-con{
-                width: 100%;
-            }
-            .panel{
-                height: calc(50vh - 50px);
-                padding-top: 1.5em!important;
-                overflow-y: auto;
-                padding: 0 34px;
-            }
-            .text{  
-                font-size: unset!important;
-            }
-            .item-mobile{
-                display: unset;
-            }
-            .box-rumah{
-                margin-left: 0px;
-                padding: 10px;
-                transform: translateX(-15%);
-            }
-            .suhu-mobile{
-                color: var(--font-cuaca-1);
-                position: absolute;
-                display: unset;
-                top:250px;
-                left:calc(100% - 170px - 5vw);
-            }
-            .suhu-mobile .angka{
-                font-size: 5em;
-                font-weight: 600;
-                position: absolute;
-            }
-            .suhu-mobile .unit{
-                font-size: 3em;
-                position: absolute;
-                top: 35px;
-                left: 2em;
-            }
-            .suhu-mobile .detail{
-                font-size: 2em;
-                position: absolute;
-                top:100px;
-            }
-            .profil,.jam{
-                display: none;
-            }
-            .keluar{
-                display: flex!important;
-            }
-        }
-        @media only screen and (max-width: 470px){
-            .suhu-mobile{
-                font-size: 2vw;
-                left: calc(100% - 15em);
-            }
-            .suhu-mobile .angka{
-                top: 1vw;
-            }
-            .suhu-mobile .unit{
-                top: 5vw;
-                left: 2em;
-            }
-            .suhu-mobile .detail{
-                top:13vw;
-            }
-        }
     </style>
-
-    <title>SMARTHOME</title>
-  </head>
-  <body>
-    <div class="container-fluid p-0">
-        <div class="navbarku text-center">
-            <div class="profil">
-                <div class="bg-profil">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person hidden" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    </svg>
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>
-                    <img src="profil.jpg" alt="">
-                </div>
-            </div>
-            <div class="keluar d-flex flex-row flex-row-reverse">
-                <div class="bg-profil mx-4">
-                    <svg class="bi bi-box-arrow-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M11.646 11.354a.5.5 0 0 1 0-.708L14.293 8l-2.647-2.646a.5.5 0 0 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
-                        <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
-                        <path fill-rule="evenodd" d="M2 13.5A1.5 1.5 0 0 1 .5 12V4A1.5 1.5 0 0 1 2 2.5h7A1.5 1.5 0 0 1 10.5 4v1.5a.5.5 0 0 1-1 0V4a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-1.5a.5.5 0 0 1 1 0V12A1.5 1.5 0 0 1 9 13.5H2z"/>
-                      </svg>
-                </div>
-                <div class="bg-profil mx-4">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journal-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2z"/>
-                        <path d="M2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2z"/>
-                        <path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="jam" id="jam">00:00</div>
-        </div>
-        <div class="row">
-            <div class="col-lg-7 kotak home-display d-flex">
-                <div class="nav-samping text-center text-white">
-                    <div class="my-4 mt-5">
-                        <svg class="my-1 bi bi-mic" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-                            <path fill-rule="evenodd" d="M10 8V3a2 2 0 1 0-4 0v5a2 2 0 1 0 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
-                        </svg>
-                        <div>command</div>
-                    </div>
-                    <div class="my-4">
-                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-journal-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2z"/>
-                            <path d="M2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2z"/>
-                            <path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                        <div>Statistics</div>
-                    </div>
-                    <div class="my-4">
-                        <svg class="my-1 bi bi-box-arrow-right" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M11.646 11.354a.5.5 0 0 1 0-.708L14.293 8l-2.647-2.646a.5.5 0 0 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
-                            <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
-                            <path fill-rule="evenodd" d="M2 13.5A1.5 1.5 0 0 1 .5 12V4A1.5 1.5 0 0 1 2 2.5h7A1.5 1.5 0 0 1 10.5 4v1.5a.5.5 0 0 1-1 0V4a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-1.5a.5.5 0 0 1 1 0V12A1.5 1.5 0 0 1 9 13.5H2z"/>
-                          </svg>
-                        <div>logout</div>
-                    </div>
-                </div>
-                <div class="view-con">
-                    <div class="display-6 px-5 w-100 text-rumah"><span class="font-weight-bold">Halo,</span> <span class="font-weight-normal">Andika!</span></div>
-                    <div class="rumah w-100">
-                        <div class="box-rumah">
-                            <div class="atap2"></div>
-                            <div class="atap1"></div>
-                            <div class="lantai1"></div>
-                            <div class="lantai2"></div>
-                            <div class="pintu"></div>
-                            <div class="pagar"></div>
-                            <div class="jendela"></div>
-                            <div class="lampu1"></div>
-                            <div class="lampu2"></div>
-                        </div>
-                        <div class="suhu-mobile">
-                            <span class="angka">30</span>
-                            <span class="unit">°C</span>
-                            <div class="detail">berawan</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 kotak control-panel">
-              <div class="cuaca">
-                  <div class="cuaca-isi shadow-sm">
-                    <div class="suhu">
-                        <span class="angka">30</span>
-                        <span class="unit">°C</span>
-                        <div class="detail">berawan</div>
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z"/>
-                        </svg>
-                    </div>
-                    <div class="nama"></div>
-                  </div>
-              </div>
-              <div class="panel">
-                <div class="font-weight-bold panel-label">Control Panel</div>
-                <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-md-2 row-cols-2">
-                    <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b1">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-brightness-low ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
-                                <path d="M8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
-                            </svg>
-                            <div class="mx-2 text">
-                                Lampu Bawah
-                            </div>
-                            <label class="switch mr-3 ml-auto">
-                                <input type="checkbox" class="tuas" disabled>
-                                <span class="slider round"></span>
-                              </label>
-                        </div>
-                    </div>
-                    <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b2">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-brightness-low ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
-                                <path d="M8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
-                            </svg>
-                            <div class="mx-2 text">
-                                Lampu Atas
-                            </div>
-                            <label class="switch mr-3 ml-auto">
-                                <input type="checkbox" class="tuas" disabled>
-                                <span class="slider round"></span>
-                              </label>
-                        </div>
-                    </div>
-                    <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b3">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-key ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
-                                <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                            </svg>
-                            <div class="mx-2 text">
-                                Pintu
-                            </div>
-                            <label class="switch my-auto mr-3 ml-auto">
-                                <input type="checkbox" class="tuas" disabled>
-                                <span class="slider round"></span>
-                              </label>
-                        </div>
-                    </div>
-                    <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b4">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-layout-split ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M14 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
-                                <path fill-rule="evenodd" d="M7.5 14V2h1v12h-1z"/>
-                            </svg>
-                            <div class="mx-2 text">
-                                Jendela
-                            </div>
-                            <label class="switch mr-3 ml-auto">
-                                <input type="checkbox" class="tuas" disabled>
-                                <span class="slider round"></span>
-                              </label>
-                        </div>
-                    </div>
-                    <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b5">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-door-closed ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2zm1 0v13h8V2H4z"/>
-                                <path d="M7 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                                <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
-                            </svg>
-                            <div class="mx-2 text">
-                                Pagar
-                            </div>
-                            <label class="switch mr-3 ml-auto">
-                                <input type="checkbox" class="tuas" disabled>
-                                <span class="slider round"></span>
-                              </label>
-                        </div>
-                    </div>
-                    <div class="item item-mobile  col p-0">
-                        <div class="isi-item d-flex flex-nowrap align-items-center bg-transparent">
-                            <div class="item col-6" data-toggle="modal" data-target="#exampleModal" onclick="startConverting()">
-                                <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center bg-active">
-                                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-mic mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-                                        <path fill-rule="evenodd" d="M10 8V3a2 2 0 1 0-4 0v5a2 2 0 1 0 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="item  col-6">
-                                <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="bAuto">
-                                    <div class="mx-auto font-weight-bold">AUTO</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-    </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="voice-modal" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="voice-modal">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <div id="result"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary mx-auto w-50" onclick="startConverting()">
-                <h1>
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-mic-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
-                        <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-                      </svg>
-                </h1>    
-            </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <!-- Optional JavaScript -->
-    <!-- Popper.js first, then Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<h3 align="center">Speech to text converter JavaScript</h3>
+	<h3 align="center">Version 0.2.1</h3>
+	<div id="result"></div>
+    <button onclick="startConverting();"><i class="fa fa-microphone btn btn-danger" aria-hidden="true"></i></button>
     <script>
-        function cek_kotak(){
-            height=$('.view-con').height()-$('.text-rumah').height();
-            width=$('.view-con').width();
-            nh=$('.navbarku').height();
-            dif=height-width;
-            if(dif<0)dif=0;
-            $('.box-rumah').css('margin-top',(dif/2))
-            if(height<width){
-                setbox(height);
-            }
-            else{
-                setbox(width);
-            }
-            settriangle();
-            if(window.innerWidth<992){
-                cek_tinggi();
-            }
-        }
-        function cek_tinggi(){
-            tinggi=$('.item').width()/2;
-            $('.item').css('height',tinggi+'px');
-        }
+        var result = document.getElementById("result");
 
-        function print(s){
-            console.log(s);
-        }
-        function setbox(v){
-            k=$('.box-rumah');
-            k.css('height',v).css('width',v);
-        }
-        function settriangle(){
-            k=$('.lantai1').css('height');
-            k=parseInt(k,10)*0.65+'px';
-            $('.atap1').css('--border',k);
-            k=$('.lantai1').css('height');
-            k=parseInt(k,10)*0.35+'px';
-            $('.atap2').css('--border',k);
-        }
-        function debug(){
-            k=$('.atap1').css('--border');
-            k=$('.lantai1').css('height');
-            print(k);
-        }
-        cek_kotak();
+function startConverting() {
+  if ("webkitSpeechRecognition" in window) {
+    var speechRecognizer = new webkitSpeechRecognition();
+    speechRecognizer.continuous = true;
+    speechRecognizer.interimResults = true;
+    speechRecognizer.lang = "id-ID";
+    speechRecognizer.start();
 
-        function startTime() {
-            cek_kotak();
+    var finalTranscripts = "";
 
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById('jam').innerHTML =
-            // h + ":" + m + ":" + s;
-            h + ":" + m;
-            var t = setTimeout(startTime, 500);
+    speechRecognizer.onresult = function (event) {
+      var interimTranscripts = "";
+      for (var i = event.resultIndex; i < event.results.length; i++) {
+        var transcript = event.results[i][0].transcript;
+        transcript.replace("\n", "<br>");
+        if (event.results[i].isFinal) {
+          finalTranscripts += transcript;
+        } else {
+          interimTranscripts += transcript;
         }
-        function checkTime(i) {
-            if (i < 10) {i = "0" + i};
-            return i;
-        }
-        startTime();
+      }
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        result.innerHTML =
+        transcript;
+      }
+      else
+      {
+        result.innerHTML =
+        interimTranscripts;
+      }
+      
+    };
+    speechRecognizer.onerror = function (event) {};
+  } else {
+    result.innerHTML =
+      "Your browser is not supported. Please download Google chrome or Update your Google chrome!!";
+  }
+}
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+//  alert('mobile');
+}
+else{
+  // alert('desktop');
+}
 
-        $('#b1').click(function(){
-            cek_switch('#b1');
-        });
-        $('#b2').click(function(){
-            cek_switch('#b2');
-        });
-        $('#b3').click(function(){
-            cek_switch('#b3');
-        });
-        $('#b4').click(function(){
-            cek_switch('#b4');
-        });
-        $('#b5').click(function(){
-            cek_switch('#b5');
-        }); 
-        $('#bAuto').click(function(){
-            cek_switch('#bAuto');
-        }); 
-
-        function cek_switch(a){
-            if ($(a+' label input').is(':checked')){
-                $(a+' label input').removeAttr('checked');
-            }
-            else{
-                $(a+' label input').attr('checked','checked');
-            }
-            $(a).toggleClass('aktif');
-            
-        }
-        function startConverting() {
-            if ("webkitSpeechRecognition" in window) {
-                var speechRecognizer = new webkitSpeechRecognition();
-                speechRecognizer.continuous = true;
-                speechRecognizer.interimResults = true;
-                speechRecognizer.lang = "id-ID";
-                speechRecognizer.start();
-
-                var finalTranscripts = "";
-
-                speechRecognizer.onresult = function (event) {
-                var interimTranscripts = "";
-                for (var i = event.resultIndex; i < event.results.length; i++) {
-                    var transcript = event.results[i][0].transcript;
-                    transcript.replace("\n", "<br>");
-                    if (event.results[i].isFinal) {
-                    finalTranscripts += transcript;
-                    } else {
-                    interimTranscripts += transcript;
-                    }
-                }
-                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-                    result.innerHTML =
-                    transcript;
-                }
-                else{
-                    result.innerHTML =
-                    interimTranscripts;
-                }
-                
-                };
-                speechRecognizer.onerror = function (event) {};
-            } else {
-                result.innerHTML =
-                "Your browser is not supported. Please download Google chrome or Update your Google chrome!!";
-            }
-        }
     </script>
-  </body>
+</body>
 </html>
