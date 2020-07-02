@@ -54,7 +54,19 @@
             right:0;
             left:0;
             bottom:0;
+            border-radius: var(--border-radius-item)!important;
         }  
+        .modal-content{
+            border-radius: var(--border-radius-item)!important;
+            padding: 1em;
+        }
+        .tombol{
+            background-color: var(--color-primary);
+            text-align: center;
+            padding: 0.5em;
+            color: white;
+            border-radius: var(--border-radius-item);
+        }
         .bg-active{
             background-color: var(--color-primary)!important;
             color: white!important;
@@ -73,60 +85,60 @@
             display: unset;
         }
         .switch {
-        position: relative;
-        display: inline-block;
-        width: 30px;
-        height: 20px;
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 20px;
         }
 
         .switch input { 
-        opacity: 0;
-        width: 0;
-        height: 0;
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
 
         .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--color-background-3);
-        -webkit-transition: .4s;
-        transition: .4s;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--color-background-3);
+            -webkit-transition: .4s;
+            transition: .4s;
         }
 
         .slider:before {
-        position: absolute;
-        content: "";
-        height: 14px;
-        width: 14px;
-        left: 3px;
-        bottom: 3px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
         }
 
         input:checked + .slider {
-        background-color: var(--color-primary);
+            background-color: var(--color-primary);
         }
 
 
         input:checked + .slider:before {
-        -webkit-transform: translateX(10px);
-        -ms-transform: translateX(10px);
-        transform: translateX(10px);
+            -webkit-transform: translateX(10px);
+            -ms-transform: translateX(10px);
+            transform: translateX(10px);
         }
 
         /* Rounded sliders */
         .slider.round {
-        border-radius: 34px;
+            border-radius: 34px;
         }
 
         .slider.round:before {
-        border-radius: 50%;
+            border-radius: 50%;
         }
         .kotak{
             height: calc(100vh - var(--nav-height));
@@ -478,7 +490,7 @@
         <div class="row">
             <div class="col-lg-7 kotak home-display d-flex">
                 <div class="nav-samping text-center text-white">
-                    <div class="my-4 mt-5">
+                    <div class="my-4 mt-5" onclick="startConverting()" data-toggle="modal" data-target="#voice-modal">
                         <svg class="my-1 bi bi-mic" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
                             <path fill-rule="evenodd" d="M10 8V3a2 2 0 1 0-4 0v5a2 2 0 1 0 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
@@ -619,7 +631,7 @@
                     </div>
                     <div class="item item-mobile  col p-0">
                         <div class="isi-item d-flex flex-nowrap align-items-center bg-transparent">
-                            <div class="item col-6" data-toggle="modal" data-target="#exampleModal" onclick="startConverting()">
+                            <div class="item col-6" data-toggle="modal" data-target="#voice-modal" onclick="startConverting()">
                                 <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center bg-active">
                                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-mic mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
@@ -639,27 +651,28 @@
             </div>
           </div>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="voice-modal" aria-hidden="true">
+    <div class="modal fade" id="voice-modal" tabindex="-1" aria-labelledby="voice-modal" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <!-- <div class="modal-header">
               <h5 class="modal-title" id="voice-modal">Modal title</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-            </div>
+            </div> -->
             <div class="modal-body">
-                <div id="result"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary mx-auto w-50" onclick="startConverting()">
-                <h1>
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-mic-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
-                        <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-                      </svg>
-                </h1>    
-            </button>
+                <div id="result">Masukkan perintah...</div>
+                <div class="tombol mx-auto w-50 mt-5" onclick="startConverting()">
+                    <h1>
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-mic-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
+                            <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                          </svg>
+                    </h1>    
+                </div>
+            <!-- </div>
+            <div class="modal-footer"> -->
+              
             </div>
           </div>
         </div>
@@ -671,6 +684,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>
+        
         function cek_kotak(){
             height=$('.view-con').height()-$('.text-rumah').height();
             width=$('.view-con').width();
@@ -755,6 +769,8 @@
             cek_switch('#bAuto');
         }); 
 
+        
+
         function cek_switch(a){
             if ($(a+' label input').is(':checked')){
                 $(a+' label input').removeAttr('checked');
@@ -766,12 +782,19 @@
             
         }
         function startConverting() {
+            result.innerHTML="Masukkan perintah...";
             if ("webkitSpeechRecognition" in window) {
                 var speechRecognizer = new webkitSpeechRecognition();
                 speechRecognizer.continuous = true;
                 speechRecognizer.interimResults = true;
                 speechRecognizer.lang = "id-ID";
                 speechRecognizer.start();
+                
+                var myModalEl = document.getElementById('voice-modal')
+                myModalEl.addEventListener('hidden.bs.modal', function (e) {
+                    speechRecognizer.stop();
+                    result.innerHTML="Masukkan perintah...";
+                })
 
                 var finalTranscripts = "";
 
