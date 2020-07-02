@@ -42,7 +42,7 @@ function startConverting() {
     var speechRecognizer = new webkitSpeechRecognition();
     speechRecognizer.continuous = true;
     speechRecognizer.interimResults = true;
-    // speechRecognizer.lang = "en-US";
+    speechRecognizer.lang = "id-ID";
     speechRecognizer.start();
 
     var finalTranscripts = "";
