@@ -32,7 +32,7 @@ button {
 </head>
 <body>
 	<h3 align="center">Speech to text converter JavaScript</h3>
-	<h3 align="center">Version 0.1</h3>
+	<h3 align="center">Version 0.2</h3>
 	<div id="result"></div>
     <button onclick="startConverting();"><i class="fa fa-microphone btn btn-danger" aria-hidden="true"></i></button>
     <script>
@@ -54,7 +54,7 @@ function startConverting() {
         var transcript = event.results[i][0].transcript;
         transcript.replace("\n", "<br>");
         if (event.results[i].isFinal) {
-          finalTranscripts += transcript;
+          finalTranscripts = transcript;
         } else {
           interimTranscripts += transcript;
         }
