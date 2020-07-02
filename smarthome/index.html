@@ -48,7 +48,13 @@
             --font-cuaca-1:#DA6F00;
             --font-cuaca-bg-1:#FCC96D;
         }
-        
+        .modal-dialog {
+            position:fixed;
+            top:auto;
+            right:0;
+            left:0;
+            bottom:0;
+        }  
         .bg-active{
             background-color: var(--color-primary)!important;
             color: white!important;
@@ -613,7 +619,7 @@
                     </div>
                     <div class="item item-mobile  col p-0">
                         <div class="isi-item d-flex flex-nowrap align-items-center bg-transparent">
-                            <div class="item col-6">
+                            <div class="item col-6" data-toggle="modal" data-target="#exampleModal" onclick="startConverting()">
                                 <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center bg-active">
                                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-mic mx-auto" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
@@ -633,6 +639,31 @@
             </div>
           </div>
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="voice-modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="voice-modal">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div id="result"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary mx-auto w-50" onclick="startConverting()">
+                <h1>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-mic-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"/>
+                        <path fill-rule="evenodd" d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                      </svg>
+                </h1>    
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- Optional JavaScript -->
     <!-- Popper.js first, then Bootstrap JS -->
@@ -734,7 +765,43 @@
             $(a).toggleClass('aktif');
             
         }
+        function startConverting() {
+            if ("webkitSpeechRecognition" in window) {
+                var speechRecognizer = new webkitSpeechRecognition();
+                speechRecognizer.continuous = true;
+                speechRecognizer.interimResults = true;
+                speechRecognizer.lang = "id-ID";
+                speechRecognizer.start();
 
+                var finalTranscripts = "";
+
+                speechRecognizer.onresult = function (event) {
+                var interimTranscripts = "";
+                for (var i = event.resultIndex; i < event.results.length; i++) {
+                    var transcript = event.results[i][0].transcript;
+                    transcript.replace("\n", "<br>");
+                    if (event.results[i].isFinal) {
+                    finalTranscripts += transcript;
+                    } else {
+                    interimTranscripts += transcript;
+                    }
+                }
+                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    result.innerHTML =
+                    transcript;
+                }
+                else{
+                    result.innerHTML =
+                    interimTranscripts;
+                }
+                
+                };
+                speechRecognizer.onerror = function (event) {};
+            } else {
+                result.innerHTML =
+                "Your browser is not supported. Please download Google chrome or Update your Google chrome!!";
+            }
+        }
     </script>
   </body>
 </html>
