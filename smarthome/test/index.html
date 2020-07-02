@@ -54,16 +54,25 @@ function startConverting() {
         transcript.replace("\n", "<br>");
         if (event.results[i].isFinal) {
           finalTranscripts += transcript;
+          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            result.innerHTML =
+            finalTranscripts;
+          }
         } else {
           interimTranscripts += transcript;
         }
       }
-      result.innerHTML =
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      //  alert('mobile');
+      }
+      else{
+        result.innerHTML =
         '<span style="color: #000">'+
         finalTranscripts +
         '</span><span style="color: #999">' +
         interimTranscripts +
         "</span>";
+      }
     };
     speechRecognizer.onerror = function (event) {};
   } else {
