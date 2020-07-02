@@ -48,6 +48,7 @@
             --font-cuaca-1:#DA6F00;
             --font-cuaca-bg-1:#FCC96D;
         }
+        
         .bg-active{
             background-color: var(--color-primary)!important;
             color: white!important;
@@ -61,6 +62,9 @@
         }
         .hidden{
             display: none!important;
+        }
+        .aktif{
+            display: unset;
         }
         .switch {
         position: relative;
@@ -136,7 +140,7 @@
         }
         .keluar{
             left: calc(100% - var(--nav-height));
-            display: none;
+            display: none!important;
         }
         .keluar .bg-profil{
             background-color: transparent;
@@ -240,6 +244,7 @@
             background-color: white;
             height: 100%;
             border-radius: var(--border-radius-item);
+            transition: background-color ease 0.3s, color ease 0.5s;
         }
         .isi-item .text{
             font-size: 20px;
@@ -346,6 +351,10 @@
             margin-right: 3em!important;
         }
         @media only screen and (max-width: 991px){
+            .aktif{
+                background-color: var(--color-primary)!important;
+                color:white;
+            }
             .kotak{
                 height: calc(50vh - calc(var(--nav-height) / 2));
             }
@@ -405,10 +414,10 @@
                 display: none;
             }
             .keluar{
-                display: unset;
+                display: flex!important;
             }
         }
-        @media only screen and (max-width: 410px){
+        @media only screen and (max-width: 470px){
             .suhu-mobile{
                 font-size: 2vw;
                 left: calc(100% - 15em);
@@ -428,7 +437,7 @@
 
     <title>SMARTHOME</title>
   </head>
-  <body onresize="cek_kotak()">
+  <body>
     <div class="container-fluid p-0">
         <div class="navbarku text-center">
             <div class="profil">
@@ -488,7 +497,7 @@
                     </div>
                 </div>
                 <div class="view-con">
-                    <div class="display-6 px-5 w-100 text-rumah"><b>Halo,</b> Andika!</div>
+                    <div class="display-6 px-5 w-100 text-rumah"><span class="font-weight-bold">Halo,</span> <span class="font-weight-normal">Andika!</span></div>
                     <div class="rumah w-100">
                         <div class="box-rumah">
                             <div class="atap2"></div>
@@ -527,7 +536,7 @@
                 <div class="font-weight-bold panel-label">Control Panel</div>
                 <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-md-2 row-cols-2">
                     <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center">
+                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b1">
                             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-brightness-low ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
                                 <path d="M8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
@@ -536,13 +545,13 @@
                                 Lampu Bawah
                             </div>
                             <label class="switch mr-3 ml-auto">
-                                <input type="checkbox" class="tuas">
+                                <input type="checkbox" class="tuas" disabled>
                                 <span class="slider round"></span>
                               </label>
                         </div>
                     </div>
                     <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center">
+                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b2">
                             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-brightness-low ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
                                 <path d="M8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
@@ -551,13 +560,13 @@
                                 Lampu Atas
                             </div>
                             <label class="switch mr-3 ml-auto">
-                                <input type="checkbox" class="tuas">
+                                <input type="checkbox" class="tuas" disabled>
                                 <span class="slider round"></span>
                               </label>
                         </div>
                     </div>
                     <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center">
+                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b3">
                             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-key ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
                                 <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
@@ -566,13 +575,13 @@
                                 Pintu
                             </div>
                             <label class="switch my-auto mr-3 ml-auto">
-                                <input type="checkbox" class="tuas">
+                                <input type="checkbox" class="tuas" disabled>
                                 <span class="slider round"></span>
                               </label>
                         </div>
                     </div>
                     <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center">
+                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b4">
                             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-layout-split ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M14 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2z"/>
                                 <path fill-rule="evenodd" d="M7.5 14V2h1v12h-1z"/>
@@ -581,13 +590,13 @@
                                 Jendela
                             </div>
                             <label class="switch mr-3 ml-auto">
-                                <input type="checkbox" class="tuas">
+                                <input type="checkbox" class="tuas" disabled>
                                 <span class="slider round"></span>
                               </label>
                         </div>
                     </div>
                     <div class="item col">
-                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center">
+                        <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="b5">
                             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-door-closed ml-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2zm1 0v13h8V2H4z"/>
                                 <path d="M7 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
@@ -597,7 +606,7 @@
                                 Pagar
                             </div>
                             <label class="switch mr-3 ml-auto">
-                                <input type="checkbox" class="tuas">
+                                <input type="checkbox" class="tuas" disabled>
                                 <span class="slider round"></span>
                               </label>
                         </div>
@@ -613,7 +622,7 @@
                                 </div>
                             </div>
                             <div class="item  col-6">
-                                <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center">
+                                <div class="isi-item shadow-sm d-flex flex-nowrap align-items-center" id="bAuto">
                                     <div class="mx-auto font-weight-bold">AUTO</div>
                                 </div>
                             </div>
@@ -677,6 +686,8 @@
         cek_kotak();
 
         function startTime() {
+            cek_kotak();
+
             var today = new Date();
             var h = today.getHours();
             var m = today.getMinutes();
@@ -693,6 +704,37 @@
             return i;
         }
         startTime();
+
+        $('#b1').click(function(){
+            cek_switch('#b1');
+        });
+        $('#b2').click(function(){
+            cek_switch('#b2');
+        });
+        $('#b3').click(function(){
+            cek_switch('#b3');
+        });
+        $('#b4').click(function(){
+            cek_switch('#b4');
+        });
+        $('#b5').click(function(){
+            cek_switch('#b5');
+        }); 
+        $('#bAuto').click(function(){
+            cek_switch('#bAuto');
+        }); 
+
+        function cek_switch(a){
+            if ($(a+' label input').is(':checked')){
+                $(a+' label input').removeAttr('checked');
+            }
+            else{
+                $(a+' label input').attr('checked','checked');
+            }
+            $(a).toggleClass('aktif');
+            
+        }
+
     </script>
   </body>
 </html>
