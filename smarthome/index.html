@@ -449,13 +449,33 @@
             .suhu-mobile{
                 height: 80px;
                 width: 80px;
-                margin-left: calc(-100px);
+                margin-left: calc(-50px - 6vw);
                 transform: translateY(-50px);
-                /* background-color: black;; */
+            }
+            .suhu-mobile .angka{
+                font-size: 50pt;
+                top:-50px;
+            }
+            .suhu-mobile .unit{
+                font-size: 20pt;
+                left:80px;
+                top:0px;
+            }
+            .suhu-mobile .detail{
+                font-size: 20pt;
+                top:30px;
+            }
+        }
+        @media only screen and (max-width: 470px) and (max-height:640px){
+            .suhu-mobile{
+                height: 80px;
+                width: 80px;
+                margin-left: calc(-50px - 6vw);
+                transform: translateY(-50px);
             }
             .suhu-mobile .angka{
                 font-size: 24pt;
-                /* top: -50px; */
+                top:0px;
             }
             .suhu-mobile .unit{
                 font-size: 12pt;
