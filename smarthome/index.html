@@ -16,18 +16,18 @@
     <style>
         ::-webkit-scrollbar-track
             {
-                background-color: #F5F5F5;
+                background-color: #F5F5F500;
             }
         ::-webkit-scrollbar
             {
                 width: 4px;
-                background-color: #F5F5F5;
+                background-color: #F5F5F500;
                 border-radius: 100px;
             }
 
         ::-webkit-scrollbar-thumb
             {
-                background-color: var(--lampu-deactive);
+                background-color: var(--color-background-3);
                 border-radius: 100px;
             }
         :root{
@@ -47,6 +47,15 @@
             --cuaca-1:#FFD390;
             --font-cuaca-1:#DA6F00;
             --font-cuaca-bg-1:#FCC96D;
+        }
+        body{
+            transition: margin-top ease 0.75s;
+        }
+        .body-before{
+            margin-top:100vh;
+        }
+        .body-after{
+            margin-top: 0vh;
         }
         .modal-dialog {
             position:fixed;
@@ -407,10 +416,11 @@
             }
             .suhu-mobile{
                 color: var(--font-cuaca-1);
-                position: absolute;
-                display: unset;
-                top:250px;
-                left:calc(100% - 170px - 5vw);
+                position: relative;
+                display: inline-block;
+                height: 200px;
+                width: 200px;
+                margin-left: -100px;
             }
             .suhu-mobile .angka{
                 font-size: 5em;
@@ -420,13 +430,13 @@
             .suhu-mobile .unit{
                 font-size: 3em;
                 position: absolute;
-                top: 35px;
-                left: 2em;
+                left:90px;
+                top:35px;
             }
             .suhu-mobile .detail{
                 font-size: 2em;
                 position: absolute;
-                top:100px;
+                top: 95px;
             }
             .profil,.jam{
                 display: none;
@@ -437,25 +447,29 @@
         }
         @media only screen and (max-width: 470px){
             .suhu-mobile{
-                font-size: 2vw;
-                left: calc(100% - 15em);
+                height: 100px;
+                width: 100px;
+                margin-left: calc(-120px + 10vw);
+                background-color: black;;
             }
             .suhu-mobile .angka{
-                top: 1vw;
+                font-size: 24pt;
             }
             .suhu-mobile .unit{
-                top: 5vw;
-                left: 2em;
+                font-size: 12pt;
+                left:40px;
+                top:20px;
             }
             .suhu-mobile .detail{
-                top:13vw;
+                font-size: 12pt;
+                top:40px;
             }
         }
     </style>
 
     <title>SMARTHOME</title>
   </head>
-  <body>
+  <body class="body-before" onload="ready();">
     <div class="container-fluid p-0">
         <div class="navbarku text-center">
             <div class="profil">
@@ -684,7 +698,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script>
-        
+        function ready(){
+            $('body').addClass('body-after');
+        }
         function cek_kotak(){
             height=$('.view-con').height()-$('.text-rumah').height();
             width=$('.view-con').width();
