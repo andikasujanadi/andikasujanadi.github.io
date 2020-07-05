@@ -15,101 +15,125 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#5D38FF">
     <style>
         ::-webkit-scrollbar-track
-            {
-                background-color: #F5F5F500;
-            }
+          {
+            background-color: #F5F5F500;
+          }
         ::-webkit-scrollbar
-            {
-                width: 4px;
-                background-color: #F5F5F500;
-                border-radius: 100px;
-            }
+          {
+            width: 4px;
+            background-color: #F5F5F500;
+            border-radius: 100px;
+          }
 
         ::-webkit-scrollbar-thumb
-            {
-                background-color: var(--color-background-3);
-                border-radius: 100px;
-            }
+          {
+            background-color: var(--color-background-3);
+            border-radius: 100px;
+          }
         :root{
-            --nav-height:5rem;
-            --nav-width:7rem;
-            --color-background:#FDFDFD;
-            --color-background-2:#F7F6F9;
-            --color-background-3:#E8EAF0;
-            --color-primary:#5D38FF;
-            --border-radius:30px;
-            --border-radius-item:15px;
-            --rumah-radius:10px;
-            --rumah-active:#5D38FF;
-            --rumah-deactive:#B4BEDE;
-            --lampu-active:#FCC96D;
-            --lampu-deactive:#696571;
-            --cuaca-1:#FFD390;
-            --font-cuaca-1:#DA6F00;
-            --font-cuaca-bg-1:#FCC96D;
+          --nav-height:5rem;
+          --nav-width:7rem;
+          --color-background:#FDFDFD;
+          --color-background-2:#F7F6F9;
+          --color-background-3:#E8EAF0;
+          --color-primary:#5D38FF;
+          --border-radius:30px;
+          --border-radius-item:15px;
+          --rumah-radius:10px;
+          --rumah-active:#5D38FF;
+          --rumah-deactive:#B4BEDE;
+          --lampu-active:#FCC96D;
+          --lampu-deactive:#696571;
+          --cuaca-1:#FFD390;
+          --font-cuaca-1:#DA6F00;
+          --font-cuaca-bg-1:#FCC96D;
         }
         body, .container-fluid{
-            transition: margin-top ease 0.75s;
+          transition: margin-top ease 0.75s;
         }
         .body-before{
-            margin-top:100vh;
+          margin-top:100vh;
         }
         .body-after{
-            margin-top: 0vh;
+          margin-top: 0vh;
         }
         .preload{
-            transition: margin-top ease 1s;
-            position: absolute;
-            top: 0px;
-            height: 100vh;
-            width: 100vw;
-            background-color: white;
-            background: linear-gradient(to top, var(--lampu-active) 0%,  #FFFFFF00 5%);
-            z-index: 1000;
+          display: none;
+          transition: margin-top ease 1s;
+          position: absolute;
+          top: 0px;
+          height: 100vh;
+          width: 100vw;
+          background-color: white;
+          background: linear-gradient(to top, var(--lampu-active) 0%,  #FFFFFF00 5%);
+          z-index: 1000;
         }
         .modal-dialog {
-            position:fixed;
-            top:auto;
-            right:0;
-            left:0;
-            bottom:0;
-            border-radius: var(--border-radius-item)!important;
+          position:fixed;
+          top:auto;
+          right:0;
+          left:0;
+          bottom:0;
+          border-radius: var(--border-radius-item)!important;
         }  
         .modal-content{
-            border-radius: var(--border-radius-item)!important;
-            padding: 1em;
+          border-radius: var(--border-radius-item)!important;
+          padding: 1em;
+        }
+        .modal-backdrop{
+          backdrop-filter: blur(10px);
+          background-color: #00000070;
+        }
+        .show{
+          opacity: 1!important;
         }
         .tombol{
-            background-color: var(--color-primary);
-            text-align: center;
-            padding: 0.5em;
-            color: white;
-            border-radius: var(--border-radius-item);
+          background-color: var(--color-primary);
+          text-align: center;
+          padding: 0.5em;
+          color: white;
+          border-radius: var(--border-radius-item);
         }
         .bg-active{
-            background-color: var(--color-primary)!important;
-            color: white!important;
+          background-color: var(--color-primary)!important;
+          color: white!important;
         }
         .container-fluid{
-            overflow: hidden;
+          overflow: hidden;
         }
         body{
-            background-color: var(--color-background);
-            overflow: hidden;
+          background-color: var(--color-background);
+          overflow: hidden;
         }
         .hidden{
-            display: none!important;
+          display: none!important;
         }
         .aktif{
-            display: unset;
+          display: unset;
         }
         .switch {
-            position: relative;
-            display: inline-block;
-            width: 30px;
-            height: 20px;
+          position: relative;
+          display: inline-block;
+          width: 30px;
+          height: 20px;
         }
-
+        .input-login{
+          width: 100%;
+          border: hidden;
+          padding: 10px var(--border-radius-item);
+          border-radius: var(--border-radius-item);
+        }
+        .tombol-login:focus,.input-login:focus{
+          outline: 0 none;
+        }
+        .tombol-login{
+          width: 100%;
+          border: hidden;
+          padding: 10px var(--border-radius-item);
+          border-radius: var(--border-radius-item);
+          background-color: var(--color-primary);
+          color: white;
+        }
         .switch input { 
             opacity: 0;
             width: 0;
@@ -639,7 +663,7 @@
                         </svg>
                         <div>Statistics</div>
                     </div>
-                    <div class="my-4">
+                    <div class="my-4" onclick="logout()">
                         <svg class="my-1 bi bi-box-arrow-right" width="1.5em" height="1.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M11.646 11.354a.5.5 0 0 1 0-.708L14.293 8l-2.647-2.646a.5.5 0 0 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0z"/>
                             <path fill-rule="evenodd" d="M4.5 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
@@ -908,6 +932,9 @@
             cek_switch('#bAuto');
         }); 
 
+        function logout(){
+            window.open("https://andikasujanadi.github.io/smarthome/","_self")
+        }
         
 
         function cek_switch(a){
