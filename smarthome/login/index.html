@@ -736,11 +736,13 @@
                         <!-- <form action="index.html" method="GET">  -->
                         <div class="mb-3">
                             <label for="username" class="form-label font-weight-bold">Username</label>
-                            <input type="text" class="input-login shadow-sm" id="username" name="username" autocomplete="off" required>
+                            <input type="text" class="input-login shadow-sm" id="username" name="username" autocomplete="off" required readonly 
+                            onfocus="this.removeAttribute('readonly');">
                           </div>
                           <div class="mb-3">
                             <label for="password" class="form-label font-weight-bold">Password</label>
-                            <input type="password" class="input-login shadow-sm" id="password" name="password">
+                            <input type="password" class="input-login shadow-sm" id="password" name="password" readonly 
+                            onfocus="this.removeAttribute('readonly');">
                           </div>
                           <button type="submit" onclick="loading()" class="tombol-login mt-4">Login</button>
                         </form>
