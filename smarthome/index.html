@@ -606,13 +606,15 @@
   </head>
   <body class=" body-before" onload="ready();">
     <div class="preload">
-        <ul class="kotak-bg">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <div class="loader">
+            <div class="wrapper">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </div>
     </div>
     <div class="container-fluid p-0">
         <div class="navbarku text-center">
@@ -673,7 +675,10 @@
                     </div>
                 </div>
                 <div class="view-con">
-                    <div class="display-6 px-5 w-100 text-rumah"><span class="font-weight-bold">Halo,</span> <span class="font-weight-normal">Andika!</span></div>
+                    <div class="display-6 px-5 w-100 text-rumah">
+                        <span id="ucapan" class="font-weight-bold">Halo,</span> 
+                        <span id="nama" class="font-weight-normal">Andika!</span>
+                    </div>
                     <div class="rumah w-100">
                         <div class="box-rumah">
                             <div class="atap2"></div>
@@ -934,6 +939,7 @@
 
         function logout(){
             window.open("https://andikasujanadi.github.io/smarthome/login/","_self")
+            // window.open("login.html","_self")
         }
         
 
@@ -995,6 +1001,29 @@
                 "Your browser is not supported. Please download Google chrome or Update your Google chrome!!";
             }
         }
+        function nama(){
+            link=window.location.href;
+            d_nama="";
+            s_nama=false;
+            u_nama=false;
+            for(i=0;i<link.length;i++){
+                if(link[i]=="&"){
+                    s_nama=false;
+                }
+                if(link[i]=="?"){
+                    u_nama=false;
+                }
+                if(s_nama){
+                    d_nama+=link[i];
+                }
+                if(link[i]=="=" && !u_nama){
+                    s_nama=true;
+                    u_nama=true;
+                }
+            }
+            $("#nama").text(d_nama.charAt(0).toUpperCase() + d_nama.slice(1)+"!");
+        }
+        nama();
     </script>
   </body>
 </html>
