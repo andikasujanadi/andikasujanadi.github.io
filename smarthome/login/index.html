@@ -58,15 +58,67 @@
           margin-top: 0vh;
         }
         .preload{
-          display: none;
-          transition: margin-top ease 1s;
           position: absolute;
+          transition: opacity ease 0.5s;
+          z-index: 1000;
+          pointer-events: none;
+          opacity: 0;
           top: 0px;
           height: 100vh;
           width: 100vw;
           background-color: white;
-          background: linear-gradient(to top, var(--lampu-active) 0%,  #FFFFFF00 5%);
-          z-index: 1000;
+        }
+        .preload-after{
+            opacity: 1;
+        }
+        .loader,.wrapper {
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+        .loader {
+            width:90vw;
+        }
+        .loader .wrapper span {
+            width:5px;
+            height:5px;
+            background:var(--color-primary);
+            display:inline-block;
+            position:relative;
+            margin:0px 2px;
+            border-radius:50%;
+            opacity:0;
+            animation:loading 2000ms ease-in-out infinite;
+        }
+        .loader .wrapper span:nth-child(5) {
+        animation-delay:100ms;
+        }
+        .loader .wrapper span:nth-child(4) {
+        animation-delay:200ms;
+        }
+        .loader .wrapper span:nth-child(3) {
+        animation-delay:300ms;
+        }
+        .loader .wrapper span:nth-child(2) {
+        animation-delay:400ms;
+        }
+        .loader .wrapper span:nth-child(1) {
+        animation-delay:500ms;
+        }
+        @keyframes loading {
+            0% {
+                transform:translateX(-350px);
+                opacity:0;
+            }
+            35%,65% {
+                transform:translateX(0px);
+                opacity:1;
+            }
+            100% {
+                transform:translateX(350px);
+                opacity:0;
+            }  
         }
         .modal-dialog {
           position:fixed;
@@ -606,13 +658,15 @@
   </head>
   <body class=" body-before" onload="ready();">
     <div class="preload">
-        <ul class="kotak-bg">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+        <div class="loader">
+            <div class="wrapper">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </div>
     </div>
     <div class="container-fluid p-0">
         <div class="navbarku text-center">
@@ -679,15 +733,16 @@
                 <div class="row">
                   <div class="col-md-6 col-lg-12 mx-auto">
                       <form action="https://andikasujanadi.github.io/smarthome/" method="GET"> 
-                          <div class="mb-3">
+                        <!-- <form action="index.html" method="GET">  -->
+                        <div class="mb-3">
                             <label for="username" class="form-label font-weight-bold">Username</label>
-                            <input type="text" class="input-login shadow-sm" id="username" name="username" autocomplete="off">
+                            <input type="text" class="input-login shadow-sm" id="username" name="username" autocomplete="off" required>
                           </div>
                           <div class="mb-3">
                             <label for="password" class="form-label font-weight-bold">Password</label>
                             <input type="password" class="input-login shadow-sm" id="password" name="password">
                           </div>
-                          <button type="submit" class="tombol-login mt-4">Login</button>
+                          <button type="submit" onclick="loading()" class="tombol-login mt-4">Login</button>
                         </form>
                     </div>
                 </div>
@@ -723,13 +778,18 @@
     <script>
         function ready(){
             $('body').addClass('body-after');
-            $('.preload').css('margin-top','100vh')
+            // $('.preload').css('margin-top','100vh')
             var t = setTimeout(ready_go, 1000);
             
         }
         function ready_go(){
             setTimeout(ready_go,5000);
-            $('.preload').remove();
+            // $('.preload').remove();
+        }
+        function loading(){
+            
+            if($("#username").val()=='') return;    
+            $('.preload').addClass('preload-after');
         }
         function cek_kotak(){
             height=$('.view-con').height()-$('.text-rumah').height();
@@ -796,6 +856,7 @@
         }
         startTime();
 
+        
         
     </script>
   </body>
