@@ -737,7 +737,7 @@
                         <div class="mb-3">
                             <label for="username" class="form-label font-weight-bold">Username</label>
                             <input type="text" class="input-login shadow-sm" id="username" name="username" autocomplete="off" required readonly 
-                            onfocus="this.removeAttribute('readonly');">
+                            onfocus="this.removeAttribute('readonly');" onkeydown="return event.key != 'Enter'">
                           </div>
                           <div class="mb-3">
                             <label for="password" class="form-label font-weight-bold">Password</label>
