@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
+    <title>Hello, world!</title>
+    <style>
+        .body, html, h1{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height:100vh;
+            width:100vw;
+            transition: background ease 2s, color ease 1s;
+            overflow: hidden;
+        }
+        #fs{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .layer1{
+            text-align: center;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .layer1b{
+            background:#202040;
+            color:#ff6363;
+        }
+        .layer1c{
+            background: #543864;
+            color:#ffbd69;
+        }
+        .kotak{
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			overflow: hidden;
+  			z-index: -1;
+  		}
+  		.kotak li{
+  			position: absolute;
+  			display: block;
+  			list-style: none;
+  			width: 25px;
+  			height: 25px;
+  			background: #ff6363;
+  			animation: animate 20s linear infinite; 
+  			bottom: -150px;
+  			transition: all 1s ease;
+  		}
+  		.kotak li:nth-child(1){
+  			left: 86%;
+  			width: 80px;
+  			height: 80px;
+  			animation-delay: 0s;
+  		}
+  		.kotak li:nth-child(2){
+  			left: 12%;
+  			width: 30px;
+  			height: 30px;
+  			animation-delay: 1.5s;
+  			animation-duration: 10s;
+  		}
+  		.kotak li:nth-child(3){
+  			left: 70%;
+  			width: 100px;
+  			height: 100px;
+  			animation-delay: 5.5s;
+  		}
+  		.kotak li:nth-child(4){
+  			left: 42%;
+  			width: 70px;
+  			height: 70px;
+  			animation-delay: 0s;
+  			animation-duration: 15s; 
+  		}
+  		.kotak li:nth-child(5){
+  			left: 15%;
+  			width: 110px;
+  			height: 110px;
+  			animation-delay: 3.5s;
+  		}
+          @keyframes animate{
+  			0%{
+  				transform: translateY(0) rotate(0deg);
+  				opacity: 1;
+  			}
+  			100%{
+  				transform: translateY(-100vh) rotate(360deg);
+  				opacity: 0;
+  			}
+  		}
+  		@keyframes animate2{
+  			0%{
+  				transform:rotate(0deg);
+  			}
+  			100%{
+  				transform:rotate(360deg);
+  			}
+  		}
+  		@keyframes animate3{
+  			0%{
+  				transform:rotate(360deg);
+  			}
+  			100%{
+  				transform:rotate(0deg);
+  			}
+  		}
+    </style>
+  </head>
+  <body>
+    <ul class="kotak">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="layer1">
+        <h1 id="mytext">Hello, World!</h1>
+    </div>
+    <button id="fs" class="btn btn-primary m-3">ckick here first (for fullscreen)</button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script>
+        $('.kotak').fadeOut();
+        var elem = document.documentElement;
+        $('#fs').click(function(){
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { 
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { 
+                elem.msRequestFullscreen();
+            }
+            $('body').addClass('layer1b');
+            $('.kotak').fadeIn();
+            $('#fs').remove();
+            setTimeout(fungsi2,(3000));
+        });
+        function fungsi2(){
+            $('#mytext').text("Hello, Worl!");
+            setTimeout(fungsi3,(500));
+        }
+        function fungsi3(){
+            $('#mytext').text("Hello, Wor");
+            setTimeout(fungsi4,(400));
+        }
+        function fungsi4(){
+            $('#mytext').text("Hello, Wo");
+            setTimeout(fungsi5,(300));
+        }
+        function fungsi5(){
+            $('#mytext').text("Hello, W");
+            setTimeout(fungsi6,(500));
+        }
+        function fungsi6(){
+            $('#mytext').text("Hello");
+            setTimeout(fungsi7,(300));
+        }
+        function fungsi7(){
+            $('#mytext').text("Hello, My World! (whoopsy)");
+            setTimeout(fungsi8,(200));
+        }
+        function fungsi8(){
+            $('body').addClass('layer1c');
+            $('body').removeClass('layer1b');
+            $('#mytext').text("Hello, Rini!");
+            setTimeout(fungsi9,(5000));
+        }
+        function fungsi9(){
+            var date = new Date();
+            var h = date.getHours();
+            
+            if(h>=11){
+                $('#mytext').text("Good Afternoon");
+            }
+            else if(h>=6){
+                $('#mytext').text("Good Morning");
+            }
+            else{
+                $('#mytext').text("it's getting late");
+            }
+            setTimeout(fungsi10,(5000));
+        }
+        function fungsi10(){
+            $('body').addClass('layer1b');
+            $('body').removeClass('layer1c');
+            $('#mytext').text("Congratulation");
+            setTimeout(fungsi11,(1000));
+        }
+        function fungsi11(){
+            $('#mytext').text("Congratulation on");
+            setTimeout(fungsi12,(500));
+        }
+        function fungsi12(){
+            $('#mytext').text("Congratulation on your");
+            setTimeout(fungsi13,(300));
+        }
+        function fungsi13(){
+            $('#mytext').text("Congratulation on your birthday").delay(2000).fadeOut();
+            setTimeout(fungsi14,(3000));
+        }
+        function fungsi14(){
+            $('#mytext').text("Selamat Ulang Tahun").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi15,(4000));
+        }
+        function fungsi15(){
+            $('#mytext').text("Semoga Panjang Umur").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi16,(4000));
+        }
+        function fungsi16(){
+            $('#mytext').text("Selalu Baik Baik Saja").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi17,(4000));
+        }
+        function fungsi17(){
+            $('#mytext').text("Selalu Happy").fadeIn().delay(2000).fadeOut();
+            setTimeout(fungsi18,(3000));
+        }
+        function fungsi18(){
+            $('#mytext').text("Apapun yang Terjadi").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi19,(4000));
+        }
+        function fungsi19(){
+            $('#mytext').text("Tuhan Selalu Menyayangimu").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi20,(4000));
+        }
+        function fungsi20(){
+            $('#mytext').text("Apapun Takdir yang Dia Beri").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi21,(4000));
+        }
+        function fungsi21(){
+            $('#mytext').text("Itulah").fadeIn().delay(1000).fadeOut();
+            setTimeout(fungsi22,(3000));
+        }
+        function fungsi22(){
+            $('#mytext').text("Itulah yang Terbaik Untukmu Saat Ini..").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi23,(4000));
+        }
+        function fungsi23(){
+            $('#mytext').text("..Dan Untuk Kedepannya Juga").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi24,(4000));
+        }
+        function fungsi24(){
+            $('body').addClass('layer1c');
+            $('body').removeClass('layer1b');
+            $('#mytext').text("Selamat Ulang Tahun Rini!!!!").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi25,(4000));
+        }
+        function fungsi25(){
+            $('#mytext').text("Sorry ya gak bisa ngasih apa-apa untuk sekarang, cuma bisa ngasih doa huhu:(").fadeIn().delay(4000).fadeOut();
+            setTimeout(fungsi26,(5000));
+        }
+        function fungsi26(){
+            $('#mytext').text("Udahan yakkk, dadahhhhh").fadeIn().delay(3000).fadeOut();
+            setTimeout(fungsi27,(4000));
+        }
+        function fungsi27(){
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { 
+                document.msExitFullscreen();
+            }
+            $('body').remove();
+        }
+    </script>
+</body>
+</html>
