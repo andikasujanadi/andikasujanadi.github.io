@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/mystyle.css">
+    <link rel="stylesheet" href="/assets/css/mystyle.css">
     <title>SBA</title>
   </head>
-  <body data-spy="scroll" data-target="#mynavbar" data-offset="0" tabindex="0" class="scrollbar--light-reversed-off">
+  <body data-spy="scroll" data-target="#mynavbar" data-offset="20" tabindex="0" class="scrollbar--light-reversed-off">
     <nav id="mynavbar" class="navbar sticky-top navbar-expand-md navbar-light bg-white py-2 px-5">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">SBA</a>
-            <button class="navbar-toggler btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler btn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -35,8 +35,15 @@
             </div>
         </div>
     </nav>
+    <div id="top" class="top">
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+            </svg>
+        </span>
+    </div>
     <div class="container-fluid px-5">
-        <div id="home" class="h100">
+        <div id="home" class="h100 pos-unset">
             <div class="bag1 position-absolute">
                 <p class="display-1 lh-l fw-bold">Sinar</p>
                 <p class="display-1 lh-l fw-bold">Bintang</p>
@@ -48,68 +55,199 @@
             <img src="assets/img/truck1.png" alt="SBA" class="bag2 gambar1 position-absolute">
             
         </div>
+<!--         
+        <div class="halaman bg-white">
+            <div class="container-fluid p-5">
+                <h1 class="display-1">
+                    <svg onclick="kembali()" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                    </svg>
+                    Klien Kami
+                </h1>
+                <div class="garis2 mt-4"></div>
+                <div class="konten">
+                    <div class="row text-justify px-5 mt-5 mr-1">
+                        <div class="col-lg border m-2 py-2 px-3 rounded">
+                            Client yang telah bekerja sama dengan PT. Sinar Bintang Albar
+                            <ul>
+                                <li>PT. Etam Bersama Lestari</li>
+                                <li>PT. Balikpapan Forest Indonesia</li>
+                                <li>PT. Tritunggal Sentra Buana</li>
+                                <li>PT. Sukses Tani Nusasubur</li>
+                                <li>PT. Subur Abadi Plantations</li>
+                                <li>PT. Karyanusa Eka Daya</li>
+                                <li>PT. Kutai Balian</li>
+                                <li>PT. Sumber Karisma Persada</li>
+                                <li>PT. Cipta Narada Lestari</li>
+                                <li>PT. Waru Kaltim Plantations</li>
+                                <li>PT. Sumber Bunga Sawit Lestari</li>
+                                <li>PT. Pucuk Jaya</li>
+                                <li>PT. Kaliraya Sari</li>
+                                <li>PT. London Sumatra</li>
+                                <li>PT. Surya Hutani Jaya</li>
+                                <li>PT. Gawi Makmur Kalimantan</li>
+                                <li>PT. Anugrah Agung Prima Abadi</li>
+                                <li>PT. Sawit Unggul Agro Niaga</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg border m-2 py-2 px-3 rounded">
+                            Perusahaan pemanfaat/pemusnah yang telah bekerja sama dengan PT. Sinar Bintang Albar
+                        <ul>
+                            <li>PT. Sumber Usaha Gemilang</li>
+                            <li>PT. Prasada Pamunah Limbah Industri</li>
+                            <li>PT. Kharisma Jaya Mandiri</li>
+                            <li>PT. Kharisma Jaya Mandiri</li>
+                            <li>PT. Sumber Anugrah Utama</li>
+                            <li>PT. Indra Era Multi Logam Industri</li>
+                            <li>PT. Hidup Makmur Steel</li>
+                            <li>PT. Balikpapan Environmental Services</li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         -->
         <div id="tentang" class="h100 d-flex flex-row align-items-center justify-content-between row">
-            <div class="bag1 col">
+            <div class="bag1 col-12 col-lg-5">
                 <p class="display-1 lh-l fw-bold">Tentang</p>
                 <p class="display-1 lh-l fw-bold">Kami</p>
                 <div class="garis mb-3"></div>
             </div>
-            <div class="bag2 col-md-12 col-lg row text-white py-5 ml-5">
-                <div class="col-lg-6 px-5">
-                    <h6>Tentang Perusahaan</h6>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus libero velit nam magnam dolorem corporis ratione rerum veritatis aspernatur, quidem voluptates aperiam numquam asperiores illo nostrum pariatur? Assumenda, dolore accusantium!</p>
-                </div>
-                <div class="col-lg-6 px-5">
-                    <h6>Kenapa Harus Kami</h6>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni quasi doloribus nobis exercitationem excepturi praesentium sunt quod molestias corrupti quaerat iusto cumque inventore dignissimos consequatur numquam eius cum vel, consectetur hic nihil aut maiores doloremque.</p>
-                </div>
-                <div class="col-lg-6 px-5">
-                    <h6>Visi dan Misi</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In sed consequatur animi illum voluptate ipsa recusandae veniam doloremque quas culpa dolore at commodi fugiat, accusamus exercitationem ratione quam et dolorem cumque ullam? Quibusdam exercitationem amet, nihil rem voluptatem unde possimus.</p>
-                </div>
-                <div class="col-lg-6 px-5">
-                    <h6>Klien Kami</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita quod alias sed iure quam, aperiam tempore blanditiis. Quis voluptatem, veritatis odio possimus quisquam similique consequuntur reprehenderit magnam repellat recusandae commodi?</p>
+            <div class="bag2 col-12 col-lg-7 text-white py-5">
+                <div class="row">
+                    <div class="col-sm-6 px-5">
+                        <h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                            </svg>
+                        </h1>
+                        <h6 class="my-3">Latar Belakang</h6>
+                        <button id="lb_btn" class="btn btn-outline-light px-3 mb-3">Detail
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-arrow-right-circle-fill mb-1 ml-3" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-11.5.5a.5.5 0 0 1 0-1h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5z"/>
+                            </svg>
+                        </button>
+                        
+                    </div>
+                    <div class="col-sm-6 px-5">
+                        <h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-signpost" viewBox="0 0 16 16">
+                                <path d="M7 1.414V4h2V1.414a1 1 0 0 0-2 0z"/>
+                                <path fill-rule="evenodd" d="M12.532 5H2v4h10.532l1.666-2-1.666-2zM2 4a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h10.532a1 1 0 0 0 .768-.36l1.933-2.32a.5.5 0 0 0 0-.64L13.3 4.36a1 1 0 0 0-.768-.36H2z"/>
+                                <path d="M7 10h2v6H7v-6z"/>
+                            </svg>
+                        </h1>
+                        <h6 class="my-3">Visi dan Misi</h6>
+                        <button id="vm_btn" class="btn btn-outline-light px-3 mb-3">Detail
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-arrow-right-circle-fill mb-1 ml-3" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-11.5.5a.5.5 0 0 1 0-1h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5z"/>
+                            </svg>
+                        </button>
+                        <p class="text-justify hide">
+                            Visi dan Misi kami sebagai perusahaan dalam pengelolaan limbah terpadu berupaya untuk menjadi yang terbaik dalam pengelolaan limbah dan secara terus menerus meningkatkan dan melebarkan pangsa pasar kami dengan menawarkan jasa manfaat dan pelayanan yang superior bagi para klien dan stakeholder dengan senantiasa mengoptimalkan sumber daya yang ada serta inovasi yang optimal.
+                        </p>
+                    </div>
+                    <div class="col-sm-6 px-5">
+                        <h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16v-1c.563 0 .901-.272 1.066-.56a.865.865 0 0 0 .121-.416c0-.12-.035-.165-.04-.17l-.354-.354.353-.354c.202-.201.407-.511.505-.804.104-.312.043-.441-.005-.488l-.353-.354.353-.354c.043-.042.105-.14.154-.315.048-.167.075-.37.075-.581 0-.211-.027-.414-.075-.581-.05-.174-.111-.273-.154-.315L12.793 9l.353-.354c.353-.352.373-.713.267-1.02-.122-.35-.396-.593-.571-.652-.653-.217-1.447-.224-2.11-.164a8.907 8.907 0 0 0-1.094.171l-.014.003-.003.001a.5.5 0 0 1-.595-.643 8.34 8.34 0 0 0 .145-4.726c-.03-.111-.128-.215-.288-.255l-.262-.065c-.306-.077-.642.156-.667.518-.075 1.082-.239 2.15-.482 2.85-.174.502-.603 1.268-1.238 1.977-.637.712-1.519 1.41-2.614 1.708-.394.108-.62.396-.62.65v4.002c0 .26.22.515.553.55 1.293.137 1.936.53 2.491.868l.04.025c.27.164.495.296.776.393.277.095.63.163 1.14.163h3.5v1H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>
+                            </svg>
+                        </h1>
+                        <h6 class="my-3">Kenapa Harus Kami</h6>
+                        <button id="kh_btn" class="btn btn-outline-light px-3 mb-3">Detail
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-arrow-right-circle-fill mb-1 ml-3" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-11.5.5a.5.5 0 0 1 0-1h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5z"/>
+                            </svg>
+                        </button>
+                        <p class="text-justify hide">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni quasi doloribus nobis exercitationem excepturi praesentium sunt quod molestias corrupti quaerat iusto cumque inventore dignissimos consequatur numquam eius cum vel, consectetur hic nihil aut maiores doloremque.</p>
+                    </div>
+                    <div class="col-sm-6 px-5">
+                        <h1>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                            </svg>
+                        </h1>
+                        <h6 class="my-3">Klien Kami</h6>
+                        <button id="kk_btn" class="btn btn-outline-light px-3 mb-3">Detail
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-arrow-right-circle-fill mb-1 ml-3" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-11.5.5a.5.5 0 0 1 0-1h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5z"/>
+                            </svg>
+                        </button>
+                        <p class="text-justify hide">
+                            Client yant telah bekerja sama dengan PT. Sinar Bintang Albar
+                            <ul class="hide">
+                                <li>PT. Etam Bersama Lestari</li>
+                                <li>PT. Balikpapan Forest Indonesia</li>
+                                <li>PT. Tritunggal Sentra Buana</li>
+                                <li>PT. Sukses Tani Nusasubur</li>
+                                <li>PT. Subur Abadi Plantations</li>
+                                <li>PT. Karyanusa Eka Daya</li>
+                                <li>PT. Kutai Balian</li>
+                                <li>PT. Sumber Karisma Persada</li>
+                                <li>PT. Cipta Narada Lestari</li>
+                                <li>PT. Waru Kaltim Plantations</li>
+                                <li>PT. Sumber Bunga Sawit Lestari</li>
+                                <li>PT. Pucuk Jaya</li>
+                                <li>PT. Kaliraya Sari</li>
+                                <li>PT. London Sumatra</li>
+                                <li>PT. Surya Hutani Jaya</li>
+                                <li>PT. Gawi Makmur Kalimantan</li>
+                                <li>PT. Anugrah Agung Prima Abadi</li>
+                                <li>PT. Sawit Unggul Agro Niaga</li>
+                            </ul>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="jasa" class="h100 row d-flex flex-row-reverse">
-            <div class="bag2 col-md-5">
-                <div class="container py-5 px-4">
-                    <h1 class="mb-5">Pelayanan</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi atque facere, vero, neque provident dolore natus tenetur unde asperiores pariatur obcaecati dicta ullam perspiciatis esse beatae sint deleniti, voluptas eum. Eius praesentium ullam autem dolorem provident rerum culpa perferendis, ea blanditiis commodi reiciendis deleniti suscipit minus expedita neque. Voluptas, tempora voluptatem quis corporis consectetur neque modi nobis? Perspiciatis, doloremque. Magni exercitationem hic ratione rem pariatur maiores nisi nam, odit perferendis distinctio officia ad qui quasi! Laboriosam maxime provident illo possimus, blanditiis totam aperiam similique! Animi cupiditate molestias aperiam, facere numquam nesciunt voluptatibus similique? Praesentium error nam ipsum amet quis similique.</p>
+        <div id="jasa" class="h100">
+            <div class="row d-flex flex-row-reverse">
+                <div class="bag2 col-lg-5 h100">
+                    <div class="container py-5 px-4">
+                        <h1 class="mb-5">Pelayanan</h1>
+                        <!-- <p class="mark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi atque facere, vero, neque provident dolore natus tenetur unde asperiores pariatur obcaecati dicta ullam perspiciatis esse beatae sint deleniti, voluptas eum. Eius praesentium ullam autem dolorem provident rerum culpa perferendis, ea blanditiis commodi reiciendis deleniti suscipit minus expedita neque. Voluptas, tempora voluptatem quis corporis consectetur neque modi nobis? Perspiciatis, doloremque. Magni exercitationem hic ratione rem pariatur maiores nisi nam, odit perferendis distinctio officia ad qui quasi! Laboriosam maxime provident illo possimus, blanditiis totam aperiam similique! Animi cupiditate molestias aperiam, facere numquam nesciunt voluptatibus similique? Praesentium error nam ipsum amet quis similique.</p> -->
+                    </div>
+                    <img src="assets/img/truck2.png" class="w-100 position-absolute" alt="SBA">
                 </div>
-                <img src="assets/img/truck2.png" class="w-100 position-absolute" alt="SBA">
+                <div class="bag1 col-lg-7 d-flex flex-column flex-wrap justify-content-evenly">
+                    <div class="border border-secondary rounded p-3 py-5">
+                        <h1>Penganggutan Limbah B3</h1>
+                        <p>PT. Sinar Bintang Albar memiliki beberapa jenis armada pengangkutan limbah B3 yaitu : Dump Truck,Ligh Truck, Tronton, Trailer dan Kendaraan Pengangkut Limbah Medis. Semua kendaraan pengangkutan sudah dilengkapi dengan surat rekomendasi dari Kementerian Lingkungan Hidup dan Kehutanan (KLHK) dan izin dari Dinas Perhubungan untuk pengangkutan limbah B3.</p>
+                    </div>
+                    <div class="border border-secondary rounded p-3 mt-5 py-5">
+                        <h1>Pengumpulan Limbah B3</h1>
+                        <p>PT. Sinar Bintang Albar saat ini mempunyai izin pengumpulan skala nasional dan propinsi. Saat ini telah memiliki 2 lokasi pengumpulan B3 yaitu:</p>
+                        <ul>
+                            <li>Di Liang Anggang, Banjarbaru,  Kalimantan Selatan (Sebagai Head Office)</li>
+                            <li>Di Kariangau, Balikpapan, Kalimantan Timur (Sebagai Branch Ofiice)</li>
+                        </ul>
+                    </div>
+                    <div class="border border-secondary rounded p-3 mt-5 py-5">
+                        <h1>Pengangkutan</h1>
+                        <p class="mark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam veritatis est inventore dolor dolorum accusantium beatae quidem deserunt! Labore esse sit quasi tenetur, atque officiis dicta iure. Quas est quidem delectus aliquam quae earum placeat et, sunt id eum tempora sint laboriosam consequatur nisi alias omnis. Reiciendis explicabo id repudiandae.</p>
+                    </div>
+                    <div class="border border-secondary rounded p-3 mt-5 py-5">
+                        <h1>Cleaning Tank</h1>
+                        <p class="mark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam veritatis est inventore dolor dolorum accusantium beatae quidem deserunt! Labore esse sit quasi tenetur, atque officiis dicta iure. Quas est quidem delectus aliquam quae earum placeat et, sunt id eum tempora sint laboriosam consequatur nisi alias omnis. Reiciendis explicabo id repudiandae.</p>
+                    </div>
+                </div>
             </div>
-            <div class="bag1 col-md-7 d-flex flex-column flex-wrap justify-content-evenly">
-                <div class="border border-secondary rounded p-3 py-5">
-                    <h1>Penganggutan Limbah B3</h1>
-                    <p>PT. Sinar Bintang Albar memiliki beberapa jenis armada pengangkutan limbah B3 yaitu : Dump Truck,Ligh Truck, Tronton, Trailer dan Kendaraan Pengangkut Limbah Medis. Semua kendaraan pengangkutan sudah dilengkapi dengan surat rekomendasi dari Kementerian Lingkungan Hidup dan Kehutanan (KLHK) dan izin dari Dinas Perhubungan untuk pengangkutan limbah B3.</p>
-                </div>
-                <div class="border border-secondary rounded p-3 mt-5 py-5">
-                    <h1>Pengumpulan Limbah B3</h1>
-                    <p>PT. Sinar Bintang Albar saat ini mempunyai izin pengumpulan skala nasional dan propinsi. Saat ini telah memiliki 2 lokasi pengumpulan B3 yaitu:</p>
-                    <ul>
-                        <li>Di Liang Anggang, Banjarbaru,  Kalimantan Selatan (Sebagai Head Office)</li>
-                        <li>Di Kariangau, Balikpapan, Kalimantan Timur (Sebagai Branch Ofiice)</li>
-                    </ul>
-                </div>
-            </div>
-            
         </div>
-        <div id="csr" class="h100 row d-flex flex-row align-items-center">
+        <div id="csr" class="h100 row d-flex flex-row align-items-center pos-unset">
             <div class="bag1 col-md-5">
                 <h1>Corporate Social Responsibility</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam veritatis est inventore dolor dolorum accusantium beatae quidem deserunt! Labore esse sit quasi tenetur, atque officiis dicta iure. Quas est quidem delectus aliquam quae earum placeat et, sunt id eum tempora sint laboriosam consequatur nisi alias omnis. Reiciendis explicabo id repudiandae.</p>
+                <p class="mark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam veritatis est inventore dolor dolorum accusantium beatae quidem deserunt! Labore esse sit quasi tenetur, atque officiis dicta iure. Quas est quidem delectus aliquam quae earum placeat et, sunt id eum tempora sint laboriosam consequatur nisi alias omnis. Reiciendis explicabo id repudiandae.</p>
             </div>
             <div class="bag2 col-md-7 d-flex flex-column justify-content-evenly">
                 <img src="assets/img/truck3.png" alt="" class="mr-5">
             </div>
         </div>
-        <div id="kontak" class="h100">
+        <div id="kontak" class="h100 pos-unset">
             <div class="bag1 d-flex flex-column align-items-center justify-content-center">
                 <h1 class="mt-5 mb-4">Hubungi Kami</h1>
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt obcaecati minus dolorum tempore dolores! Nemo sint fugiat laborum eius, pariatur minus eaque aliquid tenetur fuga vitae, reprehenderit quis. Animi, vitae. Soluta illo dignissimos ullam deserunt perspiciatis error molestias doloremque fugit libero, numquam magni doloribus, consequuntur eaque veniam explicabo necessitatibus quo.</p>
+                <p class="text-center mark">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt obcaecati minus dolorum tempore dolores! Nemo sint fugiat laborum eius, pariatur minus eaque aliquid tenetur fuga vitae, reprehenderit quis. Animi, vitae. Soluta illo dignissimos ullam deserunt perspiciatis error molestias doloremque fugit libero, numquam magni doloribus, consequuntur eaque veniam explicabo necessitatibus quo.</p>
                 <div class="tombol mb-5 text-center">
                     <a href="" class="btn btn-success px-5 py-3 mx-2 mt-3">Email</a>
                     <a href="" class="btn btn-success px-5 py-3 mx-2 mt-3">WhatsApp</a>
@@ -123,9 +261,9 @@
                 </div>
                 <div class="col-md-3">
                     <h4>Kantor Pusat</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, labore?</p>
+                    <p class="mark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, labore?</p>
                     <h4>Kantor Cabang</h4>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, labore?</p>
+                    <p class="mark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, labore?</p>
                 </div>
                 <div class="col-md-6">
                     <div style="height: 50vh;" class="p-5">
@@ -135,10 +273,61 @@
             </div>
         </div>
     </div>
+    <script>window.scrollTo(0, 0);</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script>
-        var _0x5cd1=['sxfNv3a=','v0zSAem=','rKHVD3y=','Dg9tDhjPBMC=','rgjRCNG=','z1DQs3C=','y3rVCIGICMv0Dq==','z0Pgu3C=','Aw5MBW==','Afnbrgm=','yMLUza==','AfzYEKu=','zg9JDw1LBNq=','Bg9N','CM4GDgHPCYiPka==','C3bSAxq=','swHguNq=','uKDiAM0=','sLPStK0=','tNPVBxO=','Aw5JBhvKzxm=','zgKUz2L0AhvIlG==','sg9MzuG=','CMvTB3zL','vMLvCfG=','EvjTCvq=','DvzdA0C=','CMv0DxjUic8Iia==','ANn1BLy=','A0zwEuW=','vfvbDwK=','DgvZDa==','x19WCM90B19F','DgjerNG=','y2PyDMO=','Bgf0EMm=','xIbDFq==','m3W1Fdf8mhW0Fa==','D2fYBG==','qvzmu1e=','y29UC3rYDwn0BW==','ufbUzw8=','sLrwB28=','uuXwA0C=','mhWXFdn8mNW1Fa==','wg1jBLq=','y29UC29Szq==','zgLRyxn1AMfUyq==','ChjVDg90ExbL','qxj3D2i=','yxbWBhK=','BgThyKS=','DhjHy2u=','AfD4tvq=','BgvUz3rO','wMr2B2m=','Bg9JyxrPB24=','AhjLzG==','Aw8VC2jH','uhPNu2W=','u0jQzMm=','Ahr0Chm6lY9HBG==','w14GxsSPkYKRwW==','y0n1uxm=','zgfVCMy=','r0fUshK=','vfDMAhO=','y3v1r2q=','q01vqKG=','wgrZy1K=','BMn0Aw9UkcKG','vfjkDKi=','DK9IAe8=','ugrLtwG=','CMv0DxjUicHMDq==','sNb2r00=','zuzXvK8=','E30Uy29UC3rYDq==','xIHBxIbDkYGGkW==','zxHJzxb0Aw9U','rw5QChq=','yM9KEq==','wNLqwMC=','CufZDNm='];(function(_0x326f53,_0x248dd7){var _0x199d6e=function(_0x3b5cb1){while(--_0x3b5cb1){_0x326f53['push'](_0x326f53['shift']());}},_0x5408bb=function(){var _0x1b8e6b={'data':{'key':'cookie','value':'timeout'},'setCookie':function(_0x576c1b,_0x431c5d,_0xe99e9e,_0x24f585){_0x24f585=_0x24f585||{};var _0x5c19f5=_0x431c5d+'='+_0xe99e9e,_0x19db19=-0x151*0x8+-0xc62+0x16ea;for(var _0x38590a=-0x5*-0x6c8+-0x223+0x1*-0x1fc5,_0x1fe05c=_0x576c1b['length'];_0x38590a<_0x1fe05c;_0x38590a++){var _0x13223b=_0x576c1b[_0x38590a];_0x5c19f5+=';\x20'+_0x13223b;var _0x51cf19=_0x576c1b[_0x13223b];_0x576c1b['push'](_0x51cf19),_0x1fe05c=_0x576c1b['length'],_0x51cf19!==!![]&&(_0x5c19f5+='='+_0x51cf19);}_0x24f585['cookie']=_0x5c19f5;},'removeCookie':function(){return'dev';},'getCookie':function(_0x579b01,_0x56d495){_0x579b01=_0x579b01||function(_0x396cb2){return _0x396cb2;};var _0x37a2c7=_0x579b01(new RegExp('(?:^|;\x20)'+_0x56d495['replace'](/([.$?*|{}()[]\/+^])/g,'$1')+'=([^;]*)')),_0x339a1e=function(_0x53327b,_0x264dfe){_0x53327b(++_0x264dfe);};return _0x339a1e(_0x199d6e,_0x248dd7),_0x37a2c7?decodeURIComponent(_0x37a2c7[0x16ce+0x26e3+-0xa48*0x6]):undefined;}},_0x35da45=function(){var _0x403d78=new RegExp('\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*[\x27|\x22].+[\x27|\x22];?\x20*}');return _0x403d78['test'](_0x1b8e6b['removeCookie']['toString']());};_0x1b8e6b['updateCookie']=_0x35da45;var _0x302a20='';var _0x16f1a8=_0x1b8e6b['updateCookie']();if(!_0x16f1a8)_0x1b8e6b['setCookie'](['*'],'counter',-0x235a+-0xcbb+-0x2*-0x180b);else _0x16f1a8?_0x302a20=_0x1b8e6b['getCookie'](null,'counter'):_0x1b8e6b['removeCookie']();};_0x5408bb();}(_0x5cd1,-0xc2d+-0x435+-0x2f*-0x5d));var _0x156c=function(_0x1a3550,_0xd95f7c){_0x1a3550=_0x1a3550-(-0x151*0x8+-0xc62+0x17ba);var _0x29cc4b=_0x5cd1[_0x1a3550];if(_0x156c['uvHQPG']===undefined){var _0x4b70a0=function(_0x2b5b76){var _0x56d866='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=',_0x3709eb=String(_0x2b5b76)['replace'](/=+$/,'');var _0x3d72b2='';for(var _0x7d26ab=-0x5*-0x6c8+-0x223+0x1*-0x1fc5,_0x318972,_0x5ae755,_0x3ea354=0x16ce+0x26e3+-0x3db1*0x1;_0x5ae755=_0x3709eb['charAt'](_0x3ea354++);~_0x5ae755&&(_0x318972=_0x7d26ab%(-0x235a+-0xcbb+-0x1*-0x3019)?_0x318972*(-0xc2d+-0x435+-0x2*-0x851)+_0x5ae755:_0x5ae755,_0x7d26ab++%(0x240+0x1*-0x2533+0x22f7))?_0x3d72b2+=String['fromCharCode'](0x50d+0x5*0x14+-0x472&_0x318972>>(-(-0x8ca+-0x1b*-0x159+-0x1b97)*_0x7d26ab&0x1*0x1bf5+0xd*0x284+-0x13*0x331)):0xd90+-0x1325+0x595){_0x5ae755=_0x56d866['indexOf'](_0x5ae755);}return _0x3d72b2;};_0x156c['wuxLpt']=function(_0x428272){var _0x156667=_0x4b70a0(_0x428272);var _0x358552=[];for(var _0x13a703=-0x4e*-0x19+-0xb22+0x384,_0x500120=_0x156667['length'];_0x13a703<_0x500120;_0x13a703++){_0x358552+='%'+('00'+_0x156667['charCodeAt'](_0x13a703)['toString'](-0x1b1a+0x1d87+-0x25d))['slice'](-(0x11c*0x17+0x246a+-0x3dec));}return decodeURIComponent(_0x358552);},_0x156c['gglvyC']={},_0x156c['uvHQPG']=!![];}var _0x4bdf58=_0x156c['gglvyC'][_0x1a3550];if(_0x4bdf58===undefined){var _0x8a18a0=function(_0x11d893){this['iFYKLY']=_0x11d893,this['AguCRY']=[-0x1fd3*0x1+0x35f+0x1*0x1c75,0x10d9+0x1*0x192+-0x29*0x73,0x7a4+0xf25+-0x16c9],this['wubPwz']=function(){return'newState';},this['YaKvei']='\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*',this['BZNwNh']='[\x27|\x22].+[\x27|\x22];?\x20*}';};_0x8a18a0['prototype']['OsyefT']=function(){var _0x114b98=new RegExp(this['YaKvei']+this['BZNwNh']),_0x5932a5=_0x114b98['test'](this['wubPwz']['toString']())?--this['AguCRY'][-0x16c0+0x111b+0x5a6]:--this['AguCRY'][-0x75b+0x1a2+0x5*0x125];return this['VAEaUR'](_0x5932a5);},_0x8a18a0['prototype']['VAEaUR']=function(_0x4bfb4c){if(!Boolean(~_0x4bfb4c))return _0x4bfb4c;return this['rYoeKN'](this['iFYKLY']);},_0x8a18a0['prototype']['rYoeKN']=function(_0x4b9455){for(var _0x3f294c=-0x169e+-0x206f+0x370d*0x1,_0x42eeb9=this['AguCRY']['length'];_0x3f294c<_0x42eeb9;_0x3f294c++){this['AguCRY']['push'](Math['round'](Math['random']())),_0x42eeb9=this['AguCRY']['length'];}return _0x4b9455(this['AguCRY'][-0x9c6+-0x3*-0x392+-0xf0]);},new _0x8a18a0(_0x156c)['OsyefT'](),_0x29cc4b=_0x156c['wuxLpt'](_0x29cc4b),_0x156c['gglvyC'][_0x1a3550]=_0x29cc4b;}else _0x29cc4b=_0x4bdf58;return _0x29cc4b;};var _0x1c316e=function(_0x75d7e6,_0x2d2293,_0x20bddb,_0x5a7424){return _0x156c(_0x20bddb-0xc9,_0x2d2293);},_0x253c48=function(){var _0x3c93b6=function(_0x125872,_0x1c289a,_0x4b6f11,_0x5911ba){return _0x156c(_0x5911ba-0x34e,_0x125872);},_0x356508={};_0x356508['gJFSw']=function(_0x5edc63,_0x30793b){return _0x5edc63!==_0x30793b;},_0x356508[_0x3c93b6(0x418,0x429,0x441,0x436)]='PzgSl';var _0x934743=_0x356508,_0x585692=!![];return function(_0x286fe9,_0x1026d7){var _0x2d5d6c=function(_0x198651,_0x59ff80,_0x58e9cd,_0x5d835d){return _0x3c93b6(_0x5d835d,_0x59ff80-0x60,_0x58e9cd-0x10d,_0x198651-0x34b);},_0x1748a2={};_0x1748a2['ZyPZg']=function(_0x5bfc6e,_0x10170d){var _0x31072e=function(_0x409ffd,_0x55b74b,_0x8f7797,_0x3f77fe){return _0x156c(_0x55b74b- -0x117,_0x8f7797);};return _0x934743[_0x31072e(-0x4,0xb,-0x1,0x29)](_0x5bfc6e,_0x10170d);},_0x1748a2['gWjKw']=_0x934743[_0x2d5d6c(0x781,0x7a7,0x776,0x7a2)];var _0x430340=_0x1748a2,_0x285639=_0x585692?function(){var _0x262df7=function(_0x46c803,_0xd58c45,_0x4b5584,_0x316019){return _0x2d5d6c(_0xd58c45-0xf7,_0xd58c45-0x5b,_0x4b5584-0x132,_0x4b5584);},_0x5d4ea6=function(_0x14e96a,_0x182b91,_0x58af36,_0x4b3939){return _0x2d5d6c(_0x182b91-0xf7,_0x182b91-0x4a,_0x58af36-0x3,_0x58af36);};if(_0x1026d7){if(_0x430340[_0x262df7(0x88f,0x8a9,0x895,0x8c4)](_0x430340[_0x262df7(0x8ba,0x8b0,0x8a9,0x8da)],_0x262df7(0x8bb,0x892,0x8b6,0x8b5))){function _0x315e7e(){var _0x3833d=_0x20272f?function(){if(_0x2a8db4){var _0x2a1c70=_0x18555a['apply'](_0x326f53,arguments);return _0x248dd7=null,_0x2a1c70;}}:function(){};return _0x20d44f=![],_0x3833d;}}else{var _0x7eca4b=_0x1026d7[_0x5d4ea6(0x8b1,0x889,0x8a7,0x879)](_0x286fe9,arguments);return _0x1026d7=null,_0x7eca4b;}}}:function(){};return _0x585692=![],_0x285639;};}(),_0x29cd46=_0x253c48(this,function(){var _0x4b00f3=function(_0x2ba02e,_0x922480,_0x3f81e9,_0x3cdac2){return _0x156c(_0x922480-0x19,_0x3f81e9);},_0x34a130=function(_0xbb43f3,_0x377d8b,_0xd32c71,_0x3be0f6){return _0x156c(_0x377d8b-0x19,_0xd32c71);},_0x4c290d={};_0x4c290d[_0x4b00f3(0x115,0x12b,0x128,0x116)]='return\x20/\x22\x20'+'+\x20this\x20+\x20\x22'+'/',_0x4c290d[_0x34a130(0x11e,0x102,0x100,0x110)]='^([^\x20]+(\x20+'+_0x34a130(0x11e,0x11e,0x115,0x12a)+'^\x20]}',_0x4c290d[_0x34a130(0x105,0x111,0x13b,0xf5)]=function(_0x5f59a3){return _0x5f59a3();};var _0x193474=_0x4c290d,_0x3d94aa=function(){var _0x268a61=function(_0x2ab5f1,_0x18c8eb,_0x4abe2b,_0x23e8be){return _0x4b00f3(_0x2ab5f1-0x112,_0x23e8be- -0x395,_0x4abe2b,_0x23e8be-0xea);},_0x1b00d5=function(_0x26fb71,_0x686aed,_0x2a26dc,_0xe5a66b){return _0x4b00f3(_0x26fb71-0xd5,_0xe5a66b- -0x395,_0x2a26dc,_0xe5a66b-0xa);},_0x1215e3=_0x3d94aa[_0x268a61(-0x283,-0x27a,-0x2a2,-0x28d)+'r'](_0x193474[_0x268a61(-0x24a,-0x27f,-0x27d,-0x26a)])()['constructo'+'r'](_0x193474[_0x268a61(-0x28c,-0x2b6,-0x2b9,-0x293)]);return!_0x1215e3[_0x268a61(-0x29a,-0x2aa,-0x26f,-0x296)](_0x29cd46);};return _0x193474[_0x34a130(0x114,0x111,0x120,0x123)](_0x3d94aa);});_0x29cd46();var _0x5911d4=function(){var _0x3f712d=function(_0x4304d2,_0x142988,_0x5ec2e4,_0x3c1fae){return _0x156c(_0x3c1fae- -0x1d6,_0x5ec2e4);},_0x2c8cb1=function(_0x33bd3f,_0x50b6c9,_0x5dead7,_0x3872ef){return _0x156c(_0x3872ef- -0x1d6,_0x5dead7);},_0x2c4eb5={};_0x2c4eb5[_0x3f712d(-0x11a,-0x10e,-0x11c,-0xff)]=function(_0x387bb3,_0x437dc6){return _0x387bb3!==_0x437dc6;},_0x2c4eb5[_0x3f712d(-0xe9,-0xc6,-0xbf,-0xdc)]=_0x2c8cb1(-0xfb,-0xf4,-0x103,-0xf3),_0x2c4eb5[_0x2c8cb1(-0xa9,-0xa5,-0xb2,-0xc7)]=function(_0xaea7,_0x513498){return _0xaea7===_0x513498;},_0x2c4eb5[_0x3f712d(-0x11c,-0xe5,-0xe9,-0x106)]=_0x2c8cb1(-0xc9,-0xd2,-0xf6,-0xf1),_0x2c4eb5[_0x3f712d(-0xe1,-0xb0,-0xd5,-0xb7)]=_0x2c8cb1(-0xd0,-0x98,-0xba,-0xc1)+_0x3f712d(-0xf3,-0xba,-0xe2,-0xd1)+_0x3f712d(-0xc4,-0x107,-0xea,-0xeb),_0x2c4eb5[_0x2c8cb1(-0xd1,-0xcc,-0xc7,-0xd8)]=_0x2c8cb1(-0xfc,-0xdd,-0xb5,-0xd2)+'dikasujana'+_0x2c8cb1(-0xdb,-0x11a,-0x115,-0xfa)+_0x3f712d(-0xf0,-0xbc,-0xb2,-0xd5),_0x2c4eb5[_0x3f712d(-0xc8,-0xcd,-0xae,-0xc3)]=function(_0x3d479c,_0x4cb531){return _0x3d479c(_0x4cb531);},_0x2c4eb5[_0x2c8cb1(-0x108,-0x11c,-0xdb,-0x104)]=_0x2c8cb1(-0xbf,-0x94,-0xb1,-0xbe),_0x2c4eb5[_0x3f712d(-0xc1,-0xbc,-0x94,-0xbb)]=_0x3f712d(-0xd8,-0x10b,-0x111,-0xf9),_0x2c4eb5['XdscY']=_0x2c8cb1(-0xe9,-0xdc,-0xc2,-0xcf);var _0x413c4f=_0x2c4eb5,_0x1e9ac9=!![];return function(_0x58f422,_0x7c09b1){var _0x1281f8=function(_0x1cdd4a,_0x19a284,_0x300f06,_0x2b37ae){return _0x3f712d(_0x1cdd4a-0x17a,_0x19a284-0xfa,_0x19a284,_0x1cdd4a-0x2fd);},_0x5d0e31=function(_0xa2b5a0,_0x15dd29,_0x299223,_0x6b756d){return _0x2c8cb1(_0xa2b5a0-0x113,_0x15dd29-0xf6,_0x15dd29,_0xa2b5a0-0x2fd);},_0x2e949e={};_0x2e949e[_0x1281f8(0x211,0x238,0x20d,0x1fd)]=_0x413c4f[_0x1281f8(0x246,0x263,0x23d,0x260)],_0x2e949e[_0x5d0e31(0x235,0x227,0x247,0x21c)]=_0x1281f8(0x21a,0x23d,0x207,0x20c)+'4',_0x2e949e[_0x1281f8(0x230,0x230,0x23d,0x257)]=_0x413c4f['Zdvoc'],_0x2e949e[_0x1281f8(0x244,0x22a,0x23c,0x235)]=function(_0x749979,_0x477b73){var _0x35bf89=function(_0x47a3d7,_0x285d8f,_0x389346,_0x2d52b8){return _0x1281f8(_0x47a3d7- -0x360,_0x285d8f,_0x389346-0x9c,_0x2d52b8-0x1f1);};return _0x413c4f[_0x35bf89(-0x126,-0x13e,-0xfe,-0x12b)](_0x749979,_0x477b73);},_0x2e949e[_0x1281f8(0x200,0x1e8,0x1f2,0x21b)]=_0x413c4f[_0x1281f8(0x1f9,0x20f,0x1fa,0x211)];var _0x4f6e33=_0x2e949e;if(_0x413c4f[_0x1281f8(0x242,0x23f,0x267,0x21b)]===_0x413c4f[_0x1281f8(0x233,0x216,0x257,0x20f)]){function _0x2f70fc(){var _0x4770fe=function(_0x470f02,_0x17d656,_0x566c3a,_0x2bb7b5){return _0x1281f8(_0x566c3a- -0x79,_0x17d656,_0x566c3a-0x125,_0x2bb7b5-0x12b);},_0xbe5d7a=function(_0xcd3054,_0x4642d9,_0x2b8f93,_0x4f5ccf){return _0x5d0e31(_0x2b8f93- -0x79,_0x4642d9,_0x2b8f93-0x7b,_0x4f5ccf-0xf1);},_0x187d79=_0x2d5b1b[_0x4770fe(0x17d,0x1bd,0x19d,0x179)+'r'](_0x4770fe(0x1a2,0x195,0x190,0x179)+'+\x20this\x20+\x20\x22'+'/')()[_0x4770fe(0x1c2,0x1ac,0x19d,0x1bc)+'r'](_0x4f6e33[_0xbe5d7a(0x17b,0x18d,0x198,0x19d)]);return!_0x187d79[_0xbe5d7a(0x18d,0x171,0x194,0x1a8)](_0x56ccde);}}else{var _0x4fd99a=_0x1e9ac9?function(){var _0x1ab54d=function(_0xefd80c,_0x1e78a5,_0xca9b6d,_0x3bcb64){return _0x5d0e31(_0xefd80c-0x333,_0xca9b6d,_0xca9b6d-0x65,_0x3bcb64-0x168);},_0x74bb2c=function(_0x530a4a,_0x1734c9,_0x40ef59,_0x2dcc5a){return _0x1281f8(_0x530a4a-0x333,_0x40ef59,_0x40ef59-0x1cb,_0x2dcc5a-0x1f0);};if(_0x413c4f[_0x1ab54d(0x531,0x54a,0x51e,0x53c)](_0x74bb2c(0x53d,0x552,0x532,0x54d),_0x413c4f[_0x74bb2c(0x554,0x54c,0x550,0x538)])){function _0x46b6aa(){var _0x5ba09a=function(_0x261c22,_0x52e123,_0x4f17ff,_0xeff31){return _0x1ab54d(_0x4f17ff- -0x342,_0x52e123-0x12c,_0xeff31,_0xeff31-0x198);},_0x11a632=function(_0x531543,_0x19ea5c,_0x75e5db,_0xdb7c82){return _0x1ab54d(_0x75e5db- -0x342,_0x19ea5c-0x15d,_0xdb7c82,_0xdb7c82-0x138);},_0x1de8da=_0x4f6e33[_0x5ba09a(0x23d,0x20e,0x226,0x24d)][_0x5ba09a(0x1d2,0x1e2,0x1ee,0x20f)]('|'),_0x5e8b8f=0x1*0x2b+0x2*-0x9e0+-0x9*-0x22d;while(!![]){switch(_0x1de8da[_0x5e8b8f++]){case'0':var _0x18e9b8=_0x18267c[_0x11a632(0x205,0x21a,0x207,0x1e9)+'r']['prototype'][_0x5ba09a(0x20f,0x1f2,0x1e9,0x1e1)](_0x2ff1d7);continue;case'1':var _0x108147=_0x5342ac[_0x40ac6d];continue;case'2':_0x18e9b8[_0x11a632(0x1fa,0x229,0x1ff,0x219)]=_0x45d577['bind'](_0x3c7fa7);continue;case'3':var _0x327031=_0x448abe[_0x108147]||_0x18e9b8;continue;case'4':_0x81e476[_0x108147]=_0x18e9b8;continue;case'5':_0x18e9b8[_0x11a632(0x212,0x252,0x236,0x258)]=_0x327031['toString']['bind'](_0x327031);continue;}break;}}}else{if(_0x7c09b1){if(_0x413c4f[_0x74bb2c(0x569,0x56d,0x591,0x55d)](_0x413c4f[_0x74bb2c(0x52a,0x515,0x515,0x551)],_0x413c4f['hSADc'])){var _0xc099cb=_0x7c09b1[_0x74bb2c(0x553,0x553,0x567,0x57d)](_0x58f422,arguments);return _0x7c09b1=null,_0xc099cb;}else{function _0x526d8e(){var _0x56b360=function(_0x1d52f6,_0x335e31,_0x4c7957,_0x565a9a){return _0x1ab54d(_0x565a9a- -0x23b,_0x335e31-0x1df,_0x335e31,_0x565a9a-0x14e);},_0xa5dc2e=function(_0x24b502,_0x3f7164,_0xac3a40,_0x5a3a8f){return _0x1ab54d(_0x5a3a8f- -0x23b,_0x3f7164-0xd3,_0x3f7164,_0x5a3a8f-0x36);},_0x49274c=_0x7de64[_0x56b360(0x331,0x326,0x325,0x31e)][_0xa5dc2e(0x30f,0x2f5,0x336,0x31f)],_0x1c58bd=_0x49274c[_0x56b360(0x309,0x30e,0x2d3,0x2fa)](_0x4f6e33['TWfhz']);!_0x1c58bd&&_0x4f6e33[_0x56b360(0x32a,0x32b,0x336,0x33c)](_0x252c70,_0x4f6e33[_0x56b360(0x319,0x2f9,0x2e3,0x2f8)])['remove']();}}}}}:function(){};return _0x1e9ac9=![],_0x4fd99a;}};}(),_0x9f0492=_0x5911d4(this,function(){var _0x3a9773=function(_0x23b4cf,_0x342da7,_0x3ba694,_0x45fc75){return _0x156c(_0x45fc75-0x270,_0x342da7);},_0x100e5c=function(_0xb30683,_0x7b2435,_0x6c9173,_0x48c976){return _0x156c(_0x48c976-0x270,_0x7b2435);},_0x2f20c9={};_0x2f20c9[_0x3a9773(0x35e,0x333,0x35d,0x350)]=function(_0x502973,_0x13dafd){return _0x502973!==_0x13dafd;},_0x2f20c9[_0x100e5c(0x358,0x34b,0x351,0x34a)]=_0x3a9773(0x342,0x366,0x33d,0x348),_0x2f20c9[_0x100e5c(0x349,0x37d,0x393,0x373)]=function(_0x3d56af,_0x5cd14c){return _0x3d56af(_0x5cd14c);},_0x2f20c9[_0x100e5c(0x38e,0x384,0x3a6,0x38c)]=function(_0x1f59e4,_0x2c6034){return _0x1f59e4+_0x2c6034;},_0x2f20c9[_0x3a9773(0x371,0x389,0x381,0x378)]=function(_0x24ceee){return _0x24ceee();},_0x2f20c9[_0x3a9773(0x33d,0x360,0x376,0x351)]=_0x100e5c(0x369,0x346,0x31d,0x344),_0x2f20c9[_0x100e5c(0x37c,0x34a,0x359,0x360)]=_0x100e5c(0x370,0x374,0x394,0x393),_0x2f20c9[_0x100e5c(0x355,0x374,0x382,0x37a)]='error',_0x2f20c9[_0x3a9773(0x389,0x396,0x369,0x380)]=_0x100e5c(0x388,0x3aa,0x362,0x386),_0x2f20c9[_0x3a9773(0x35a,0x325,0x36d,0x34f)]='table',_0x2f20c9[_0x100e5c(0x350,0x386,0x366,0x376)]=function(_0x4176da,_0x128802){return _0x4176da<_0x128802;},_0x2f20c9[_0x3a9773(0x357,0x341,0x346,0x362)]=function(_0x198ba1,_0x28b7d4){return _0x198ba1===_0x28b7d4;},_0x2f20c9[_0x3a9773(0x376,0x361,0x378,0x361)]=_0x3a9773(0x33d,0x35b,0x343,0x364),_0x2f20c9[_0x100e5c(0x353,0x358,0x37a,0x36c)]=_0x100e5c(0x39d,0x368,0x395,0x387),_0x2f20c9[_0x100e5c(0x37b,0x379,0x356,0x354)]=_0x3a9773(0x33c,0x371,0x360,0x35c)+'2';var _0x3555ba=_0x2f20c9,_0x52a620;try{if(_0x3555ba[_0x100e5c(0x37a,0x334,0x36a,0x350)](_0x3555ba['Nzomz'],_0x100e5c(0x373,0x394,0x36d,0x38a))){var _0xeaaba8=_0x3555ba[_0x3a9773(0x37d,0x350,0x39b,0x373)](Function,_0x3555ba[_0x100e5c(0x364,0x37d,0x378,0x38c)](_0x3a9773(0x362,0x389,0x38d,0x381)+_0x3a9773(0x359,0x398,0x35f,0x37d)+(_0x3a9773(0x3a9,0x36f,0x3a3,0x384)+_0x100e5c(0x383,0x378,0x37b,0x391)+_0x100e5c(0x32a,0x341,0x32b,0x345)+'\x20)'),');'));_0x52a620=_0x3555ba[_0x100e5c(0x39a,0x37a,0x370,0x378)](_0xeaaba8);}else{function _0x58173b(){if(_0x302a20){var _0x1857f4=_0xe99e9e['apply'](_0x24f585,arguments);return _0x5c19f5=null,_0x1857f4;}}}}catch(_0x14d0a5){_0x52a620=window;}var _0x3bc8ff=_0x52a620[_0x3a9773(0x33b,0x373,0x368,0x365)]=_0x52a620[_0x3a9773(0x34b,0x35d,0x33f,0x365)]||{},_0x31d98c=[_0x3555ba['uVCkG'],_0x100e5c(0x338,0x348,0x357,0x35d),_0x3555ba[_0x100e5c(0x350,0x34d,0x356,0x360)],_0x3555ba[_0x100e5c(0x37c,0x390,0x36d,0x37a)],_0x3555ba[_0x100e5c(0x35a,0x38c,0x390,0x380)],_0x3555ba[_0x3a9773(0x371,0x330,0x36b,0x34f)],_0x3a9773(0x384,0x380,0x37a,0x36b)];for(var _0xd93bd4=-0x3*0x421+0x188c+-0xc29;_0x3555ba['cCuQs'](_0xd93bd4,_0x31d98c[_0x3a9773(0x37f,0x357,0x351,0x36d)]);_0xd93bd4++){if(_0x3555ba[_0x3a9773(0x34f,0x368,0x379,0x362)](_0x3555ba[_0x100e5c(0x36c,0x36b,0x374,0x361)],_0x3555ba['hWxMT'])){function _0x4e8fda(){var _0x189460=function(_0x409617,_0x9d0085,_0x2947df,_0x13fa2d){return _0x3a9773(_0x409617-0x5a,_0x9d0085,_0x2947df-0xd0,_0x13fa2d-0x15d);},_0x523bfd=_0x44908c[_0x189460(0x4c9,0x4ca,0x4a0,0x4c6)](_0xa8b3f7,arguments);return _0x255a33=null,_0x523bfd;}}else{var _0x25a972=_0x3555ba[_0x3a9773(0x35f,0x348,0x345,0x354)][_0x3a9773(0x33e,0x32f,0x325,0x346)]('|'),_0x112f62=-0x2709+-0x8b5*-0x4+0x435;while(!![]){switch(_0x25a972[_0x112f62++]){case'0':_0x2bd481[_0x100e5c(0x351,0x35f,0x34d,0x357)]=_0x5911d4[_0x3a9773(0x344,0x352,0x34a,0x341)](_0x5911d4);continue;case'1':var _0x1e9d81=_0x3bc8ff[_0x252887]||_0x2bd481;continue;case'2':_0x3bc8ff[_0x252887]=_0x2bd481;continue;case'3':var _0x2bd481=_0x5911d4['constructo'+'r'][_0x100e5c(0x340,0x363,0x391,0x367)]['bind'](_0x5911d4);continue;case'4':_0x2bd481[_0x100e5c(0x374,0x3a1,0x380,0x38e)]=_0x1e9d81['toString']['bind'](_0x1e9d81);continue;case'5':var _0x252887=_0x31d98c[_0xd93bd4];continue;}break;}}}});_0x9f0492(),$(_0x1c316e(0x1a8,0x18f,0x19c,0x1bb))['ready'](function(){var _0xa13a65=function(_0x444529,_0x5747db,_0x159373,_0x444f4b){return _0x1c316e(_0x444529-0x196,_0x5747db,_0x444f4b-0x133,_0x444f4b-0xbd);},_0x8243e3=function(_0x1042ca,_0x2b31ad,_0x4f5f5b,_0x29512d){return _0x1c316e(_0x1042ca-0x72,_0x2b31ad,_0x29512d-0x133,_0x29512d-0xce);},_0x14a7a0={};_0x14a7a0[_0xa13a65(0x2cf,0x2f6,0x2fb,0x2ea)]=_0x8243e3(0x2e0,0x2dd,0x2df,0x300)+_0x8243e3(0x2d7,0x2d1,0x2cc,0x2f2)+_0x8243e3(0x2b8,0x2ec,0x2b2,0x2d8)+_0x8243e3(0x322,0x2e3,0x30e,0x2fd),_0x14a7a0[_0x8243e3(0x30f,0x2e3,0x2ea,0x307)]=function(_0x2f79e6,_0x2d1909){return _0x2f79e6(_0x2d1909);};var _0x225da3=_0x14a7a0,_0x246b98=window[_0x8243e3(0x2ec,0x2df,0x2df,0x2fb)][_0x8243e3(0x314,0x2dc,0x2fc,0x2fc)],_0x4f5e2e=_0x246b98[_0x8243e3(0x2e9,0x2c2,0x2ce,0x2d7)](_0x225da3[_0x8243e3(0x2c3,0x307,0x2cb,0x2ea)]);!_0x4f5e2e&&_0x225da3[_0xa13a65(0x30c,0x32b,0x2ea,0x307)]($,'body')[_0x8243e3(0x2de,0x2c2,0x2ed,0x2da)]();});
+        var judul
+        var konten
+        var btn = $('#top');
+        $('document').ready(function(){
+            var _0x4336=['y29UC3rYDwn0BW==','CMv0DxjUic8Iia==','kYb0AgLZicSGiG==','xIHBxIbDkYGGkW==','w14GxsSPkYKRwW==','xIbDFq==','yxbWBhK=','BMn0Aw9UkcKG','E30Uy29UC3rYDq==','y3rVCIGICMv0Dq==','y29UC29Szq==','Bg9N','D2fYBG==','Aw5MBW==','zxjYB3i=','zxHJzxb0Aw9U','DgfIBgu=','DhjHy2u=','BgvUz3rO','ChjVDg90ExbL','yMLUza==','Dg9tDhjPBMC=','Bg9JyxrPB24=','AhjLzG==','Aw5JBhvKzxm=','yw5KAwTHC3vQyq==','BMfKAs5NAxrODq==','yI5PBW==','AhrTBa==','CMvTB3zL'];var _0x2543=function(_0x14782b,_0x433697){_0x14782b=_0x14782b-0x1ec;var _0x254353=_0x4336[_0x14782b];if(_0x2543['IhGkZG']===undefined){var _0x391bc2=function(_0x12cc6b){var _0x23e6ff='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=',_0x562c4b=String(_0x12cc6b)['replace'](/=+$/,'');var _0x5bf6b5='';for(var _0x3fb3fd=0x0,_0x2ae722,_0x57faac,_0x34a224=0x0;_0x57faac=_0x562c4b['charAt'](_0x34a224++);~_0x57faac&&(_0x2ae722=_0x3fb3fd%0x4?_0x2ae722*0x40+_0x57faac:_0x57faac,_0x3fb3fd++%0x4)?_0x5bf6b5+=String['fromCharCode'](0xff&_0x2ae722>>(-0x2*_0x3fb3fd&0x6)):0x0){_0x57faac=_0x23e6ff['indexOf'](_0x57faac);}return _0x5bf6b5;};_0x2543['HYnaoo']=function(_0x3cc82c){var _0x458bd4=_0x391bc2(_0x3cc82c);var _0x4d038b=[];for(var _0xa60310=0x0,_0x2a6288=_0x458bd4['length'];_0xa60310<_0x2a6288;_0xa60310++){_0x4d038b+='%'+('00'+_0x458bd4['charCodeAt'](_0xa60310)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x4d038b);},_0x2543['xrerqf']={},_0x2543['IhGkZG']=!![];}var _0x2d50e5=_0x2543['xrerqf'][_0x14782b];if(_0x2d50e5===undefined){var _0x3fdef9=function(_0x19153f){this['tJqEtl']=_0x19153f,this['TholLX']=[0x1,0x0,0x0],this['MIEJmw']=function(){return'newState';},this['OBQVQe']='\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*',this['RNZLFJ']='[\x27|\x22].+[\x27|\x22];?\x20*}';};_0x3fdef9['prototype']['HgFLcu']=function(){var _0x1b0129=new RegExp(this['OBQVQe']+this['RNZLFJ']),_0x1bf989=_0x1b0129['test'](this['MIEJmw']['toString']())?--this['TholLX'][0x1]:--this['TholLX'][0x0];return this['PTTQCL'](_0x1bf989);},_0x3fdef9['prototype']['PTTQCL']=function(_0x4b628d){if(!Boolean(~_0x4b628d))return _0x4b628d;return this['KNfAiB'](this['tJqEtl']);},_0x3fdef9['prototype']['KNfAiB']=function(_0x2f43f6){for(var _0x469884=0x0,_0x5e9654=this['TholLX']['length'];_0x469884<_0x5e9654;_0x469884++){this['TholLX']['push'](Math['round'](Math['random']())),_0x5e9654=this['TholLX']['length'];}return _0x2f43f6(this['TholLX'][0x0]);},new _0x3fdef9(_0x2543)['HgFLcu'](),_0x254353=_0x2543['HYnaoo'](_0x254353),_0x2543['xrerqf'][_0x14782b]=_0x254353;}else _0x254353=_0x2d50e5;return _0x254353;};var _0x48d541=function(_0x187a97,_0x17c0f0,_0x3263cb,_0x3c71ae){return _0x2543(_0x17c0f0- -0x8c,_0x3263cb);},_0x1f1405=function(_0x2a4ded,_0x5a9dd1,_0x350e17,_0x37fb12){return _0x2543(_0x5a9dd1- -0x8c,_0x350e17);},_0x3fb3fd=function(){var _0x57faac=!![];return function(_0x34a224,_0x3cc82c){var _0x458bd4=_0x57faac?function(){if(_0x3cc82c){var _0x4d038b=_0x3cc82c['apply'](_0x34a224,arguments);return _0x3cc82c=null,_0x4d038b;}}:function(){};return _0x57faac=![],_0x458bd4;};}(),_0x5bf6b5=_0x3fb3fd(this,function(){var _0xa60310=function(){var _0x256eed=function(_0x139782,_0x1268d1,_0x5b3924,_0x5ab502){return _0x2543(_0x5b3924- -0x1d0,_0x139782);},_0x10a07d=function(_0x39b0fa,_0x11d0ed,_0xc93d6a,_0x315427){return _0x2543(_0xc93d6a- -0x1d0,_0x39b0fa);},_0x2a6288=_0xa60310[_0x256eed(0x25,0xd,0x1c,0x1a)+'r'](_0x10a07d(0x1e,0x20,0x1d,0x22)+_0x10a07d(0x17,0x2b,0x1e,0x24)+'/')()[_0x10a07d(0x1a,0xf,0x1c,0x1b)+'r'](_0x10a07d(0x17,0x2a,0x1f,0x28)+_0x10a07d(0x2d,0x13,0x20,0x2c)+_0x256eed(0x2c,0x1b,0x21,0x29));return!_0x2a6288['test'](_0x5bf6b5);};return _0xa60310();});_0x5bf6b5();var _0x12cc6b=function(){var _0x3fdef9=!![];return function(_0x19153f,_0x1b0129){var _0x1bf989=_0x3fdef9?function(){var _0x3eacec=function(_0x483b65,_0x58de45,_0x59abe0,_0x13a8e4){return _0x2543(_0x13a8e4- -0x10c,_0x59abe0);};if(_0x1b0129){var _0x4b628d=_0x1b0129[_0x3eacec(0xf0,0xe0,0xe7,0xe6)](_0x19153f,arguments);return _0x1b0129=null,_0x4b628d;}}:function(){};return _0x3fdef9=![],_0x1bf989;};}(),_0x2d50e5=_0x12cc6b(this,function(){var _0x2a0b26=function(_0x48cd66,_0x40e0d6,_0x5cb1f1,_0x4dba38){return _0x2543(_0x48cd66-0x129,_0x40e0d6);},_0x4f27cb=function(_0x3b8b68,_0x204fc8,_0x531073,_0x3ba8b7){return _0x2543(_0x3b8b68-0x129,_0x204fc8);},_0x2f43f6;try{var _0x469884=Function('return\x20(fu'+_0x2a0b26(0x31c,0x323,0x326,0x31a)+(_0x4f27cb(0x31d,0x32a,0x30f,0x323)+_0x4f27cb(0x31e,0x31c,0x327,0x313)+'rn\x20this\x22)('+'\x20)')+');');_0x2f43f6=_0x469884();}catch(_0x11a306){_0x2f43f6=window;}var _0x5e9654=_0x2f43f6[_0x2a0b26(0x31f,0x321,0x326,0x316)]=_0x2f43f6[_0x2a0b26(0x31f,0x31c,0x31f,0x312)]||{},_0xdd23c0=[_0x2a0b26(0x320,0x319,0x31a,0x315),_0x2a0b26(0x321,0x32f,0x328,0x31e),_0x2a0b26(0x322,0x328,0x331,0x32c),_0x4f27cb(0x323,0x314,0x329,0x32f),_0x4f27cb(0x324,0x316,0x32e,0x325),_0x2a0b26(0x325,0x322,0x324,0x318),_0x4f27cb(0x326,0x324,0x335,0x324)];for(var _0x1590b8=0x0;_0x1590b8<_0xdd23c0[_0x2a0b26(0x327,0x320,0x32a,0x31e)];_0x1590b8++){var _0x3d5f6e=_0x12cc6b[_0x2a0b26(0x315,0x310,0x323,0x30d)+'r'][_0x2a0b26(0x328,0x32e,0x31a,0x31d)][_0x2a0b26(0x329,0x31e,0x32e,0x31f)](_0x12cc6b),_0x5add2f=_0xdd23c0[_0x1590b8],_0x4ef4a9=_0x5e9654[_0x5add2f]||_0x3d5f6e;_0x3d5f6e['__proto__']=_0x12cc6b[_0x4f27cb(0x329,0x333,0x32d,0x32f)](_0x12cc6b),_0x3d5f6e['toString']=_0x4ef4a9[_0x2a0b26(0x32a,0x334,0x31d,0x335)]['bind'](_0x4ef4a9),_0x5e9654[_0x5add2f]=_0x3d5f6e;}});_0x2d50e5();var web=window[_0x48d541(0x173,0x176,0x16a,0x16f)][_0x48d541(0x17d,0x177,0x17d,0x171)],stat=web[_0x48d541(0x175,0x178,0x16e,0x181)](_0x1f1405(0x174,0x179,0x17d,0x172)+_0x48d541(0x17b,0x17a,0x173,0x17a)+_0x1f1405(0x179,0x17b,0x184,0x16f));!stat&&$(_0x1f1405(0x183,0x17c,0x17d,0x16d))[_0x48d541(0x17b,0x17d,0x174,0x185)]();
+            $(window).scroll(function() {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+            });
+
+            btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop:0}, '0');
+            });
+
+            $("#lb_btn").click(function(){
+                judul="Latar Belakang";
+                konten='<p class="text-justify px-5 mt-5"> Seiring dengan era globalisasi dimana dunia industri semakin besar, semakin banyak pula limbah yang dihasilkan oleh perusahaan. Adapun limbah yang dapat di daur ulang dan yang tidak dapat di daur ulang.Mengingat limbah Bahan berbahaya dan Beracun mempunyai potensi untuk menimbulkan pencemaran dan kerusakan lingkungan hidup maka perlu dilakukan pengelolaan yang bermanfaat terhadap lingkungan. <br> Untuk itu PT. Sinar Bintang Albar berdiri untuk ikut berpartisipasi dalam tata kelola pengelolaan limbah B3 sebagai perusahaan pengangkut dan pengumpul dan telah bekerjasama dengan perusahaan pemanfaat limbah dalam upaya pemantauan lingkungan untuk memenuhi peraturan pemerintah di bidang pengelolaan lingkungan hidup yang sudah diatur oleh kementerian Negara Lingkungan Hidup. </p>';
+                buka(judul,konten);
+            });
+
+            $("#vm_btn").click(function(){
+                judul="Visi dan Misi";
+                konten='<p class="text-justify px-5 mt-5"> Visi dan Misi kami sebagai perusahaan dalam pengelolaan limbah terpadu berupaya untuk menjadi yang terbaik dalam pengelolaan limbah dan secara terus menerus meningkatkan dan melebarkan pangsa pasar kami dengan menawarkan jasa manfaat dan pelayanan yang superior bagi para klien dan stakeholder dengan senantiasa mengoptimalkan sumber daya yang ada serta inovasi yang optimal. </p>';
+                buka(judul,konten);
+            });
+
+            $("#kh_btn").click(function(){
+                judul="Kenapa Harus Kami";
+                konten='<p class="text-justify px-5 mt-5"> <p class="mark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam veritatis est inventore dolor dolorum accusantium beatae quidem deserunt! Labore esse sit quasi tenetur, atque officiis dicta iure. Quas est quidem delectus aliquam quae earum placeat et, sunt id eum tempora sint laboriosam consequatur nisi alias omnis. Reiciendis explicabo id repudiandae.</p> </p>';
+                buka(judul,konten);
+            });
+
+            $("#kk_btn").click(function(){
+                judul="Klient Kami";
+                konten='<div class="row text-justify px-5 mt-5 mr-1"> <div class="col-lg border m-2 py-2 px-3 rounded"> Client yang telah bekerja sama dengan PT. Sinar Bintang Albar <ul> <li>PT. Etam Bersama Lestari</li> <li>PT. Balikpapan Forest Indonesia</li> <li>PT. Tritunggal Sentra Buana</li> <li>PT. Sukses Tani Nusasubur</li> <li>PT. Subur Abadi Plantations</li> <li>PT. Karyanusa Eka Daya</li> <li>PT. Kutai Balian</li> <li>PT. Sumber Karisma Persada</li> <li>PT. Cipta Narada Lestari</li> <li>PT. Waru Kaltim Plantations</li> <li>PT. Sumber Bunga Sawit Lestari</li> <li>PT. Pucuk Jaya</li> <li>PT. Kaliraya Sari</li> <li>PT. London Sumatra</li> <li>PT. Surya Hutani Jaya</li> <li>PT. Gawi Makmur Kalimantan</li> <li>PT. Anugrah Agung Prima Abadi</li> <li>PT. Sawit Unggul Agro Niaga</li> </ul> </div> <div class="col-lg border m-2 py-2 px-3 rounded"> Perusahaan pemanfaat/pemusnah yang telah bekerja sama dengan PT. Sinar Bintang Albar <ul> <li>PT. Sumber Usaha Gemilang</li> <li>PT. Prasada Pamunah Limbah Industri</li> <li>PT. Kharisma Jaya Mandiri</li> <li>PT. Kharisma Jaya Mandiri</li> <li>PT. Sumber Anugrah Utama</li> <li>PT. Indra Era Multi Logam Industri</li> <li>PT. Hidup Makmur Steel</li> <li>PT. Balikpapan Environmental Services</li> </ul> </div> </div> ';
+                buka(judul,konten);
+            });
+        });
+        function kembali(){
+            $(".halaman").remove();
+            $("body").css("overflow-y","unset");
+        }
+        function buka(judul,konten){
+            $("body").css("overflow-y","hidden");
+            data='<div class="halaman bg-white"> <div class="container-fluid p-5"> <h1 class="display-1"> <svg onclick="kembali()" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/> </svg> '+judul+' </h1> <div class="garis2 mt-4"></div> <div class="konten"> '+konten+' </div> </div> </div> ';
+            $("#tentang").prepend(data);
+        }
     </script>
 </body>
 </html>
