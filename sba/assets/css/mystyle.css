@@ -1,14 +1,18 @@
-body{
+body, html{
     overflow-x: hidden;
 }
-
+#my-scrollbar{
+    overflow: auto;
+    height: 5300px;
+    width: 100vw;
+}
 .hide{
     display: none;
     height: 0px;
 }
 .mark{
-    background-color: red!important;
-    color: white!important;
+    background-color: #FF000040!important;
+    /* color: black!important; */
 }
 .scrollbar--light-reversed {
   scrollbar-color: #999494 #eaeaea;
@@ -34,16 +38,37 @@ body{
   background-color: #eaeaea;
 }
 
+.bendera{
+    /* position: absolute; */
+    padding: 6px 12px;
+    height: 30px;
+    width: 50px;
+    font-size: 0;
+    background-size: cover;
+    background-position: center;
+    border-radius: .25rem;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+.ind{
+    background-image: url('/assets/img/ind.svg');
+    border: #d30023 solid 1px;
+}
+.eng{
+    background-image: url('/assets/img/eng.svg');
+    border: #012169 solid 1px;
+}
+.bendera:hover{
+    cursor: pointer;
+}
 .h100{
     padding-top: 56px;
     min-height:100vh;
     position: relative;
 }
-
 .pos-unset{
     position: unset;
 }
-
 .text-justify{
     text-align: justify;
 }
@@ -54,6 +79,10 @@ body{
     top: 0;
     left: 0;
     z-index: 9999;
+    transition: all ease .3s;
+}
+.halaman-left{
+    transform: translateX(-100%)!important;
 }
 .halaman .container-fluid{
     height: 100vh;
@@ -89,19 +118,20 @@ body{
     text-align: center;
     line-height: 3.9em;
 }
-
 .top:hover{
     cursor: pointer;
 }
 .top span svg{
     transform: rotate(-180deg);
     transition: all ease .3s;
+    color: #fff;
 }
 .show span{
     color: #fff;
 }
 .show span svg{
     transform: rotate(0deg);
+    color: #fff;
 }
 .show{
     display: block;
@@ -113,69 +143,87 @@ body{
 #mynavbar{
     background-color: #FFFFFFB0!important;
     backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100vw;
 }
-
+#navbarNav{
+    width: calc(100%);
+    overflow-x: auto;
+}
+.navbar-nav{
+    overflow: auto!important;
+    width: 650px;
+}
+.navcontainer{
+    overflow: hidden;
+    position: relative;
+}
 #home .display-1{
     font-size: 6em;
     line-height: .7em;
 }
-
 #home .bag1{
     top:50%;
     transform: translateY(calc(-50% + 56px));
     left:calc(0% + 5em);
 }
-
 #home .bag2{
     top:50%;
     transform: translate(-100%,calc(-50% + 56px));
     left:calc(100%);
 }
-
 #home .gambar1{
     height: 400px;
     border-radius: 200px;
     left:calc(100% - 5em);
+    z-index: -2;
 }
 #home .kotak1{
     width: 300px;
     height: 80vh;
     background-color: #029AFF;
+    z-index: -3;
 }
-
+#home .kotak2{
+    background-color: #FFCD28;
+    width: 150px;
+    height: 150px;
+    z-index: -1;
+    top:65%;
+    left:calc(100% - 32em);
+    border-radius: 150px;
+}
 #tentang{
     position: relative;
 }
-
 #tentang .display-1{
     font-size: 6em;
     line-height: .7em;
 }
-
 #tentang .garis{
     height: 10px;
     width: 23em;
     margin-top: 1.5em;
     background-color: #FBA734;
 }
-
 #tentang .bag2{
     background-color: #1A4AB9;
 }
 #tentang .bag2 *{
     text-align: center;
 }
-
+#tentang .bag2 h1{
+    font-size: 5em;
+    color: #FFCD28;
+}
 #jasa .bag2{
     position: relative;
     color:#FFFFFF;
 }
-
 #jasa .bag2 .container{
     position: absolute;
     z-index: 1;
 }
-
 #jasa .bag2::after{
     content: "";
     background-color: #03263490;
@@ -184,7 +232,6 @@ body{
     position: absolute;
     top: 0;
 }
-
 #jasa .bag2 img{
     bottom:0%;
     -webkit-mask-image:-webkit-gradient(linear, left top, left center, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
@@ -194,7 +241,6 @@ body{
     position: relative;
     height: 100vh;
 }
-
 #csr img{
     object-fit: scale-down;
     width: calc(100% - 5em);
@@ -206,11 +252,10 @@ body{
     width: calc(100% - 5em);
     height: 75vh;
     position: absolute;
-    background-color: #FAB8C4;
+    background-color: #1A4AB9;
     transform: translateY(-50%);
     z-index: -2;
 }
-
 #csr .bag2::after{
     content: '';
     top: 50%;
@@ -218,42 +263,37 @@ body{
     width: 40vh;
     height: 40vh;
     position: absolute;
-    background-color: #1A4AB9;
+    background-color: #FFCD28;
     transform: translateY(-37.5vh);
     z-index: -1;
     border-bottom-left-radius: 40vh;
 }
-
-#kontak .bag1, #kontak .bag2{
-    min-height: calc(50vh - 28px);
+#kontak .bag1{
+    min-height: calc(50vh - 56px);
 }
-
+#kontak .bag2{
+    min-height: 50vh;
+}
 #kontak .tombol a{
     width: 200px;
 }
-
 #kontak .bag2{
     background-color: #1A4AB9;
     width: calc(100vw + 12px);
-    /* padding-right: calc(100px + 5em); */
     position: absolute;
     left: 0;
     color: #FFFFFF;
 }
-
 #kontak .bag2 .display-4{
     line-height: .7em;
 }
-
 iframe {
     border-radius: .5em;
 }
 @media (max-width: 1199.98px){
 
 }
-
 @media (max-width: 991.98px){
-    
     .display-1{
         font-size: 3em!important;
     }
@@ -271,13 +311,11 @@ iframe {
         position: absolute;
         border-radius: .5em;
     }
-
     #home .bag2{
         top:50%;
         transform: translate(-100%,calc(-50% + 56px));
         left:calc(100%);
     }
-    
     #home .gambar1{
         height: 200px;
         border-radius: 200px;
@@ -291,6 +329,12 @@ iframe {
         height: 80vh;
         background-color: #029AFF;
         z-index: -2;
+    }
+    #home .kotak2{
+        width: 80px;
+        height: 80px;
+        top:35%;
+        left:calc(100% - 15em);
     }
     #tentang .garis{
         height: 10px;
@@ -315,7 +359,6 @@ iframe {
     #jasa .bag2 img{
         top: 140px;
     }
-    
 
 }
 @media (max-width: 575.98px){
@@ -357,25 +400,26 @@ iframe {
     }
     #tentang .bag2 *{
         text-align: center;
-    }#csr .bag2::before{
+    }
+    #csr .bag2{
+        height: 50vh;
+    }
+    #csr .bag2::before{
         content: '';
         top: 50%;
         width: calc(100%);
-        height: 75vh;
+        height: 50vh;
         position: absolute;
-        background-color: #FAB8C4;
         transform: translateY(-50%);
         z-index: -2;
     }
-    
     #csr .bag2::after{
         content: '';
-        top: 50%;
+        top: 75%;
         right:0;
         width: 50vw;
         height: 50vw;
         position: absolute;
-        background-color: #1A4AB9;
         transform: translateY(-37.5vh);
         z-index: -1;
         border-bottom-left-radius: 50vh;
@@ -383,5 +427,11 @@ iframe {
     #csr img{
         object-fit: scale-down;
         width: calc(100%);
+    }
+}
+@media (max-width: 300px){
+    #home .gambar1{
+        width: 70vw;
+        height: 70vw;
     }
 }
