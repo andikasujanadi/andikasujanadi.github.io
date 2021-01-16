@@ -14,28 +14,10 @@ body, html{
     background-color: #FF000040!important;
     /* color: black!important; */
 }
-.scrollbar--light-reversed {
-  scrollbar-color: #999494 #eaeaea;
-  scrollbar-width: thin;
-}
-.scrollbar--light-reversed::-webkit-scrollbar {
-  height: 12px;
-  width: 12px;
-  background-color: red;
-}
-.scrollbar--light-reversed::-webkit-scrollbar-corner {
-  background: #eaeaea;
-}
-.scrollbar--light-reversed::-webkit-scrollbar-thumb {
-  background: #999494;
-  border: 1px solid #eaeaea;
-}
-.scrollbar--light-reversed::-webkit-scrollbar-thumb:hover {
-  background: #6e6e6e;
-}
-.scrollbar--light-reversed::-webkit-scrollbar-track {
-  border: 1px solid #eaeaea;
-  background-color: #eaeaea;
+
+.btn-primary{
+    background-color: #1A4AB9;
+    border-color: #1A4AB9;
 }
 
 .bendera{
@@ -290,8 +272,13 @@ body, html{
 iframe {
     border-radius: .5em;
 }
+.image-pl{
+    width: 30vw;
+}
 @media (max-width: 1199.98px){
-
+    .image-pl{
+        width: 50vw;
+    }
 }
 @media (max-width: 991.98px){
     .display-1{
@@ -358,6 +345,9 @@ iframe {
     }
     #jasa .bag2 img{
         top: 140px;
+    }
+    .image-pl{
+        width: 100vw;
     }
 
 }
