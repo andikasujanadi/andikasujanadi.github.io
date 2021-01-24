@@ -1,6 +1,41 @@
 body, html{
     overflow-x: hidden;
 }
+#bg{
+    position: fixed;
+    width: 100vw;
+    height: 110vh;
+    z-index: -999;
+    opacity: .05;
+    object-fit: cover;
+    filter: blur(4px);
+}
+.overlay-wa{
+    top: 150vh!important;
+    transition: all ease 2s;
+}
+#wa::after{
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(15px);
+    z-index: -1;
+    transition: all ease .3s;
+}
+#wa{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 900px;
+    transition: all ease .3s;
+}
+
 #my-scrollbar{
     overflow: auto;
     height: 5300px;
@@ -219,15 +254,15 @@ body, html{
     -webkit-mask-image:-webkit-gradient(linear, left top, left center, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
-#csr .bag2{
+#client .bag2{
     position: relative;
     height: 100vh;
 }
-#csr img{
+#client img{
     object-fit: scale-down;
     width: calc(100% - 5em);
 }
-#csr .bag2::before{
+#client .bag2::before{
     content: '';
     top: 50%;
     right:0;
@@ -238,7 +273,7 @@ body, html{
     transform: translateY(-50%);
     z-index: -2;
 }
-#csr .bag2::after{
+#client .bag2::after{
     content: '';
     top: 50%;
     right:0;
@@ -265,6 +300,7 @@ body, html{
     position: absolute;
     left: 0;
     color: #FFFFFF;
+    z-index: -1;
 }
 #kontak .bag2 .display-4{
     line-height: .7em;
@@ -391,10 +427,10 @@ iframe {
     #tentang .bag2 *{
         text-align: center;
     }
-    #csr .bag2{
+    #client .bag2{
         height: 50vh;
     }
-    #csr .bag2::before{
+    #client .bag2::before{
         content: '';
         top: 50%;
         width: calc(100%);
@@ -403,7 +439,7 @@ iframe {
         transform: translateY(-50%);
         z-index: -2;
     }
-    #csr .bag2::after{
+    #client .bag2::after{
         content: '';
         top: 75%;
         right:0;
@@ -414,7 +450,7 @@ iframe {
         z-index: -1;
         border-bottom-left-radius: 50vh;
     }
-    #csr img{
+    #client img{
         object-fit: scale-down;
         width: calc(100%);
     }
