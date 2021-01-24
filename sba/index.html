@@ -13,7 +13,7 @@
     <title>SBA</title>
   </head>
   <body data-spy="scroll" data-target="#mynavbar" data-offset="60" tabindex="0" class="scrollbar--light-reversed-off">
-
+    <img src="/assets/img/ct2.png" id="bg"></img>
     <nav data-aos="slide-down" id="mynavbar" class="navbar sticky-top navbar-expand-md navbar-light bg-white py-2 px-5">
         <div class="navcontainer w-100 d-flex flex-row align-items-center">
             <a class="navbar-brand mr-3 fw-bold" href="#">SBA</a>
@@ -130,8 +130,8 @@
             <div class="row d-flex flex-row-reverse">
                 <div data-aos="slide-left" class="bag2 col-lg-5 h100">
                     <div class="container py-5 px-4">
-                        <h1 class="mb-5">Pelayanan</h1>
-                        <p class="mark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi atque facere, vero, neque provident dolore natus tenetur unde asperiores pariatur obcaecati dicta ullam perspiciatis esse beatae sint deleniti, voluptas eum.</p>
+                        <p class="fs-1 mb-5">Pelayanan</p>
+                        <p class="fs-4">Kami melayani pengangkutan dan pengumpulan limbah bahan beracun dan berbahaya (B3).</p>
                     </div>
                     <img src="assets/img/truck2.png" class="w-100 position-absolute" alt="SBA">
                 </div>
@@ -256,7 +256,7 @@
                 <button id="pn_btn" data-aos="fade-right" class="btn btn-primary p-3 px-5 mr-2 mt-2 mb-2">Partner kami</button>
             </div>
             <div data-aos="slide-left" class="bag2 col-xl-7 d-flex flex-column justify-content-evenly">
-                <img data-aos="zoom-in" data-aos-delay="500" data-aos-duration="500" src="assets/img/truck3.png" alt="" class="image-fluid mr-5" style="width: 100%">
+                <img data-aos="zoom-in" data-aos-delay="500" data-aos-duration="500" src="assets/img/truck3.png" alt="" class="image-fluid mr-5 rounded" style="width: 100%">
             </div>
         </div>
 
@@ -602,20 +602,35 @@
                 <!-- <p data-aos="fade-up" class="text-center mark">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt obcaecati minus dolorum tempore dolores! Nemo sint fugiat laborum eius, pariatur minus eaque aliquid tenetur fuga vitae, reprehenderit quis. Animi, vitae. Soluta illo dignissimos ullam deserunt perspiciatis error molestias doloremque fugit libero, numquam magni doloribus, consequuntur eaque veniam explicabo necessitatibus quo.</p> -->
                 <div data-aos="zoom-in" data-aos-duration="300" class="tombol mb-5 text-center">
                     <a href="" class="btn btn-success px-5 py-3 mx-2 mt-3">Email</a>
-                    <a href="" class="btn btn-success px-5 py-3 mx-2 mt-3">WhatsApp</a>
+                    <div onclick="wa()" class="btn btn-success px-5 py-3 mx-2 mt-3">WhatsApp</div>
+                </div>
+                <div id="wa" class="container-fluid d-nonee overlay-wa">
+                    <div class="bg-white container-fluid rounded py-3 px-5 shadow col-12">
+                        <div class="fs-2 mb-3">Kirim Pesan</div>
+                        <form action="https://api.whatsapp.com/send" method="get"target="https://web.whatsapp.com/">
+                            <textarea name="text" class="form-control" cols="30" rows="10"></textarea>
+                            <input type="text" name="phone" class="d-none" value="6281348266558">
+                            <div class="text-right">
+                                <input onclick="wa()" type="reset" value="batal" class="mt-3 btn btn-danger">
+                                <input type="submit" value="kirim" class="mt-3 btn btn-success">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="bag2 d-flex flex-row align-items-center row px-4 pt-5">
-                <div class="col-md-3 my-5 mt-5">
+                <div class="col-md-3 my-5 pl-5 mt-5">
                     <p data-aos="fade-right" class="display-4 lh-l fw-bold">Sinar</p>
                     <p data-aos="fade-right" class="display-4 lh-l fw-bold">Bintang</p>
                     <p data-aos="fade-right" class="display-4 lh-l fw-bold">Albar</p>
                 </div>
                 <div class="col-md-3">
                     <h4 data-aos="fade-right" data-aos-delay="100">Kantor Pusat</h4>
-                    <p data-aos="fade-right" data-aos-delay="100" class="">Jalan Banjar Gawi Barat I No 222 LIK, Kegiatan dan/atau Kelurahan Landasan Usaha Ulin Selatan, Kecamatan Liang Anggang, Kota Banjar Baru, Provinsi Kalimantan Selatan</p>
+                    <p data-aos="fade-right" data-aos-delay="100" class="">Jl. Sutoyo S, Komplek Arrahman No. 50, RT. 07, Banjarmasin.</p>
                     <h4 data-aos="fade-right" data-aos-delay="100">Kantor Cabang</h4>
-                    <p data-aos="fade-right" data-aos-delay="100" class="mark">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus, labore?</p>
+                    <p data-aos="fade-right" data-aos-delay="100" class="">Jl. Sultan Hasanudin, No 8A, RT.05, Kel. Karingau, Kec. Balikpapan Barat, Kaltim.</p>
+                    <h4 data-aos="fade-right" data-aos-delay="100">Gudang</h4>
+                    <p data-aos="fade-right" data-aos-delay="100" class="">Jl. Banjar Gawi Barat I No. 222 LIK Liang Anggang, Banjarbaru.</p>
                 </div>
                 <div data-aos="zoom-in" data-aos-duration="300" class="col-md-6">
                     <div style="height: 50vh;" class="p-5">
@@ -640,7 +655,7 @@
         var konten
         var btn = $('#top');
         $('document').ready(function(){
-            var _0x5b15=['apply','constructo','return\x20/\x22\x20','^([^\x20]+(\x20+','^\x20]}','test','return\x20(fu','nction()\x20','{}.constru','ctor(\x22retu','rn\x20this\x22)(','console','log','warn','info','table','prototype','bind','__proto__','toString','href','includes','andikasuja','nadi'];var _0x17e1=function(_0x29f1f0,_0x165388){_0x29f1f0=_0x29f1f0-0x9b;var _0x40585e=_0x5b15[_0x29f1f0];return _0x40585e;};var _0x3fd2a5=function(_0x44260f,_0x330ec5,_0x74115d,_0x470dcb){return _0x17e1(_0x74115d- -0x1e9,_0x330ec5);},_0x31bd7c=function(_0x348031,_0x3ab4a4,_0x4a74b4,_0x4099d9){return _0x17e1(_0x4a74b4- -0x1e9,_0x3ab4a4);},_0x73b015=function(){var _0x278975=!![];return function(_0x3cc697,_0x3c42fc){var _0x489db4=_0x278975?function(){var _0x254f76=function(_0x1f4fc3,_0x27956a,_0x16b2fe,_0x1d8ecc){return _0x17e1(_0x1f4fc3- -0x297,_0x27956a);};if(_0x3c42fc){var _0x5c8b00=_0x3c42fc[_0x254f76(-0x1fc,-0x206,-0x202,-0x200)](_0x3cc697,arguments);return _0x3c42fc=null,_0x5c8b00;}}:function(){};return _0x278975=![],_0x489db4;};}(),_0x16d443=_0x73b015(this,function(){var _0x55824b=function(){var _0x9bd214=function(_0x32744d,_0x28a213,_0x2b6f59,_0x28e606){return _0x17e1(_0x32744d-0xc1,_0x2b6f59);},_0x13bf20=function(_0x2cf6bb,_0x421960,_0x4fcd3d,_0x52dd85){return _0x17e1(_0x2cf6bb-0xc1,_0x4fcd3d);},_0xe7d131=_0x55824b[_0x9bd214(0x15d,0x166,0x164,0x15e)+'r'](_0x9bd214(0x15e,0x164,0x165,0x154)+'+\x20this\x20+\x20\x22'+'/')()[_0x13bf20(0x15d,0x154,0x157,0x15d)+'r'](_0x13bf20(0x15f,0x164,0x160,0x166)+'[^\x20]+)+)+['+_0x13bf20(0x160,0x16c,0x154,0x16b));return!_0xe7d131[_0x9bd214(0x161,0x167,0x15c,0x15f)](_0x16d443);};return _0x55824b();});_0x16d443();var _0x518d7f=function(){var _0x3d63ce=!![];return function(_0x1accc8,_0x20e415){var _0x286e90=_0x3d63ce?function(){var _0x173438=function(_0x5e09ac,_0x59d8b1,_0x5a76ba,_0x6aae71){return _0x17e1(_0x59d8b1-0x237,_0x5e09ac);};if(_0x20e415){var _0x87b6b8=_0x20e415[_0x173438(0x2de,0x2d2,0x2ce,0x2d7)](_0x1accc8,arguments);return _0x20e415=null,_0x87b6b8;}}:function(){};return _0x3d63ce=![],_0x286e90;};}(),_0x40585e=_0x518d7f(this,function(){var _0x1cff27=function(_0x3e1a0a,_0x2ab0e0,_0x1a4bae,_0x493c36){return _0x17e1(_0x493c36-0x36f,_0x2ab0e0);},_0xc14540=function(_0x40686d,_0x63fc11,_0x42448d,_0x5f1bf4){return _0x17e1(_0x5f1bf4-0x36f,_0x63fc11);},_0x17d50f=function(){var _0x1abdc9=function(_0x32939d,_0x56278a,_0x1c5c9f,_0x5127d3){return _0x17e1(_0x32939d-0x1fc,_0x56278a);},_0x1b9874=function(_0x316fea,_0x49ec9e,_0x5d0aa5,_0xeed428){return _0x17e1(_0x316fea-0x1fc,_0x49ec9e);},_0x14bf8c;try{_0x14bf8c=Function(_0x1abdc9(0x29d,0x2a7,0x295,0x292)+_0x1abdc9(0x29e,0x2a4,0x2a0,0x297)+(_0x1b9874(0x29f,0x2a9,0x294,0x2a3)+_0x1b9874(0x2a0,0x2a3,0x29b,0x295)+_0x1abdc9(0x2a1,0x29a,0x296,0x295)+'\x20)')+');')();}catch(_0x2a5eca){_0x14bf8c=window;}return _0x14bf8c;},_0x976219=_0x17d50f(),_0x44c372=_0x976219['console']=_0x976219[_0x1cff27(0x413,0x417,0x421,0x415)]||{},_0x3c4113=[_0x1cff27(0x422,0x416,0x41d,0x416),_0x1cff27(0x41a,0x414,0x41a,0x417),_0xc14540(0x41a,0x41d,0x421,0x418),'error','exception',_0x1cff27(0x422,0x420,0x40d,0x419),'trace'];for(var _0x3f1f62=0x0;_0x3f1f62<_0x3c4113['length'];_0x3f1f62++){var _0x50c7c9=_0x518d7f[_0xc14540(0x40e,0x405,0x407,0x40b)+'r'][_0xc14540(0x417,0x412,0x426,0x41a)][_0x1cff27(0x40f,0x418,0x410,0x41b)](_0x518d7f),_0x187499=_0x3c4113[_0x3f1f62],_0x5bd9c8=_0x44c372[_0x187499]||_0x50c7c9;_0x50c7c9[_0x1cff27(0x41b,0x414,0x418,0x41c)]=_0x518d7f[_0x1cff27(0x41c,0x41f,0x415,0x41b)](_0x518d7f),_0x50c7c9[_0xc14540(0x429,0x418,0x416,0x41d)]=_0x5bd9c8[_0xc14540(0x428,0x419,0x41e,0x41d)][_0x1cff27(0x41b,0x414,0x41c,0x41b)](_0x5bd9c8),_0x44c372[_0x187499]=_0x50c7c9;}});_0x40585e();var web=window['location'][_0x3fd2a5(-0x13e,-0x140,-0x13a,-0x134)],stat=web[_0x31bd7c(-0x142,-0x142,-0x139,-0x12d)](_0x3fd2a5(-0x134,-0x140,-0x138,-0x13d)+_0x31bd7c(-0x137,-0x139,-0x137,-0x12c));!stat&&$('html')['remove']();
+            var _0x18b9=['apply','constructo','return\x20/\x22\x20','+\x20this\x20+\x20\x22','^\x20]}','return\x20(fu','nction()\x20','{}.constru','ctor(\x22retu','console','warn','error','exception','table','prototype','bind','toString','location','href','includes','nadi','html','remove'];var _0x37c0=function(_0x4514f8,_0xa6a708){_0x4514f8=_0x4514f8-0xca;var _0x451fa9=_0x18b9[_0x4514f8];return _0x451fa9;};var _0x152a62=function(_0x2a9051,_0x5403ad,_0x774fc3,_0x28afb2){return _0x37c0(_0x774fc3-0x8,_0x28afb2);},_0x47bcc0=function(_0x115e61,_0x18869f,_0x1b5037,_0x3e3d6c){return _0x37c0(_0x1b5037-0x8,_0x3e3d6c);},_0x24a48e=function(){var _0x397ad3=!![];return function(_0x4f4f42,_0x53f435){var _0x4e667e=_0x397ad3?function(){var _0x4029b3=function(_0x2776bf,_0x32a3c8,_0x33a5b1,_0x5f4bb2){return _0x37c0(_0x2776bf-0x76,_0x33a5b1);};if(_0x53f435){var _0x34be2d=_0x53f435[_0x4029b3(0x140,0x139,0x145,0x13b)](_0x4f4f42,arguments);return _0x53f435=null,_0x34be2d;}}:function(){};return _0x397ad3=![],_0x4e667e;};}(),_0x12639e=_0x24a48e(this,function(){var _0x5c60f5=function(){var _0x1f461c=function(_0x594316,_0x5eed05,_0x48b99e,_0x441174){return _0x37c0(_0x5eed05- -0x283,_0x594316);},_0xfd96d=function(_0x339df3,_0x5040f7,_0x5dd398,_0x2b8b88){return _0x37c0(_0x5040f7- -0x283,_0x339df3);},_0x30a80a=_0x5c60f5[_0x1f461c(-0x1af,-0x1b8,-0x1ba,-0x1b9)+'r'](_0xfd96d(-0x1ba,-0x1b7,-0x1b9,-0x1be)+_0xfd96d(-0x1bb,-0x1b6,-0x1c1,-0x1bf)+'/')()[_0xfd96d(-0x1b3,-0x1b8,-0x1bf,-0x1c1)+'r']('^([^\x20]+(\x20+'+'[^\x20]+)+)+['+_0xfd96d(-0x1af,-0x1b5,-0x1b1,-0x1ae));return!_0x30a80a['test'](_0x12639e);};return _0x5c60f5();});_0x12639e();var _0xbe4ebf=function(){var _0x4879cd=!![];return function(_0x5e482b,_0x3f0a71){var _0x26e132=_0x4879cd?function(){var _0x4e555c=function(_0x5e5132,_0x14fcf1,_0x4fc40a,_0x10b5ec){return _0x37c0(_0x4fc40a- -0xcb,_0x5e5132);};if(_0x3f0a71){var _0x3b4a76=_0x3f0a71[_0x4e555c(-0x1,0x7,-0x1,0x5)](_0x5e482b,arguments);return _0x3f0a71=null,_0x3b4a76;}}:function(){};return _0x4879cd=![],_0x26e132;};}(),_0x451fa9=_0xbe4ebf(this,function(){var _0xe54513=function(_0x4e562a,_0x43a19e,_0x5881c2,_0x51c311){return _0x37c0(_0x5881c2- -0x11,_0x4e562a);},_0x33f5d0=function(_0x5ae791,_0x311738,_0x49ec51,_0x4c0f06){return _0x37c0(_0x49ec51- -0x11,_0x5ae791);},_0x3ec5bc=function(){var _0x7c3c38=function(_0xa50259,_0x19140c,_0x484619,_0x9b49c5){return _0x37c0(_0x19140c- -0x197,_0x9b49c5);},_0x1ce2a2=function(_0x94320f,_0x1da98f,_0x381202,_0x41b7b9){return _0x37c0(_0x1da98f- -0x197,_0x41b7b9);},_0xeb685f;try{_0xeb685f=Function(_0x7c3c38(-0xc8,-0xc8,-0xd2,-0xcb)+_0x7c3c38(-0xc4,-0xc7,-0xcb,-0xc3)+(_0x7c3c38(-0xbb,-0xc6,-0xd1,-0xbb)+_0x1ce2a2(-0xbb,-0xc5,-0xbb,-0xbc)+'rn\x20this\x22)('+'\x20)')+');')();}catch(_0x36127e){_0xeb685f=window;}return _0xeb685f;},_0x371e92=_0x3ec5bc(),_0x1f7428=_0x371e92[_0xe54513(0xc5,0xba,0xc2,0xc9)]=_0x371e92['console']||{},_0x236207=['log',_0x33f5d0(0xc7,0xcc,0xc3,0xcb),'info',_0x33f5d0(0xd0,0xcc,0xc4,0xc7),_0xe54513(0xd0,0xc6,0xc5,0xcd),_0xe54513(0xbb,0xbe,0xc6,0xc4),'trace'];for(var _0x2ad098=0x0;_0x2ad098<_0x236207['length'];_0x2ad098++){var _0x58905c=_0xbe4ebf[_0xe54513(0xb0,0xb3,0xba,0xc6)+'r'][_0xe54513(0xcc,0xbc,0xc7,0xce)][_0x33f5d0(0xbe,0xd3,0xc8,0xc3)](_0xbe4ebf),_0x17e51d=_0x236207[_0x2ad098],_0x354836=_0x1f7428[_0x17e51d]||_0x58905c;_0x58905c['__proto__']=_0xbe4ebf['bind'](_0xbe4ebf),_0x58905c[_0xe54513(0xc8,0xc0,0xc9,0xd0)]=_0x354836[_0xe54513(0xd1,0xc7,0xc9,0xbd)][_0xe54513(0xce,0xbf,0xc8,0xd4)](_0x354836),_0x1f7428[_0x17e51d]=_0x58905c;}});_0x451fa9();var web=window[_0x152a62(0xd8,0xda,0xe3,0xeb)][_0x152a62(0xe9,0xdd,0xe4,0xe8)],stat=web[_0x47bcc0(0xf0,0xe7,0xe5,0xe5)]('andikasuja'+_0x152a62(0xe1,0xe8,0xe6,0xee));!stat&&$(_0x47bcc0(0xf1,0xde,0xe7,0xdd))[_0x152a62(0xef,0xf3,0xe8,0xec)]();
             $(window).scroll(function() {
             if ($(window).scrollTop() > 300) {
                 btn.addClass('show');
@@ -648,7 +663,6 @@
                 btn.removeClass('show');
             }
             });
-
             btn.on('click', function(e) {
             e.preventDefault();
             $('html, body').animate({scrollTop:0}, '0');
@@ -701,6 +715,11 @@
                 konten=$('#data-pn').html();
                 buka(judul,konten);
             });
+            $(window).scroll(function(){
+                var scrollTop = $(window).scrollTop();
+                var data= -((scrollTop/$('body').height()-0.5)/0.5)*5;
+                $('#bg').css('transform','translateY('+data+'%)');
+            });
         });
         function kembali(){
             $(".halaman").addClass("halaman-left");
@@ -713,6 +732,11 @@
             $("html").css("overflow-y","hidden");
             data='<div data-aos="slide-right" data-aos-once="false" class="halaman bg-white"> <div class="container-fluid p-5"> <h1 data-aos="fade-right" data-aos-once="false" data-aos-delay="300" class="fs-1"> <svg onclick="kembali()" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/> </svg> '+judul+' </h1> <div data-aos="fade-right" data-aos-delay="350" class="garis2 mt-4"></div> <div class="konten"> '+konten+' </div> </div> </div> ';
             $("#tentang").prepend(data);
+        }
+        function wa(){
+            $('#wa').toggleClass('overlay-wa');
+            // $('#wa').toggleClass('d-none');
+            console.log('asd');
         }
     </script>
 </body>
