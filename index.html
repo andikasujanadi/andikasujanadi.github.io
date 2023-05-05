@@ -1,24 +1,113 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="src/style.css" rel="stylesheet">
-        <link href="src/stylenative.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    </head>
-    <body class="bg-amber-200">
-        <div class="h-screen w-screen grid place-content-center">
-            <h1 class="text-3xl">
-                Title
-            </h1>
-        </div>
-        <div id="name" class="h-screen w-screen grid place-content-center">
-            <h1 class="text-3xl">
+    <title>Document</title>
+</head>
+<body onscroll="onScroll()" onresize="onScroll()">
+    <nav class="navbar-bg"></nav>
+    <nav class="navbar">
+        <span class="nav-item">AN SJND</span>
+    </nav>
+    <div class="fullpage">
+        <div>
+            <div id="hero-text-1" class="hero-text">
                 Andika Sujanadi
-            </h1>
+            </div>
+            <div id="hero-text-2" class="hero-text">
+                as
+            </div>
+            <div id="hero-text-3" class="hero-text">
+                Web Developer
+            </div>
         </div>
-    </body>
+    </div>
+    <div class="fullpage flex-center">
+        <h2>What I do</h2>
+        <div class="flex">
+            <div id="what-i-do-1" class="card">
+                <div class="frame"></div>
+                <h3>
+                    Goverment Leave Permit System
+                </h3>
+                <div class="card-flex-body">
+                    <div class="btn-pill">Codeigniter 3</div>
+                    <div class="btn-pill">Jquery</div>
+                    <div class="btn-pill">Bootstrap 5</div>
+                    <div class="btn-pill">Responsive Design</div>
+                </div>
+            </div>
+            <div id="what-i-do-2" class="card">
+                <div class="frame"></div>
+                <h3>
+                    Smarthome Control Backend
+                </h3>
+                <div class="card-flex-body">
+                    <div class="btn-pill">Codeigniter 3</div>
+                    <div class="btn-pill">Jquery</div>
+                    <div class="btn-pill">Bootstrap 5</div>
+                    <div class="btn-pill">Responsive Design</div>
+                </div>
+            </div>
+            <div id="what-i-do-3" class="card">
+                <div class="frame"></div>
+                <h3>
+                    OJS Plugin Project
+                </h3>
+                <div class="card-flex-body">
+                    <div class="btn-pill">Smarty</div>
+                    <div class="btn-pill">Jquery</div>
+                    <div class="btn-pill">Alpine JS</div>
+                    <div class="btn-pill">Python</div>
+                    <div class="btn-pill">Tailwind</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fullpage flex-center">
+        <h2>Funny stuff</h2>
+        <div class="flex">
+            <div class="small-card">
+                <div class="small-card-body">
+                    Clock Greeting
+                </div>
+                <div class="small-card-btn"></div>
+            </div>
+            <div class="small-card">
+                <div class="small-card-body">
+                    Confession Page
+                </div>
+                <div class="small-card-btn"></div>
+            </div>
+        </div>
+        <h2>Skill set</h2>
+        <div class="skill-set">
+            <div>OOP</div>
+            <div>Clean Code</div>
+            <div>REST API</div>
+            <div>Responsive Design</div>
+            <div>Slicing Design</div>
+            <div>Version Control</div>
+        </div>
+    </div>
+    <div class="fullpage flex-center">
+        <div style="height: 65px;"></div>
+        <div class="spacer"></div>
+        <div class="contact-window">
+            <div class="label">Get in touch!</div>
+            <div class="content">andikasujanadi@gmail.com</div>
+        </div>
+        <div class="spacer"></div>
+        <footer class="footer">
+            Congrats, you're at the bottom of this page!
+        </footer>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
 </html>
