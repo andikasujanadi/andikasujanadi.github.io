@@ -31,9 +31,11 @@ html,body{
 .navbar{
   position: fixed;
   padding: 40px;
-  background-color: #fff384;
   z-index: 99;
   width: 100vw;
+}
+.bg-yellow{
+  background-color: #fff384;
 }
 /* .navbar-bg{
   position: fixed;
@@ -78,6 +80,7 @@ h2{
 .fullpage{
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   background-color: #FFF384;
 }
 .card{
