@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relax</title>
+    <style>
+        .art_size{
+            position: absolute;
+            height: 135px;
+            width: 240px;
+        }
+
+        .full_size {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        body{
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vh;
+        }
+        
+        .img_art{
+            image-rendering: pixelated;
+            position: absolute;
+        }
+
+        #img_container img{
+            height: 100vh;
+            width: 100vw;
+            object-fit: cover;
+            background-color: rgb(144, 161, 171);
+        }
+
+        .img_ui{
+            image-rendering: pixelated;
+            position: absolute;
+        }
+
+        #ui_container{
+            position: absolute;
+            image-rendering: pixelated;
+            transform-origin: center center;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+        }
+
+        #clock{
+            position: relative;
+            height: 7px;
+            width: 19px;
+            top:106px;
+            left:151px;
+        }
+
+        .clock_led{
+            position: absolute;
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            top:1px;
+            height: 5px;
+            width: 3px;
+        }
+
+        #clock_1{
+            left:1px;
+        }
+
+        #clock_2{
+            left:5px;
+        }
+
+        #clock_3{
+            left:11px;
+        }
+
+        #clock_4{
+            left:15px;
+        }
+
+        #clock_indicator_1{
+            background-color: red;
+            height: 1px;
+            width: 1px;
+            top:2px;
+            left:9px;
+            opacity: 1;
+        }
+        #clock_indicator_2{
+            background-color: red;
+            height: 1px;
+            width: 1px;
+            top:4px;
+            left:9px;
+            opacity: 1;
+        }
+        .pixel{
+            position: relative;
+            height: 1px;
+            width: 1px;
+        }
+
+        #overlay_table{
+            -webkit-mask-image: url(./pixel\ art\ cafe\ table.png);
+            mask-image: url(./pixel\ art\ cafe\ table.png);
+        }
+        
+        #overlay_fg{
+            -webkit-mask-image: url(./pixel\ art\ cafe\ fg.png);
+            mask-image: url(./pixel\ art\ cafe\ fg.png);
+        }
+
+        .overlay{
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+        }
+
+    </style>
+</head>
+<body onload="load_functions()">
+    <div id="img_container">
+        <img class="img_art" src="./pixel art cafe bg.png" alt="" id="img_bg">
+        <img class="img_art" src="./pixel art cafe foliage.png" alt="" id="img_foliage">
+        <img class="img_art" src="./pixel art cafe fg.png" alt="" id="img_bf">
+        <img class="img_art" src="./pixel art cafe table.png" alt="" id="img_table">
+    </div>
+    <div id="ui_container" class="art_size">
+
+        <!-- bg stuff -->
+        <div id="sky_bg" class="overlay"></div>
+        <img class="img_art" src="./pixel art cafe bg.png" alt="" id="img_bg">
+        <img class="img_art" src="./pixel art cafe foliage.gif" alt="" id="img_foliage">
+        <div id="overlay_bg" class="overlay"></div>
+        <canvas id="rain_bg" width="480" height="270" class="art_size"></canvas>
+
+        <!-- fg stuff -->
+        <img class="img_art" src="./pixel art cafe fg.png" alt="" id="img_fg" onload="rain_effect()">
+        <div id="overlay_fg" class="overlay"></div>
+
+        <!-- table stuff -->
+        <img class="img_art" src="./pixel art cafe table.png" alt="" id="img_table">
+        <div id="overlay_table" class="overlay"></div>
+
+        <div id="clock">
+            <div class="clock_led" id="clock_1">
+                <div class="pixel"></div><div class="pixel"></div> <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+            </div>
+            <div class="clock_led" id="clock_2">
+                <div class="pixel"></div><div class="pixel"></div> <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+            </div>
+            <div class="clock_led" id="clock_3">
+                <div class="pixel"></div><div class="pixel"></div> <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+            </div>
+            <div class="clock_led" id="clock_4">
+                <div class="pixel"></div><div class="pixel"></div> <div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div><div class="pixel"></div>
+            </div>
+            <div class="clock_led" id="clock_indicator_1"></div>
+            <div class="clock_led" id="clock_indicator_2"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const img_bg = {width:240,height:135}
+    scale_ui()
+    clock_service()
+    rain()
+
+    function load_functions() {
+        setup_rain()
+    }
+
+    function rain() {
+        let overlay_table = document.getElementById("overlay_table")
+        overlay_table.style.backgroundColor = "rgba(127, 59, 0, 0.35)"
+        overlay_table.style.mixBlendMode = "color-dodge"
+
+        let overlay_bg = document.getElementById("overlay_bg")
+        overlay_bg.style.backgroundColor = "rgba(113, 119, 140, 0.60)"
+        overlay_bg.style.maskimage = "color-dodge"
+        
+        let sky_bg = document.getElementById("sky_bg")
+        sky_bg.style.backgroundColor = "rgb(094, 125, 154)"
+    }
+
+    function rain_effect() {
+        
+    }
+
+    function scale_ui(){
+        let container = document.getElementById("ui_container")
+        let container_width = screen.width
+        let container_height = screen.height
+        
+        let img_width = img_bg.width
+        let img_height = img_bg.height
+        
+        let img_scale_width = container_width/img_width
+        let img_scale_height = container_height/img_height
+        let img_scale = Math.max(img_scale_width,img_scale_height)
+
+        container.style.transform = "translate(-50%, -50%) scale("+img_scale+")"
+        container.style.opacity = 1
+    }
+
+    function clock_service(){
+        let clock_indicator_1 = document.getElementById("clock_indicator_1")
+        let clock_indicator_2 = document.getElementById("clock_indicator_2")
+        state = 0
+        blink()
+        function blink() {
+            state = state == 0? 1:0
+            clock_indicator_1.style.opacity = state
+            clock_indicator_2.style.opacity = state
+            setTimeout(blink,500)
+        }
+        const pattern = [[1,1,1,1,0,1,1,0,1,1,0,1,1,1,1],[0,0,1,0,0,1,0,0,1,0,0,1,0,0,1],[1,1,1,0,0,1,1,1,1,1,0,0,1,1,1],[1,1,1,0,0,1,1,1,1,0,0,1,1,1,1],[1,0,1,1,0,1,1,1,1,0,0,1,0,0,1],[1,1,1,1,0,0,1,1,1,0,0,1,1,1,1],[1,1,1,1,0,0,1,1,1,1,0,1,1,1,1],[1,1,1,0,0,1,0,0,1,0,0,1,0,0,1],[1,1,1,1,0,1,1,1,1,1,0,1,1,1,1],[1,1,1,1,0,1,1,1,1,0,0,1,1,1,1]]
+
+        let clock_1 = document.getElementById("clock_1")
+        let clock_2 = document.getElementById("clock_2")
+        let clock_3 = document.getElementById("clock_3")
+        let clock_4 = document.getElementById("clock_4")
+
+        let clock_1_pixels = clock_1.querySelectorAll(".pixel")
+        let clock_2_pixels = clock_2.querySelectorAll(".pixel")
+        let clock_3_pixels = clock_3.querySelectorAll(".pixel")
+        let clock_4_pixels = clock_4.querySelectorAll(".pixel")
+
+        function set_number(pixels, number){
+            for (let index = 0; index < pixels.length; index++) {
+                const pixel = pixels[index];
+                if(pattern[number][index]==1){
+                    pixel.style.backgroundColor = "red"
+                }
+                else{
+                    pixel.style.backgroundColor = "transparent"
+                }
+            }
+        }
+
+        function getCurrentTimeArray() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const hourTens = Math.floor(hours / 10);
+            const hourOnes = hours % 10;
+            const minuteTens = Math.floor(minutes / 10);
+            const minuteOnes = minutes % 10;
+
+            return [hourTens, hourOnes, minuteTens, minuteOnes];
+        }
+
+        let last_time
+        run_clock()
+        function run_clock(){
+            time = getCurrentTimeArray()
+
+            if (time != last_time){
+                set_number(clock_1_pixels, time[0])
+                set_number(clock_2_pixels, time[1])
+                set_number(clock_3_pixels, time[2])
+                set_number(clock_4_pixels, time[3])
+            }
+
+            last_time = time
+            setTimeout(run_clock,1000)
+        }
+    }
+
+    var c, ctx, rain
+
+    class Rain{
+        constructor(x,y,l,v,w){
+            this.x = x;
+            this.y = y;
+            this.l = l;
+            this.v = v;
+        }
+        show(){
+            ctx.beginPath()
+            ctx.strokeStyle="white"
+            ctx.moveTo(this.x,this.y)
+            ctx.lineTo(this.x, this.y+this.l)
+            ctx.lineWidth = this.w;
+            ctx.stroke()
+        }
+        fall(){
+            this.y+=this.v
+            if(this.y>c.height){
+                this.x = Math.floor(Math.random()*c.width);
+                this.y = Math.floor(Math.random()*100)-100;
+                this.l = Math.floor(Math.random()*15)+2;
+                this.v = Math.floor(Math.random()*10)+3;
+                this.w = Math.floor(Math.random()*1.5)+0.5
+            }
+        }
+    }
+
+    function loop(){
+        ctx.clearRect(0,0,c.width, c.height)
+        rain.forEach(drop => {
+            drop.show()
+            drop.fall()
+        });
+    }
+    function setup_rain(){
+        console.log("setup")
+        c = document.getElementById("rain_bg")
+        ctx = c.getContext("2d")
+
+        rain = []
+        for (let i = 0; i < 100; i++) {
+            rain[i] = new Rain(
+                Math.floor(Math.random()*c.width),
+                Math.floor(Math.random()*100)-100,
+                Math.floor(Math.random()*15)+2,
+                Math.floor(Math.random()*10)+3,
+                Math.floor(Math.random()*1.5)+0.5
+            );
+        }
+
+        setInterval(loop,10)
+    }
+</script>
+</html>
