@@ -1,113 +1,344 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+        darkMode: 'class',
+          theme: {
+            extend: {},
+          },
+        };
+      </script>
+    <title>Andika Sujanadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="assets/portfolio/beaming-face-with-smiling-eyes_1f601.png" />
 </head>
-<body onscroll="onScroll()" onresize="onScroll()">
-    <!-- <nav class="navbar-bg"></nav> -->
-    <nav class="navbar">
-        <span class="nav-item">AN SJND</span>
+
+<body class="dark:bg-black dark:text-white">
+    <nav class="">
+        <div class="fixed bg-white/75 dark:bg-black/75 backdrop-blur-md z-10 w-full h-16 top-0"></div>
+        <div class="flex p-2 border-b dark:border-neutral-700 fixed top-0 w-full z-10 h-16">
+            <a href="#home" class="my-auto p-1 px-2 rounded-xl cursor-pointer me-auto font-medium text-xl">Andika Sujanadi</a>
+            <div class="my-auto -ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-github"></i></div>
+            <div class="my-auto -ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-linkedin"></i></div>
+            <div class="my-auto -ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-instagram"></i></div>
+            <div onclick="setting.classList.toggle('hidden')" class="my-auto ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-solid fa-brush"></i></div>
+        </div>
+        <div class="p-1 flex justify-center flex-grow gap-1 fixed w-full pointer-events-none z-10 h-16 bottom-0 lg:top-0 bg-white/75 dark:bg-black/75 backdrop-blur-md lg:bg-transparent dark:lg:bg-transparent lg:backdrop-blur-none dark:lg:backdrop-blur-none border-t dark:border-neutral-700 lg:border-t-0 dark:lg:border-t-0">
+            <a href="#home" class="hidden sm:flex transition duration-200 my-auto flex rounded-xl pointer-events-auto font-medium cursor-pointer
+                border border-transparent dark:border-transparent
+                sm:border-black/[0.1] dark:sm:border-neutral-700
+                lg:border-transparent dark:lg:border-transparent
+                hover:border-black/[0.1]
+                flex-col sm:flex-row text-center
+                gap-0 sm:gap-2
+                w-full sm:w-[unset]
+                px-3 pb-1 pt-2 sm:p-2
+                ">
+                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-house"></i>
+                <div class="">Home</div>
+            </a>
+            <a href="#projects" class="transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+                border border-transparent dark:border-transparent
+                sm:border-black/[0.1] dark:sm:border-neutral-700
+                lg:border-transparent dark:lg:border-transparent
+                hover:border-black/[0.1]
+                flex-col sm:flex-row text-center
+                gap-0 sm:gap-2
+                w-full sm:w-[unset]
+                px-3 pb-1 pt-2 sm:p-2
+                ">
+                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-briefcase"></i>
+                <div class="">Portofolio</div>
+            </a>
+            <a href="#skill" class="transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+                border border-transparent dark:border-transparent
+                sm:border-black/[0.1] dark:sm:border-neutral-700
+                lg:border-transparent dark:lg:border-transparent
+                hover:border-black/[0.1]
+                flex-col sm:flex-row text-center
+                gap-0 sm:gap-2
+                w-full sm:w-[unset]
+                px-3 pb-1 pt-2 sm:p-2
+                ">
+                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-wrench"></i>
+                <div class="">Skill</div>
+            </a>
+            <a href="#contact" class="transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+                border border-transparent dark:border-transparent
+                sm:border-black/[0.1] dark:sm:border-neutral-700
+                lg:border-transparent dark:lg:border-transparent
+                hover:border-black/[0.1]
+                flex-col sm:flex-row text-center
+                gap-0 sm:gap-2
+                w-full sm:w-[unset]
+                px-3 pb-1 pt-2 sm:p-2
+                ">
+                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-address-card"></i>
+                <div class="">Contact</div>
+            </a>
+            <a class="transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+                border border-transparent dark:border-transparent
+                sm:border-black/[0.1] dark:sm:border-neutral-700
+                lg:border-transparent dark:lg:border-transparent
+                hover:border-black/[0.1]
+                flex-col sm:flex-row text-center
+                gap-0 sm:gap-2
+                w-full sm:w-[unset]
+                px-3 pb-1 pt-2 sm:p-2
+                ">
+                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-newspaper"></i>
+                <div class="">Blog</div>
+            </a>
+        </div>
+        <div id="setting" class="hidden fixed flex flex-col  bg-white dark:bg-neutral-800 border dark:border-neutral-700 p-2 rounded-2xl top-16 right-0 z-10 m-2 min-w-60 shadow-xl">
+            <i onclick="setting.classList.toggle('hidden')" class="ms-auto right-0 top-0 fa-solid fa-circle-xmark p-1 cursor-pointer"></i>
+            <div class="flex gap-3 p-2">
+                <div onclick="setDark(false)" class="cursor-pointer flex p-2 flex-col gap-2 h-28 w-full bg-blue-300 rounded-lg ring-offset-4 dark:ring-offset-0 ring-4 dark:ring-0">
+                    <div class="flex flex-col gap-1.5 w-full bg-white/[0.5] h-10 rounded-lg p-2">
+                        <div class="w-1/2 bg-black/[0.5] h-2 rounded-lg"></div>
+                        <div class="w-full bg-black/[0.5] h-2 rounded-lg"></div>
+                    </div>
+                    <div class="flex flex-col gap-1.5 w-full bg-white/[0.5] h-10 rounded-lg p-2">
+                        <div class="w-1/2 bg-black/[0.5] h-2 rounded-lg"></div>
+                        <div class="w-full bg-black/[0.5] h-2 rounded-lg"></div>
+                    </div>
+                </div>
+                <div style="--tw-ring-offset-color:rgb(38 38 38 / var(--tw-bg-opacity, 1));" onclick="setDark(true)" class="cursor-pointer flex p-2 flex-col gap-2 h-28 w-full bg-blue-500 rounded-lg dark:ring-offset-4 ring-0 dark:ring-4">
+                    <div class="flex flex-col gap-1.5 w-full bg-black/[0.5] h-10 rounded-lg p-2">
+                        <div class="w-1/2 bg-white/[0.5] h-2 rounded-lg"></div>
+                        <div class="w-full bg-white/[0.5] h-2 rounded-lg"></div>
+                    </div>
+                    <div class="flex flex-col gap-1.5 w-full bg-black/[0.5] h-10 rounded-lg p-2">
+                        <div class="w-1/2 bg-white/[0.5] h-2 rounded-lg"></div>
+                        <div class="w-full bg-white/[0.5] h-2 rounded-lg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
-    <div class="fullpage">
-        <div>
-            <div id="hero-text-1" class="hero-text">
-                Andika Sujanadi
+
+    <div id="home" class="max-w-screen-xl mx-auto pt-20 lg:pt-32 px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="border dark:border-neutral-700 p-6 rounded-2xl dark:bg-neutral-800">
+            <div class="flex content-center gap-2 mb-4">
+                <div class="h-20 w-20 min-h-20 min-w-20 bg-blue-100 rounded-full"></div>
+                <div class="h-fit my-auto">
+                    <div class="text-3xl mb-1">Hey I'm Andika Sujanadi 👋</div>
+                    <div class=""><i class="fa-solid fa-location-dot me-2 opacity-25"></i>Banjarmasin, Indonesia</div>
+                </div>
             </div>
-            <div id="hero-text-2" class="hero-text">
-                as
-            </div>
-            <div id="hero-text-3" class="hero-text">
-                Web Developer
+            <div class="">I'm a Web Developer with a passion for frontend development. I also into Python programming, mobile programmbing, robotics, and enjoy creating digital art in my free time.</div>
+        </div>
+        <div class="border dark:border-neutral-700 p-6 rounded-2xl dark:bg-neutral-800 flex">
+            <div class="my-auto">
+                I strongly focus on frontend development with an up-to-date UI design and satisfying interaction. I love Python programming particularly in computer vision and machine learning. I also have experience in mobile development using Flutter and have worked on robotics projects that blend software and hardware innovation. I’m passionate about crafting intuitive, visually appealing, and impactful solutions across multiple platforms.
             </div>
         </div>
     </div>
-    <div class="fullpage flex-center">
-        <h2>What I do</h2>
-        <div class="flex">
-            <div id="what-i-do-1" class="card">
-                <div class="frame"></div>
-                <h3>
-                    Goverment Leave Permit System
-                </h3>
-                <div class="card-flex-body">
-                    <div class="btn-pill">Codeigniter 3</div>
-                    <div class="btn-pill">Jquery</div>
-                    <div class="btn-pill">Bootstrap 5</div>
-                    <div class="btn-pill">Responsive Design</div>
-                </div>
+    <div id="projects" class="max-w-screen-xl mx-auto pt-20 px-4">
+        <div class="text-3xl text-center mb-3">Projects</div>
+        <div class="grid lg:grid-cols-2 gap-4">
+            <div class="w-full aspect-video border dark:border-neutral-700 rounded-2xl overflow-hidden">
+                <img src="https://placehold.co/160x90" class="w-full" alt="placeholder image">
             </div>
-            <div id="what-i-do-2" class="card">
-                <div class="frame"></div>
-                <h3>
-                    Smarthome Control Backend
-                </h3>
-                <div class="card-flex-body">
-                    <div class="btn-pill">Codeigniter 3</div>
-                    <div class="btn-pill">Jquery</div>
-                    <div class="btn-pill">Bootstrap 5</div>
-                    <div class="btn-pill">Responsive Design</div>
-                </div>
-            </div>
-            <div id="what-i-do-3" class="card">
-                <div class="frame"></div>
-                <h3>
-                    OJS Plugin Project
-                </h3>
-                <div class="card-flex-body">
-                    <div class="btn-pill">Smarty</div>
-                    <div class="btn-pill">Jquery</div>
-                    <div class="btn-pill">Alpine JS</div>
-                    <div class="btn-pill">Python</div>
-                    <div class="btn-pill">Tailwind</div>
-                </div>
+            <div class="w-full aspect-video border dark:border-neutral-700 rounded-2xl overflow-hidden">
+                <img src="https://placehold.co/160x90" class="w-full" alt="placeholder image">
             </div>
         </div>
     </div>
-    <div class="fullpage flex-center">
-        <h2>Funny stuff</h2>
-        <div class="flex">
-            <div class="small-card">
-                <div class="small-card-body">
-                    Clock Greeting
+    <div id="skill" class="max-w-screen-xl mx-auto pt-20 px-4">
+        <div class="text-3xl text-center mb-3">Skill Set</div>
+        <div class="flex flex-wrap gap-2 justify-center">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-brands fa-php text-4xl mx-auto my-auto text-purple-600"></i>
                 </div>
-                <div class="small-card-btn"></div>
-            </div>
-            <div class="small-card">
-                <div class="small-card-body">
-                    Confession Page
+                <div class="my-auto leading-6">
+                    PHP
                 </div>
-                <div class="small-card-btn"></div>
             </div>
-        </div>
-        <h2>Skill set</h2>
-        <div class="skill-set">
-            <div>OOP</div>
-            <div>Clean Code</div>
-            <div>REST API</div>
-            <div>Responsive Design</div>
-            <div>Slicing Design</div>
-            <div>Version Control</div>
+
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-brands fa-laravel text-4xl mx-auto my-auto text-red-600"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Laravel
+                </div>
+            </div>
+            
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-brands fa-js text-4xl mx-auto my-auto text-yellow-400"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Javascript
+                </div>
+            </div>
+
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-brands fa-bootstrap text-4xl mx-auto my-auto text-purple-600"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Bootstrap
+                </div>
+            </div>
+
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-brands fa-css text-4xl mx-auto my-auto text-sky-500"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Tailwind
+                </div>
+            </div>
+
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-brands fa-python text-4xl mx-auto my-auto text-blue-600"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Python
+                </div>
+            </div>
+
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-solid fa-file-code text-4xl mx-auto my-auto text-sky-700"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    C/C++
+                </div>
+            </div>
+            
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-solid fa-infinity text-4xl mx-auto my-auto text-teal-600"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Arduino
+                </div>
+            </div>
+
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-solid fa-file-contract text-4xl mx-auto my-auto text-orange-500"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Blender
+                </div>
+            </div>
+
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-brands fa-figma text-4xl mx-auto my-auto"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Figma
+                </div>
+            </div>
+            
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-solid fa-file-video text-4xl mx-auto my-auto text-blue-700"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Premiere Pro
+                </div>
+            </div>
+            
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-solid fa-file-video text-4xl mx-auto my-auto text-purple-700"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    After Effects
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="fullpage flex-center">
-        <div style="height: 65px;"></div>
-        <div class="spacer"></div>
-        <div class="contact-window">
-            <div class="label">Get in touch!</div>
-            <div class="content">andikasujanadi@gmail.com</div>
+    <div id="contact" class="max-w-screen-md mx-auto pt-20 px-4 flex flex-col gap-4 mb-0">
+        <div class="text-3xl text-center">Connect With Me</div>
+        <div class="text-center">
+            I'd love to hear from you! Whether you have a question, a project idea, or just want to say hi, feel free to drop me a message.
         </div>
-        <div class="spacer"></div>
-        <footer class="footer">
-            Congrats, you're at the bottom of this page!
-        </footer>
+        <div class="md:col-span-2 flex justify-center gap-2 w-full">
+            <a href="mailto:andikasujanadi@gmail.com" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/andikasujanadi" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/andikasujanadi" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://instagram.com/andikasujanadi" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com/andikasujanadi" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-twitter"></i></a>
+            <a class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-regular fa-file-pdf"></i></a>
+        </div>
+        <div id="map" class="relative select-none">
+            <iframe width="425" height="350" class="w-full rounded-2xl border mx-auto max-w-screen-md" src="https://www.openstreetmap.org/export/embed.html?bbox=114.5572328567505%2C-3.349735588329645%2C114.61388111114503%2C-3.311605448808181&amp;layer=mapnik"></iframe>
+            <a class="absolute bottom-0 left-1/2 -translate-x-1/2 p-2 px-3 m-2 bg-white/50 dark:bg-black/50 backdrop-blur-sm rounded-xl font-medium text-xs border border-neutral-300 dark:border-neutral-700" href="https://www.openstreetmap.org/#map=15/-3.33067/114.58556" target="_blank">View Larger Map</a>
+        </div>
     </div>
-    <script src="assets/js/script.js"></script>
+    <footer class="bg-neutral-800 text-neutral-300 py-10 mt-10 pb-20 lg:pb-4">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-white">Home</a></li>
+                        <li><a href="#projects" class="hover:text-white">Projects</a></li>
+                        <li><a href="#skill" class="hover:text-white">Skill</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Contact Me</h4>
+                    <p>Email: <a href="mailto:andikasujanadi@gmail.com" class="hover:text-white">andikasujanadi@gmail.com</a></p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">Follow Me</h4>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/andikasujanadi" target="_blank" class="hover:text-white text-center">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/andikasujanadi" target="_blank" class="hover:text-white text-center">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://instagram.com/andikasujanadi" target="_blank" class="hover:text-white text-center">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://twitter.com/andikasujanadi" target="_blank" class="hover:text-white text-center">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-neutral-700 mt-8 pt-4 text-center">
+                <p>© 2025 Andika Sujandi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+        
+    <script>
+        if (localStorage.theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else if (localStorage.theme === 'light') {
+          document.documentElement.classList.remove('dark');
+        }
+
+        const setDark = (isDark) => {
+          const html = document.documentElement;
+          if (isDark) {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+            } else {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+          }
+        }
+    </script>
 </body>
+
 </html>
