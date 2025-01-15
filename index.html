@@ -28,8 +28,8 @@
             <div class="my-auto -ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-instagram"></i></div>
             <div onclick="setting.classList.toggle('hidden')" class="my-auto ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-solid fa-brush"></i></div>
         </div>
-        <div class="p-1 flex justify-center flex-grow gap-1 fixed w-full pointer-events-none z-10 h-16 bottom-0 lg:top-0 bg-white/75 dark:bg-black/75 backdrop-blur-md lg:bg-transparent dark:lg:bg-transparent lg:backdrop-blur-none dark:lg:backdrop-blur-none border-t dark:border-neutral-700 lg:border-t-0 dark:lg:border-t-0">
-            <a href="#home" class="hidden sm:flex transition duration-200 my-auto flex rounded-xl pointer-events-auto font-medium cursor-pointer
+        <div class="p-1 flex justify-center flex-grow sm:gap-1 fixed w-full pointer-events-none z-10 h-16 bottom-0 lg:top-0 bg-white/75 dark:bg-black/75 backdrop-blur-md lg:bg-transparent dark:lg:bg-transparent lg:backdrop-blur-none dark:lg:backdrop-blur-none border-t dark:border-neutral-700 lg:border-t-0 dark:lg:border-t-0">
+            <a href="#home" class="nav-link transition duration-200 my-auto flex rounded-xl pointer-events-auto font-medium cursor-pointer
                 border border-transparent dark:border-transparent
                 sm:border-black/[0.1] dark:sm:border-neutral-700
                 lg:border-transparent dark:lg:border-transparent
@@ -39,10 +39,10 @@
                 w-full sm:w-[unset]
                 px-3 pb-1 pt-2 sm:p-2
                 ">
-                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-house"></i>
+                <i class="my-auto lg:hidden fa-solid fa-house"></i>
                 <div class="">Home</div>
             </a>
-            <a href="#projects" class="transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+            <a href="#projects" class="nav-link transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
                 border border-transparent dark:border-transparent
                 sm:border-black/[0.1] dark:sm:border-neutral-700
                 lg:border-transparent dark:lg:border-transparent
@@ -52,10 +52,10 @@
                 w-full sm:w-[unset]
                 px-3 pb-1 pt-2 sm:p-2
                 ">
-                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-briefcase"></i>
+                <i class="my-auto lg:hidden fa-solid fa-briefcase"></i>
                 <div class="">Portofolio</div>
             </a>
-            <a href="#skill" class="transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+            <a href="#skill" class="nav-link transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
                 border border-transparent dark:border-transparent
                 sm:border-black/[0.1] dark:sm:border-neutral-700
                 lg:border-transparent dark:lg:border-transparent
@@ -65,10 +65,10 @@
                 w-full sm:w-[unset]
                 px-3 pb-1 pt-2 sm:p-2
                 ">
-                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-wrench"></i>
+                <i class="my-auto lg:hidden fa-solid fa-wrench"></i>
                 <div class="">Skill</div>
             </a>
-            <a href="#contact" class="transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+            <a href="#contact" class="nav-link transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
                 border border-transparent dark:border-transparent
                 sm:border-black/[0.1] dark:sm:border-neutral-700
                 lg:border-transparent dark:lg:border-transparent
@@ -78,7 +78,7 @@
                 w-full sm:w-[unset]
                 px-3 pb-1 pt-2 sm:p-2
                 ">
-                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-address-card"></i>
+                <i class="my-auto lg:hidden fa-solid fa-address-card"></i>
                 <div class="">Contact</div>
             </a>
             <a class="transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
@@ -91,7 +91,7 @@
                 w-full sm:w-[unset]
                 px-3 pb-1 pt-2 sm:p-2
                 ">
-                <i class="my-auto text-black/50 dark:text-white/50 fa-solid fa-newspaper"></i>
+                <i class="my-auto lg:hidden fa-solid fa-newspaper"></i>
                 <div class="">Blog</div>
             </a>
         </div>
@@ -122,14 +122,16 @@
         </div>
     </nav>
 
-    <div id="home" class="max-w-screen-xl mx-auto pt-20 lg:pt-32 px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <section id="home" class="max-w-screen-xl mx-auto pt-20 lg:pt-32 px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="w-full md:col-span-2 text-center font-medium text-red-500">under construction ❤️</div>
         <div class="border dark:border-neutral-700 p-6 rounded-2xl dark:bg-neutral-800">
             <div class="flex content-center gap-2 mb-4">
-                <div class="h-20 w-20 min-h-20 min-w-20 bg-blue-100 rounded-full"></div>
+                <div class="h-20 w-20 min-h-20 min-w-20 bg-blue-100 rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400">
+                    <img src="assets/portfolio/profile_picture.png" alt="profile picture" class="w-full">
+                </div>
                 <div class="h-fit my-auto">
                     <div class="text-3xl mb-1">Hey I'm Andika Sujanadi 👋</div>
-                    <div class=""><i class="fa-solid fa-location-dot me-2 opacity-25"></i>Banjarmasin, Indonesia</div>
+                    <a href="#map" class="cursor-pointer"><i class="fa-solid fa-location-dot me-2 text-blue-500"></i>Banjarmasin, Indonesia</a>
                 </div>
             </div>
             <div class="">I'm a Web Developer with a passion for frontend development. I also into Python programming, mobile programmbing, robotics, and enjoy creating digital art in my free time.</div>
@@ -139,19 +141,32 @@
                 I strongly focus on frontend development with an up-to-date UI design and satisfying interaction. I love Python programming particularly in computer vision and machine learning. I also have experience in mobile development using Flutter and have worked on robotics projects that blend software and hardware innovation. I’m passionate about crafting intuitive, visually appealing, and impactful solutions across multiple platforms.
             </div>
         </div>
-    </div>
-    <div id="projects" class="max-w-screen-xl mx-auto pt-20 px-4">
+    </section>
+    <section id="projects" class="max-w-screen-xl mx-auto pt-20 px-4">
         <div class="text-3xl text-center mb-3">Projects</div>
         <div class="grid lg:grid-cols-2 gap-4">
-            <div class="w-full aspect-video border dark:border-neutral-700 rounded-2xl overflow-hidden">
-                <img src="https://placehold.co/160x90" class="w-full" alt="placeholder image">
+            <div class="w-full border dark:border-neutral-700 dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
+                <div class="flex flex-row">
+                    <a href="https://notarease.app/" target="_blank" class="me-auto hover:border-b-2 mb-auto pb-1 border-black/50 dark:border-white/50 underline-offset-4">Notarease Landing Page<i class="fa-solid fa-up-right-from-square ms-2 text-sm"></i></a>
+                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                        <i class="fa-brands fa-laravel text-xl mx-auto my-auto text-red-600"></i>
+                    </div>
+                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                        <i class="fa-brands fa-js text-xl mx-auto my-auto text-orange-500"></i>
+                    </div>
+                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                        <i class="fa-brands fa-css text-xl mx-auto my-auto text-sky-500"></i>
+                    </div>
+                </div>
+                <img src="assets/portfolio/notarease.png" class="w-full border dark:border-neutral-700" alt="notarease screenshot">
             </div>
-            <div class="w-full aspect-video border dark:border-neutral-700 rounded-2xl overflow-hidden">
-                <img src="https://placehold.co/160x90" class="w-full" alt="placeholder image">
+            <div class="w-full border dark:border-neutral-700 dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
+                <div>Place Holder</div>
+                <img src="https://placehold.co/160x90" class="w-full border dark:border-neutral-700" alt="placeholder image">
             </div>
         </div>
-    </div>
-    <div id="skill" class="max-w-screen-xl mx-auto pt-20 px-4">
+    </section>
+    <section id="skill" class="max-w-screen-xl mx-auto pt-20 px-4 2xl:px-0">
         <div class="text-3xl text-center mb-3">Skill Set</div>
         <div class="flex flex-wrap gap-2 justify-center">
             <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
@@ -174,10 +189,28 @@
             
             <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-solid fa-fire text-4xl mx-auto my-auto text-red-600"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    CodeIgniter
+                </div>
+            </div>
+            
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-brands fa-js text-4xl mx-auto my-auto text-yellow-400"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Javascript
+                </div>
+            </div>
+
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
+                    <i class="fa-brands fa-js text-4xl mx-auto my-auto text-orange-500"></i>
+                </div>
+                <div class="my-auto leading-6">
+                    Svelte
                 </div>
             </div>
 
@@ -263,8 +296,8 @@
             </div>
 
         </div>
-    </div>
-    <div id="contact" class="max-w-screen-md mx-auto pt-20 px-4 flex flex-col gap-4 mb-0">
+    </section>
+    <section id="contact" class="max-w-screen-md mx-auto pt-20 px-4 flex flex-col gap-4 mb-0">
         <div class="text-3xl text-center">Connect With Me</div>
         <div class="text-center">
             I'd love to hear from you! Whether you have a question, a project idea, or just want to say hi, feel free to drop me a message.
@@ -281,7 +314,7 @@
             <iframe width="425" height="350" class="w-full rounded-2xl border mx-auto max-w-screen-md" src="https://www.openstreetmap.org/export/embed.html?bbox=114.5572328567505%2C-3.349735588329645%2C114.61388111114503%2C-3.311605448808181&amp;layer=mapnik"></iframe>
             <a class="absolute bottom-0 left-1/2 -translate-x-1/2 p-2 px-3 m-2 bg-white/50 dark:bg-black/50 backdrop-blur-sm rounded-xl font-medium text-xs border border-neutral-300 dark:border-neutral-700" href="https://www.openstreetmap.org/#map=15/-3.33067/114.58556" target="_blank">View Larger Map</a>
         </div>
-    </div>
+    </section>
     <footer class="bg-neutral-800 text-neutral-300 py-10 mt-10 pb-20 lg:pb-4">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -339,6 +372,35 @@
                 localStorage.theme = 'light';
           }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const highlightNavLink = () => {
+            let currentSectionId = '';
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= sectionTop - 100) {
+                currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove('!text-blue-600');
+                link.classList.remove('dark:!text-blue-500');
+                if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('!text-blue-600');
+                link.classList.add('dark:!text-blue-500');
+                }
+            });
+            };
+
+            window.addEventListener('scroll', highlightNavLink);
+            highlightNavLink();
+        });
     </script>
 </body>
 
