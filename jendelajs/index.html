@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="w-screen">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./dist/styles.umd.css">
+    <style>
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 100%;
+            background-image: linear-gradient(to right, #80808012 2px, transparent 2px),
+                linear-gradient(to bottom, #80808012 2px, transparent 2px);
+            background-size: 48px 48px;
+        }
+        .dark{
+            background: #1b1b1b;
+        }
+        .grid-bg.dark{
+            background-image: linear-gradient(to right, #80808042 2px, transparent 2px),
+                linear-gradient(to bottom, #80808042 2px, transparent 2px);
+            background-size: 48px 48px;
+        }
+        .dark .body{
+            background: #252525;
+            color: white;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="grid-bg w-screen !font-sans">
+    <div class="flex flex-wrap p-4 gap-2">
+        <div onclick="addWindowModal()"
+                class="flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
+            <i class="my-auto mx-auto fa-solid fa-square-plus text-gray-500"></i>
+            <div class="my-auto">Add Window</div>
+        </div>
+        <div onclick="closeAllWindows()"
+                class="flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
+            <i class="my-auto mx-auto fa-solid fa-circle-xmark text-gray-500"></i>
+            <div class="my-auto">Close All Windows</div>
+        </div>
+        <div onclick="addDesktopGroupWindows()"
+                class="hidden xl:flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
+            <i class="my-auto mx-auto fa-solid fa-computer text-gray-500"></i>
+            <div class="my-auto">Desktop Showcase</div>
+        </div>
+        <div onclick="openWelcome()"
+                class="sm:ms-auto flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
+            <i class="my-auto mx-auto fa-solid fa-circle-info text-gray-500"></i>
+            <div class="my-auto">About</div>
+        </div>
+    </div>
+    <div class="hidden">
+        <div id="addWindowBody">
+            <div class="flex h-full w-full">
+                <div class="mx-auto flex flex-col w-full max-w-96 gap-2 overflow-auto p-2">
+                    <input class="border min-h-8 px-2 rounded-lg outline-none" temp-id="titleInput" type="text" placeholder="title">
+                    <select class="border min-h-8 px-2 rounded-lg outline-none" temp-id="themePicker">
+                        <option value="0">Select Window Style:</option>
+                        <option value="jendela-debug">Jendela Debug</option>
+                        <option value="jendela-legacy" selected>Jendela Default</option>
+                        <option value="jendela-libadwaita">Jendela Libadwaita</option>
+                        <option value="jendela-classic">Jendela Classic</option>
+                        <option value="jendela-xp">Jendela XP</option>
+                        <option value="jendela-7">Jendela 7</option>
+                        <option value="jendela-8">Jendela 8</option>
+                        <option value="jendela-10">Jendela 10</option>
+                        <option value="jendela-11">Jendela 11</option>
+                    </select>
+                    <div class="flex gap-2 hover:underline">
+                        <input type="checkbox" class="my-auto" temp-id="minimizeButton" name="minimizeButton" value="minimizeButton" checked>
+                        <label class="grow" for="minimizeButton">minimize button</label>
+                    </div>
+                    <div class="flex gap-2 hover:underline">
+                        <input type="checkbox" class="my-auto" temp-id="resizeButton" name="resizeButton" value="resizeButton" checked>
+                        <label class="grow" for="resizeButton">maximize button</label>
+                    </div>
+                    <div class="flex gap-2 hover:underline">
+                        <input type="checkbox" class="my-auto" temp-id="closeButton" name="closeButton" value="closeButton" checked>
+                        <label class="grow" for="closeButton">close button</label>
+                    </div>
+                    <button class="transition duration-300 bg-blue-600 hover:bg-blue-700 cursor-pointer py-2 text-white font-bold rounded-xl mt-auto"
+                        onclick="windows.push(jendelaJS.addWindow({
+                            title:titleInput.value,
+                            theme: themePicker.value,
+                            minimizeButton:minimizeButton.checked,
+                            resizeButton:resizeButton.checked,
+                            closeButton:closeButton.checked,
+                            body:getRandomBody(),
+                            }));closeAddWindowModal();">
+                        add a new window
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="welcomeBody">
+            <div temp-id="welcomeModal" class="p-4 pb-1 h-full overflow-auto flex flex-col">
+                <div class="text-center text-4xl text-blue-500 my-4">
+                    <i class="fa-solid fa-person-through-window"></i>
+                </div>
+                <div class="text-center font-medium mb-2">Welcome to Jendela JS demo!</div>
+                <div class="leading-5 text-center mb-8">Feel free to explore this art, don't forget to give me any feedback that can be usefull for next update.❤️</div>
+                <div class="flex gap-2 flex-wrap max-w-screen-sm mx-auto w-full">
+                    <a class="grow font-medium text-center p-1 px-3 rounded-lg transition duration-200 bg-neutral-900 hover:bg-blue-600 text-white"
+                        href="https://andikasujanadi.github.io/" target="_blank">
+                        <i class="fa-solid fa-earth-asia me-2"></i>Github Page
+                    </a>
+                    <a class="grow font-medium text-center p-1 px-3 rounded-lg transition duration-200 bg-neutral-900 hover:bg-blue-600 text-white"
+                        href="https://github.com/andikasujanadi/jendela-js" target="_blank">
+                        <i class="fa-brands fa-github me-2"></i>Repository
+                    </a>
+                </div>
+                <div class="text-center mt-auto text-sm font-medium pt-4 text-gray-500">Made with ❤️ by Andika Sujanadi</div>
+            </div>
+        </div>
+    </div>
+    <script src="./dist/jendela.umd.js"></script>
+    <script>
+        let windows = [];
+        let addWIndowModalElement;
+        const addWindowModal = () => {
+            const created = (document.getElementById('titleInput')!==null);
+            if(created){
+                addWIndowModalElement.element.focus();
+            }
+            else{
+                try {
+                    addWIndowModalElement.close();
+                } catch (error) {}
+                addWIndowModalElement = jendelaJS.addWindow({
+                title: 'Add Window',
+                theme: 'jendela-libadwaita',
+                top:58,
+                left:16,
+                minWidth:290,
+                height:270,
+                body: addWindowBody.innerHTML.replaceAll('temp-id','id'),
+                });
+            }
+        }
+
+        let welcomeElement;
+        const openWelcome = () => {
+            const created = (document.getElementById('welcomeModal')!==null);
+            if(created){
+                welcomeElement.element  .focus();
+            }
+            else{
+                try {
+                    welcomeElement.close();
+                } catch (error) {}
+                welcomeElement = jendelaJS.addWindow({
+                    title:'welcome',
+                    theme:'jendela-libadwaita',
+                    minimizeButton: false,
+                    resizeButton: false,
+                    width:350,
+                    height:325,
+                    body:welcomeBody.innerHTML.replaceAll('temp-id','id'),
+                });
+            }
+        }
+        openWelcome();
+        const closeAddWindowModal = () => {
+            addWIndowModalElement.close();
+        }
+
+        const closeAllWindows = () => {
+            windows.forEach(window => {
+                window.close();
+            });
+            windows = [];
+        }
+
+        const addDesktopGroupWindows = () => {
+            window_group = [{
+                title: 'Jendela Classic',
+                body: getRandomBody(),
+                theme: 'jendela-classic',
+                top:100,
+                left:100,
+                width:300,
+                height:200,
+            },
+            {
+                title: 'Jendela 7',
+                body: getRandomBody(),
+                theme: 'jendela-7',
+                top:100,
+                left:450,
+                width:450,
+                height:400,
+            },
+            {
+                title: 'Jendela XP',
+                body: getRandomBody(),
+                theme: 'jendela-xp',
+                top:100,
+                left:950,
+                width:500,
+                height:300,
+            },
+            {
+                title: 'Jendela 8',
+                body: getRandomBody(),
+                theme: 'jendela-8',
+                top:350,
+                left:100,
+                width:300,
+                height:400,
+            },
+            {
+                title: 'Jendela 10',
+                body: getRandomBody(),
+                theme: 'jendela-10',
+                top:550,
+                left:450,
+                width:450,
+                height:200,
+            },
+            {
+                title: 'Jendela 11',
+                body: getRandomBody(),
+                theme: 'jendela-11',
+                top:450,
+                left:950,
+                width:500,
+                height:300,
+            }]
+            window_group.forEach((window, index) => {
+                setTimeout(() => {
+                    windows.push(jendelaJS.addWindow(window));
+                }, index * 50);
+            });
+        }
+
+        const getRandomBody = () => {
+            string = [`
+            Butterflies are fascinating insects that undergo complete metamorphosis, transitioning through four stages: egg, larva (caterpillar), pupa (chrysalis), and adult. They come in a wide range of sizes, with wingspans varying from as small as 1/8 inch to as large as 12 inches, such as the Queen Alexandra’s birdwing. One unique feature is their ability to taste with their feet, which helps them identify food sources upon landing. The vibrant colors of butterfly wings are not due to pigments but are created by microscopic scales that reflect light. Most butterflies have short lifespans, typically lasting a few weeks, although species like the Monarch butterfly can live up to eight months. With about 17,500 species worldwide, primarily in tropical regions, they are ectothermic creatures, relying on the sun to warm their bodies for activity. Butterflies play vital ecological roles as pollinators, though less efficient than bees, and many have developed strategies like camouflage or mimicry to evade predators. Some species, such as the Monarch butterfly, are known for their remarkable migrations, traveling up to 3,000 miles to escape cold winters. These delicate yet resilient creatures are a vital part of the natural world.
+            `,
+            `
+            The water we drink is essential for life, making up about 60% of the human body and playing a critical role in maintaining health. It helps regulate body temperature, supports digestion, transports nutrients, and removes waste through urination and sweating. Drinking clean, safe water is vital for preventing dehydration and ensuring overall well-being. Most of the water we consume comes from natural sources such as rivers, lakes, or underground aquifers, and it is often treated to remove impurities and contaminants before reaching our taps. Staying hydrated is important, and the recommended daily intake varies depending on factors like age, activity level, and climate. Access to safe drinking water is a fundamental human need, yet many people around the world still face challenges in securing it.
+            `,
+            `
+            Did you know that octopuses have three hearts and blue blood? Two of their hearts pump blood to the gills, while the third pumps it to the rest of the body. Interestingly, when they swim, the heart that supplies the body stops beating, which is why octopuses prefer crawling over swimming—it conserves energy. Their blood is blue because it contains copper-rich hemocyanin instead of iron-based hemoglobin, which helps them transport oxygen efficiently in cold, low-oxygen environments. On top of that, octopuses are incredibly intelligent, capable of solving puzzles, using tools, and even escaping from enclosures, earning them the nickname “escape artists” of the sea!
+            `,
+            `
+            Wombat poop is cube-shaped! This unusual trait helps prevent the poop from rolling away, allowing wombats to use it for marking their territory effectively. Scientists discovered that the unique shape is due to varying elasticity in the walls of their intestines, which compresses the feces into cubes as it solidifies. Wombats are nocturnal marsupials, and their cube-shaped droppings play a vital role in communication and marking their presence in the wild. It’s one of nature’s quirkiest adaptations!
+            `,
+            `
+            Bananas are berries, but strawberries aren't! Botanically speaking, a berry is a fruit that develops from a single ovary and contains seeds embedded in its flesh. Bananas meet this definition because they develop from a flower with one ovary and have tiny seeds inside (even though they're not usually noticeable in cultivated varieties). On the other hand, strawberries develop from a flower with multiple ovaries, and their seeds are on the outside, which makes them an aggregate fruit, not a true berry. Nature’s classifications can be surprisingly unexpected! 🍌🍓
+            `,
+            `
+            Sharks existed before trees! Sharks have been swimming in the oceans for over 400 million years, while trees only appeared around 350 million years ago. Early sharks were vastly different from the species we know today, but their resilience and adaptability have allowed them to survive multiple mass extinction events. This makes them one of Earth’s most ancient and successful predators, predating even the dinosaurs by hundreds of millions of years. 🌊🦈
+            `,
+            `
+            Did you know that sea otters hold hands while they sleep? This adorable behavior, called "rafting," prevents them from drifting apart while they float on the water. Sea otters often form groups, or "rafts," that can include dozens or even hundreds of otters. They sometimes wrap themselves in kelp to anchor themselves in place. This social and practical behavior helps them stay safe in their aquatic environment, making sea otters not only cute but also highly resourceful creatures! 🦦💙
+            `,
+            `
+            Seahorses are fascinating creatures with some unique traits! One of the most remarkable facts is that male seahorses are the ones that get pregnant and give birth. The female seahorse transfers her eggs into a pouch on the male's abdomen, where he fertilizes and incubates them. Depending on the species, he can carry anywhere from a few dozen to thousands of eggs until they hatch. Seahorses are also poor swimmers, relying on their dorsal fin to propel them and their small pectoral fins for steering. To avoid being swept away by currents, they use their prehensile tails to anchor themselves to seagrass or coral. These enchanting creatures are monogamous and often form strong pair bonds, even performing daily "dances" to reinforce their connection! 🐚🐴
+            `,
+            `
+            Most of the elements in our bodies, such as carbon, nitrogen, and oxygen, were created inside stars! Stars are like cosmic factories that fuse lighter elements, such as hydrogen and helium, into heavier elements through nuclear fusion. When massive stars reach the end of their life cycle and explode in a supernova, they scatter these elements across space, enriching the interstellar medium and eventually forming new stars, planets, and even life. In a way, we are literally made of stardust, as the very elements that make up our bodies were once born in the hearts of stars! ✨🌌
+            `,
+            `
+            A teaspoon of a neutron star would weigh about 6 billion tons! Neutron stars are the remnants of massive stars that have exploded in a supernova. After the explosion, the core collapses into an incredibly dense object, where protons and electrons merge to form neutrons. This makes the neutron star incredibly compact, with a mass about 1.5 times that of the sun, but squeezed into a sphere roughly the size of a city. Despite their small size, the density is so high that a small amount of neutron star material is extraordinarily heavy. It's a mind-boggling example of how extreme conditions in the universe can defy our everyday experiences! 🌠
+            `,
+            `
+            Tea is the second most consumed beverage in the world, after water! It has been enjoyed for thousands of years, with its origins dating back to ancient China. The most common types of tea—black, green, white, and oolong—are all made from the same plant, Camellia sinensis. The difference in their flavors and colors comes from how the leaves are processed. For example, black tea leaves are fully oxidized, while green tea leaves are quickly dried to prevent oxidation. Tea is not only loved for its taste, but it also has numerous health benefits, such as antioxidants that may help improve heart health and boost metabolism. 🍵
+            `,
+            `
+            Milk is a fascinating and versatile beverage! It’s not only a rich source of calcium, which is essential for strong bones and teeth, but it also provides other vital nutrients like protein, vitamin D, and potassium. Interestingly, humans are the only species that regularly drink milk from other animals, such as cows, goats, and buffalo. Milk has been a staple in human diets for thousands of years, with evidence of dairy farming dating back to around 8,000 years ago. However, not everyone can digest milk easily—about 65% of the global population has some level of lactose intolerance, which means they have difficulty digesting lactose, the sugar found in milk. Despite this, innovations like lactose-free milk and plant-based alternatives have made it more accessible to people worldwide. 🥛
+            `,
+            `
+            Lactose intolerance is a common condition where people have difficulty digesting lactose, the sugar found in milk and other dairy products. This happens because their bodies produce insufficient amounts of lactase, the enzyme needed to break down lactose into simpler sugars for absorption. Symptoms often include bloating, stomach cramps, gas, and diarrhea after consuming dairy. Interestingly, most mammals naturally lose the ability to digest lactose after weaning, but some human populations, especially in Europe and parts of Africa, evolved lactase persistence due to dairy farming practices. This genetic adaptation allows them to digest lactose throughout their lives. For those who are lactose intolerant, options like lactose-free milk, plant-based alternatives (such as almond, soy, or oat milk), and lactase enzyme supplements make it easier to enjoy dairy-like foods without discomfort. 🥛🚫
+            `,
+            `
+            Here’s a fun fact about ChatGPT: It doesn’t “think” like humans do, but it generates responses based on patterns in the massive amounts of text it was trained on! It uses a neural network model to predict the next word in a sentence based on the input it receives. While ChatGPT doesn’t have consciousness or personal experiences, it can process and generate information in a conversational way, making it feel interactive and engaging. It’s also constantly improving, with newer versions being fine-tuned to provide better answers, maintain context, and assist with more complex tasks. Think of it as a helpful tool for exploring knowledge and ideas in a collaborative way! 🤖✨
+            `,
+        ];
+            const template = `
+            <div class="p-4 pt-2 overflow-auto h-full">${string[Math.floor(Math.random() * string.length)].trim()}</div>
+            `;
+            return template;
+        }
+    </script>
+</body>
+
+</html>
