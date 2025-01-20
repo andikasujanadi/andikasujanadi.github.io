@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows</title>
+    <title>Jendela JS</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/jendelajs.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./dist/styles.umd.css">
     <style>
@@ -37,22 +38,22 @@
 <body class="grid-bg w-screen !font-sans">
     <div class="flex flex-wrap p-4 gap-2">
         <div onclick="addWindowModal()"
-                class="flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
+                class="select-none flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
             <i class="my-auto mx-auto fa-solid fa-square-plus text-gray-500"></i>
             <div class="my-auto">Add Window</div>
         </div>
         <div onclick="closeAllWindows()"
-                class="flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
+                class="select-none flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
             <i class="my-auto mx-auto fa-solid fa-circle-xmark text-gray-500"></i>
             <div class="my-auto">Close All Windows</div>
         </div>
         <div onclick="addDesktopGroupWindows()"
-                class="hidden xl:flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
+                class="select-none hidden xl:flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
             <i class="my-auto mx-auto fa-solid fa-computer text-gray-500"></i>
             <div class="my-auto">Desktop Showcase</div>
         </div>
         <div onclick="openWelcome()"
-                class="sm:ms-auto flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
+                class="select-none sm:ms-auto flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
             <i class="my-auto mx-auto fa-solid fa-circle-info text-gray-500"></i>
             <div class="my-auto">About</div>
         </div>
@@ -74,17 +75,19 @@
                         <option value="jendela-10">Jendela 10</option>
                         <option value="jendela-11">Jendela 11</option>
                     </select>
-                    <div class="flex gap-2 hover:underline">
-                        <input type="checkbox" class="my-auto" temp-id="minimizeButton" name="minimizeButton" value="minimizeButton" checked>
-                        <label class="grow" for="minimizeButton">minimize button</label>
-                    </div>
-                    <div class="flex gap-2 hover:underline">
-                        <input type="checkbox" class="my-auto" temp-id="resizeButton" name="resizeButton" value="resizeButton" checked>
-                        <label class="grow" for="resizeButton">maximize button</label>
-                    </div>
-                    <div class="flex gap-2 hover:underline">
-                        <input type="checkbox" class="my-auto" temp-id="closeButton" name="closeButton" value="closeButton" checked>
-                        <label class="grow" for="closeButton">close button</label>
+                    <div class="flex flex-col">
+                        <div class="flex gap-2 hover:underline">
+                            <input type="checkbox" class="my-auto" temp-id="minimizeButton" name="minimizeButton" value="minimizeButton" checked>
+                            <label class="grow" for="minimizeButton">minimize button</label>
+                        </div>
+                        <div class="flex gap-2 hover:underline">
+                            <input type="checkbox" class="my-auto" temp-id="resizeButton" name="resizeButton" value="resizeButton" checked>
+                            <label class="grow" for="resizeButton">maximize button</label>
+                        </div>
+                        <div class="flex gap-2 hover:underline">
+                            <input type="checkbox" class="my-auto" temp-id="closeButton" name="closeButton" value="closeButton" checked>
+                            <label class="grow" for="closeButton">close button</label>
+                        </div>
                     </div>
                     <button class="transition duration-300 bg-blue-600 hover:bg-blue-700 cursor-pointer py-2 text-white font-bold rounded-xl mt-auto"
                         onclick="windows.push(jendelaJS.addWindow({
@@ -94,7 +97,7 @@
                             resizeButton:resizeButton.checked,
                             closeButton:closeButton.checked,
                             body:getRandomBody(),
-                            }));closeAddWindowModal();">
+                            }));">
                         add a new window
                     </button>
                 </div>
@@ -102,9 +105,7 @@
         </div>
         <div id="welcomeBody">
             <div temp-id="welcomeModal" class="p-4 pb-1 h-full overflow-auto flex flex-col">
-                <div class="text-center text-4xl text-blue-500 my-4">
-                    <i class="fa-solid fa-person-through-window"></i>
-                </div>
+                <img class="my-6 h-20" src="./assets/jendelajs.svg" alt="">
                 <div class="text-center font-medium mb-2">Welcome to Jendela JS demo!</div>
                 <div class="leading-5 text-center mb-8">Feel free to explore this art, don't forget to give me any feedback that can be usefull for next update.❤️</div>
                 <div class="flex gap-2 flex-wrap max-w-screen-sm mx-auto w-full">
@@ -140,7 +141,7 @@
                 top:58,
                 left:16,
                 minWidth:290,
-                height:270,
+                height:250,
                 body: addWindowBody.innerHTML.replaceAll('temp-id','id'),
                 });
             }
@@ -162,7 +163,7 @@
                     minimizeButton: false,
                     resizeButton: false,
                     width:350,
-                    height:325,
+                    height:372,
                     body:welcomeBody.innerHTML.replaceAll('temp-id','id'),
                 });
             }

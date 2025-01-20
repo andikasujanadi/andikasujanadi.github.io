@@ -1,3 +1,5 @@
+
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -109,7 +111,7 @@
       newWindow.className = "jendela ".concat(theme);
       var animateWindow = function animateWindow() {
         var t = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 300;
-        newWindow.style.transition = "height ease ".concat(t, "ms, width ease ").concat(t, "ms, top ease ").concat(t, "ms, left ease ").concat(t, "ms, border ease ").concat(t, "ms, left ease ").concat(t, "ms, opacity ease ").concat(t, "ms, transform ease ").concat(t, "ms");
+        newWindow.style.transition = "height ease ".concat(t, "ms, width ease ").concat(t, "ms, top ease ").concat(t, "ms, left ease ").concat(t, "ms, border ease ").concat(t, "ms, left ease ").concat(t, "ms, opacity ease ").concat(t / 3 * 2, "ms ").concat(t / 3 * 1, "ms, transform ease ").concat(t, "ms");
         setTimeout(function () {
           newWindow.style.transition = "box-shadow ease ".concat(t, "ms");
         }, t);
@@ -196,10 +198,10 @@
       newWindow.style.opacity = 0;
       newWindow.style.transform = 'scale(0.75)';
       setTimeout(function () {
-        animateWindow(100);
+        animateWindow(250);
         newWindow.style.opacity = 1;
         newWindow.style.transform = 'scale(1)';
-      }, 50);
+      }, 0);
       newWindow.addEventListener('mousedown', function (e) {
         e.stopPropagation();
         newWindow.focus();
