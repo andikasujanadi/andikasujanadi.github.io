@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/jendelajs/styles.umd.css">
     <script>
         tailwind.config = {
         darkMode: 'class',
@@ -16,17 +17,22 @@
     <title>Andika Sujanadi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/png" href="assets/portfolio/beaming-face-with-smiling-eyes_1f601.png" />
+    <style>
+        *{
+            transition: background ease 0.5s, border-color ease 0.5s;
+        }
+    </style>
 </head>
 
-<body class="dark:bg-black dark:text-white">
-    <nav class="">
-        <div class="fixed bg-white/75 dark:bg-black/75 backdrop-blur-md z-10 w-full h-16 top-0"></div>
-        <div class="flex p-2 border-b dark:border-neutral-700 fixed top-0 w-full z-10 h-16">
+<body class="bg-neutral-100 dark:bg-black dark:text-white">
+    <nav>
+        <div id="navbar_bg" class="fixed border-b dark:border-neutral-700 bg-white/75 dark:bg-neutral-800/75 backdrop-blur-md z-10 w-full h-16 top-0"></div>
+        <div class="flex p-2 fixed top-0 w-full z-10 h-16">
             <a href="#home" class="my-auto p-1 px-2 rounded-xl cursor-pointer me-auto font-medium text-xl">Andika Sujanadi</a>
-            <a href="https://github.com/andikasujanadi" class="my-auto -ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com/in/andikasujanadi" class="my-auto -ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://instagram.com/andikasujanadi" class="my-auto -ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
-            <div onclick="setting.classList.toggle('hidden')" class="my-auto ms-2 bg-neutral-50 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-solid fa-brush"></i></div>
+            <a href="https://github.com/andikasujanadi" class="my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/andikasujanadi" class="my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://instagram.com/andikasujanadi" class="my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
+            <div onclick="openSetting();" class="my-auto ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-solid fa-brush"></i></div>
         </div>
         <div class="p-1 flex justify-center flex-grow sm:gap-1 fixed w-full pointer-events-none z-10 h-16 bottom-0 lg:top-0 bg-white/75 dark:bg-black/75 backdrop-blur-md lg:bg-transparent dark:lg:bg-transparent lg:backdrop-blur-none dark:lg:backdrop-blur-none border-t dark:border-neutral-700 lg:border-t-0 dark:lg:border-t-0">
             <a href="#home" class="nav-link transition duration-200 my-auto flex rounded-xl pointer-events-auto font-medium cursor-pointer
@@ -95,27 +101,28 @@
                 <div class="text-xs sm:text-base font-normal sm:font-medium">Blog</div>
             </a>
         </div>
-        <div id="setting" class="hidden fixed flex flex-col  bg-white dark:bg-neutral-800 border dark:border-neutral-700 p-2 rounded-2xl top-16 right-0 z-10 m-2 min-w-60 shadow-xl">
-            <i onclick="setting.classList.toggle('hidden')" class="ms-auto right-0 top-0 fa-solid fa-circle-xmark p-1 cursor-pointer"></i>
-            <div class="flex gap-3 p-2">
-                <div onclick="setDark(false)" class="cursor-pointer flex p-2 flex-col gap-2 h-28 w-full bg-blue-300 rounded-lg ring-offset-4 dark:ring-offset-0 ring-4 dark:ring-0">
-                    <div class="flex flex-col gap-1.5 w-full bg-white/[0.5] h-10 rounded-lg p-2">
-                        <div class="w-1/2 bg-black/[0.5] h-2 rounded-lg"></div>
-                        <div class="w-full bg-black/[0.5] h-2 rounded-lg"></div>
+        <div id="setting" class="hidden fixed flex flex-col bg-white dark:bg-neutral-800 border dark:border-neutral-700 rounded-2xl top-16 right-0 z-10 m-2 min-w-60 shadow-xl">
+            <div temp-id="settingWindow" class="flex justify-center w-full p-4">
+                <div class="grow flex gap-3 p-2 max-w-80">
+                    <div onclick="setDark(false)" class="cursor-pointer flex p-2 flex-col gap-2 h-28 w-full bg-blue-300 rounded-lg ring-offset-4 dark:ring-offset-0 ring-4 dark:ring-0">
+                        <div class="flex flex-col gap-1.5 w-full bg-white/[0.5] h-10 rounded-lg p-2">
+                            <div class="w-1/2 bg-black/[0.5] h-2 rounded-lg"></div>
+                            <div class="w-full bg-black/[0.5] h-2 rounded-lg"></div>
+                        </div>
+                        <div class="flex flex-col gap-1.5 w-full bg-white/[0.5] h-10 rounded-lg p-2">
+                            <div class="w-1/2 bg-black/[0.5] h-2 rounded-lg"></div>
+                            <div class="w-full bg-black/[0.5] h-2 rounded-lg"></div>
+                        </div>
                     </div>
-                    <div class="flex flex-col gap-1.5 w-full bg-white/[0.5] h-10 rounded-lg p-2">
-                        <div class="w-1/2 bg-black/[0.5] h-2 rounded-lg"></div>
-                        <div class="w-full bg-black/[0.5] h-2 rounded-lg"></div>
-                    </div>
-                </div>
-                <div style="--tw-ring-offset-color:rgb(38 38 38 / var(--tw-bg-opacity, 1));" onclick="setDark(true)" class="cursor-pointer flex p-2 flex-col gap-2 h-28 w-full bg-blue-500 rounded-lg dark:ring-offset-4 ring-0 dark:ring-4">
-                    <div class="flex flex-col gap-1.5 w-full bg-black/[0.5] h-10 rounded-lg p-2">
-                        <div class="w-1/2 bg-white/[0.5] h-2 rounded-lg"></div>
-                        <div class="w-full bg-white/[0.5] h-2 rounded-lg"></div>
-                    </div>
-                    <div class="flex flex-col gap-1.5 w-full bg-black/[0.5] h-10 rounded-lg p-2">
-                        <div class="w-1/2 bg-white/[0.5] h-2 rounded-lg"></div>
-                        <div class="w-full bg-white/[0.5] h-2 rounded-lg"></div>
+                    <div style="--tw-ring-offset-color:rgb(38 38 38 / var(--tw-bg-opacity, 1));" onclick="setDark(true)" class="cursor-pointer flex p-2 flex-col gap-2 h-28 w-full bg-blue-500 rounded-lg dark:ring-offset-4 ring-0 dark:ring-4">
+                        <div class="flex flex-col gap-1.5 w-full bg-black/[0.5] h-10 rounded-lg p-2">
+                            <div class="w-1/2 bg-white/[0.5] h-2 rounded-lg"></div>
+                            <div class="w-full bg-white/[0.5] h-2 rounded-lg"></div>
+                        </div>
+                        <div class="flex flex-col gap-1.5 w-full bg-black/[0.5] h-10 rounded-lg p-2">
+                            <div class="w-1/2 bg-white/[0.5] h-2 rounded-lg"></div>
+                            <div class="w-full bg-white/[0.5] h-2 rounded-lg"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,7 +131,7 @@
 
     <section id="home" class="max-w-screen-xl mx-auto pt-20 lg:pt-32 px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="w-full md:col-span-2 text-center font-medium text-red-500">under construction ❤️</div>
-        <div class="border dark:border-neutral-700 p-6 rounded-2xl dark:bg-neutral-800">
+        <div class="border dark:border-neutral-700 p-6 rounded-2xl bg-white dark:bg-neutral-800">
             <div class="flex content-center gap-2 mb-4">
                 <div class="h-20 w-20 min-h-20 min-w-20 bg-blue-100 rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400">
                     <img src="assets/portfolio/profile_picture.png" alt="profile picture" class="w-full">
@@ -136,7 +143,7 @@
             </div>
             <div class="">I'm a Web Developer with a passion for frontend development. I also into Python programming, mobile programmbing, robotics, and enjoy creating digital art in my free time.</div>
         </div>
-        <div class="border dark:border-neutral-700 p-6 rounded-2xl dark:bg-neutral-800 flex">
+        <div class="border dark:border-neutral-700 p-6 rounded-2xl bg-white dark:bg-neutral-800 flex">
             <div class="my-auto">
                 I strongly focus on frontend development with an up-to-date UI design and satisfying interaction. I love Python programming particularly in computer vision and machine learning. I also have experience in mobile development using Flutter and have worked on robotics projects that blend software and hardware innovation. I’m passionate about crafting intuitive, visually appealing, and impactful solutions across multiple platforms.
             </div>
@@ -145,35 +152,46 @@
     <section id="projects" class="max-w-screen-xl mx-auto pt-20 px-4">
         <div class="text-3xl text-center mb-3">Projects</div>
         <div class="grid lg:grid-cols-2 gap-4">
-            <div class="w-full border dark:border-neutral-700 dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
+            <div class="w-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
                 <div class="flex flex-row gap-3">
-                    <a href="https://notarease.app/" target="_blank" class="me-auto mb-auto hover:border-b-2 border-black/50 dark:border-white/50">Notarease Landing Page<i class="fa-solid fa-up-right-from-square ms-2 text-sm"></i></a>
-                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                    <div class="text-xl me-auto">Notarease Landing Page</div>
+                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
                         <i class="fa-brands fa-laravel text-xl mx-auto my-auto text-red-600"></i>
                     </div>
-                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
                         <i class="fa-brands fa-js text-xl mx-auto my-auto text-orange-500"></i>
                     </div>
-                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
                         <i class="fa-brands fa-css text-xl mx-auto my-auto text-sky-500"></i>
                     </div>
                 </div>
-                <div class="-mt-3 sm:-mt-5 font-normal text-sm opacity-50">
-                    <div>Desc</div>
+                <div class="flex -mt-2 gap-1">
+                    <a href="https://notarease.app" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm">
+                        <i class="fa-solid fa-earth-asia me-1"></i>Live
+                    </a>
+                </div>
+                <div class="font-normal text-sm opacity-50">
                     <div>Landing page for Notarease App</div>
                 </div>
                 <img src="assets/portfolio/notarease.png" class="w-full border dark:border-neutral-700" alt="notarease screenshot">
             </div>
-            <div class="w-full border dark:border-neutral-700 dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
+            <div class="w-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
                 <div class="flex flex-row gap-3">
-                    <a href="https://github.com/andikasujanadi/jendela-js" target="_blank" class="me-auto mb-auto hover:border-b-2 border-black/50 dark:border-white/50">Jendela JS<i class="fa-solid fa-up-right-from-square ms-2 text-sm"></i></a>
-                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                    <div class="text-xl me-auto">Jendela JS</div>
+                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
                         <i class="fa-brands fa-js text-xl mx-auto my-auto text-yellow-400"></i>
                     </div>
                 </div>
-                <div class="-mt-3 sm:-mt-5 font-normal text-sm opacity-50">
-                    <div>Desc</div>
-                    <div>simple draggable windows javascript (in developement) not support mobile yet</div>
+                <div class="flex -mt-2 gap-1">
+                    <a href="https://github.com/andikasujanadi/jendela-js" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm">
+                        <i class="fa-brands fa-github me-1"></i>Repository
+                    </a>
+                    <a href="https://andikasujanadi.github.io/jendelajs" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm">
+                        <i class="fa-solid fa-arrow-pointer me-1"></i>Demo
+                    </a>
+                </div>
+                <div class="font-normal text-sm opacity-50">
+                    <div>JendelaJS is a simple JavaScript library for creating draggable windows. It allows you to add interactive window components to your web applications. This project is currently in development and is open for contributions.</div>
                 </div>
                 <img src="assets/portfolio/jendela-js.png" class="dark:hidden w-full border dark:border-neutral-700" alt="placeholder image">
                 <img src="assets/portfolio/jendela-js-dark.png" class="hidden dark:block w-full border dark:border-neutral-700" alt="placeholder image">
@@ -183,7 +201,7 @@
     <section id="skill" class="max-w-screen-xl mx-auto pt-20 px-4 2xl:px-0">
         <div class="text-3xl text-center mb-3">Skill Set</div>
         <div class="flex flex-wrap gap-2 justify-center">
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-brands fa-php text-4xl mx-auto my-auto text-purple-600"></i>
                 </div>
@@ -192,7 +210,7 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-brands fa-laravel text-4xl mx-auto my-auto text-red-600"></i>
                 </div>
@@ -201,7 +219,7 @@
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-solid fa-fire text-4xl mx-auto my-auto text-red-600"></i>
                 </div>
@@ -210,7 +228,7 @@
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-brands fa-js text-4xl mx-auto my-auto text-yellow-400"></i>
                 </div>
@@ -219,7 +237,7 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-brands fa-js text-4xl mx-auto my-auto text-orange-500"></i>
                 </div>
@@ -228,7 +246,7 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-brands fa-bootstrap text-4xl mx-auto my-auto text-purple-600"></i>
                 </div>
@@ -237,7 +255,7 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-brands fa-css text-4xl mx-auto my-auto text-sky-500"></i>
                 </div>
@@ -246,7 +264,7 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-brands fa-python text-4xl mx-auto my-auto text-blue-600"></i>
                 </div>
@@ -255,7 +273,7 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-solid fa-file-code text-4xl mx-auto my-auto text-sky-700"></i>
                 </div>
@@ -264,7 +282,7 @@
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-solid fa-infinity text-4xl mx-auto my-auto text-teal-600"></i>
                 </div>
@@ -273,7 +291,7 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-solid fa-file-contract text-4xl mx-auto my-auto text-orange-500"></i>
                 </div>
@@ -282,7 +300,7 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-brands fa-figma text-4xl mx-auto my-auto"></i>
                 </div>
@@ -291,7 +309,7 @@
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-solid fa-file-video text-4xl mx-auto my-auto text-blue-700"></i>
                 </div>
@@ -300,7 +318,7 @@
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 dark:bg-neutral-900">
+            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
                 <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
                     <i class="fa-solid fa-file-video text-4xl mx-auto my-auto text-purple-700"></i>
                 </div>
@@ -317,12 +335,12 @@
             I'd love to hear from you! Whether you have a question, a project idea, or just want to say hi, feel free to drop me a message.
         </div>
         <div class="md:col-span-2 flex justify-center gap-2 w-full">
-            <a href="mailto:andikasujanadi@gmail.com" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://github.com/andikasujanadi" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com/in/andikasujanadi" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://instagram.com/andikasujanadi" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://twitter.com/andikasujanadi" class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-twitter"></i></a>
-            <a class="bg-neutral-50 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 dark:bg-neutral-800 cursor-pointer"><i class="fa-regular fa-file-pdf"></i></a>
+            <a href="mailto:andikasujanadi@gmail.com" class="bg-neutral-100 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 cursor-pointer"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/andikasujanadi" class="bg-neutral-100 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/andikasujanadi" class="bg-neutral-100 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://instagram.com/andikasujanadi" class="bg-neutral-100 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com/andikasujanadi" class="bg-neutral-100 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 cursor-pointer"><i class="fa-brands fa-twitter"></i></a>
+            <a class="bg-neutral-100 pt-[7px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 cursor-pointer"><i class="fa-regular fa-file-pdf"></i></a>
         </div>
         <div id="map" class="relative select-none">
             <iframe width="425" height="350" class="w-full rounded-2xl border mx-auto max-w-screen-md" src="https://www.openstreetmap.org/export/embed.html?bbox=114.5572328567505%2C-3.349735588329645%2C114.61388111114503%2C-3.311605448808181&amp;layer=mapnik"></iframe>
@@ -368,7 +386,7 @@
             </div>
         </div>
     </footer>
-        
+    <script src="assets/jendelajs/jendela.umd.js"></script>
     <script>
         if (localStorage.theme === 'dark') {
           document.documentElement.classList.add('dark');
@@ -380,40 +398,74 @@
           const html = document.documentElement;
           if (isDark) {
                 html.classList.add('dark');
+                html.style.colorScheme= 'dark';
                 localStorage.theme = 'dark';
             } else {
                 html.classList.remove('dark');
+                html.style.colorScheme= '';
                 localStorage.theme = 'light';
           }
+        }
+
+        let setting_window;
+        const openSetting = () => {
+            if(!document.getElementById('settingWindow')){
+                setting_window = jendelaJS.addWindow({
+                    title:'Setting',
+                    theme:'jendela-libadwaita',
+                    body:setting.innerHTML.replaceAll('temp-id','id'),
+                    minimizeButton:false,
+                    resizeButton:false,
+                    minWidth:240,
+                    width:300,
+                    top: 72,
+                    right: 8,
+                });
+            }
+            else{
+                setting_window.element.focus();
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
 
-            const highlightNavLink = () => {
-            let currentSectionId = '';
+            const scrollFunctions = () => {
+                let currentSectionId = '';
 
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                if (window.scrollY >= sectionTop - 100) {
-                currentSectionId = section.getAttribute('id');
-                }
-            });
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (window.scrollY >= sectionTop - 100) {
+                    currentSectionId = section.getAttribute('id');
+                    }
+                });
 
-            navLinks.forEach((link) => {
-                link.classList.remove('!text-blue-600');
-                link.classList.remove('dark:!text-blue-500');
-                if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.add('!text-blue-600');
-                link.classList.add('dark:!text-blue-500');
+                navLinks.forEach((link) => {
+                    link.classList.remove('!text-blue-600');
+                    link.classList.remove('dark:!text-blue-500');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                    link.classList.add('!text-blue-600');
+                    link.classList.add('dark:!text-blue-500');
+                    }
+                });
+                if(window.scrollY < 50){
+                    navbar_bg.classList.remove('border-b');
+                    navbar_bg.classList.remove('bg-white/75');
+                    navbar_bg.classList.remove('dark:bg-neutral-800/75');
+                    navbar_bg.classList.remove('backdrop-blur-md');
                 }
-            });
+                else{
+                    navbar_bg.classList.add('border-b');
+                    navbar_bg.classList.add('bg-white/75');
+                    navbar_bg.classList.add('dark:bg-neutral-800/75');
+                    navbar_bg.classList.add('backdrop-blur-md');
+                }
             };
 
-            window.addEventListener('scroll', highlightNavLink);
-            highlightNavLink();
+            window.addEventListener('scroll', scrollFunctions);
+            scrollFunctions();
         });
     </script>
 </body>
