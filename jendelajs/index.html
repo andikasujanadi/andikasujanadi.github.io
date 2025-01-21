@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="w-screen">
+<html lang="en" class="w-screen light">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./dist/styles.umd.css">
     <style>
+        :root {
+            color-scheme: light;
+        }
         .grid-bg {
             position: absolute;
             inset: 0;
@@ -32,29 +35,36 @@
         }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <script>
+        tailwind.config = {
+        darkMode: 'class',
+          theme: {
+            extend: {},
+          },
+        };
+      </script>
 </head>
 
 <body class="grid-bg w-screen !font-sans">
     <div class="flex flex-wrap p-4 gap-2">
         <div onclick="addWindowModal()"
-                class="select-none flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
-            <i class="my-auto mx-auto fa-solid fa-square-plus text-gray-500"></i>
+                class="select-none flex bg-neutral-100 dark:bg-neutral-700 dark:text-white border px-2 py-1 gap-2 font-medium border-neutral-300 dark:border-neutral-500 rounded-lg cursor-pointer shadow">
+            <i class="my-auto mx-auto fa-solid fa-square-plus text-neutral-500 dark:text-neutral-400"></i>
             <div class="my-auto">Add Window</div>
         </div>
         <div onclick="closeAllWindows()"
-                class="select-none flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
-            <i class="my-auto mx-auto fa-solid fa-circle-xmark text-gray-500"></i>
+                class="select-none flex bg-neutral-100 dark:bg-neutral-700 dark:text-white border px-2 py-1 gap-2 font-medium border-neutral-300 dark:border-neutral-500 rounded-lg cursor-pointer shadow">
+            <i class="my-auto mx-auto fa-solid fa-circle-xmark text-neutral-500 dark:text-neutral-400"></i>
             <div class="my-auto">Close All Windows</div>
         </div>
         <div onclick="addDesktopGroupWindows()"
-                class="select-none hidden xl:flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
-            <i class="my-auto mx-auto fa-solid fa-computer text-gray-500"></i>
+                class="select-none hidden xl:flex bg-neutral-100 dark:bg-neutral-700 dark:text-white border px-2 py-1 gap-2 font-medium border-neutral-300 dark:border-neutral-500 rounded-lg cursor-pointer shadow">
+            <i class="my-auto mx-auto fa-solid fa-computer text-neutral-500 dark:text-neutral-400"></i>
             <div class="my-auto">Desktop Showcase</div>
         </div>
         <div onclick="openWelcome()"
-                class="select-none sm:ms-auto flex bg-gray-100 border px-2 py-1 gap-2 font-medium border-gray-300 rounded-lg cursor-pointer shadow">
-            <i class="my-auto mx-auto fa-solid fa-circle-info text-gray-500"></i>
+                class="select-none sm:ms-auto flex bg-neutral-100 dark:bg-neutral-700 dark:text-white border px-2 py-1 gap-2 font-medium border-neutral-300 dark:border-neutral-500 rounded-lg cursor-pointer shadow">
+            <i class="my-auto mx-auto fa-solid fa-circle-info text-neutral-500 dark:text-neutral-400"></i>
             <div class="my-auto">About</div>
         </div>
     </div>
@@ -62,8 +72,8 @@
         <div id="addWindowBody">
             <div class="flex h-full w-full">
                 <div class="mx-auto flex flex-col w-full max-w-96 gap-2 overflow-auto p-2">
-                    <input class="border min-h-8 px-2 rounded-lg outline-none" temp-id="titleInput" type="text" placeholder="title">
-                    <select class="border min-h-8 px-2 rounded-lg outline-none" temp-id="themePicker">
+                    <input class="bg-white dark:bg-neutral-800 border dark:border-neutral-700 min-h-8 px-2 rounded-lg outline-none" temp-id="titleInput" type="text" placeholder="title">
+                    <select class="bg-white dark:bg-neutral-800 border dark:border-neutral-700 min-h-8 px-2 rounded-lg outline-none" temp-id="themePicker">
                         <option value="0">Select Window Style:</option>
                         <option value="jendela-debug">Jendela Debug</option>
                         <option value="jendela-legacy" selected>Jendela Default</option>
@@ -118,7 +128,7 @@
                         <i class="fa-brands fa-github me-2"></i>Repository
                     </a>
                 </div>
-                <div class="text-center mt-auto text-sm font-medium pt-4 text-gray-500">Made with ❤️ by Andika Sujanadi</div>
+                <div class="text-center mt-auto text-sm font-medium pt-4 text-neutral-500">Made with ❤️ by Andika Sujanadi</div>
             </div>
         </div>
     </div>
