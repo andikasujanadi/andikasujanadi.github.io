@@ -25,79 +25,114 @@
 </head>
 
 <body class="bg-neutral-100 dark:bg-black dark:text-white">
-    <nav>
-        <div id="navbar_bg" class="fixed border-b dark:border-neutral-700 bg-white/75 dark:bg-neutral-800/75 backdrop-blur-md z-10 w-full h-16 top-0"></div>
+    <nav class="select-none">
+        <div id="navbar_bg" class="fixed border-b dark:border-neutral-700 bg-white/75 dark:bg-neutral-800/[0.8] backdrop-blur-md z-10 w-full h-16 top-0"></div>
         <div class="flex p-2 fixed top-0 w-full z-10 h-16">
-            <a href="#home" class="my-auto p-1 px-2 rounded-xl cursor-pointer me-auto font-medium text-xl">Andika Sujanadi</a>
+            <a href="#home" id="navbarHero" class="transition-[margin,opacity] duration-500 -ms-44 opacity-0 my-auto p-1 px-2 rounded-xl cursor-pointer me-auto font-medium text-xl">Andika Sujanadi</a>
             <a href="https://github.com/andikasujanadi" class="my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-github"></i></a>
             <a href="https://linkedin.com/in/andikasujanadi" class="my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-linkedin"></i></a>
             <a href="https://instagram.com/andikasujanadi" class="my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
             <div onclick="openSetting();" class="my-auto ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-solid fa-brush"></i></div>
         </div>
-        <div class="p-1 flex justify-center flex-grow sm:gap-1 fixed w-full pointer-events-none z-10 h-16 bottom-0 lg:top-0 bg-white/75 dark:bg-black/75 backdrop-blur-md lg:bg-transparent dark:lg:bg-transparent lg:backdrop-blur-none dark:lg:backdrop-blur-none border-t dark:border-neutral-700 lg:border-t-0 dark:lg:border-t-0">
-            <a href="#home" class="nav-link transition duration-200 my-auto flex rounded-xl pointer-events-auto font-medium cursor-pointer
+        <div class="p-1 flex justify-center flex-grow gap-1 lg:gap-0 fixed w-full pointer-events-none z-10 h-16 bottom-0 lg:top-0 bg-white/75 dark:bg-black/75 backdrop-blur-md lg:bg-transparent dark:lg:bg-transparent lg:backdrop-blur-none dark:lg:backdrop-blur-none border-t dark:border-neutral-700 lg:border-t-0 dark:lg:border-t-0">
+            <a href="#home" class="nav-link transition duration-200 my-auto
+                flex rounded-full pointer-events-auto cursor-pointer font-medium
                 border border-transparent dark:border-transparent
-                sm:border-black/[0.1] dark:sm:border-neutral-700
-                lg:border-transparent dark:lg:border-transparent
-                hover:border-black/[0.1]
+                hover:md:border-black/[0.1] dark:hover:md:border-neutral-700
                 flex-col sm:flex-row text-center
                 gap-0 sm:gap-2
+                bg-transparent sm:bg-neutral-300/25 lg:bg-transparent
+                dark:bg-transparent dark:sm:bg-neutral-300/25 dark:lg:bg-transparent
                 w-full sm:w-[unset]
-                px-3 pb-1 pt-2 sm:p-2
+                px-0 pb-1 pt-2 sm:px-3 sm:pt-1 sm:pb-0 lg:py-1
+                -translate-y-2 sm:translate-y-0
                 ">
-                <i class="my-auto lg:hidden fa-solid fa-house"></i>
+                <i class="fa-solid fa-house
+                    my-auto lg:hidden
+                    bg-neutral-300/25 dark:bg-neutral-800 sm:bg-transparent dark:sm:bg-transparent
+                    py-1.5 rounded-full mb-0.5 sm:mb-0
+                    w-full max-w-20 mx-auto
+                "></i>
                 <div class="text-xs sm:text-base font-normal sm:font-medium">Home</div>
             </a>
-            <a href="#projects" class="nav-link transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+            <a href="#projects" class="nav-link transition duration-200 my-auto
+                flex rounded-full pointer-events-auto cursor-pointer font-medium
                 border border-transparent dark:border-transparent
-                sm:border-black/[0.1] dark:sm:border-neutral-700
-                lg:border-transparent dark:lg:border-transparent
-                hover:border-black/[0.1]
+                hover:md:border-black/[0.1] dark:hover:md:border-neutral-700
                 flex-col sm:flex-row text-center
                 gap-0 sm:gap-2
+                bg-transparent sm:bg-neutral-300/25 lg:bg-transparent
+                dark:bg-transparent dark:sm:bg-neutral-300/25 dark:lg:bg-transparent
                 w-full sm:w-[unset]
-                px-3 pb-1 pt-2 sm:p-2
+                px-0 pb-1 pt-2 sm:px-3 sm:pt-1 sm:pb-0 lg:py-1
+                -translate-y-2 sm:translate-y-0
                 ">
-                <i class="my-auto lg:hidden fa-solid fa-briefcase"></i>
+                <i class="fa-solid fa-briefcase
+                    my-auto lg:hidden
+                    bg-neutral-300/25 dark:bg-neutral-800 sm:bg-transparent dark:sm:bg-transparent
+                    py-1.5 rounded-full mb-0.5 sm:mb-0
+                    w-full max-w-20 mx-auto
+                "></i>
                 <div class="text-xs sm:text-base font-normal sm:font-medium">Portofolio</div>
             </a>
-            <a href="#skill" class="nav-link transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+            <a href="#skill" class="nav-link transition duration-200 my-auto
+                flex rounded-full pointer-events-auto cursor-pointer font-medium
                 border border-transparent dark:border-transparent
-                sm:border-black/[0.1] dark:sm:border-neutral-700
-                lg:border-transparent dark:lg:border-transparent
-                hover:border-black/[0.1]
+                hover:md:border-black/[0.1] dark:hover:md:border-neutral-700
                 flex-col sm:flex-row text-center
                 gap-0 sm:gap-2
+                bg-transparent sm:bg-neutral-300/25 lg:bg-transparent
+                dark:bg-transparent dark:sm:bg-neutral-300/25 dark:lg:bg-transparent
                 w-full sm:w-[unset]
-                px-3 pb-1 pt-2 sm:p-2
+                px-0 pb-1 pt-2 sm:px-3 sm:pt-1 sm:pb-0 lg:py-1
+                -translate-y-2 sm:translate-y-0
                 ">
-                <i class="my-auto lg:hidden fa-solid fa-wrench"></i>
+                <i class="fa-solid fa-wrench
+                    my-auto lg:hidden
+                    bg-neutral-300/25 dark:bg-neutral-800 sm:bg-transparent dark:sm:bg-transparent
+                    py-1.5 rounded-full mb-0.5 sm:mb-0
+                    w-full max-w-20 mx-auto
+                "></i>
                 <div class="text-xs sm:text-base font-normal sm:font-medium">Skill</div>
             </a>
-            <a href="#contact" class="nav-link transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+            <a href="#contact" class="nav-link transition duration-200 my-auto
+                flex rounded-full pointer-events-auto cursor-pointer font-medium
                 border border-transparent dark:border-transparent
-                sm:border-black/[0.1] dark:sm:border-neutral-700
-                lg:border-transparent dark:lg:border-transparent
-                hover:border-black/[0.1]
+                hover:md:border-black/[0.1] dark:hover:md:border-neutral-700
                 flex-col sm:flex-row text-center
                 gap-0 sm:gap-2
+                bg-transparent sm:bg-neutral-300/25 lg:bg-transparent
+                dark:bg-transparent dark:sm:bg-neutral-300/25 dark:lg:bg-transparent
                 w-full sm:w-[unset]
-                px-3 pb-1 pt-2 sm:p-2
+                px-0 pb-1 pt-2 sm:px-3 sm:pt-1 sm:pb-0 lg:py-1
+                -translate-y-2 sm:translate-y-0
                 ">
-                <i class="my-auto lg:hidden fa-solid fa-address-card"></i>
+                <i class="fa-solid fa-address-card
+                    my-auto lg:hidden
+                    bg-neutral-300/25 dark:bg-neutral-800 sm:bg-transparent dark:sm:bg-transparent
+                    py-1.5 rounded-full mb-0.5 sm:mb-0
+                    w-full max-w-20 mx-auto
+                "></i>
                 <div class="text-xs sm:text-base font-normal sm:font-medium">Contact</div>
             </a>
-            <a class="transition duration-200 my-auto flex rounded-xl pointer-events-auto cursor-pointer font-medium
+            <a class="transition duration-200 my-auto
+                flex rounded-full pointer-events-auto cursor-pointer font-medium
                 border border-transparent dark:border-transparent
-                sm:border-black/[0.1] dark:sm:border-neutral-700
-                lg:border-transparent dark:lg:border-transparent
-                hover:border-black/[0.1]
+                hover:md:border-black/[0.1] dark:hover:md:border-neutral-700
                 flex-col sm:flex-row text-center
                 gap-0 sm:gap-2
+                bg-transparent sm:bg-neutral-300/25 lg:bg-transparent
+                dark:bg-transparent dark:sm:bg-neutral-300/25 dark:lg:bg-transparent
                 w-full sm:w-[unset]
-                px-3 pb-1 pt-2 sm:p-2
+                px-0 pb-1 pt-2 sm:px-3 sm:pt-1 sm:pb-0 lg:py-1
+                -translate-y-2 sm:translate-y-0
                 ">
-                <i class="my-auto lg:hidden fa-solid fa-newspaper"></i>
+                <i class="fa-solid fa-newspaper
+                    my-auto lg:hidden
+                    bg-neutral-300/25 dark:bg-neutral-800 sm:bg-transparent dark:sm:bg-transparent
+                    py-1.5 rounded-full mb-0.5 sm:mb-0
+                    w-full max-w-20 mx-auto
+                "></i>
                 <div class="text-xs sm:text-base font-normal sm:font-medium">Blog</div>
             </a>
         </div>
@@ -129,17 +164,31 @@
         </div>
     </nav>
 
-    <section id="home" class="max-w-screen-xl mx-auto pt-20 lg:pt-32 px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="w-full md:col-span-2 text-center font-medium text-red-500">under construction ❤️</div>
+    <section id="home" class="max-w-screen-xl mx-auto pt-28 sm:pt-20 px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="w-full max-w-screen-lg mx-auto md:col-span-2 flex gap-4 justify-center -mb-4 overflow-hidden pt-4">
+            <div class="hidden md:block my-auto mx-auto sm:mx-0 h-20 w-20 min-h-20 min-w-20 bg-blue-100 rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400">
+                <img src="assets/portfolio/profile_picture.png" alt="profile picture" class="w-full">
+            </div>
+            <div class="w-full my-auto hidden md:flex flex-col">
+                <div class="text-lg mb-1 font-medium opacity-75">Hey, my name is</div>
+                <div class="text-5xl mb-3 font-medium font-serif">Andika Sujanadi</div>
+                <a href="#map" class="font-medium cursor-pointer p-1 px-3 rounded-full me-auto bg-blue-100 dark:bg-blue-600/25 text-blue-700 dark:text-blue-200"><i class="fa-solid fa-location-dot me-2"></i>Banjarmasin, Indonesia</a>
+            </div>
+            <img class="h-60 sm:h-72 md:-ms-20 lg:w-[50%] object-cover md:object-scale-down -mb-6 md:-mb-10" src="assets/portfolio/hero_top.png" alt="" srcset="">
+        </div>
         <div class="border dark:border-neutral-700 p-6 rounded-2xl bg-white dark:bg-neutral-800">
-            <div class="flex content-center gap-2 mb-4">
-                <div class="h-20 w-20 min-h-20 min-w-20 bg-blue-100 rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400">
+            <div class="md:hidden flex flex-col md:flex-row content-center gap-2 mb-4">
+                <div class="mx-auto md:mx-0 h-20 w-20 min-h-20 min-w-20 bg-blue-100 rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400">
                     <img src="assets/portfolio/profile_picture.png" alt="profile picture" class="w-full">
                 </div>
-                <div class="h-fit my-auto">
-                    <div class="text-3xl mb-1">Hey I'm Andika Sujanadi 👋</div>
-                    <a href="#map" class="cursor-pointer"><i class="fa-solid fa-location-dot me-2 text-blue-500"></i>Banjarmasin, Indonesia</a>
+                <div class="h-fit my-auto text-center md:text-start">
+                    <div class="text-2xl mb-3">Hey I'm Andika Sujanadi</div>
+                    <a href="#map" class="text-md font-medium cursor-pointer p-1 px-3 rounded-full me-auto bg-blue-100 dark:bg-blue-600/25 text-blue-700 dark:text-blue-200"><i class="fa-solid fa-location-dot me-2"></i>Banjarmasin, Indonesia</a>
                 </div>
+            </div>
+            <div class="hidden md:block ">
+                <i class="fa-solid fa-hand-peace text-4xl mt-auto text-blue-500"></i>
+                <div class="text-xl mb-2 font-medium my-3 lg:my-2">About me</div>
             </div>
             <div class="">I'm a Web Developer with a passion for frontend development. I also into Python programming, mobile programmbing, robotics, and enjoy creating digital art in my free time.</div>
         </div>
@@ -150,19 +199,21 @@
         </div>
     </section>
     <section id="projects" class="max-w-screen-xl mx-auto pt-20 px-4">
-        <div class="text-3xl text-center mb-3">Projects</div>
+        <div class="text-3xl text-center mb-4">Projects</div>
         <div class="grid lg:grid-cols-2 gap-4">
             <div class="w-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
-                <div class="flex flex-row gap-3">
-                    <div class="text-xl me-auto">Notarease Landing Page</div>
-                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
-                        <i class="fa-brands fa-laravel text-xl mx-auto my-auto text-red-600"></i>
-                    </div>
-                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
-                        <i class="fa-brands fa-js text-xl mx-auto my-auto text-orange-500"></i>
-                    </div>
-                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
-                        <i class="fa-brands fa-css text-xl mx-auto my-auto text-sky-500"></i>
+                <div class="flex gap-3">
+                    <div class="text-xl me-auto mb-2">Notarease Landing Page</div>
+                    <div class="flex gap-3">
+                        <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
+                            <i class="fa-brands fa-laravel text-xl mx-auto my-auto text-red-600"></i>
+                        </div>
+                        <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
+                            <i class="fa-brands fa-js text-xl mx-auto my-auto text-orange-500"></i>
+                        </div>
+                        <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
+                            <i class="fa-brands fa-css text-xl mx-auto my-auto text-sky-500"></i>
+                        </div>
                     </div>
                 </div>
                 <div class="flex -mt-2 gap-1">
@@ -176,10 +227,12 @@
                 <img src="assets/portfolio/notarease.png" class="w-full border dark:border-neutral-700" alt="notarease screenshot">
             </div>
             <div class="w-full border dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
-                <div class="flex flex-row gap-3">
-                    <div class="text-xl me-auto">Jendela JS</div>
-                    <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
-                        <i class="fa-brands fa-js text-xl mx-auto my-auto text-yellow-400"></i>
+                <div class="flex gap-3">
+                    <div class="text-xl me-auto mb-2">Jendela JS</div>
+                    <div class="flex gap-3">
+                        <div class="-ms-2 flex h-9 w-9 border dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-700 rounded-full">
+                            <i class="fa-brands fa-js text-xl mx-auto my-auto text-yellow-400"></i>
+                        </div>
                     </div>
                 </div>
                 <div class="flex -mt-2 gap-1">
@@ -198,129 +251,129 @@
             </div>
         </div>
     </section>
-    <section id="skill" class="max-w-screen-xl mx-auto pt-20 px-4 2xl:px-0">
-        <div class="text-3xl text-center mb-3">Skill Set</div>
+    <section id="skill" class="max-w-screen-xl mx-auto pt-20 px-2 xl:px-0">
+        <div class="text-3xl text-center mb-4">Skill Set</div>
         <div class="flex flex-wrap gap-2 justify-center">
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-brands fa-php text-4xl mx-auto my-auto text-purple-600"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-brands fa-php text-2xl mx-auto my-auto text-purple-600"></i>
                 </div>
                 <div class="my-auto leading-6">
                     PHP
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-brands fa-laravel text-4xl mx-auto my-auto text-red-600"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-brands fa-laravel text-2xl mx-auto my-auto text-red-600"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Laravel
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-solid fa-fire text-4xl mx-auto my-auto text-red-600"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-solid fa-fire text-2xl mx-auto my-auto text-red-600"></i>
                 </div>
                 <div class="my-auto leading-6">
                     CodeIgniter
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-brands fa-js text-4xl mx-auto my-auto text-yellow-400"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-brands fa-js text-2xl mx-auto my-auto text-yellow-400"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Javascript
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-brands fa-js text-4xl mx-auto my-auto text-orange-500"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-brands fa-js text-2xl mx-auto my-auto text-orange-500"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Svelte
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-brands fa-bootstrap text-4xl mx-auto my-auto text-purple-600"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-brands fa-bootstrap text-2xl mx-auto my-auto text-purple-600"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Bootstrap
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-brands fa-css text-4xl mx-auto my-auto text-sky-500"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-brands fa-css text-2xl mx-auto my-auto text-sky-500"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Tailwind
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-brands fa-python text-4xl mx-auto my-auto text-blue-600"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-brands fa-python text-2xl mx-auto my-auto text-blue-600"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Python
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-solid fa-file-code text-4xl mx-auto my-auto text-sky-700"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-solid fa-file-code text-2xl mx-auto my-auto text-sky-700"></i>
                 </div>
                 <div class="my-auto leading-6">
                     C/C++
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-solid fa-infinity text-4xl mx-auto my-auto text-teal-600"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-solid fa-infinity text-2xl mx-auto my-auto text-teal-600"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Arduino
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-solid fa-file-contract text-4xl mx-auto my-auto text-orange-500"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-solid fa-file-contract text-2xl mx-auto my-auto text-orange-500"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Blender
                 </div>
             </div>
 
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-brands fa-figma text-4xl mx-auto my-auto"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-brands fa-figma text-2xl mx-auto my-auto"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Figma
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-solid fa-file-video text-4xl mx-auto my-auto text-blue-700"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-solid fa-file-video text-2xl mx-auto my-auto text-blue-700"></i>
                 </div>
                 <div class="my-auto leading-6">
                     Premiere Pro
                 </div>
             </div>
             
-            <div class="flex gap-2 border dark:border-neutral-700 p-2 rounded-2xl w-44 bg-white dark:bg-neutral-900">
-                <div class="flex h-14 w-14 rounded-xl border dark:border-neutral-700 my-auto dark:bg-black">
-                    <i class="fa-solid fa-file-video text-4xl mx-auto my-auto text-purple-700"></i>
+            <div class="flex gap-0 border dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
+                <div class="flex h-10 w-10">
+                    <i class="fa-solid fa-file-video text-2xl mx-auto my-auto text-purple-700"></i>
                 </div>
                 <div class="my-auto leading-6">
                     After Effects
@@ -388,21 +441,23 @@
     </footer>
     <script src="assets/jendelajs/jendela.umd.js"></script>
     <script>
+        const html = document.documentElement;
         if (localStorage.theme === 'dark') {
-          document.documentElement.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            html.style.colorScheme= 'dark';
         } else if (localStorage.theme === 'light') {
-          document.documentElement.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            html.style.colorScheme= 'light';
         }
 
         const setDark = (isDark) => {
-          const html = document.documentElement;
           if (isDark) {
                 html.classList.add('dark');
                 html.style.colorScheme= 'dark';
                 localStorage.theme = 'dark';
             } else {
                 html.classList.remove('dark');
-                html.style.colorScheme= '';
+                html.style.colorScheme= 'light';
                 localStorage.theme = 'light';
           }
         }
@@ -450,16 +505,26 @@
                     link.classList.add('dark:!text-blue-500');
                     }
                 });
+
+                if(window.scrollY < 350){
+                    navbarHero.classList.add('-ms-44');
+                    navbarHero.classList.add('opacity-0');
+                }
+                else{
+                    navbarHero.classList.remove('-ms-44');
+                    navbarHero.classList.remove('opacity-0');
+                }
+
                 if(window.scrollY < 50){
                     navbar_bg.classList.remove('border-b');
                     navbar_bg.classList.remove('bg-white/75');
-                    navbar_bg.classList.remove('dark:bg-neutral-800/75');
+                    navbar_bg.classList.remove('dark:bg-neutral-800/[0.8]');
                     navbar_bg.classList.remove('backdrop-blur-md');
                 }
                 else{
                     navbar_bg.classList.add('border-b');
                     navbar_bg.classList.add('bg-white/75');
-                    navbar_bg.classList.add('dark:bg-neutral-800/75');
+                    navbar_bg.classList.add('dark:bg-neutral-800/[0.8]');
                     navbar_bg.classList.add('backdrop-blur-md');
                 }
             };
