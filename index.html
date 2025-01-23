@@ -28,7 +28,7 @@
     <nav class="select-none">
         <div id="navbar_bg" class="fixed border-b dark:border-neutral-700 bg-white/75 dark:bg-neutral-800/[0.8] backdrop-blur-md z-10 w-full h-16 top-0"></div>
         <div class="flex p-2 fixed top-0 w-full z-10 h-16">
-            <a href="#home" id="navbarHero" class="transition-[margin,opacity] duration-500 -ms-44 opacity-0 my-auto p-1 px-2 rounded-xl cursor-pointer me-auto font-medium text-xl">Andika Sujanadi</a>
+            <a href="#home" id="navbarHero" class="font-serif transition-[margin,opacity] duration-500 mt-2 mt-7 opacity-0 my-auto p-1 px-2 rounded-xl cursor-pointer me-auto font-medium text-xl">Andika Sujanadi</a>
             <a href="https://github.com/andikasujanadi" class="my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-github"></i></a>
             <a href="https://linkedin.com/in/andikasujanadi" class="my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-linkedin"></i></a>
             <a href="https://instagram.com/andikasujanadi" class="my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 pt-[7.5px] w-10 h-10 text-center rounded-full border dark:border-neutral-700 cursor-pointer"><i class="fa-brands fa-instagram"></i></a>
@@ -184,7 +184,7 @@
                     <img src="assets/portfolio/profile_picture.png" alt="profile picture" class="w-full">
                 </div>
                 <div class="h-fit my-auto text-center md:text-start">
-                    <div class="text-2xl mb-3">Hey I'm Andika Sujanadi</div>
+                    <div class="text-2xl mb-3 font-serif">Hey I'm Andika Sujanadi</div>
                     <a href="#map" class="text-md font-medium cursor-pointer p-1 px-3 rounded-full me-auto bg-blue-100 dark:bg-blue-600/25 text-blue-700 dark:text-blue-200"><i class="fa-solid fa-location-dot me-2"></i>Banjarmasin, Indonesia</a>
                 </div>
             </div>
@@ -219,7 +219,7 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap -mt-2 gap-1">
-                    <div class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm">
+                    <div onclick="openStack(0)" class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm">
                         <i class="fa-solid fa-layer-group me-1"></i>Stack
                     </div>
                     <a href="https://notarease.app" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm">
@@ -241,7 +241,7 @@
                     </div>
                 </div>
                 <div class="flex flex-wrap -mt-2 gap-1">
-                    <div class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm">
+                    <div onclick="openStack(1)" class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm">
                         <i class="fa-solid fa-layer-group me-1"></i>Stack
                     </div>
                     <a href="https://github.com/andikasujanadi/jendela-js" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm">
@@ -489,6 +489,61 @@
             }
         }
 
+        let stack_window;
+        const buildStack = (index) => {
+            title = [
+                'Notarease',
+                'Jendela JS',
+            ];
+            body = [
+                [
+                    'Laravel',
+                    'Svelte',
+                    'Tailwind',
+                ],
+                [
+                    'Javascript',
+                ]
+            ];
+            new_body = ``;
+            body[index].forEach(e => {
+                new_body += `<div class="p-2 px-3 bg-white dark:bg-neutral-700/50 border dark:border-neutral-600 rounded-xl">${e}</div>`
+            });
+            new_body += '<div class="opacity-0 h-0 -mt-4">-</div>'
+            return {
+                title:title[index],
+                body:`<div class="h-full flex flex-col gap-2">${new_body}</div>`,
+            }
+        }
+        
+        const openStack = (index) => {
+            if(!document.getElementById('stackWindow')){
+                data = buildStack(index);
+                stack_window = jendelaJS.addWindow({
+                    title:data.title+' Stack',
+                    theme:'jendela-libadwaita',
+                    minimizeButton:false,
+                    resizeButton:false,
+                    minWidth:240,
+                    width:300,
+                    minHeight:200,
+                    height:210,
+                    body:`
+                    <div id="stackWindow" class="box-border bg-neutral-100 dark:bg-neutral-800 p-4 h-full overflow-auto">
+                        ${data.body}
+                    <div>
+                    `,
+                });
+            }
+            else{
+                stack_window.close();
+                setTimeout(() => {
+                    openStack(index);
+                    
+                }, 300);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
@@ -536,12 +591,12 @@
                     }
                 });
 
-                if(window.scrollY < 350){
-                    navbarHero.classList.add('-ms-44');
+                if(window.scrollY < 240){
+                    navbarHero.classList.add('mt-7');
                     navbarHero.classList.add('opacity-0');
                 }
                 else{
-                    navbarHero.classList.remove('-ms-44');
+                    navbarHero.classList.remove('mt-7');
                     navbarHero.classList.remove('opacity-0');
                 }
 
