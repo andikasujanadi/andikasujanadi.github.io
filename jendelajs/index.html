@@ -12,6 +12,11 @@
         :root {
             color-scheme: light;
         }
+        body{
+            background-color: #ffffff;
+            transition: background-color ease 0.5s;
+
+        }
         .grid-bg {
             position: absolute;
             inset: 0;
@@ -21,8 +26,8 @@
                 linear-gradient(to bottom, #80808012 2px, transparent 2px);
             background-size: 48px 48px;
         }
-        .dark{
-            background: #1b1b1b;
+        .dark body{
+            background-color: #1b1b1b;
         }
         .grid-bg.dark{
             background-image: linear-gradient(to right, #80808042 2px, transparent 2px),
@@ -62,10 +67,15 @@
             <i class="my-auto mx-auto fa-solid fa-computer text-neutral-500 dark:text-neutral-400"></i>
             <div class="my-auto">Desktop Showcase</div>
         </div>
-        <div onclick="openWelcome()"
+        <div onclick="toggleDark()"
                 class="select-none sm:ms-auto flex bg-neutral-100 dark:bg-neutral-700 dark:text-white border px-2 py-1 gap-2 font-medium border-neutral-300 dark:border-neutral-500 rounded-lg cursor-pointer shadow">
+            <i class="my-auto mx-auto fa-solid fa-circle-half-stroke text-neutral-500 dark:text-neutral-400"></i>
+            <div class="my-auto w-28">Switch to <span class="dark:hidden">dark</span><span class="hidden dark:inline">light</span></div>
+        </div>
+        <div onclick="openWelcome()"
+                class="select-none flex bg-neutral-100 dark:bg-neutral-700 dark:text-white border px-2 py-1 gap-2 font-medium border-neutral-300 dark:border-neutral-500 rounded-lg cursor-pointer shadow">
             <i class="my-auto mx-auto fa-solid fa-circle-info text-neutral-500 dark:text-neutral-400"></i>
-            <div class="my-auto">About</div>
+            <div class="my-auto">Info</div>
         </div>
     </div>
     <div class="hidden">
@@ -116,9 +126,23 @@
         <div id="welcomeBody">
             <div temp-id="welcomeModal" class="p-4 pb-1 h-full overflow-auto flex flex-col">
                 <img class="my-6 h-20" src="./assets/jendelajs.svg" alt="">
-                <div class="text-center font-medium mb-2">Welcome to Jendela JS demo!</div>
-                <div class="leading-5 text-center mb-8">Feel free to explore this art, don't forget to give me any feedback that can be usefull for next update.❤️</div>
-                <div class="flex gap-2 flex-wrap max-w-screen-sm mx-auto w-full">
+                <div class="select-none text-center font-medium mb-2">Welcome to Jendela JS demo!</div>
+                <div class="max-w-screen-sm mx-auto select-none leading-5 text-center mb-2">Feel free to explore this art, don't forget to give me any feedback that can be usefull for next update.❤️</div>
+                <div class="select-none text-center font-medium mb-2">Simple use</div>
+                <div class="max-w-screen-sm mx-auto w-full min-h-[154px] border p-4 rounded-lg border-neutral-300 dark:border-neutral-700 bg-neutral-200 dark:bg-black mb-2 overflow-auto">
+                    <pre>jendelaJS.addWindow({
+    title:'Testing Window',
+    theme:'jendela-xp',
+    body:'this is body',
+});</pre>
+
+                </div>
+                <div onclick="addWindowModal()"
+                        class="max-w-screen-sm mx-auto w-full select-none mb-2 flex bg-blue-500 dark:bg-blue-900 text-white border px-2 py-1 gap-2 font-medium dark:border-blue-950 rounded-lg cursor-pointer">
+                    <i class="my-auto fa-solid fa-square-plus text-white/75"></i>
+                    <div class="my-auto mx-auto">Add Window</div>
+                </div>
+                <div class="select-none flex gap-2 flex-wrap max-w-screen-sm mx-auto w-full">
                     <a class="grow font-medium text-center p-1 px-3 rounded-lg transition duration-200 bg-neutral-900 hover:bg-blue-600 text-white"
                         href="https://andikasujanadi.github.io/" target="_blank">
                         <i class="fa-solid fa-earth-asia me-2"></i>Github Page
@@ -134,6 +158,32 @@
     </div>
     <script src="./dist/jendela.umd.js"></script>
     <script>
+        
+        const html = document.documentElement;
+        if (localStorage.theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            html.style.colorScheme= 'dark';
+        } else if (localStorage.theme === 'light') {
+            document.documentElement.classList.remove('dark');
+            html.style.colorScheme= 'light';
+        }
+        
+        const setDark = (isDark) => {
+          if (isDark) {
+                html.classList.add('dark');
+                html.style.colorScheme= 'dark';
+                localStorage.theme = 'dark';
+            } else {
+                html.classList.remove('dark');
+                html.style.colorScheme= 'light';
+                localStorage.theme = 'light';
+          }
+        }
+
+        const toggleDark = () => {
+            setDark(localStorage.theme != 'dark')
+        }
+
         let windows = [];
         let addWIndowModalElement;
         const addWindowModal = () => {
@@ -171,9 +221,8 @@
                     title:'welcome',
                     theme:'jendela-libadwaita',
                     minimizeButton: false,
-                    resizeButton: false,
                     width:350,
-                    height:372,
+                    height:600,
                     body:welcomeBody.innerHTML.replaceAll('temp-id','id'),
                 });
             }
