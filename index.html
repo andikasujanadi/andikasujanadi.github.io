@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
     <style type="text/tailwindcss">
         @custom-variant dark (&:where(.dark, .dark *));
-      </style>
+    </style>
 </head>
 
 <body class="bg-neutral-100 dark:bg-black dark:text-white">
@@ -487,6 +487,21 @@
     </footer>
     <script src="assets/jendelajs/jendela.umd.js"></script>
     <script>
+        document.querySelectorAll('.ti').forEach(el => {
+            el.classList.add('scale-0');
+            el.classList.add('transition');
+            el.classList.add('duration-300');
+        });
+        document.addEventListener("readystatechange", () => {
+            if (document.readyState === "complete") {
+                document.querySelectorAll('.ti').forEach((el,i) => {
+                    setTimeout(() => {
+                        el.classList.remove('scale-0');
+                    }, 25*(Math.floor(Math.random() * (25 - 10 + 1)) + 10));
+                });
+            }
+        });
+
         const html = document.documentElement;
         if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
