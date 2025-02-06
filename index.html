@@ -16,7 +16,7 @@
 
 <body class="bg-neutral-100 dark:bg-black dark:text-white">
     <nav class="select-none">
-        <div id="navbar_bg" class="fixed border-b border-neutral-200 dark:border-neutral-700 bg-white/75 dark:bg-neutral-800/[0.8] backdrop-blur-md z-10 w-full h-16 top-0"></div>
+        <div id="navbar_bg" class="fixed border-b border-neutral-200 dark:border-neutral-700 bg-white/75 dark:bg-neutral-800/[0.8] backdrop-blur-md z-10 w-full h-16 top-0 transition-colors duration-500"></div>
         <div class="flex p-2 fixed top-0 w-full z-10 h-16">
             <a href="#home" id="navbarHero" class="font-serif transition-all duration-500 mt-2 mt-7 opacity-0 my-auto p-1 px-2 rounded-xl cursor-pointer me-auto font-medium text-xl">Andika Sujanadi</a>
             <a href="https://github.com/andikasujanadi" target="_blank" class="flex my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 w-10 h-10 text-center rounded-full border border-neutral-200 dark:border-neutral-700 cursor-pointer"><i class="ti ti-brand-github text-2xl my-auto mx-auto"></i></a>
@@ -102,7 +102,7 @@
                         text-xl sm:text-md
                         mb-0.5 sm:mb-0
                         w-full max-w-20 mx-auto">
-                        <i class="w-full rounded-full py-1 ti ti-message-2"></i>
+                        <i class="w-full rounded-full py-1 ti ti-message"></i>
                     </div>
                     <div class="my-auto">Contact</div>
                 </a>
@@ -644,7 +644,12 @@
                     icon.classList.remove('sm:bg-transparent');
                     icon.classList.remove('dark:bg-blue-900/70');
                     icon.classList.remove('dark:sm:bg-transparent');
-                    let iconName = icon.classList[icon.classList.length-1];
+                    let iconName;
+                    icon.classList.forEach(className => {
+                        if(className.includes('ti-')){
+                            iconName = className;
+                        }
+                    });
                     if (link.getAttribute('href') === `#${currentSectionId}`) {
                         link.classList.add('!font-medium');
                         link.classList.add('text-blue-600');
