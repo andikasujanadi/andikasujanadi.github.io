@@ -487,18 +487,28 @@
     </footer>
     <script src="assets/jendelajs/jendela.umd.js"></script>
     <script>
+        var iconTablerReady = false;
         document.querySelectorAll('.ti').forEach(el => {
             el.classList.add('scale-0');
             el.classList.add('transition');
             el.classList.add('duration-300');
         });
+        
         document.addEventListener("readystatechange", () => {
             if (document.readyState === "complete") {
                 document.querySelectorAll('.ti').forEach((el,i) => {
                     setTimeout(() => {
                         el.classList.remove('scale-0');
+                        setTimeout(() => {
+                            el.classList.remove('transition');
+                            el.classList.remove('duration-300');
+                        }, 400);
                     }, 25*(Math.floor(Math.random() * (25 - 10 + 1)) + 10));
                 });
+                setTimeout(() => {
+                    iconTablerReady = true;
+                    scrollFunctions();
+                }, 900);
             }
         });
 
@@ -604,6 +614,7 @@
             const footer = document.querySelector('footer');
 
             const scrollFunctions = () => {
+                if(!iconTablerReady) return false;
                 let currentSectionId = '';
                 let isFooter = (document.documentElement.offsetHeight - window.scrollY - window.innerHeight - footer.offsetHeight + 64) < 0;
                 if(isFooter && navbar_item_list.offsetTop > 0){
@@ -679,6 +690,8 @@
                     navbar_bg.classList.add('backdrop-blur-md');
                 }
             };
+
+            window.scrollFunctions = scrollFunctions;
 
             window.addEventListener('scroll', scrollFunctions);
             scrollFunctions();
