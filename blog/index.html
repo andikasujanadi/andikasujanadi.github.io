@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post - Andika's Blog</title>
+    <title>Andika's Blog</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
@@ -12,7 +13,7 @@
     </style>
 </head>
 
-<body class="bg-neutral-100 pt-16">
+<body class="pt-16 bg-neutral-100">
     <nav class="flex px-4 fixed top-0 w-full z-10 h-16 max-h-16 border-b border-neutral-200 bg-white">
         <a href="#" class="my-auto font-medium font-serif text-xl">Andika's Blog</a>
         <div class="flex mx-auto">
@@ -35,58 +36,50 @@
         </div>
         </div>
     </nav>
-    <button onclick="history.back()" class="fixed z-10 p-2 pe-4 bg-neutral-700 hover:bg-neutral-800 text-white font-medium rounded-full top-20 left-4 cursor-pointer">
-        <i class="ti ti-chevron-left me-1"></i>Go Back
-    </button>
-    <h1 id="title" class="text-xl font-medium font-serif text-center mt-4"></h1>
-    <p id="date" class="text-center text-neutral-600 text-sm"></p>
-    <div id="content" class="max-w-3xl mx-auto mt-4 p-4 bg-white rounded-xl border border-neutral-200"></div>
+    <div id="blog" class="max-w-3xl mx-auto mt-6 flex flex-col gap-2"></div>
 
     <script>
-       async function loadPost() {
-            const params = new URLSearchParams(window.location.search);
-            const fileName = params.get("post");
-
-            if (!fileName) {
-                document.getElementById("content").innerHTML = "<p>Post not found.</p>";
-                return;
-            }
-
+        async function loadPosts() {
             const repo = "andika-journal";
             const user = "andikasujanadi";
-            const rawUrl = `https://raw.githubusercontent.com/${user}/${repo}/main/posts/${fileName}.md`;
+            const apiUrl = `https://api.github.com/repos/${user}/${repo}/contents/posts`;
 
-            const response = await fetch(rawUrl);
-            let markdown = await response.text();
+            const response = await fetch(apiUrl);
+            const files = await response.json();
 
-            let title = fileName;
-            let date = "";
-            let place = "";
+            const blogContainer = document.getElementById("blog");
 
-            const match = markdown.match(/^---\n([\s\S]*?)\n---\n/);
-            if (match) {
-                const meta = match[1];
-                const titleMatch = meta.match(/title:\s*"(.*?)"/);
-                const dateMatch = meta.match(/date:\s*"(.*?)"/);
-                const placeMatch = meta.match(/place:\s*"(.*?)"/);
+            for (const file of files) {
+                const rawUrl = `https://raw.githubusercontent.com/${user}/${repo}/main/posts/${file.name}`;
 
-                if (titleMatch) title = titleMatch[1];
-                if (dateMatch) date = dateMatch[1];
-                if (placeMatch) place = placeMatch[1];
+                const postResponse = await fetch(rawUrl);
+                let markdown = await postResponse.text();
 
-                markdown = markdown.replace(/^---\n[\s\S]*?\n---\n/, '');
+                let title = file.name.replace(".md", "");
+                let date = "";
+
+                const match = markdown.match(/^---\n([\s\S]*?)\n---\n/);
+                if (match) {
+                    const meta = match[1];
+                    const titleMatch = meta.match(/title:\s*"(.*?)"/);
+                    const dateMatch = meta.match(/date:\s*"(.*?)"/);
+                    if (titleMatch) title = titleMatch[1];
+                    if (dateMatch) date = dateMatch[1];
+                }
+
+                const encodedFileName = encodeURIComponent(file.name.replace(".md", ""));
+
+                blogContainer.innerHTML += `
+                    <a href="/post/?post=${encodedFileName}" class="p-4 bg-white rounded-2xl border border-neutral-200 flex flex-col">
+                        <span class="text-xl font-semibold font-serif">${title}</span>
+                        <span class="text-gray-600 text-sm">${date ? `Published on ${date}` : ""}</span>
+                    </a>
+                `;
             }
-
-            const html = marked.parse(markdown);
-            document.getElementById("title").innerText = title;
-            document.getElementById("date").innerText = date
-                ? `Published on ${date}${place ? " in " + place : ""}`
-                : "";
-
-            document.getElementById("content").innerHTML = html;
         }
 
-        loadPost();
+        loadPosts();
     </script>
 </body>
+
 </html>
