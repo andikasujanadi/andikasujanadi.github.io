@@ -13,7 +13,28 @@
 </head>
 
 <body class="bg-neutral-100 pt-16">
-    <div id="navbar"></div>
+    <nav class="flex px-4 fixed top-0 w-full z-10 h-16 max-h-16 border-b border-neutral-200 bg-white">
+        <a href="#" class="my-auto font-medium font-serif text-xl">Andika's Blog</a>
+        <div class="flex mx-auto">
+            <a href="/" class="my-auto font-medium hover:bg-blue-100 hover:text-blue-600 p-2 px-4 rounded-full">Home</a>
+            <a href="https://andikasujanadi.github.io/"
+                class="my-auto font-medium hover:bg-blue-100 hover:text-blue-600 p-2 px-4 rounded-full">Profile</a>
+        </div>
+        <a href="https://github.com/andikasujanadi" target="_blank"
+            class="flex my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 w-10 h-10 text-center rounded-full border border-neutral-200 dark:border-neutral-700 cursor-pointer"><i
+                class="ti ti-brand-github text-2xl my-auto mx-auto"></i></a>
+        <a href="https://linkedin.com/in/andikasujanadi" target="_blank"
+            class="flex my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 w-10 h-10 text-center rounded-full border border-neutral-200 dark:border-neutral-700 cursor-pointer"><i
+                class="ti ti-brand-linkedin text-2xl my-auto mx-auto"></i></a>
+        <a href="https://instagram.com/andikasujanadi" target="_blank"
+            class="flex my-auto -ms-2 bg-neutral-100 dark:bg-neutral-800 w-10 h-10 text-center rounded-full border border-neutral-200 dark:border-neutral-700 cursor-pointer"><i
+                class="ti ti-brand-instagram text-2xl my-auto mx-auto"></i></a>
+        <div onclick="openSetting();"
+            class="flex my-auto ms-1 sm:ms-2 bg-neutral-100 dark:bg-neutral-800 w-10 h-10 text-center rounded-full border border-neutral-200 dark:border-neutral-700 cursor-pointer">
+            <i class="ti ti-contrast text-2xl my-auto mx-auto"></i>
+        </div>
+        </div>
+    </nav>
     <button onclick="history.back()" class="fixed z-10 p-2 pe-4 bg-neutral-700 hover:bg-neutral-800 text-white font-medium rounded-full top-20 left-4 cursor-pointer">
         <i class="ti ti-chevron-left me-1"></i>Go Back
     </button>
@@ -22,14 +43,7 @@
     <div id="content" class="max-w-3xl mx-auto mt-4 p-4 bg-white rounded-xl border border-neutral-200"></div>
 
     <script>
-        async function loadNavbar() {
-            const response = await fetch("../navbar.html");
-            const navbarHtml = await response.text();
-            document.getElementById("navbar").innerHTML = navbarHtml;
-        }
-        loadNavbar();
-
-        async function loadPost() {
+       async function loadPost() {
             const params = new URLSearchParams(window.location.search);
             const fileName = params.get("post");
 
