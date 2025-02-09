@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andika's Blog</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+    </style>
+</head>
+
+<body class="pt-16 bg-neutral-100">
+    <div id="navbar"></div>
+    <div id="blog" class="max-w-3xl mx-auto mt-6 flex flex-col gap-2"></div>
+
+    <script>
+        async function loadNavbar() {
+            const response = await fetch("/navbar.html");
+            const navbarHtml = await response.text();
+            document.getElementById("navbar").innerHTML = navbarHtml;
+        }
+        loadNavbar();
+
+        async function loadPosts() {
+            const repo = "andika-journal";
+            const user = "andikasujanadi";
+            const apiUrl = `https://api.github.com/repos/${user}/${repo}/contents/posts`;
+
+            const response = await fetch(apiUrl);
+            const files = await response.json();
+
+            const blogContainer = document.getElementById("blog");
+
+            for (const file of files) {
+                const rawUrl = `https://raw.githubusercontent.com/${user}/${repo}/main/posts/${file.name}`;
+
+                const postResponse = await fetch(rawUrl);
+                let markdown = await postResponse.text();
+
+                let title = file.name.replace(".md", "");
+                let date = "";
+
+                const match = markdown.match(/^---\n([\s\S]*?)\n---\n/);
+                if (match) {
+                    const meta = match[1];
+                    const titleMatch = meta.match(/title:\s*"(.*?)"/);
+                    const dateMatch = meta.match(/date:\s*"(.*?)"/);
+                    if (titleMatch) title = titleMatch[1];
+                    if (dateMatch) date = dateMatch[1];
+                }
+
+                const encodedFileName = encodeURIComponent(file.name.replace(".md", ""));
+
+                blogContainer.innerHTML += `
+                    <a href="/post/?post=${encodedFileName}" class="p-4 bg-white rounded-2xl border border-neutral-200 flex flex-col">
+                        <span class="text-xl font-semibold font-serif">${title}</span>
+                        <span class="text-gray-600 text-sm">${date ? `Published on ${date}` : ""}</span>
+                    </a>
+                `;
+            }
+        }
+
+        loadPosts();
+    </script>
+</body>
+
+</html>
