@@ -70,7 +70,7 @@
                 const encodedFileName = encodeURIComponent(file.name.replace(".md", ""));
 
                 blogContainer.innerHTML += `
-                    <a href="/post/?post=${encodedFileName}" class="p-4 bg-white rounded-2xl border border-neutral-200 flex flex-col">
+                    <a href="post/?post=${encodedFileName}" class="p-4 bg-white rounded-2xl border border-neutral-200 flex flex-col">
                         <span class="text-xl font-semibold font-serif">${title}</span>
                         <span class="text-gray-600 text-sm">${date ? `Published on ${date}` : ""}</span>
                     </a>
