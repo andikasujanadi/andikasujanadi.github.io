@@ -18,12 +18,18 @@
     <div id="blog" class="max-w-3xl mx-auto mt-6 flex flex-col gap-2"></div>
 
     <script>
-        async function loadNavbar() {
-            const response = await fetch("/navbar.html");
-            const navbarHtml = await response.text();
-            document.getElementById("navbar").innerHTML = navbarHtml;
+        function loadNavbar() {
+            document.getElementById("navbar").innerHTML = `
+                <nav class="fixed top-0 w-full bg-white shadow p-4">
+                    <div class="max-w-3xl mx-auto flex justify-between">
+                        <a href="/" class="font-bold text-lg">Andika's Blog</a>
+                        <a href="/about.html" class="text-neutral-600 hover:underline">About</a>
+                    </div>
+                </nav>
+            `;
         }
         loadNavbar();
+
 
         async function loadPosts() {
             const repo = "andika-journal";
