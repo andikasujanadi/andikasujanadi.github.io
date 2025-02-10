@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post - Andika's Blog</title>
     <link rel="icon" type="image/png" href="../../assets/portfolio/beaming-face-with-smiling-eyes_1f601.png" />
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Andika's Blog">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
@@ -151,6 +153,10 @@
                 document.getElementById('content').classList.remove('opacity-0');
                 document.getElementById('content').classList.remove('translate-y-20');
             }, 50);
+
+            document.querySelector('meta[property="og:title"]').setAttribute("content", postTitle);
+            document.querySelector('meta[property="og:description"]').setAttribute("content", "Published on " + postDate);
+            document.querySelector('meta[property="og:url"]').setAttribute("content", window.location.href);
         } catch (error) {
             document.getElementById("content").innerHTML = "<p>Error loading post.</p>";
         }
