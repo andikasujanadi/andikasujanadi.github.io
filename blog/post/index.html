@@ -18,6 +18,15 @@
             .copy-button{
                 @apply absolute top-2 right-2 cursor-pointer px-2 py-1 bg-neutral-700 text-white text-xs rounded-md hover:bg-neutral-600;
             }
+            .pacman{
+                @apply absolute top-2 left-2 h-6;
+                font-family: "tabler-icons" !important;
+            }
+            .pacman::after{
+                content: "\eebc \eb0c \eb0c \eb0c \eb0c";
+                font-family: "tabler-icons" !important;
+                
+            }
             code{
                 @apply  break-words w-full;
             }
@@ -38,7 +47,7 @@
 </head>
 
 <body class="bg-neutral-100 pt-16">
-    <nav class="flex px-4 fixed top-0 w-full z-10 h-16 max-h-16 border-b border-neutral-200 bg-white">
+    <nav class="flex ps-4 pe-2 fixed top-0 w-full z-10 h-16 max-h-16 border-b border-neutral-200 bg-white">
         <a href="../" class="my-auto me-auto font-medium font-serif text-xl text-clip truncate">Andika's Blog</a>
         <div class="hidden sm:flex me-4">
             <a href="https://andikasujanadi.github.io/"
@@ -92,12 +101,7 @@
         </div>
         </div>
     </nav>
-    <button onclick="history.back()"
-        class="fixed z-10 p-1 pe-3 bg-blue-100 hover:bg-blue-200 text-sm text-blue-600 font-medium rounded-full top-18 left-2 cursor-pointer flex">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left inline my-auto"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
-        Go Back
-    </button>
-    <h1 id="title" class="transition duration-500 opacity-0 text-xl font-medium font-serif text-center mt-12 px-4"></h1>
+    <h1 id="title" class="transition duration-500 opacity-0 text-xl font-medium font-serif text-center mt-4 px-4"></h1>
     <p id="date" class="transition duration-500 opacity-0 text-center text-neutral-600 text-sm px-4"></p>
     <div class="max-w-3xl p-4 mx-auto">
         <div id="content" class="transition duration-500 opacity-0 translate-y-20 p-4 bg-white rounded-2xl border border-neutral-200"></div>
@@ -159,8 +163,10 @@
                 console.log('hehe')
                 const pre = codeBlock.parentElement;
                 const button = document.createElement("button");
+                const pacman = document.createElement("div");
                 button.innerText = "Copy";
                 button.classList.add('copy-button');
+                pacman.classList.add('pacman');
                 button.addEventListener("click", () => {
                     navigator.clipboard.writeText(codeBlock.innerText).then(() => {
                         button.innerText = "Copied!";
@@ -169,6 +175,7 @@
                 });
                 pre.classList.add("relative", "p-4");
                 pre.appendChild(button);
+                pre.appendChild(pacman);
             });
         } catch (error) {
             document.getElementById("content").innerHTML = "<p>Error loading post.</p>";
