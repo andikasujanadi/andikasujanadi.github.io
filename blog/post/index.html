@@ -13,7 +13,10 @@
         @custom-variant dark (&:where(.dark, .dark *));
         #content{
             pre{
-                @apply bg-neutral-800 text-white text-sm rounded-xl p-4 font-mono overflow-auto mb-3;
+                @apply bg-neutral-800 text-white text-sm rounded-xl p-4 pt-8 font-mono overflow-hidden mb-3 whitespace-pre-wrap;
+            }
+            .copy-button{
+                @apply absolute top-2 right-2 cursor-pointer px-2 py-1 bg-neutral-700 text-white text-xs rounded-md hover:bg-neutral-600;
             }
             code{
                 @apply  break-words w-full;
@@ -151,11 +154,26 @@
                 document.getElementById('content').classList.remove('opacity-0');
                 document.getElementById('content').classList.remove('translate-y-20');
             }, 50);
+
+            document.querySelectorAll("pre code").forEach(codeBlock => {
+                console.log('hehe')
+                const pre = codeBlock.parentElement;
+                const button = document.createElement("button");
+                button.innerText = "Copy";
+                button.classList.add('copy-button');
+                button.addEventListener("click", () => {
+                    navigator.clipboard.writeText(codeBlock.innerText).then(() => {
+                        button.innerText = "Copied!";
+                        setTimeout(() => button.innerText = "Copy", 2000);
+                    });
+                });
+                pre.classList.add("relative", "p-4");
+                pre.appendChild(button);
+            });
         } catch (error) {
             document.getElementById("content").innerHTML = "<p>Error loading post.</p>";
         }
     }
-
     loadPost();
 
     </script>
