@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post - Andika's Blog</title>
     <link rel="icon" type="image/png" href="../../assets/portfolio/beaming-face-with-smiling-eyes_1f601.png" />
+    <link rel="stylesheet" href="../../assets/jendelajs/styles.umd.css">
+    <script src="../../assets/jendelajs/jendela.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
@@ -25,7 +27,6 @@
             .pacman::after{
                 content: "\eebc \eb0c \eb0c \eb0c \eb0c";
                 font-family: "tabler-icons" !important;
-                
             }
             code{
                 @apply  break-words w-full;
@@ -47,6 +48,16 @@
 </head>
 
 <body class="bg-neutral-100 pt-16">
+    <div id="setting" class="hidden">
+        <div temp-id="settingWindow" class="p-2 flex flex-col gap-1.5">
+            <a href="../">
+                <div class="border border-neutral-200 bg-white p-2 rounded-xl cursor-pointer font-medium"><i class="ti ti-book me-2"></i>Home</div>
+            </a>
+            <a href="https://andikasujanadi.github.io/">
+                <div class="border border-neutral-200 bg-white p-2 rounded-xl cursor-pointer font-medium"><i class="ti ti-user me-2"></i>Web Profile</div>
+            </a>
+        </div>
+    </div>
     <nav class="flex ps-4 pe-2 fixed top-0 w-full z-10 h-16 max-h-16 border-b border-neutral-200 bg-white">
         <a href="../" class="my-auto me-auto font-medium font-serif text-xl text-clip truncate">Andika's Blog</a>
         <div class="hidden sm:flex me-4">
@@ -182,7 +193,26 @@
         }
     }
     loadPost();
-
+    let setting_window;
+    const openSetting = () => {
+        if(!document.getElementById('settingWindow')){
+            setting_window = jendelaJS.addWindow({
+                title:'Menu',
+                theme:'jendela-libadwaita',
+                body:setting.innerHTML.replaceAll('temp-id','id'),
+                minimizeButton:false,
+                resizeButton:false,
+                minWidth:240,
+                width:240,
+                minHeight:140,
+                top: 72,
+                right: 8,
+            });
+        }
+        else{
+            setting_window.element.focus();
+        }
+    }
     </script>
 </body>
 
