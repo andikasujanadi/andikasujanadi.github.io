@@ -111,22 +111,26 @@
                 let title = file.name.replace(".md", "");
                 let date = "";
                 let time = "";
-                
+                let tags = "";
+
                 const match = markdown.match(/^---\n([\s\S]*?)\n---\n/);
                 if (match) {
                     const meta = match[1];
                     const titleMatch = meta.match(/title:\s*"(.*?)"/);
                     const dateMatch = meta.match(/date:\s*"(.*?)"/);
                     const timeMatch = meta.match(/time:\s*"(.*?)"/);
+                    const tagsMatch = meta.match(/tags:\s*"(.*?)"/);
                     if (titleMatch) title = titleMatch[1];
                     if (dateMatch) date = dateMatch[1];
                     if (timeMatch) time = timeMatch[1];
+                    if (tagsMatch) tags = tagsMatch[1];
                 }
 
                 posts.push({
                     title,
                     dateTime: new Date(`${date} ${time}`),
-                    url: `./post/?post=${encodeURIComponent(file.name.replace(".md", ""))}`
+                    url: `./post/?post=${encodeURIComponent(file.name.replace(".md", ""))}`,
+                    tags: tags.split(',').map(tag => tag.trim())
                 });
             }
 
@@ -144,6 +148,9 @@
                         minute: "2-digit", 
                         hour12: false 
                     })}</span>
+                    <div class="tags mt-2 flex flex-wrap gap-2">
+                        ${post.tags.map(tag => `<span class="text-xs font-medium bg-blue-100 text-blue-600 px-3 pt-0.5 pb-1 rounded-full">${tag}</span>`).join(" ")}
+                    </div>
                 </a>
             `).join("");
             
