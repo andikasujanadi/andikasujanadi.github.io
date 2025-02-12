@@ -47,7 +47,7 @@
     var windows = [];
     var addValueZIndex = 99;
     var addWindow = function addWindow() {
-      var _params$title, _params$body, _params$theme, _params$minimizeButto, _params$resizeButton, _params$closeButton, _params$minWidth, _params$minHeight, _params$width, _params$height, _params$left, _params$top;
+      var _params$title, _params$body, _params$theme, _params$minimizeButto, _params$resizeButton, _params$closeButton, _params$minWidth, _params$minHeight, _params$width, _params$height, _params$left, _params$top, _params$right, _params$bottom;
       var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       var title = (_params$title = params.title) !== null && _params$title !== void 0 ? _params$title : '';
       var body = (_params$body = params.body) !== null && _params$body !== void 0 ? _params$body : '';
@@ -61,6 +61,8 @@
       var height = (_params$height = params.height) !== null && _params$height !== void 0 ? _params$height : minHeight;
       var left = (_params$left = params.left) !== null && _params$left !== void 0 ? _params$left : false;
       var top = (_params$top = params.top) !== null && _params$top !== void 0 ? _params$top : false;
+      var right = (_params$right = params.right) !== null && _params$right !== void 0 ? _params$right : false;
+      var bottom = (_params$bottom = params.bottom) !== null && _params$bottom !== void 0 ? _params$bottom : false;
       var viewportWidth = window.innerWidth;
       var viewportHeight = window.innerHeight;
       width = Math.min(parseInt(width), viewportWidth - 40);
@@ -78,6 +80,15 @@
           parsedLeft = 0;
         }
         left = parsedLeft;
+      } else if (right) {
+        var parsedRight = parseInt(right);
+        if (parsedRight + parsedWidth > viewportWidth) {
+          parsedRight = viewportWidth - parsedWidth - 20;
+        }
+        if (parsedRight < 0) {
+          parsedRight = 0;
+        }
+        right = parsedRight;
       } else {
         left = "calc(50% - ".concat(width / 2, "px)");
       }
@@ -90,6 +101,15 @@
           parsedTop = 0;
         }
         top = parsedTop;
+      } else if (bottom) {
+        var parsedBottom = parseInt(bottom);
+        if (parsedBottom + parsedHeight > viewportHeight) {
+          parsedBottom = viewportHeight - parsedHeight - 20;
+        }
+        if (parsedBottom < 0) {
+          parsedBottom = 0;
+        }
+        bottom = parsedBottom;
       } else {
         top = "calc(50% - ".concat(height / 2, "px)");
       }
@@ -99,11 +119,23 @@
       if (Number.isInteger(height)) {
         height = "".concat(height, "px");
       }
-      if (Number.isInteger(left)) {
-        left = "".concat(left, "px");
+      if (left) {
+        if (Number.isInteger(left)) {
+          left = "".concat(left, "px");
+        }
+      } else {
+        if (Number.isInteger(right)) {
+          right = "".concat(right, "px");
+        }
       }
-      if (Number.isInteger(top)) {
-        top = "".concat(top, "px");
+      if (top) {
+        if (Number.isInteger(top)) {
+          top = "".concat(top, "px");
+        }
+      } else {
+        if (Number.isInteger(bottom)) {
+          bottom = "".concat(bottom, "px");
+        }
       }
       var newWindow = document.createElement('div');
       newWindow.className = "jendela ".concat(theme);
@@ -139,9 +171,22 @@
       };
       var minimizeWindow = function minimizeWindow() {
         var window = newWindow;
-        window.classList.remove('maximized');
-        window.classList.add('minimized');
-        animateWindow(250);
+        var classes = window.classList;
+        var isMinimized = false;
+        classes.forEach(function (className) {
+          if (className.includes('maximized')) ;
+          if (className.includes('minimized')) {
+            isMinimized = true;
+          }
+        });
+        if (isMinimized) {
+          window.classList.remove('minimized');
+          animateWindow(250);
+        } else {
+          window.classList.remove('maximized');
+          window.classList.add('minimized');
+          animateWindow(250);
+        }
       };
       var closeWindow = function closeWindow() {
         var window = newWindow;
@@ -179,14 +224,22 @@
       newWindow.appendChild(windowHeader);
       var windowBody = document.createElement('div');
       windowBody.className = 'body';
-      windowBody.innerHTML = body;
+      windowBody.innerHTML = body.replaceAll('jendela-id', 'id');
       newWindow.appendChild(windowBody);
       newWindow.setAttribute('tabindex', '0');
       document.body.appendChild(newWindow);
       newWindow.style.width = width;
       newWindow.style.height = height;
-      newWindow.style.left = left;
-      newWindow.style.top = top;
+      if (left) {
+        newWindow.style.left = left;
+      } else {
+        newWindow.style.right = right;
+      }
+      if (top) {
+        newWindow.style.top = top;
+      } else {
+        newWindow.style.bottom = bottom;
+      }
       newWindow.setAttribute('data-min-width', minWidth);
       newWindow.setAttribute('data-min-height', minHeight);
       newWindow.focus();
@@ -236,14 +289,16 @@
       }
     }
     var refreshWindows = function refreshWindows() {
-      var windows = document.querySelectorAll(".jendela");
-      if (windows.length) {
-        windows.forEach(function (window) {
+      if (typeof document !== 'undefined') {
+        var _windows = document.querySelectorAll(".jendela");
+        _windows.forEach(function (window) {
           dragElement(window);
         });
       }
     };
-    refreshWindows();
+    if (typeof window !== 'undefined') {
+      refreshWindows();
+    }
     function dragElement(element) {
       element.insertAdjacentHTML('afterbegin', "\n        <div class=\"topHandle\"></div>\n        <div class=\"bottomHandle\"></div>\n        <div class=\"startHandle\"></div>\n        <div class=\"endHandle\"></div>\n        <div class=\"nwHandle cornerHandle\"></div>\n        <div class=\"neHandle cornerHandle\"></div>\n        <div class=\"swHandle cornerHandle\"></div>\n        <div class=\"seHandle cornerHandle\"></div>\n    ");
       var pos1 = 0,
