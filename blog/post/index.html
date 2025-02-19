@@ -177,8 +177,8 @@
                 date = meta.date || "";
                 time = meta.time || "";
                 place = meta.place || "";
-                tags = meta.tags.split(',') || [];
-                source = meta.source.split(',') || [];
+                try {tags = meta.tags.split(',') || [];} catch (error) {}
+                try {source = meta.source.split(',') || [];} catch (error) {}
                 markdown = markdown.replace(/^---\n[\s\S]*?\n---\n/, '');
             }
 
@@ -191,7 +191,7 @@
             if(tags){
                  document.getElementById("tags-container").innerHTML = `${tags.map(tag => `<span class="text-xs font-medium bg-blue-100 text-blue-600 px-3 pt-0.5 pb-1 rounded-full">${tag.trim()}</span>`).join(" ")}`;
             }
-            if(source){
+            if(source.length){
                 document.getElementById("source-header").classList.remove("hidden");
                 document.getElementById("source-container").innerHTML = `${source.map(link => `<a href="${link.trim()}" target="_blank" class="font-medium text-blue-600">${link.trim()}</a>`).join(" ")}`;
             }
