@@ -109,10 +109,7 @@
                 let markdown = await postResponse.text();
 
                 let title = file.name.replace(".md", "");
-                let date = "";
-                let time = "";
-                let tags = "";
-
+                let date, time, tags, formattedDate;
                 const match = markdown.match(/^---\n([\s\S]*?)\n---\n/);
                 if (match) {
                     const meta = match[1];
@@ -121,14 +118,18 @@
                     const timeMatch = meta.match(/time:\s*"(.*?)"/);
                     const tagsMatch = meta.match(/tags:\s*"(.*?)"/);
                     if (titleMatch) title = titleMatch[1];
-                    if (dateMatch) date = dateMatch[1];
                     if (timeMatch) time = timeMatch[1];
                     if (tagsMatch) tags = tagsMatch[1];
+                    if (dateMatch) {
+                        date = dateMatch[1];
+                        const [day, month, year] = date.split('-');
+                        formattedDate = `${year}-${month}-${day}`;
+                    }
                 }
 
                 posts.push({
                     title,
-                    dateTime: new Date(`${date} ${time}`),
+                    dateTime: new Date(`${formattedDate} ${time}`),
                     url: `./post/?post=${encodeURIComponent(file.name.replace(".md", ""))}`,
                     tags: tags.split(',').map(tag => tag.trim())
                 });
