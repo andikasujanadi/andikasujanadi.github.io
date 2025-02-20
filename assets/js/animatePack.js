@@ -96,9 +96,7 @@ function animateBalloon(el, val) {
     el.style.zIndex = val < 100 ? 3 : "auto";
 }
 
-window.addEventListener("load", () => {
+requestAnimationFrame(onScroll);
+setTimeout(() => {
     requestAnimationFrame(onScroll);
-    setTimeout(() => {
-        requestAnimationFrame(onScroll);
-    }, 500);
-});
+}, 500);
