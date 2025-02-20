@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="scroll-smooth">
+<html class="scroll-smooth overflow-x-hidden">
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
     <style type="text/tailwindcss">
         @custom-variant dark (&:where(.dark, .dark *));
+        .bg-grid {
+            background-image: radial-gradient(circle, rgba(145, 145, 145, 0.397) 2px, transparent 2px);
+            background-size: 36px 36px;
+        }
+
     </style>
 </head>
 
@@ -211,104 +216,114 @@
             </div>
 
         </div>
-        <div class="border border-neutral-200 dark:border-neutral-700 p-6 rounded-2xl bg-white dark:bg-neutral-800">
-            <div class="mb-2 text-2xl font-serif text-center md:text-left">Beyond the Code</div>
-            <div class="">
-                I strongly focus on frontend development with an up-to-date UI design and satisfying interaction. I love Python programming particularly in computer vision and machine learning. I also have experience in mobile development using Flutter and have worked on robotics projects that blend software and hardware innovation. I’m passionate about crafting intuitive, visually appealing, and impactful solutions across multiple platforms.
+        <div class="overflow-hidden perspective-distant">
+            <div id="beyond" class="relative border border-neutral-200 dark:border-neutral-700 overflow-hidden rounded-2xl bg-white dark:bg-neutral-800 h-full">
+                <div class="bg-grid bg-red absolute w-full h-full top-0 left-0"></div>
+                <div class="p-6 relative bg-white dark:bg-neutral-800 my-16 md:my-0">
+                    <div class="mb-2 text-2xl font-serif text-center md:text-left">Beyond the Code</div>
+                    <div class="">
+                        I strongly focus on frontend development with an up-to-date UI design and satisfying interaction. I love Python programming particularly in computer vision and machine learning. I also have experience in mobile development using Flutter and have worked on robotics projects that blend software and hardware innovation. I’m passionate about crafting intuitive, visually appealing, and impactful solutions across multiple platforms.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <section id="projects" class="max-w-screen-xl mx-auto pt-20 px-4">
-        <div class="text-3xl text-center mb-4">Projects</div>
+    <section id="projects" class="max-w-screen-xl mx-auto pt-20 px-4 overflow-hidden">
+        <div id="projects-label" class="text-3xl text-center mb-4">Projects</div>
         <div class="grid lg:grid-cols-2 gap-4">
-
-            <div class="w-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium lg:odd:last:max-w-[616px] mx-auto lg:odd:last:col-span-2">
-                <div class="flex gap-3">
-                    <div class="text-xl me-auto mb-2">Kamus Banjar</div>
+            <div class="perspective-distant lg:odd:last:max-w-[616px] mx-auto lg:odd:last:col-span-2">
+                <div id="project-kamus" class="w-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
                     <div class="flex gap-3">
-                        <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
-                            <i class="ti ti-brand-flutter text-xl mx-auto my-auto text-sky-500"></i>
+                        <div class="text-xl me-auto mb-2">Kamus Banjar</div>
+                        <div class="flex gap-3">
+                            <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                                <i class="ti ti-brand-flutter text-xl mx-auto my-auto text-sky-500"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-wrap -mt-2 gap-1">
-                    <div onclick="openStack(0)" class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
-                        <i class="ti ti-stack-2 my-auto text-lg"></i>Stack
+                    <div class="flex flex-wrap -mt-2 gap-1">
+                        <div onclick="openStack(0)" class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
+                            <i class="ti ti-stack-2 my-auto text-lg"></i>Stack
+                        </div>
+                        <a href="https://github.com/404NotFoundIndonesia/kamus-banjar-mobile-app" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
+                            <i class="ti ti-brand-github my-auto text-lg"></i>Repository
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.iqbaleff214.kamus_banjar_mobile_app" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
+                            <i class="ti ti-brand-google-play my-auto text-lg"></i>Play Store
+                        </a>
                     </div>
-                    <a href="https://github.com/404NotFoundIndonesia/kamus-banjar-mobile-app" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
-                        <i class="ti ti-brand-github my-auto text-lg"></i>Repository
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.iqbaleff214.kamus_banjar_mobile_app" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
-                        <i class="ti ti-brand-google-play my-auto text-lg"></i>Play Store
-                    </a>
+                    <div class="font-normal text-sm opacity-50">
+                        <div>Kamus Banjar is a mobile application designed to provide users with a comprehensive dictionary of the Banjar language. The app will allow users to search for Banjar words, view their meanings in Indonesian, and access additional linguistic information.</div>
+                    </div>
+                    <img src="assets/portfolio/kamus-banjar.png" class="w-full border border-neutral-200 dark:border-neutral-700" alt="placeholder image">
                 </div>
-                <div class="font-normal text-sm opacity-50">
-                    <div>Kamus Banjar is a mobile application designed to provide users with a comprehensive dictionary of the Banjar language. The app will allow users to search for Banjar words, view their meanings in Indonesian, and access additional linguistic information.</div>
-                </div>
-                <img src="assets/portfolio/kamus-banjar.png" class="w-full border border-neutral-200 dark:border-neutral-700" alt="placeholder image">
             </div>
             
-            <div class="w-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium lg:odd:last:max-w-[616px] mx-auto lg:odd:last:col-span-2">
-                <div class="flex gap-3">
-                    <div class="text-xl me-auto mb-2">Jendela JS</div>
+            <div class="perspective-distant lg:odd:last:max-w-[616px] mx-auto lg:odd:last:col-span-2">
+                <div id="project-jendelajs" class="w-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
                     <div class="flex gap-3">
-                        <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
-                            <i class="ti ti-brand-javascript text-xl mx-auto my-auto text-yellow-500"></i>
+                        <div class="text-xl me-auto mb-2">Jendela JS</div>
+                        <div class="flex gap-3">
+                            <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                                <i class="ti ti-brand-javascript text-xl mx-auto my-auto text-yellow-500"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-wrap -mt-2 gap-1">
-                    <div onclick="openStack(1)" class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
-                        <i class="ti ti-stack-2 my-auto text-lg"></i>Stack
+                    <div class="flex flex-wrap -mt-2 gap-1">
+                        <div onclick="openStack(1)" class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
+                            <i class="ti ti-stack-2 my-auto text-lg"></i>Stack
+                        </div>
+                        <a href="https://github.com/andikasujanadi/jendela-js" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
+                            <i class="ti ti-brand-github my-auto text-lg"></i>Repository
+                        </a>
+                        <a href="https://andikasujanadi.github.io/jendelajs" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
+                            <i class="ti ti-pointer my-auto text-lg"></i>Demo
+                        </a>
                     </div>
-                    <a href="https://github.com/andikasujanadi/jendela-js" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
-                        <i class="ti ti-brand-github my-auto text-lg"></i>Repository
-                    </a>
-                    <a href="https://andikasujanadi.github.io/jendelajs" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
-                        <i class="ti ti-pointer my-auto text-lg"></i>Demo
-                    </a>
+                    <div class="font-normal text-sm opacity-50">
+                        <div>JendelaJS is a simple JavaScript library for creating draggable windows. It allows you to add interactive window components to your web applications. This project is currently in development and is open for contributions.</div>
+                    </div>
+                    <img src="assets/portfolio/jendela-js.png" class="dark:hidden w-full border border-neutral-200 dark:border-neutral-700" alt="placeholder image">
+                    <img src="assets/portfolio/jendela-js-dark.png" class="hidden dark:block w-full border border-neutral-200 dark:border-neutral-700" alt="placeholder image">
                 </div>
-                <div class="font-normal text-sm opacity-50">
-                    <div>JendelaJS is a simple JavaScript library for creating draggable windows. It allows you to add interactive window components to your web applications. This project is currently in development and is open for contributions.</div>
-                </div>
-                <img src="assets/portfolio/jendela-js.png" class="dark:hidden w-full border border-neutral-200 dark:border-neutral-700" alt="placeholder image">
-                <img src="assets/portfolio/jendela-js-dark.png" class="hidden dark:block w-full border border-neutral-200 dark:border-neutral-700" alt="placeholder image">
             </div>
 
-            <div class="w-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium lg:odd:last:max-w-[616px] mx-auto lg:odd:last:col-span-2">
-                <div class="flex gap-3">
-                    <div class="text-xl me-auto mb-2">Notarease Landing Page</div>
-                    <div class="flex gap-3 ms-6">
-                        <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
-                            <i class="ti ti-brand-laravel text-xl mx-auto my-auto text-red-600"></i>
-                        </div>
-                        <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
-                            <i class="ti ti-brand-svelte text-xl mx-auto my-auto text-orange-500"></i>
-                        </div>
-                        <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
-                            <i class="ti ti-brand-tailwind text-xl mx-auto my-auto text-sky-500"></i>
+            <div class="perspective-distant lg:odd:last:max-w-[616px] mx-auto lg:odd:last:col-span-2">
+                <div id="project-notarease" class="w-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden p-4 flex flex-col gap-2 font-medium">
+                    <div class="flex gap-3">
+                        <div class="text-xl me-auto mb-2">Notarease Landing Page</div>
+                        <div class="flex gap-3 ms-6">
+                            <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                                <i class="ti ti-brand-laravel text-xl mx-auto my-auto text-red-600"></i>
+                            </div>
+                            <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                                <i class="ti ti-brand-svelte text-xl mx-auto my-auto text-orange-500"></i>
+                            </div>
+                            <div class="-ms-6 flex h-9 w-9 border border-neutral-200 dark:border-neutral-500/50 bg-neutral-50 dark:bg-neutral-700 rounded-full">
+                                <i class="ti ti-brand-tailwind text-xl mx-auto my-auto text-sky-500"></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-wrap -mt-2 gap-1">
-                    <div onclick="openStack(2)" class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
-                        <i class="ti ti-stack-2 my-auto text-lg"></i>Stack
+                    <div class="flex flex-wrap -mt-2 gap-1">
+                        <div onclick="openStack(2)" class="cursor-pointer select-none bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
+                            <i class="ti ti-stack-2 my-auto text-lg"></i>Stack
+                        </div>
+                        <a href="https://notarease.app" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
+                            <i class="ti ti-world my-auto text-lg"></i>Live
+                        </a>
                     </div>
-                    <a href="https://notarease.app" target="_blank" class="bg-blue-100 dark:bg-blue-600/25 px-3 py-1 rounded-full text-blue-700 dark:text-blue-200 text-sm flex gap-1">
-                        <i class="ti ti-world my-auto text-lg"></i>Live
-                    </a>
+                    <div class="font-normal text-sm opacity-50">
+                        <div>Landing page for Notarease App</div>
+                    </div>
+                    <img src="assets/portfolio/notarease.png" class="w-full border border-neutral-200 dark:border-neutral-700" alt="notarease screenshot">
                 </div>
-                <div class="font-normal text-sm opacity-50">
-                    <div>Landing page for Notarease App</div>
-                </div>
-                <img src="assets/portfolio/notarease.png" class="w-full border border-neutral-200 dark:border-neutral-700" alt="notarease screenshot">
             </div>
 
         </div>
     </section>
-    <section id="skill" class="max-w-screen-xl mx-auto pt-20 px-2 xl:px-0">
-        <div class="text-3xl text-center mb-4">Skill Set</div>
-        <div class="flex flex-wrap gap-2 justify-center">
+    <section id="skill" class="pt-20 px-2 xl:px-0 w-full">
+        <div id="skill-label" class="text-3xl text-center mb-4">Skill Set</div>
+        <div id="skill-container" class="flex flex-wrap gap-2 justify-center max-w-screen-xl mx-auto">
             <div class="flex gap-0 border border-neutral-200 dark:border-neutral-700 p-1 font-medium rounded-2xl w-44 bg-white dark:bg-neutral-800">
                 <div class="flex h-10 w-10">
                     <i class="ti ti-brand-php text-2xl mx-auto my-auto text-purple-500"></i>
@@ -452,12 +467,11 @@
                     After Effects
                 </div>
             </div>
-
         </div>
     </section>
-    <section id="contact" class="max-w-screen-md mx-auto pt-20 px-4 flex flex-col gap-4 mb-0">
+    <section id="contact" class="pt-20 px-4 flex flex-col gap-4 mb-0">
         <div class="text-3xl text-center">Connect With Me</div>
-        <div class="text-center">
+        <div class="text-center max-w-screen-md mx-auto">
             I'd love to hear from you! Whether you have a question, a project idea, or just want to say hi, feel free to drop me a message.
         </div>
         <div class="md:col-span-2 flex justify-center gap-2 w-full">
@@ -480,8 +494,10 @@
                 <i class="ti ti-file-type-pdf mx-auto my-auto text-2xl"></i>
             </a>
         </div>
-        <div id="map" class="relative">
-            <iframe width="425" height="350" class="w-full opacity-50 rounded-2xl border border-neutral-200 dark:border-neutral-700 mx-auto max-w-screen-md"></iframe>
+        <div class="perspective-distant w-full overflow-hidden">
+            <div id="map" class="relative">
+                <iframe width="425" height="350" class="w-full opacity-50 rounded-2xl border border-neutral-200 dark:border-neutral-700 mx-auto max-w-screen-md"></iframe>
+            </div>
         </div>
     </section>
     <footer class="bg-gradient-to-b from-neutral-800 to-neutral-900 to-20% text-neutral-300 mt-10 rounded-t-3xl">
@@ -524,6 +540,7 @@
         </div>
     </footer>
     <script src="assets/jendelajs/jendela.umd.js"></script>
+    <script src="assets/js/animatePack.js"></script>
     <script>
         var iconTablerReady = false;
         document.querySelectorAll('.ti').forEach(el => {
@@ -754,6 +771,15 @@
                 href="https://www.openstreetmap.org/#map=15/-3.33067/114.58556" target="_blank">View Larger Map</a>
                 `;
             }, 2000);
+
+        addLaptop(document.getElementById('beyond'));
+        addLaptop(document.getElementById('project-kamus'));
+        addLaptop(document.getElementById('project-jendelajs'));
+        addLaptop(document.getElementById('project-notarease'));
+        addLaptop(document.getElementById('map'));
+        addBalloon(document.getElementById('projects-label'));
+        addBalloon(document.getElementById('skill-label'));
+        addBalloon(document.getElementById('skill-container'));
     </script>
 </body>
 
