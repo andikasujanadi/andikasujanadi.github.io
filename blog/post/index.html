@@ -193,7 +193,7 @@
             }
             if(source.length){
                 document.getElementById("source-header").classList.remove("hidden");
-                document.getElementById("source-container").innerHTML = `${source.map(link => `<a href="${link.trim()}" target="_blank" class="font-medium text-blue-600">${link.trim()}</a>`).join(" ")}`;
+                document.getElementById("source-container").innerHTML = `${source.map(link => `<a href="${link.trim()}" target="_blank" class="font-medium text-blue-600 break-words">${link.trim()}</a>`).join(" ")}`;
             }
 
             document.querySelectorAll("#content a").forEach(link => {
