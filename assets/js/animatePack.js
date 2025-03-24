@@ -91,7 +91,7 @@ function animateBalloon(el, val) {
     const opacity = 0.5 + (progress * 0.5);
 
     el.style.transform = `translateY(${translateY}px)`;
-    el.style.filter = `blur(${blur}px)`;
+    // el.style.filter = `blur(${blur}px)`;
     el.style.opacity = opacity;
     el.style.zIndex = val < 100 ? 3 : "auto";
 }
