@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
         .btn,.btn-icon,.btn-primary {
-          @apply px-3 py-1 border border-black/10 rounded-2xl flex items-center select-none cursor-pointer font-medium;
+          @apply px-3 py-1 border border-black/10 rounded-2xl flex items-center select-none cursor-pointer font-medium inline-flex;
         }
         .btn-icon {
           @apply px-2 gap-1;
@@ -15,18 +15,32 @@
         .btn-primary {
             @apply bg-sky-500 text-white;
         }
+        .card {
+            @apply bg-sky-100 p-6 rounded-xl hover:shadow-xl shadow-sky-100/50 transition duration-300 cursor-default;
+        }
       </style>
 </head>
-<body>
-    <nav class="absolute top-0 flex w-full">
-        <div id="nav-container" class="transition-all duration-300 flex mx-auto w-[500px] w-full gap-1 p-4 items-center">
-            <div class="w-[122px] font-medium">IMPHNEN</div>
-            <div class="flex mx-auto gap-1">
-                <div class="btn">Features</div>
-                <div class="btn">Community</div>
-                <div class="btn">Resources</div>
+<body class="bg-white">
+    <nav class="fixed top-0 flex w-full">
+        <div id="nav-container" class="overflow-auto bg-white/85 backdrop-blur-xs transition-all duration-300 flex mx-auto w-[600px] w-full gap-2 p-2 px-3 items-center z-10 border-black/0">
+            <div class="sm:w-[122px] hidden sm:inline text-center font-medium shrink-0">IMPHNEN</div>
+            <div class="hidden sm:flex mx-auto gap-1 shrink-0">
+                <a href="#feature" class="btn">Features</a>
+                <a href="#community" class="btn">Community</a>
+                <a href="#resource" class="btn">Resources</a>
             </div>
-            <div class="flex gap-1">
+            <div class="me-auto flex gap-1 sm:hidden">
+                <div class="btn-icon">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-rocket"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" /><path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" /><path d="M15 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg>
+                </div>
+                <div class="btn-icon">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-users-group"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" /><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M17 10h2a2 2 0 0 1 2 2v1" /><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M3 13v-1a2 2 0 0 1 2 -2h2" /></svg>
+                </div>
+                <div class="btn-icon">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-source-code"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.5 4h2.5a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-5" /><path d="M6 5l-2 2l2 2" /><path d="M10 9l2 -2l-2 -2" /></svg>
+                </div>
+            </div>
+            <div class="w-[122px] flex gap-1 shrink-0">
                 <div class="btn-icon">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
                 </div>
@@ -42,7 +56,7 @@
     <div id="hero" class="mt-20 text-center mx-auto max-w-2xl">
         <div class="font-bold text-sky-500 text-3xl pt-20 mb-2">Welcome to</div>
         <div class="hidden text-4xl font-medium">IMPHNEN</div>
-        <div class="hidden mb-4 opacity-75">Ingin Menjadi Programmer Handal Namun Enggan Ngoding</div>
+        <div class="hidden mb-4">Ingin Menjadi Programmer Handal Namun Enggan Ngoding</div>
         <img src="assets/logo.svg" class="mx-auto mb-4" alt="" srcset="">
         <div class="flex justify-center gap-1">
             <div class="btn-primary">
@@ -56,40 +70,143 @@
     </div>
     <div id="feature" class="max-w-4xl mx-auto text-center pt-20 px-4">
         <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Fitur Unggulan</h2>
-        <p class="opacity-75 mb-12">
+        <p class="mb-12">
             IMPHNEN hadir dengan berbagai fitur untuk membantu kamu menjadi programmer handal tanpa harus pusing dengan
             coding.
         </p>
-
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition cursor-default">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="card">
                 <div class="flex justify-center">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brackets-angle-off"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 4h.01" /><path d="M6.453 6.474l-3.453 5.526l5 8" /><path d="M16 4l5 8l-1.917 3.067" /><path d="M17.535 17.544l-1.535 2.456" /><path d="M3 3l18 18" /></svg>
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brackets-angle-off"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 4h.01" /><path d="M6.453 6.474l-3.453 5.526l5 8" /><path d="M16 4l5 8l-1.917 3.067" /><path d="M17.535 17.544l-1.535 2.456" /><path d="M3 3l18 18" /></svg>
                 </div>
                 <h3 class="text-xl font-medium mb-2">Belajar Tanpa Koding</h3>
-                <p class="opacity-75">
+                <p class="">
                     Pelajari konsep programming dengan cara yang mudah dipahami tanpa harus menulis kode yang rumit.
                 </p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition cursor-default">
+            <div class="card">
                 <div class="flex justify-center">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-users-group"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" /><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M17 10h2a2 2 0 0 1 2 2v1" /><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M3 13v-1a2 2 0 0 1 2 -2h2" /></svg>
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-users-group"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" /><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M17 10h2a2 2 0 0 1 2 2v1" /><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M3 13v-1a2 2 0 0 1 2 -2h2" /></svg>
                 </div>
                 <h3 class="text-xl font-medium mb-2">Komunitas Supportif</h3>
-                <p class="opacity-75">
+                <p class="">
                     Bergabunglah dengan komunitas programmer Indonesia yang siap membantu dan berbagi pengalaman.
                 </p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition cursor-default">
+            <div class="card">
                 <div class="flex justify-center">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-source-code"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.5 4h2.5a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-5" /><path d="M6 5l-2 2l2 2" /><path d="M10 9l2 -2l-2 -2" /></svg>
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-source-code"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14.5 4h2.5a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-10a3 3 0 0 1 -3 -3v-5" /><path d="M6 5l-2 2l2 2" /><path d="M10 9l2 -2l-2 -2" /></svg>
                 </div>
                 <h3 class="text-xl font-medium mb-2">Tutorial Interaktif</h3>
-                <p class="opacity-75">
+                <p class="">
                     Akses tutorial interaktif yang membuat konsep pemrograman sulit menjadi mudah dipahami.
                 </p>
             </div>
         </div>
     </div>
+    <div id="community" class="max-w-4xl mx-auto text-center pt-20 px-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Komunitas Kami</h2>
+        <p class="mb-12">
+            Bergabunglah dengan ribuan programmer Indonesia yang saling membantu dan berbagi pengetahuan.
+        </p>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="card">
+                <div class="flex justify-center">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                </div>
+                <h3 class="text-xl font-medium mb-2">Facebook Group</h3>
+                <p class="mb-4">
+                    Bergabunglah dengan grup Facebook kami untuk tanya jawab, sharing ide, dan artikel menarik.
+                </p>
+                <div class="btn-primary">Gabung Sekarang</div>
+            </div>
+            <div class="card">
+                <div class="flex justify-center">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                </div>
+                <h3 class="text-xl font-medium mb-2">Instagram</h3>
+                <p class="mb-4">
+                    Ikuti kami di Instagram untuk tips programming, quotes inspiratif, dan info event terbaru.
+                </p>
+                <div class="btn-primary">Follow Kami</div>
+            </div>
+            <div class="card">
+                <div class="flex justify-center">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-discord"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" /><path d="M7 16.5c3.5 1 6.5 1 10 0" /></svg>
+                </div>
+                <h3 class="text-xl font-medium mb-2">Discord Server</h3>
+                <p class="mb-4">
+                    Diskusi realtime dengan sesama programmer dan dapatkan bantuan langsung dari para ahli.
+                </p>
+                <div class="btn-primary">Join Server</div>
+            </div>
+        </div>
+    </div>
+    <div id="resource" class="max-w-4xl mx-auto text-center pt-20 px-4">
+        <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Sumber Belajar</h2>
+        <p class="mb-12">
+            Akses berbagai materi belajar yang akan membantu kamu menguasai konsep programming dengan cara yang menyenangkan.
+        </p>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="card">
+                <div class="flex justify-center">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-video"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z" /><path d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" /></svg>
+                </div>
+                <h3 class="text-xl font-medium mb-2">Video Tutorial</h3>
+                <p class="mb-4">
+                    Belajar melalui tutorial video langkah demi langkah yang mudah diikuti.
+                </p>
+                <div class="btn-primary">Lihat Semua Video</div>
+            </div>
+            <div class="card">
+                <div class="flex justify-center">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-vocabulary"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 19h-6a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1h6a2 2 0 0 1 2 2a2 2 0 0 1 2 -2h6a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-6a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2z" /><path d="M12 5v16" /><path d="M7 7h1" /><path d="M7 11h1" /><path d="M16 7h1" /><path d="M16 11h1" /><path d="M16 15h1" /></svg>
+                </div>
+                <h3 class="text-xl font-medium mb-2">Artikel & Tutorial</h3>
+                <p class="mb-4">
+                    Pelajari konsep programming melalui artikel yang disusun secara terstruktur.
+                </p>
+                <div class="btn-primary">Baca Artikel</div>
+            </div>
+            <div class="card">
+                <div class="flex justify-center">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-puzzle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1" /></svg>
+                </div>
+                <h3 class="text-xl font-medium mb-2">Tantangan Koding</h3>
+                <p class="mb-4">
+                    Uji kemampuanmu dengan tantangan koding yang menyenangkan dan menantang.
+                </p>
+                <div class="btn-primary">Mulai Tantangan</div>
+            </div>
+            <div class="card">
+                <div class="flex justify-center">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-users-group"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" /><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M17 10h2a2 2 0 0 1 2 2v1" /><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M3 13v-1a2 2 0 0 1 2 -2h2" /></svg>
+                </div>
+                <h3 class="text-xl font-medium mb-2">Sharing Session</h3>
+                <p class="mb-4">
+                    Ikuti sesi sharing bersama programmer berpengalaman dan belajar dari pengalaman mereka.
+                </p>
+                <div class="btn-primary">Jadwal Session</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('scroll', function() {
+          const nav = document.getElementById('nav-container');
+          if (window.scrollY > 100) {
+            nav.classList.remove('w-full');
+            nav.classList.add('rounded-full');
+            nav.classList.add('mt-4');
+            nav.classList.add('border');
+            nav.classList.add('border-black/10');
+        } else {
+            nav.classList.add('w-full');
+            nav.classList.remove('rounded-full');
+            nav.classList.remove('mt-4');
+            nav.classList.remove('border');
+            nav.classList.remove('border-black/10');
+          }
+        });
+      </script>
 </body>
 </html>
