@@ -18,11 +18,14 @@
         .card {
             @apply bg-sky-100 p-6 rounded-xl hover:shadow-xl shadow-sky-100/50 w-60 transition duration-300 cursor-default;
         }
+        .card-dark {
+            @apply bg-sky-800 p-6 rounded-xl hover:shadow-xl shadow-sky-800/50 w-60 transition duration-300 cursor-default;
+        }
       </style>
 </head>
 <body class="bg-white">
-    <nav class="fixed top-0 flex w-full px-2">
-        <div id="nav-container" class="overflow-auto bg-white/85 backdrop-blur-xs transition-all duration-300 flex mx-auto w-[600px] w-full gap-2 p-2 items-center z-10 border-black/0">
+    <nav id="nav-wrapper" class="transition-all duration-300 fixed top-0 flex w-full z-20">
+        <div id="nav-container" class="overflow-auto backdrop-blur-xs transition-all duration-300 flex mx-auto w-[600px] w-full gap-2 p-2 items-center z-10 border-black/0 rounded-none">
             <div class="sm:w-[122px] hidden sm:inline text-center font-medium shrink-0">IMPHNEN</div>
             <div class="hidden sm:flex mx-auto gap-1 shrink-0">
                 <a href="#feature" class="btn">Features</a>
@@ -54,10 +57,11 @@
         </div>
     </nav>
     <div id="hero" class="mt-20 text-center mx-auto max-w-2xl">
+        <div class="absolute left-0 top-0 w-full h-80 z-[-1] bg-radial-[at_50%_0%] from-blue-100 to-blue-200/0 to-75%"></div>
         <div class="font-bold text-sky-500 text-3xl pt-20 mb-2">Welcome to</div>
         <div class="hidden text-4xl font-medium">IMPHNEN</div>
         <div class="hidden mb-4">Ingin Menjadi Programmer Handal Namun Enggan Ngoding</div>
-        <img src="assets/logo.svg" class="mx-auto mb-4" alt="" srcset="">
+        <img src="assets/logo.svg" class="mx-auto mb-4 drop-shadow-2xl drop-shadow-blue-200" alt="" srcset="">
         <div class="flex justify-center gap-1">
             <div class="btn-primary">
                 Jelajahi Fitur
@@ -68,7 +72,7 @@
             </div>
         </div>
     </div>
-    <div id="feature" class="max-w-4xl mx-auto text-center p-4 pt-20">
+    <div id="feature" class="max-w-4xl mx-auto text-center p-4 pt-20 pb-16">
         <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Fitur Unggulan</h2>
         <p class="mb-12">
             IMPHNEN hadir dengan berbagai fitur untuk membantu kamu menjadi programmer handal tanpa harus pusing dengan
@@ -104,45 +108,47 @@
             </div>
         </div>
     </div>
-    <div id="community" class="max-w-4xl mx-auto text-center p-4 pt-20">
-        <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Komunitas Kami</h2>
-        <p class="mb-12">
-            Bergabunglah dengan ribuan programmer Indonesia yang saling membantu dan berbagi pengetahuan.
-        </p>
-        <div class="flex gap-8 flex-wrap justify-center">
-            <div class="card">
-                <div class="flex justify-center">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+    <div class="bg-gray-800 text-white">
+        <div id="community" class="max-w-4xl mx-auto text-center p-4 pt-20 pb-16">
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-200 mb-4">Komunitas Kami</h2>
+            <p class="mb-12">
+                Bergabunglah dengan ribuan programmer Indonesia yang saling membantu dan berbagi pengetahuan.
+            </p>
+            <div class="flex gap-8 flex-wrap justify-center">
+                <div class="card-dark">
+                    <div class="flex justify-center">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">Facebook Group</h3>
+                    <p class="mb-4">
+                        Bergabunglah dengan grup Facebook kami untuk tanya jawab, sharing ide, dan artikel menarik.
+                    </p>
+                    <div class="btn-primary">Gabung Sekarang</div>
                 </div>
-                <h3 class="text-xl font-medium mb-2">Facebook Group</h3>
-                <p class="mb-4">
-                    Bergabunglah dengan grup Facebook kami untuk tanya jawab, sharing ide, dan artikel menarik.
-                </p>
-                <div class="btn-primary">Gabung Sekarang</div>
-            </div>
-            <div class="card">
-                <div class="flex justify-center">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                <div class="card-dark">
+                    <div class="flex justify-center">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">Instagram</h3>
+                    <p class="mb-4">
+                        Ikuti kami di Instagram untuk tips programming, quotes inspiratif, dan info event terbaru.
+                    </p>
+                    <div class="btn-primary">Follow Kami</div>
                 </div>
-                <h3 class="text-xl font-medium mb-2">Instagram</h3>
-                <p class="mb-4">
-                    Ikuti kami di Instagram untuk tips programming, quotes inspiratif, dan info event terbaru.
-                </p>
-                <div class="btn-primary">Follow Kami</div>
-            </div>
-            <div class="card">
-                <div class="flex justify-center">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-discord"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" /><path d="M7 16.5c3.5 1 6.5 1 10 0" /></svg>
+                <div class="card-dark">
+                    <div class="flex justify-center">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="mb-2 icon icon-tabler icons-tabler-outline icon-tabler-brand-discord"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" /><path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-.972 1.923a11.913 11.913 0 0 0 -4.053 0l-.975 -1.923c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" /><path d="M7 16.5c3.5 1 6.5 1 10 0" /></svg>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">Discord Server</h3>
+                    <p class="mb-4">
+                        Diskusi realtime dengan sesama programmer dan dapatkan bantuan langsung dari para ahli.
+                    </p>
+                    <div class="btn-primary">Join Server</div>
                 </div>
-                <h3 class="text-xl font-medium mb-2">Discord Server</h3>
-                <p class="mb-4">
-                    Diskusi realtime dengan sesama programmer dan dapatkan bantuan langsung dari para ahli.
-                </p>
-                <div class="btn-primary">Join Server</div>
             </div>
         </div>
     </div>
-    <div id="resource" class="max-w-4xl mx-auto text-center p-4 pt-20">
+    <div id="resource" class="max-w-4xl mx-auto text-center p-4 pt-20 pb-16">
         <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Sumber Belajar</h2>
         <p class="mb-12">
             Akses berbagai materi belajar yang akan membantu kamu menguasai konsep programming dengan cara yang menyenangkan.
@@ -190,7 +196,7 @@
             </div>
         </div>
     </div>
-    <div id="testimonial" class="max-w-4xl mx-auto text-center p-4 pt-20">
+    <div id="testimonial" class="max-w-4xl mx-auto text-center p-4 pt-20 pb-16">
         <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Testimoni Member</h2>
         <p class="mb-12">
             Apa kata mereka yang telah bergabung dengan komunitas IMPHNEN?
@@ -228,7 +234,7 @@
             </div>
         </div>
     </div>
-    <div id="cta" class="max-w-4xl mx-auto text-center p-4 pt-20">
+    <div id="cta" class="max-w-4xl mx-auto text-center p-4 pt-20 pb-16">
         <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Siap Menjadi Programmer Handal?</h2>
         <p class="mb-12">
             Bergabunglah dengan komunitas IMPHNEN sekarang dan mulai perjalanan programming-mu dengan cara yang menyenangkan
@@ -278,18 +284,25 @@
     <script>
         window.addEventListener('scroll', function() {
           const nav = document.getElementById('nav-container');
+          const navWrapper = document.getElementById('nav-wrapper');
           if (window.scrollY > 100) {
             nav.classList.remove('w-full');
+            nav.classList.remove('rounded-none');
             nav.classList.add('rounded-full');
             nav.classList.add('mt-4');
+            nav.classList.add('bg-white/85');
             nav.classList.add('border');
             nav.classList.add('border-black/10');
+            navWrapper.classList.add('px-2');
         } else {
             nav.classList.add('w-full');
+            nav.classList.add('rounded-none');
             nav.classList.remove('rounded-full');
             nav.classList.remove('mt-4');
+            nav.classList.remove('bg-white/85');
             nav.classList.remove('border');
             nav.classList.remove('border-black/10');
+            navWrapper.classList.remove('px-2');
           }
         });
       </script>
