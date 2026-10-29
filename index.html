@@ -7,60 +7,133 @@
     <link rel="icon" type="image/png" href="assets/beaming-face-with-smiling-eyes_1f601.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body class="p-0">
+<body class="p-0" style="min-height: 100dvh;">
     <div id="construct" class="fixed-top h-100 bg-dark d-flex align-items-center progress-bar-striped d-none">
         <div class="text-center text-white w-100 fw-bold fs-1">Under Constructs</div>
     </div>
-    <div class="">
+
+    <div id="navbar" class="navbar">
         <div class="">Andika Sujanadi</div>
+        <ul class="navbar-nav d-flex flex-row">
+            <li class="nav-item">Home</li>
+            <li class="nav-item">Portfolio</li>
+            <li class="nav-item">Skill</li>
+            <li class="nav-item">Contact</li>
+        </ul>
     </div>
-    <div class="">
-        
-        <div id="home" class="">    
-            <div class="">About Me</div>
-            <div class="">
-                I'm a Web Developer with a passion for frontend development. I also into Python programming, mobile programmbing, robotics, and enjoy creating digital art in the mean time.
+
+    <div id="content">
+        <div id="home">
+            <div class="d-flex flex-column align-items-start">
+                <div id="greeting">Hey, my name is</div>
+                <div id="name">Andika Sujanadi</div>
+                <div id="location">Banjarmasin, Indonesia</div>
             </div>
-            <div class="">
-                <div class="">
-                    Electronic Engineering Polytechnic Institute of Surabaya (EEPIS)
-                    Bachelor of Applied Computer Science GPA: 3.72
-                    Agu 2021 - Mar 2023
-                </div>
-                <div class="">
-                    Politeknik Negeri Banjarmasin
-                    Associate Degree in Computer Science GPA: 3.89
-                    2017-2019
-                </div>
-            </div>
-            <div class="">
-                <div class="">Beyond the Code</div>
-                <div class="">
-                    I strongly focus on frontend development with an up-to-date UI design and satisfying interaction. I love Python programming particularly in computer vision and machine learning. I also have experience in mobile development using Flutter and have worked on robotics projects that blend software and hardware innovation. I'm passionate about crafting intuitive, visually appealing, and impactful solutions across multiple platforms.
+            <div id="special-card">
+                <div class="left">
+                    <div class="part1">
+                        <div class="subtitle">About Me</div>
+                        <div class="">
+                            I'm a Web Developer with a passion for frontend development. I also into Python programming, mobile programmbing, robotics, and enjoy creating digital art in the mean time.
+                        </div>
+                    </div>
+                    <div class="part2">
+                        <div class="subtitle">Education</div>
+                        <div class="">
+                            Electronic Engineering Polytechnic Institute of Surabaya (EEPIS)
+                            Bachelor of Applied Computer Science GPA: 3.72
+                            Agu 2021 - Mar 2023
+                        </div>
+                        <div class="">
+                            Politeknik Negeri Banjarmasin
+                            Associate Degree in Computer Science GPA: 3.89
+                            2017-2019
+                        </div>
+                    </div>
+                </div> 
+                <div class="right">
+                    <div class="subtitle">Beyond the Code</div>
+                    <div class="">
+                        I strongly focus on frontend development with an up-to-date UI design and satisfying interaction. I love Python programming particularly in computer vision and machine learning. I also have experience in mobile development using Flutter and have worked on robotics projects that blend software and hardware innovation. I'm passionate about crafting intuitive, visually appealing, and impactful solutions across multiple platforms.
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="portfolio" class="">Portfolio</div>
-        <div id="skill" class="">Skill</div>
+        <div id="portfolio" class="card">
+            <div class="title">Portfolio</div>
+            <img src="https://placehold.co/600x400" alt="">
+        </div>
+        <div id="skill" class="card">
+            <div class="title">Skill</div>
+            <img src="https://placehold.co/600x400" alt="">
+        </div>
         
-        <div id="contact" class="">
+        <div id="contact" class="card">
+            <div class="title">Connect With Me</div>
             <div class="">
-                <div class="">Connect With Me</div>
-                <div class="">
-                    I'd love to hear from you! Whether you have a question, a project idea, or just want to say hi, feel free to drop me a message.
-                </div>
+                I'd love to hear from you! Whether you have a question, a project idea, or just want to say hi, feel free to drop me a message.
             </div>
         </div>
 
     </div>
+    <footer>
+        <div class="content">Thanks for stopped by!</div>
+        <div class="copyright">© 2026 Andika Sujandi. All rights reserved.</div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script>
-        is_construct = true;
+        is_construct = false;
         if(is_construct){
             construct.classList.remove("d-none");
         }
+
+        theme = "web";
+        if(theme == "web"){
+            addclass("body","d-flex flex-column");
+            addclass("#navbar","p-3 border-bottom fixed-top bg-white");
+            addclass("#navbar ul","gap-3");
+
+            addclass("#home #greeting","d-inline fs-5 fw-semibold text-black text-opacity-50 lh-1 mb-1");
+            addclass("#home #name","d-inline fs-1 lh-1 mb-3");
+            addclass("#home #location","d-inline bg-primary bg-opacity-10 text-primary fw-semibold py-1 px-3 mb-3 rounded-5");
+            
+            addclass("#content", "flex-fill d-flex flex-column gap-3 bg-light p-3 pt-4 mt-5 align-items-center");
+            
+            addclass("#special-card","d-flex gap-2");
+            addclass("#special-card .left","w-100 card");
+            addclass("#special-card .right","w-100 card");
+            addclass("#special-card .subtitle","fs-5 mt-3");
+
+            addclass("#content .card","p-3 rounded-4 w-100");
+            addclass("#content .card .title","fs-4");
+            addclass("#content .card .subtitle","fs-5 mt-3");
+
+            addclass("footer","text-center text-white text-opacity-75");
+            addclass("footer .content","bg-dark py-4 fs-5 rounded-top-4");
+            addclass("footer .copyright","bg-black p-1");
+
+        }
+
+        sizedesktop = "1200px";
+        document.querySelector("#special-card").style.maxWidth = sizedesktop;
+        cards = document.querySelectorAll(".card");
+        cards.forEach(card => {
+            card.style.maxWidth = sizedesktop;
+        });
+
+        function addclass(items,classes) {
+            items = document.querySelectorAll(items);
+            classes = classes.split(" ");
+            items.forEach(item => {
+                classes.forEach(c => {
+                    item.classList.add(c);
+                });
+            });
+        }
+
     </script>
 </body>
 </html>
