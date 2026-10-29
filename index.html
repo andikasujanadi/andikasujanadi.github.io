@@ -13,12 +13,12 @@
     </div>
 
     <div id="navbar" class="navbar">
-        <div class="">Andika Sujanadi</div>
+        <div class="brand">Andika Sujanadi</div>
         <ul class="navbar-nav d-flex flex-row">
-            <li class="nav-item">Home</li>
-            <li class="nav-item">Portfolio</li>
-            <li class="nav-item">Skill</li>
-            <li class="nav-item">Contact</li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#skill">Skill</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 
@@ -68,11 +68,28 @@
 
         <div id="portfolio" class="card">
             <div class="title">Portfolio</div>
-            <img src="https://placehold.co/600x300" alt="">
+            <img class="rounded-3" src="https://placehold.co/200x200?text=Just+Placeholder+LOL" alt="">
         </div>
         <div id="skill" class="card">
             <div class="title">Skill</div>
-            <img src="https://placehold.co/600x300" alt="">
+            <div class="skill-container">
+                <div class="">PHP</div>
+                <div class="">Laravel</div>
+                <div class="">CodeIgniter</div>
+                <div class="">Javascript</div>
+                <div class="">Svelte</div>
+                <div class="">Bootstrap</div>
+                <div class="">Tailwind</div>
+                <div class="">Flutter</div>
+                <div class="">Python</div>
+                <div class="">Wails</div>
+                <div class="">C/C++</div>
+                <div class="">Arduino</div>
+                <div class="">Blender</div>
+                <div class="">Figma</div>
+                <div class="">Premiere Pro</div>
+                <div class="">After Effects</div>
+            </div>
         </div>
         
         <div id="contact" class="card">
@@ -84,7 +101,7 @@
 
     </div>
     <footer>
-        <div class="content">Thanks for stopped by!</div>
+        <div class="content" style="padding-top: 300px!important;">Thanks for stopped by!</div>
         <div class="copyright">© 2026 Andika Sujandi. All rights reserved.</div>
     </footer>
 
@@ -104,10 +121,13 @@
 
             addclass("body","d-flex flex-column");
             addclass("#navbar","p-3 border-bottom fixed-top bg-white");
-            addclass("#navbar ul","gap-3");
+            addclass("#navbar .brand","fw-semibold fs-5");
+            addclass("#navbar ul","list-unstyled");
+            addclass("#navbar ul a","text-decoration-none text-black p-2");
 
-            addclass("#content", "flex-fill d-flex flex-column gap-3 bg-light p-3 pt-4 mt-5 align-items-center");
+            addclass("#content", "flex-fill d-flex flex-column gap-3 bg-light align-items-center");
 
+            addclass("#home", "px-3 pt-4 mt-5");
             addclass("#home .header", "d-flex mx-auto align-items-center");
             addclass("#home .header #myface", "rounded-pill overflow-hidden me-3 border border-4 border-primary");
             addclass("#home .header .caption", "d-flex flex-column align-items-start me-auto");
@@ -120,11 +140,19 @@
             addclass("#special-card .right","w-100 card");
             addclass("#special-card .subtitle","fs-5 mt-3");
 
+            addclass("#portfolio","text-center");
+
+            addclass("#skill","text-center");
+            addclass("#skill .skill-container","d-flex flex-wrap gap-2 justify-content-center");
+            addclass("#skill .skill-container div","bg-white p-3 px-4 border rounded-4");
+            
+            addclass("#contact","text-center");
+
             addclass("#content .card","p-3 rounded-4 w-100");
-            addclass("#content .card .title","fs-4");
+            addclass("#content .card .title","fs-4 mb-2 pb-1");
             addclass("#content .card .subtitle","fs-5 mt-3");
 
-            addclass("footer","text-center text-white text-opacity-75");
+            addclass("footer","text-center text-white text-opacity-75 mt-3");
             addclass("footer .content","bg-dark py-4 fs-5 rounded-top-4");
             addclass("footer .copyright","bg-black p-1");
 
@@ -136,6 +164,11 @@
         cards = document.querySelectorAll(".card");
         cards.forEach(card => {
             card.style.maxWidth = sizedesktop;
+        });
+
+        skills = document.querySelectorAll("#skill .skill-container div");
+        skills.forEach(skill => {
+            skill.style.width = "180px";
         });
 
         function addclass(items,classes) {
