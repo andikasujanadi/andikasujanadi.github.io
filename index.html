@@ -24,10 +24,16 @@
 
     <div id="content">
         <div id="home">
-            <div class="d-flex flex-column align-items-start">
-                <div id="greeting">Hey, my name is</div>
-                <div id="name">Andika Sujanadi</div>
-                <div id="location">Banjarmasin, Indonesia</div>
+            <div class="header">
+                <img id="myface" width="80px" src="assets/profile_picture.png" alt="">
+                <div class="caption">
+                    <div id="greeting">Hey, my name is</div>
+                    <div id="name">Andika Sujanadi</div>
+                    <div id="location">Banjarmasin, Indonesia</div>
+                </div>
+                <div class="hero">
+                    <img src="assets/hero_top.png" alt="">
+                </div>
             </div>
             <div id="special-card">
                 <div class="left">
@@ -62,11 +68,11 @@
 
         <div id="portfolio" class="card">
             <div class="title">Portfolio</div>
-            <img src="https://placehold.co/600x400" alt="">
+            <img src="https://placehold.co/600x300" alt="">
         </div>
         <div id="skill" class="card">
             <div class="title">Skill</div>
-            <img src="https://placehold.co/600x400" alt="">
+            <img src="https://placehold.co/600x300" alt="">
         </div>
         
         <div id="contact" class="card">
@@ -92,15 +98,22 @@
 
         theme = "web";
         if(theme == "web"){
+            document.querySelector("#home .header #myface").style.width = "80px";
+            document.querySelector("#home .header .hero img").style.height = "288px";
+            document.querySelector("#home .header .hero img").style.translate = "0px 30px";
+
             addclass("body","d-flex flex-column");
             addclass("#navbar","p-3 border-bottom fixed-top bg-white");
             addclass("#navbar ul","gap-3");
 
+            addclass("#content", "flex-fill d-flex flex-column gap-3 bg-light p-3 pt-4 mt-5 align-items-center");
+
+            addclass("#home .header", "d-flex mx-auto align-items-center");
+            addclass("#home .header #myface", "rounded-pill overflow-hidden me-3 border border-4 border-primary");
+            addclass("#home .header .caption", "d-flex flex-column align-items-start me-auto");
             addclass("#home #greeting","d-inline fs-5 fw-semibold text-black text-opacity-50 lh-1 mb-1");
             addclass("#home #name","d-inline fs-1 lh-1 mb-3");
             addclass("#home #location","d-inline bg-primary bg-opacity-10 text-primary fw-semibold py-1 px-3 mb-3 rounded-5");
-            
-            addclass("#content", "flex-fill d-flex flex-column gap-3 bg-light p-3 pt-4 mt-5 align-items-center");
             
             addclass("#special-card","d-flex gap-2");
             addclass("#special-card .left","w-100 card");
@@ -119,6 +132,7 @@
 
         sizedesktop = "1200px";
         document.querySelector("#special-card").style.maxWidth = sizedesktop;
+        document.querySelector("#home .header").style.maxWidth = sizedesktop.replace("px","")-200+"px";
         cards = document.querySelectorAll(".card");
         cards.forEach(card => {
             card.style.maxWidth = sizedesktop;
