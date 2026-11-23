@@ -13,14 +13,14 @@
         <div class="brand">Andika Sujanadi</div>
         <ul class="navbar-nav d-flex flex-row">
             <li><a href="#home">Home</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#devices">Devices</a></li>
             <li><a href="#skill">Skill</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 
     <div id="content">
-        <div id="construct" style="margin-top: 63px;" class="w-100 bg-warning d-flex align-items-center progress-bar-striped d-none">
+        <div id="construct" style="margin-top: 63px;" class="w-100 bg-warning rounded-4 d-flex align-items-center progress-bar-striped d-none">
             <div class="text-center text-white w-100 fw-bold fs-4 p-3">Under Constructs</div>
         </div>
         <div id="home">
@@ -66,9 +66,135 @@
             </div>
         </div>
 
-        <div id="portfolio" class="card">
-            <div class="title">Portfolio</div>
-            <img class="rounded-3" src="https://placehold.co/200x200?text=Just+Placeholder+LOL" alt="">
+        <div id="devices" class="card">
+            <div class="title">Devices</div>
+            <div class="text-start">
+                <table class="table">
+                    <tr><td class="fw-semibold fs-5">Potato Laptop</td><td></td><td></td><td></td></tr>
+                    <tr>
+                        <td>Processor</td>
+                        <td>AMD Ryzen 5 3550H</td>
+                        <td>2.1GHz</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>4GB + 8GB</td>
+                        <td>DDR4</td>
+                        <td>2400MT/s</td>
+                    </tr>
+                    <tr>
+                        <td>Integrated Graphics</td>
+                        <td>AMD Radeon Vega 8</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Dedicated Graphics</td>
+                        <td>NVIDIA GeForce GTX 1050</td>
+                        <td>3GB</td>
+                        <td>GDDR5</td>
+                    </tr>
+                    <tr>
+                        <td>Display</td>
+                        <td>15.6 inch</td>
+                        <td>1920 x 1080</td>
+                        <td>IPS</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>SSD SATA</td>
+                        <td>477 GB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Battery</td>
+                        <td>48Wh</td>
+                        <td>3-cell</td>
+                        <td>Li-ion</td>
+                    </tr>
+                    <tr><td class="fw-semibold fs-5">Potato PC</td><td></td><td></td><td></td></tr>
+                    <tr>
+                        <td>Processor</td>
+                        <td>AMD Ryzen 5 7600</td>
+                        <td>3.8GHz</td>
+                        <td>MSI PRO B650M-P</td>
+                    </tr>
+                    <tr>
+                        <td>RAM T-create classic</td>
+                        <td>2X 16GB</td>
+                        <td>DDR5</td>
+                        <td>5600MHz</td>
+                    </tr>
+                    <tr>
+                        <td>Integrated Graphics</td>
+                        <td>RDNA 2 integrated graphics</td>
+                        <td>2 compute units</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Dedicated Graphics</td>
+                        <td>NVIDIA GeForce GTX 3060</td>
+                        <td>12GB</td>
+                        <td>GDDR6</td>
+                    </tr>
+                    <tr>
+                        <td>Display Skyworth h24g30f</td>
+                        <td>24 inch</td>
+                        <td>1920 x 1080</td>
+                        <td>IPS</td>
+                    </tr>
+                    <tr>
+                        <td>Display Huion Kaamvas 13</td>
+                        <td>13.3 inch</td>
+                        <td>1920 x 1080</td>
+                        <td>IPS</td>
+                    </tr>
+                    <tr>
+                        <td>PSU</td>
+                        <td>FSP HV PRO 650W 80+</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr><td class="fw-semibold fs-5">Potato Phone</td><td></td><td></td><td></td></tr>
+                    <tr>
+                        <td>Processor</td>
+                        <td>MediaTek Dimensity 8200-Ultra</td>
+                        <td>2.1GHz</td>
+                        <td>4nm</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>12GB</td>
+                        <td>LPDDR5</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Integrated Graphics</td>
+                        <td>Mali-G610 MC6</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Display</td>
+                        <td>6.67 inch</td>
+                        <td>2712 x 1220 446 ppi</td>
+                        <td>AMOLED</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>UFS 3.1</td>
+                        <td>256 GB</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Battery</td>
+                        <td>5.000mAh</td>
+                        <td>67W wired turbo charging</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div id="skill" class="card">
             <div class="title">Skill</div>
@@ -117,7 +243,9 @@
         if(theme == "web"){
             document.querySelector("#home .header #myface").style.width = "80px";
             document.querySelector("#home .header .hero img").style.height = "288px";
+            document.querySelector("#home .header .hero img").style.width = "402px";
             document.querySelector("#home .header .hero img").style.translate = "0px 30px";
+            document.querySelector("#home .header .hero img").style.objectFit = "cover";
 
             addclass("body","d-flex flex-column");
             addclass("#navbar","p-3 border-bottom fixed-top bg-white");
@@ -125,22 +253,22 @@
             addclass("#navbar ul","list-unstyled");
             addclass("#navbar ul a","text-decoration-none text-black p-2");
 
-            addclass("#content", "flex-fill d-flex flex-column gap-3 bg-light align-items-center");
+            addclass("#content", "flex-fill d-flex flex-column gap-3 bg-light align-items-center px-3");
 
-            addclass("#home", "px-3 pt-4 mt-5");
-            addclass("#home .header", "d-flex mx-auto align-items-center");
-            addclass("#home .header #myface", "rounded-pill overflow-hidden me-3 border border-4 border-primary");
+            addclass("#home", "pt-4 mt-5");
+            addclass("#home .header", "d-flex flex-wrap flex-md-nowrap mx-auto align-items-center justify-content-center");
+            addclass("#home .header #myface", "rounded-pill overflow-hidden me-3 border border-4 border-primary ms-auto ms-md-0");
             addclass("#home .header .caption", "d-flex flex-column align-items-start me-auto");
             addclass("#home #greeting","d-inline fs-5 fw-semibold text-black text-opacity-50 lh-1 mb-1");
             addclass("#home #name","d-inline fs-1 lh-1 mb-3");
             addclass("#home #location","d-inline bg-primary bg-opacity-10 text-primary fw-semibold py-1 px-3 mb-3 rounded-5");
             
-            addclass("#special-card","d-flex gap-2");
+            addclass("#special-card","d-flex gap-3 flex-wrap flex-md-nowrap");
             addclass("#special-card .left","w-100 card");
             addclass("#special-card .right","w-100 card");
             addclass("#special-card .subtitle","fs-5 mt-3");
 
-            addclass("#portfolio","text-center");
+            addclass("#devices","text-center");
 
             addclass("#skill","text-center");
             addclass("#skill .skill-container","d-flex flex-wrap gap-2 justify-content-center");
